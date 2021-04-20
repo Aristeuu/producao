@@ -1,0 +1,213 @@
+.banner-ladingpage{
+    height:70vh;
+    background:#2e415b;
+    color:#fff;
+    font-family: "Fira Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+.row{
+    display:flex;
+    align-items:center;
+    margin:100px 0;
+}
+.col-1{
+    flex-basis:60%;
+    position:relative;
+    right:0;
+    left:0;
+    bottom:10rem;
+}
+.categoria span{
+    color:#0c9da0;
+}
+.col-1 h1{
+    font-size:30px;
+    color:#0c9da0;
+    font-weight:100;
+    
+}
+
+.col-1 p{
+     font-family: "sf pro display",-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-weight: 400;
+    line-height: 1.4;
+    font-size: 1.6rem;
+}
+button{
+    width:140px;
+    border:0;
+    padding:12px 10px;
+    outline:none;
+    color:#fff;
+    background:linear-gradient(to right,#fb5283,#ff3527);
+    border-radius:6px;
+    cursor:pointer;
+}
+.col-2{
+    position:relative;
+}
+
+.bd-0 {
+    border-width: 0;
+}
+.bg-teal {
+    background-color: #1CAF9A;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    width: 38rem;
+}
+.section-container{
+    padding: 2.4rem;
+}
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+.preco-text{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    line-height: 1;
+    padding: .4rem 0;
+    margin-right: .8rem;
+    white-space: nowrap;
+}
+
+.botao{
+    
+}
+.preco-text span{
+    color:black;
+    font:28px "SF Pro Display","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;;
+}
+
+.btn:not(:disabled):not(.disabled), .sp-container button:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+.btn-with-icon {
+    padding: 0;
+    display: inline-block;
+    border-width: 0;
+}
+.btn-primary {
+    color: #fff !important;
+     font-size: 0.5rem;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+.btn-primary {
+    color: #fff;
+    background-color: 	#0c9da0;
+    border-color: 	#0c9da0;
+}
+.btn, .botao button {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.65rem 0.75rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    border-radius: 3px;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.botao a {
+    transition: all 0.2s ease-in-out;
+    font-size:1.4rem;
+    margin:1rem 0;
+}
+.botao a {
+    color: #fff;
+    text-decoration: none;
+    -webkit-text-decoration-skip: objects;
+}
+
+.botao a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+}
+.wd-40 {
+    width: 60px;
+}
+.text-header{
+    color:#1C1D1F;
+    margin-bottom: .8rem;
+    font-family:"sf pro display",-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -.02rem;
+    font-size: 20px;
+     margin:0 0 8px;
+}
+
+.curso-header{
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
+}
+.col-md-4{
+    position:relative;
+    margin:0 4rem 8rem;
+}
+.lista-text-header{
+    border-radius: 0;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    text-align: left;
+    letter-spacing: normal;
+    white-space: normal;
+    padding: .4rem 0;
+}
+.unstyled-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: none;
+}
+.unstyled-list .lista-text-header{
+    padding: .4rem 0;
+}
+.conteudo-inclui{
+    margin:0 1rem;
+}
+
+ #accordion {
+  width: 80%;
+  max-width: 100000px;
+  margin: 0 5rem 0 0 ;
+}
+
+.jumbotron-detalhe{
+  background:#B0C4DE;
+  margin-top:6rem;
+}
+
+.list-group p{
+    color:#00CED1;
+}
+.botao-comprar{
+    
+}
+
+@media(max-width:767px) {
+  html {
+    font-size: 14px;
+  }
+}
+    

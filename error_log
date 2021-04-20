@@ -1,0 +1,2 @@
+[16-Mar-2021 10:50:43 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\Admin\PagamentoController::relatoriodecompras() in /home3/yetoafrica/producao.yetoafrica.com/app/Http/Controllers/Admin/PagamentoController.php on line 141
+[29-Mar-2021 15:22:39 UTC] PHP Fatal error:  Cannot declare class App\Models\Cursos, because the name is already in use in /home3/yetoafrica/producao.yetoafrica.com/app/Models/Operacoes.php on line 8
