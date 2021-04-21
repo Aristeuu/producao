@@ -97,7 +97,7 @@
         <div class="vizualizar-vedeo"> 
         </div>
      @else
-        <img src="http://localhost:/yetoafrica/nossafrica20_01_20/yetoafricateste-main/storage/app/public/{{$listaCurso->curso_img}}" alt="imagem do curso" >
+        <img src="{{$src}}{{$listaCurso->curso_img}}" alt="imagem do curso" >
      @endif
         
       <iframe src="{{$listaCurso->curso_link}}" gesture="media" allow="encrypted-media"  allowfullscreen  style="width:100%;height:40vh;"></iframe> 

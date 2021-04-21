@@ -111,7 +111,8 @@ class CursoController extends Controller
         $listaCategorias=Categorias::all();
         $curso="active";
         $recebe="";
-        //dd($listaCurso);
+        $src= config('app.image');
+        //dd($src);
         $modulos=Modulos::listaModul($id1);
         $listAulas=Aulas::listaAulaCurso($id1);
         
@@ -132,9 +133,9 @@ class CursoController extends Controller
 
        if(isset(auth()->user()->id)){
         $listaPedido=Pedido::cursoPr(auth()->user()->id);
-        return view('admin.cursos.detalhes',compact('listaCurso','recebe','curso','modulos','listaPedido','listAulas','listaCursos'));  
+        return view('admin.cursos.detalhes',compact('src','listaCurso','recebe','curso','modulos','listaPedido','listAulas','listaCursos'));  
     }else{
-        return view('admin.cursos.detalhes',compact('listaCurso','recebe','curso','modulos','listAulas','listaCursos'));  
+        return view('admin.cursos.detalhes',compact('src','listaCurso','recebe','curso','modulos','listAulas','listaCursos'));  
     }
     }
 

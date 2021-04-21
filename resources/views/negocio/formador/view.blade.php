@@ -27,7 +27,7 @@
                 item="{{$listaCurso->curso_status}}"
                 ativar="/disp/{{$listaCurso->id}}"
                 desativar="/dispOff/{{$listaCurso->id}}"
-                modal="modal"
+                
                
                   
                   ></curso_single>									
@@ -106,7 +106,7 @@
                     height: 200
                   }" required>
                 </ckeditor>
-                <textarea name="modulo_descricao" id="modulo_desci" required></textarea>
+               
             </div>
     </div>
 </div>

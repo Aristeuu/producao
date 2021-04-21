@@ -65,7 +65,7 @@ Route::get('/aulaestudante/{id_curso}/{id_aula}','Admin\EstudanteAulaController@
 Route::resource('categoria', 'Admin\CategoriaController');
 Route::resource('sobre','Admin\SobreController');
 Route::get('/sobr/detalhes','Admin\AulaController@detalhes')->name('sobre.detalhes');
-Route::get('/detalhes/{var}', 'Admin\CursoController@detalhes')->name('detalhes');
+Route::get('/detalhes/{id}', 'Admin\CursoController@detalhes')->name('detalhes');
 Route::resource('banner', 'Admin\BannerController');
 Route::resource('financa', 'Admin\FinancaController');
 Route::resource('blog', 'Admin\BlogController');
@@ -99,7 +99,7 @@ Route::get('relatoriodeVendas', 'Admin\PagamentoController@relatoriodeVendas')->
 Route::post('filter', 'Admin\PagamentoController@filtro')->name('filtro');
 
 //modulos
-Route::get('/delete/{var}', 'Admin\ModuloController@destroy');
+Route::get('/delete/{id}', 'Admin\ModuloController@destroy');
 Route::get('/edit/{var}', 'Admin\ModuloController@editar');
 Route::post('/updateMod/{var}', 'Admin\ModuloController@update');
 
