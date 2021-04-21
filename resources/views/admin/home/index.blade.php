@@ -119,6 +119,8 @@
                   <div class="br-pagetitle">
                     <div>
                       @php
+                                                 
+                              $formador_conta = null                    
                            
                       @endphp
                           <div >
@@ -145,80 +147,66 @@
                     {{ csrf_field() }}
 
                     <input type="hidden" id="custId" name="id_formador" value="{{$listaFormador[0]->id}}">
-                    <div class="row">
-                      <div class="col col-md-12">
+
+
+                    <div class="form-layout form-layout-1">
+                      <div class="row mg-b-25">
+                        <div class="col-lg-12">
                           <div class="form-group">
-                              <label for="specialidade" class="control-label" style="margin-top:2rem;">Fotografia: </label> 
-                              <input type="file" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Design" id="curso_img" name="curso_img" required >
+                            <label class="form-control-label">Fotografria: <span class="tx-danger">*</span></label>                           
+                            <input type="file" class="form-control" placeholder="" id="curso_img" name="curso_img" required >
                             
                           </div>
-                      </div>
-                
-                   
-                    </div> 
-                    <div class="row">                                   
-                        <div class="col col-md-6">
-                            <div class="form-group">
-                                <label for="name" class="control-label">Curso: </label> 
-                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Informática" name="curso_nome"  required>
-                            
-                            </div>
-                        </div>
-                
-                        <div class="col col-md-6">
-                            <div class="form-group">
-                                <label for="titulo" class="control-label">Categoria</label>
-                                <select  name="categoria_id" class="form-control">                                
-                                  @foreach($listaCategoria as $lista)
-                                  <option value="{{$lista->id}}">{{$lista->cat_nome}}</option>
-                                  @endforeach						
-                                </select>                        
-                             </div>  
-                        </div>
-                
-                    </div>
-                    <div class="row">
-                        <div class="col col-md-6">
-                            <div class="form-group">
-                                <label for="name" class="control-label">Preço: </label> 
-                               <input type="float" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Preço" name="curso_preco"  required>
-                            </div>
-                        </div>                
-                        <div class="col col-md-6">
-                            <div class="form-group">
-                                <label for="specialidade" class="control-label">Duração: </label> 
-                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="30 dias" id="curso_duracao" name="curso_duracao"  >
+                        </div><!-- col-4 -->
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label">Curso: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="curso_nome" placeholder="Informática" required>
+                          </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label class="form-control-label">Categorias: <span class="tx-danger">*</span></label>
+                            <select  name="categoria_id" class="form-control">                                
+                              @foreach($listaCategoria as $lista)
+                              <option value="{{$lista->id}}">{{$lista->cat_nome}}</option>
+                              @endforeach						
+                            </select>                        
+                          </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-6">
+                          <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Preço: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="curso_preco" placeholder="15000" required>
+                          </div>
+                        </div><!-- col-8 -->
+                        <div class="col-lg-6">
+                          <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Duração: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="curso_duracao" placeholder="10 dias" required>
+                          </div>
+                        </div><!-- col-4 -->
+                        <div class="col-lg-12">
+                          <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Descrição: <span class="tx-danger">*</span></label>                            
+                            <textarea class="form-control" name="curso_descricao" required></textarea>
+                          </div>
+                        </div><!-- col-12 -->
+                        <div class="col-lg-12">
+                          <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Vídeo Promocional: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="curso_link" placeholder="Vídeo Promocional">
+                          </div>
+                        </div>                        
+                      </div><!-- row -->
+          
+                    </div>        
+          
                                
-                            </div>
-                        </div> 
-                     </div>
-                   
-                    
-                      
-                    <div class="row">
-                     <div class="col col-lg-12">
-                        <div class="form-group"> 
-                          <label for="email" class="control-label">Descrição</label>
-                          <ckeditor  name="curso_descricao"  id="curso_desci"  v-bind:config="{
-                              toolbar: [
-                                [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript' ]
-                              ],
-                              height: 200
-                            }">
-                          </ckeditor>                
-                        </div>
-                      </div>
-                     </div>
-                     
-                     <div class="row">
-                      <div class="col col-lg-12">
-                          <div class="form-group"> 
-                            <label for="curso_link" class="control-label">Vídeo Promocional</label>
-                              <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Link" id="curso_link" name="curso_link"  >
-                          </div>
-                       </div>                       
-                     </div>             
-                   
+                     <hr>            
+                   <div>
+                     <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+                    </div>  
                   </formulario>
                   <span slot="botoes">
                     <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
@@ -242,7 +230,9 @@
                     <input class="form-control" type="hidden" name="id_formador" value={{$id_formador}}>
                    <input class="form-control" type="hidden" name="email" value={{$id_email}}>
                    <input class="form-control" type="hidden" name="name" value={{$id_name}}>
-                  </div>                  
+                  </div>
+                  <hr>
+                  <button form="formSolicitar" type="submit" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Enviar</button>                  
                   </formulario>
                   <span slot="botoes">
                     <button form="formSolicitar" type="submit" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Enviar</button>
@@ -254,34 +244,38 @@
                   <formulario id="formBanco" action="{{route('formador.bancodata')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
                     {{ csrf_field() }}
                     
-                      <div class="row">
-                        <div class="col col-lg-12">
+                      
+
+                    <div class="form-layout form-layout-1">
+                      <div class="row mg-b-25">
+                        <div class="col-lg-12">
                           <div class="form-group">
-                              <label>Nº da Conta</label>
-                              <input class="form-control" type="text" name="conta_bancaria" required placeholder="Conta_Bancária">
+                            <label class="form-control-label">Nº da Conta: <span class="tx-danger">*</span></label>                           
+                            <input type="text" class="form-control" placeholder="Número da Conta" id="conta_bancaria" name="conta_bancaria" required >                            
                           </div>
-                        </div>
-                      </div> 
-                  
-                      <div class="row">                        
-                        <div class="col col-lg-12">
-                        <div class="form-group">
-                          <label>IBAN</label>
-                          <input class="form-control" type="text" name="iban" required placeholder="IBAN">
-                        </div>
-                        </div>  
-                      </div>  
-                  
-                      <div class="row">
-                        <div class="col col-lg-12">
+                        </div><!-- col-4 -->
+                        <div class="col-lg-12">
                           <div class="form-group">
-                            <label>Titular</label>
-                          <input class="form-control" type="text" name="titular" required placeholder="Titular">
+                            <label class="form-control-label">IBAN: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="iban" placeholder="AO06 0010 0034 0010 0883 0116 9" required>
                           </div>
-                        </div>
-                      </div> 
-                           
+                        </div><!-- col-4 -->
+                        <div class="col-lg-12">
+                          <div class="form-group">
+                            <label class="form-control-label">Titular: <span class="tx-danger">*</span></label>
+                            <input class="form-control" type="text" name="titular" placeholder="Titular" required>
+                          </div>
+                        </div><!-- col-12-->                
+                                                
+                      </div><!-- row -->
+          
+                    </div>    
+                                   
                  <input class="form-control" type="hidden" name="id_formador" value={{$id_formador}}>
+
+                 <hr>
+
+                 <button form="formBanco" type="submit" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Enviar</button>
 
                   </formulario>
                   <span slot="botoes">
@@ -379,47 +373,6 @@
             
         
 			  
-
-
-        
-        <!-- BASIC MODAL -->
-          <div id="modalbancario" class="modal fade">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{route('formador.bancodata')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
-                 {{ csrf_field() }}
-              <div class="modal-content bd-0 tx-14">
-                <div class="modal-header pd-y-20 pd-x-25">
-                  <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Adicionando Dados Bancários</h6>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body pd-25">
-                  <h4 class="lh-3 mg-b-20"><a href="" class="tx-inverse hover-primary">Adiciona os seus dados bancários para nos ajudar a efectuar o seu pagamento</a></h4>
-                    <div class="input-group">
-                        <p><input class="form-control" type="text" name="conta_bancaria" required placeholder="Conta_Bancária"><br></p>
-                    </div>
-                    <div class="input-group">
-                        <p><input class="form-control" type="text" name="iban" required placeholder="IBAN"><br></p>
-                    </div>
-                    <div class="input-group">
-                        <p><input class="form-control" type="text" name="titular" required placeholder="Titular"><br></p>
-                    </div>
-                    
-                  <p class="mg-b-5"> </p>
-                   <input class="form-control" type="hidden" name="id_formador" value={{$id_formador}}>
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Enviar</button>
-                  <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-              </form>
-            </div><!-- modal-dialog -->
-          </div><!-- modal -->
-	  
-	  
-	           <!--endModal-->
     </div>
 	 <div class="br-mainpanel">
       

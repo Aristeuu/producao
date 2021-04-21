@@ -1,0 +1,148 @@
+html{
+    overflow-x: hidden;
+}
+
+.profil{
+    margin-top: 3rem;
+    margin-left: 15rem;
+    bottom: 9rem;
+}
+
+.editar-perf .tx-normal i{
+    margin: 0 0.4rem;
+    font-size: 2rem;
+}
+
+.pd-30 {
+    padding: 30px;
+    width: 69%;
+    margin-left: 16rem;
+}
+
+.listcurso .tx-11{
+    font-size: 1.3em;
+}
+
+.listcurso .tx-13{
+     font-size: 1.5em;
+     margin-left:5rem;
+    background-image: linear-gradient(to right, #212529 0%, #06d3ef 100%);
+}
+
+
+.form-group{
+    margin-top: 2rem;
+    width: 97%;
+    margin-left: 1rem;
+}
+
+.bg-mantle {
+    background-image: linear-gradient(to right, #212529 0%, #06d3ef 100%);
+}
+
+.col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 0 3rem;
+}
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+
+.buttons {
+    display: flex;
+    padding: 0.75rem 1.25rem;
+}
+
+.buttons .btn {
+    margin-top: -2rem;
+}
+
+.buttons a .butt2{
+  margin-left:1.7rem;
+}
+
+.buttons a .butt2:hover{
+   color: white;
+}
+
+.card-item-img a{
+    margin-right: 2rem;
+    color: #06d3ef;
+    width: 30%;
+}
+
+.card-item-img i{
+    color: #06d3ef;
+}
+.btn-secondary{
+   background-color: white;
+}
+
+
+
+.card-deck p{
+    margin: 0 0 19px;
+}
+
+.col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 0 0rem;
+}
+
+.btn-block {
+    display: inline;
+}
+
+.card-body .botto2{
+    margin-left:0.6rem;
+}
+
+  .btn-block + .btn-block {
+    margin-top: 0.5rem; }
+
+    .card-deck .botto2:hover{
+      color: white;
+    }
+
+input[type="submit"].btn-block,
+input[type="reset"].btn-block,
+input[type="button"].btn-block {
+  width: 100%; }
+
+ 
+ .modal-header{
+     background:teal;
+     color: white;
+}
+
+.modal-header .bg-button span{
+     font-size: 1.2em;
+}
+
+.form-layout-1 {
+    border: none;
+    padding: 3px;
+}
+
+.form-layout-1 .form-group {
+    margin-bottom: -20px;
+}
+
+.form-layout-footer .buttonsave{
+    margin-left: 2rem;
+}
+
+.vercursos{
+    margin-top: 4rem;
+    margin-left: 24rem;
+}

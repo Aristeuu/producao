@@ -19,7 +19,7 @@
 								</div>
 								<div class="col-8">
                 <curso_single 
-                    titulos="{{$listaCurso->curso_nome}}" imagem="{{$listaCurso->curso_img}}"
+                titulos="{{$listaCurso->curso_nome}}" imagem="{{$listaCurso->curso_img}}"
                 data="{{$listaCurso->curso_data}}"
                 modulos="{{$contMod}}"
                 aulas="{{$contAula}}"
@@ -30,9 +30,8 @@
                 
                
                   
-                  ></curso_single>									
-									
-                                   
+                  ></curso_single>		
+									                                
 
 									
 									
@@ -56,7 +55,7 @@
            
 					<div class="caixa">
 						     <button class="btn btn-primary " data-toggle="modal" data-target="#modalmodulo">Novo Modulo</button>
-						     <button  class="btn btn-teal " data-toggle="modal" data-target="#modalaula">Carregar aula</button>
+						     <button  class="btn btn-info " data-toggle="modal" data-target="#modalaula">Carregar aula</button>
                     </div>
                     
 					
@@ -240,16 +239,22 @@
 	<a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo{{$modulo->id}}"
 	  aria-expanded="false" aria-controls="collapseTwo1">
 	  <h5 class="mb-0">
-	  {{$modulo->modulo_titulo}}<i class="fas fa-angle-down rotate-icon"></i>	  	  
-	  </h5>
+    {{$modulo->modulo_titulo}}<i class="fas fa-angle-down rotate-icon"></i>	     	  
+    </h5>
+
+    <h5 style="margin-left: 75rem;" class="btn" onclick="Editar({{$modulo->id}})"><i class="fa fa-edit" style="color:teal; font-size:1.5rem;"></i></h5>
+    <h5 class="btn" onclick="Eliminar({{$modulo->id}})" ><i class="fa fa-trash" style="color:red; font-size:1.5rem;" ></i></h5>
+    
 	 
-	</a>
+  </a>
+  
+  
 	<div>
-	     <a href="/edit/{{$modulo->id}}">editar</a>|<a href="/delete/{{$modulo->id}}">Eliminar</a>
+	     
     </div>	     
     <div>
    
-	  <!--a href="/upload/{{$modulo->id}}" class="btn btn-xs btn-success"><i class="fa fa-eye"></i>Carregar Aula</a-->
+	  
 	  
   </div>
   
@@ -302,6 +307,21 @@
 
 			</div>
 
+      <script type="text/javascript">
+
+        function Eliminar(id)
+        {
+         
+          window.location.href="/delete/"+id;
+        }
+
+        function Editar(id)
+        {
+          alert(id);
+          //window.location.href="/edit/"+id;
+        }
+      
+      </script>
 
 		
 
