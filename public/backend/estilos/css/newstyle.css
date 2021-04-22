@@ -233,6 +233,95 @@ input[type="button"].btn-block {
     margin: 0;
 }
 
+.btn-analise .btn-outline-danger{
+    color: white;
+    width: 23%;
+}
+.btn-analise .btn-outline-danger a {
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
 .btn-modulos .mg-b-10 .bt-2 {
     margin-bottom: 0px;
 }
+
+
+/*responsividade
+
+@media screen and (max-width:768px){
+    .detalhes-form .thumb{
+        background: black;
+        display: block;
+    }
+}
+
+@media scrren and (max-width:480px){
+
+}
+
+/*responsividade*/
+
+/*dashboard*/
+    .dashboard .roundede{
+    width: 330px;
+    height: 100px;
+    border: 1px solid #a2a1a1;
+    border-radius: 1.4rem;
+}
+
+.dashboard .pd-x-20 {
+    padding-left: 33px;
+    padding-right: 20px;
+}
+
+.dashboard .row-sm > div {
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+
+.primeiro .tx-whitee{
+    color: blue;
+}
+
+.segundo .tx-whitee{
+    color: teal;
+}
+
+.terceiro .tx-whitee{
+    color: red;
+}
+
+.quarto .tx-whitee{
+    color: green;
+}
+
+.tx-10 {
+    font-size: 15.2px;
+}
+
+.tx-white-8 {
+    color: #5a5656;
+}
+
+.tx-white{
+    color: #5a5656;
+}
+
+.terceiro .mg-l-20 {
+    margin-left: 50px;
+}
+
+.quarto .mg-l-20 {
+    margin-left: 50px;
+}
+
+.moviment-das{
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    color:rgb(34, 28, 28);
+}
+/*dashboard*/

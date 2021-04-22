@@ -23,7 +23,8 @@ sms="{{Session::get('sms')}}"
           </div>
 
           <div class="col-8 inf">
-              <h4 class=" tx-12 d-inline-block mg-b-10 texto-12">Formação de {{$listaCurso->curso_nome}}</h4>
+              <div class="detal">
+                <h4 class=" tx-12 d-inline-block mg-b-10 texto-12">Formação de {{$listaCurso->curso_nome}}</h4>
               <ul>
                   <li> 
                       
@@ -77,12 +78,13 @@ sms="{{Session::get('sms')}}"
                                     @if($listaCurso->curso_status==3)
                                         
                                         <td>Público</td>
-                                        <button class="btn btn-outline-danger active btn-block "> <a  href="/dispOff/{{$listaCurso->id}}">Desativar</a></button>
+                                        <button class="btn btn-outline-danger active btn-block mg-b-10"> <a  href="/dispOff/{{$listaCurso->id}}">Desativar</a></button>
 
                                        
                                         
                                     @endif
 
+              </div>
 									
 									
               </div>

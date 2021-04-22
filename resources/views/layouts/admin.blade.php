@@ -18,13 +18,12 @@ define('SCRIPT', 'http://localhost:8000');
 		<meta charset="utf-8">
 		<link rel="shortcut icon" href="<?=INCLUDE_PATH?>/img/foto01.png" type="image/x-icon">
 		<meta name="viewport" content="width=device-width, initial-scale=1">				
-		<script type="text/javascript" src="<?=REQUIRE_PATH?>/js/js.js"></script>
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	    <link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/bracket.css">
 		<link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/newstyle.css">
 
 		<!-- Styles -->
-		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+		
 		
 	
 
