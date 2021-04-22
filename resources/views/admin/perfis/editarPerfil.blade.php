@@ -6,115 +6,123 @@
 		
 		
 		
-	
-	
+	<div class="br-pagebody">
+		<div class="br-section-wrapper">
+			<form action="/editarperfil/{{auth()->user()->id}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
+				{{ csrf_field() }}
+			<h6 class="br-section-label">Dados da Conta</h6>
+			<div class="form-layout form-layout-1">
+				<div class="row mg-b-25">
+				  <div class="col-lg-4">
+					<div class="form-group">
+					  <label class="form-control-label">Nome:</label>
+					  <input class="form-control" type="text" name="name" value="{{auth()->user()->name}}">
+					</div>
+				  </div><!-- col-4 -->
+				  <div class="col-lg-4">
+					<div class="form-group">
+					  <label class="form-control-label">Email:</label>
+					  <input class="form-control" type="email" name="email" value="{{auth()->user()->email}}">
+					</div>
+				  </div><!-- col-4 -->
+				  <div class="col-lg-4">
+					<div class="form-group">
+					  <label class="form-control-label">Senha: </label>
+					  <input class="form-control" type="password" name="password" placeholder="Senha">
+					</div>
+				  </div><!-- col-4 -->				  
+				</div><!-- row -->
+			</div>
+			<h6 class="br-section-label">Dados Pessoais</h6>
+			<div class="form-layout form-layout-1">
+				<div class="row mg-b-25">
+				  <div class="col-lg-4">
+					<div class="form-group">
+					  <label class="form-control-label">BI: </label>
+					  <input class="form-control" type="text" placeholder="005902675LA044" name="bilhete">
+					</div>
+				  </div><!-- col-4 -->
+				  <div class="col-lg-2">
+					<div class="form-group">
+					  <label class="form-control-label">Data de nascimento: </label>
+					  <input class="form-control" type="date" name="data_nasc" placeholder="Data">
+					</div>
+				  </div><!-- col-4 -->
+				  <div class="col-lg-3">
+					<div class="form-group">
+					  <label class="form-control-label">Telefone: </label>
+					  <input class="form-control" type="text" name="telefone" placeholder="Telefone" value="{{auth()->user()->telefone}}" required>
+					</div>
+				  </div><!-- col-4 -->	
+				  <div class="col-lg-3">
+					<div class="form-group">
+					  <label class="form-control-label">Profissão: </label>
+					  <input class="form-control" type="text" name="profissao" placeholder="Profissão">
+					</div>
+				  </div><!-- col-4 -->				  
+							  
+				</div><!-- row -->
+			</div>
+			<h6 class="br-section-label">Endereço</h6>
+			<div class="form-layout form-layout-1">
+				<div class="row mg-b-25">
+				  <div class="col-lg-4">
+					<div class="form-group">
+					  <label class="form-control-label">Bairro: </label>
+					  <input class="form-control" type="text"name="bairro" placeholder="Bairro">
+					</div>
+				  </div><!-- col-4 -->
+				  <div class="col-lg-4">
+					<div class="form-group">
+					  <label class="form-control-label">Município: </label>
+					  <input class="form-control" name="municipio" placeholder="Município">
+					</div>
+				  </div><!-- col-4 -->
+				  <div class="col-lg-4">
+					<div class="form-group">
+					  <label class="form-control-label">Província: </label>
+					  <input class="form-control" type="text"  name="provincia" placeholder="Província">
+					</div>
+				  </div><!-- col-4 -->					  			  
+				</div><!-- row -->
+			</div>
+			<h6 class="br-section-label">Dados Bancários</h6>
+			<div class="form-layout form-layout-1">
+				<div class="row mg-b-25">
+				  <div class="col-lg-4">
+					<div class="form-group">
+					  <label class="form-control-label">Nº da Conta: </label>
+					  <input class="form-control" type="text" placeholder="3102201210001" name="conta_bancaria" value="{{$bank_data[0]->conta_bancaria}}">
+					</div>
+				  </div><!-- col-4 -->
+				  <div class="col-lg-4">
+					<div class="form-group">
+					  <label class="form-control-label">IBAN: </label>
+					  <input class="form-control" type="text" name="iban" value="{{$bank_data[0]->iban}}">
+					</div>
+				  </div><!-- col-4 -->
+				  <div class="col-lg-4">
+					<div class="form-group">
+					  <label class="form-control-label">Titular: </label>
+					  <input class="form-control" type="text"  name="titular" value="{{$bank_data[0]->titular}}">
+					</div>
+				  </div><!-- col-4 -->					  			  
+				</div><!-- row -->
+			</div>
 
-		
-	<div class="rows base-perfil py-6">
-				<div class="col-12">
-				<div class="caixa">
-                    
-					<div class="rows">
-					    	 <form action="/editarperfil/{{auth()->user()->id}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
-                    {{ csrf_field() }}
-						<div class="col-12">
-						    
-						    <div class="col-6">
-							
-							<div class="thumb">
-                            @if(@isset(Auth()->user()->foto))
-                                <img src="http://producao.yetoafrica.com/storage/app/public/{{auth()->user()->foto}}">
-                                @else
-				                  <img src="http://producao.yetoafrica.com/public/backend/img/foto01.png">
-                                  @endif
-								<input type="file" name="foto">
-							</div>
-						
-						</div>
-						<div class="col-6">
-							<div class="py-10">
-								<label>Nome</label>
-							  <input type="text" placeholder="Digita o nome" name="name" value="{{auth()->user()->name}}">
-							</div>
-							<div class="py-1">
-								<label>Email</label>
-								<input type="email" placeholder="Digita o email" name="email" value="{{auth()->user()->email}}">
-							</div>
-							<div class="py-1">
-								<label>Senha</label>
-								<input type="password" name="password" placeholder="Senha">
-							</div>
-						</div>
-						
-					</div>
-					
-					<fieldset>
-					<legend>Dados pessoais</legend>
-					<div class="rows">
-						<div class="col-3 mb-3">
-							<label>BI</label>
-							<input type="text" placeholder="005902675LA044" name="bilhete">
-						</div>
-						<div class="col-3 mb-3">
-							<label>Data de nascimento</label>
-							<input type="date" name="data_nasc" placeholder="Data">
-						</div>
-						<div class="col-3 mb-3">
-							<label>Telefone</label>
-							<input type="text" name="telefone" placeholder="Telefone" value="{{auth()->user()->telefone}}" required>
-						</div>
-						<div class="col-3 mb-3">
-							<label>Profissão</label>
-							<input type="text" name="profissao" placeholder="Profissão">
-						</div>
-					</div>
-					</fieldset>
-					
-					<fieldset>
-					<legend>Endereço</legend>
-					<div class="rows">
-						<div class="col-4 mb-3">
-							<label>Bairro</label>
-							<input type="text" name="bairro" placeholder="Bairro">
-						</div>
-						<div class="col-4 mb-3">
-							<label>Município</label>
-							<input type="text" name="municipio" placeholder="Município">
-						</div>
-						<div class="col-4 mb-3">
-							<label>Província</label>
-							<input type="text" name="provincia" placeholder="Endereço">
-						</div>
-					</div>
-				    </fieldset>
-				    
-				    <fieldset>
-					<legend>Dados bancários</legend>
-					<div class="rows">
-						<div class="col-3 mb-3">
-							<label>Conta Bancária</label>
-							<input type="text" placeholder="3102201210001" name="conta_bancaria" value="{{$bank_data[0]->conta_bancaria}}">
-						</div>
-						<div class="col-3 mb-3">
-							<label>IBAN</label>
-							<input type="text" name="iban" value="{{$bank_data[0]->iban}}" >
-						</div>
-						<div class="col-3 mb-3">
-							<label>Titular</label>
-							<input type="text" name="titular" value="{{$bank_data[0]->titular}}" >
-						</div>
-						
-					</div>
-					</fieldset>
-<button class="btn btn-outline-info bd-2 d-table m-auto px-5 width-auto" type="submit" >Atualizar perfil</button>
+			
+			<div class="form-layout-footer">
+				<br><br>
+				<button class="btn btn-outline-info bd-2 d-table m-auto px-5 width-auto" type="submit" >Atualizar perfil</button>
+				
+			  </div><!-- form-layout-footer -->
 			</form>
-				</div>
-				</div>
-				</div>
-		
-		
-		
-		</div>        
+
+
+		</div>
+	</div>
+	
+     
 	</div>
 	
 	

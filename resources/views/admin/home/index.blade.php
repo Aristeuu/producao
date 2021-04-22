@@ -120,7 +120,7 @@
                     <div>
                       @php
                                                  
-                              $formador_conta = null                    
+                                                  
                            
                       @endphp
                           <div >
