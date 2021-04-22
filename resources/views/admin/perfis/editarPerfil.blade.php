@@ -22,7 +22,7 @@
 				  <div class="col-lg-4">
 					<div class="form-group">
 					  <label class="form-control-label">Email:</label>
-					  <input class="form-control" type="email" name="email" value="{{auth()->user()->email}}">
+					  <input class="form-control" type="text" name="email" value="{{auth()->user()->email}}">
 					</div>
 				  </div><!-- col-4 -->
 				  <div class="col-lg-4">
