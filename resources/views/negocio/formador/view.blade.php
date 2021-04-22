@@ -1,327 +1,162 @@
 @extends('layouts.admin')
+<modulo
+v-bind:titulos="['Título','Descricao','Curso']"
+
+v-bind:itens="{{json_encode($listamodulos)}}"
+ 
+sms="{{Session::get('sms')}}"
+
+>
 
 
-
-
+</modulo>
 @section('content')
-<div class="site">
+
 		@include('layouts.menu') 
 	
-         
-    
-		<div class="base-home">
-			<div class="rows base-cursos py-3">
-				<div class="col-12">
-						<div class="caixa">
-							<div class="base-caixa-curso rows">
-								<div class="col-4">
-									<div class="thumb"><img src="{{$src}}{{$listaCurso->curso_img}}"></div>
-								</div>
-								<div class="col-8">
-                <curso_single 
-                titulos="{{$listaCurso->curso_nome}}" imagem="{{$listaCurso->curso_img}}"
-                data="{{$listaCurso->curso_data}}"
-                modulos="{{$contMod}}"
-                aulas="{{$contAula}}"
+<div class="br-pagebody detalhes-form">
+	<div class="br-section-wrapper">
+      <div class="row ht-100p">
 
-                item="{{$listaCurso->curso_status}}"
-                ativar="/disp/{{$listaCurso->id}}"
-                desativar="/dispOff/{{$listaCurso->id}}"
-                
-               
+          <div class="col-md-4">
+            <div class="thumb"><img src="http://localhost/yetoafrica/storage/app/public/{{$listaCurso->curso_img}}" width="400px"></div>   
+          </div>
+
+          <div class="col-8 inf">
+              <div class="detal">
+                <h4 class=" tx-12 d-inline-block mg-b-10 texto-12">Formação de {{$listaCurso->curso_nome}}</h4>
+              <ul>
+                  <li> 
+                      
+                  <i class="fa fa-edit"></i>
+                  <small>DATA DE PUBLICAÇÃO:</small>
+                  <span>{{$listaCurso->curso_data}}</span>
                   
-                  ></curso_single>		
-									                                
-
-									
-									
-									
-									
-									
-									
-									
-									
-									
-								</div>	
-							</div>
-                </div>
-        </div>
-      </div>
-    </div>   
-							
-						 
-						
-	<div class="lista">
-           
-					<div class="caixa">
-						     <button class="btn btn-primary " data-toggle="modal" data-target="#modalmodulo">Novo Modulo</button>
-						     <button  class="btn btn-info " data-toggle="modal" data-target="#modalaula">Carregar aula</button>
-                    </div>
-                    
-					
-						
-  <div id="modalmodulo" class="modal fade">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content bd-0 tx-14">
-                <div class="modal-header pd-y-20 pd-x-25">
-                  <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Crie o módulo do curso</h6>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body pd-25">
-                  <h4 class="lh-3 mg-b-20"><a  class="tx-inverse hover-primary">
-                      <form css="" action="{{route('modulos.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">  
-    {{ csrf_field() }}
-
-    <div class="row">
-    <div class="col col-md-6">
-            <div class="form-group">
-                <label for="specialidade" class="control-label">Título: </label> 
-                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Design" id="modulo_titulo" name="modulo_titulo" required >
-               
-            </div>
-    </div>
-
-    <div class="col col-md-6">
-<div class="form-group">
-    <label for="titulo" class="control-label">Curso</label>
-    <select  name="id_curso" class="form-control">
-     <option value="{{$listaCurso->id}}">{{$listaCurso->curso_nome}}</option>		
-    </select>
-</div>
-    
-</div>
-</div>
-
-<div class="row">
-     <div class="col col-lg-12">
-            <div class="form-group"> 
-                <label for="email" class="control-label">Descricao</label>
-                <ckeditor name="modulo_descricao"  id="modulo_desci"  v-bind:config="{
-                    toolbar: [
-                      [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript' ]
-                    ],
-                    height: 200
-                  }" required>
-                </ckeditor>
-               
-            </div>
-    </div>
-</div>
-    
-
-    
-
-                 
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Salvar</button>
-                  <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium" data-dismiss="modal">Fechar</button>
-                </div>
-                </form></a></h4>
-              </div>
-            </div><!-- modal-dialog -->
-          </div><!-- modal -->
-</div>
-
-
-  <!--modal-->
-	       <!-- BASIC MODAL -->
-          <div id="modalaula" class="modal fade">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-            <form action="{{route('aula.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
-                 {{ csrf_field() }}
-              <div class="modal-content bd-0 tx-14">
-                <div class="modal-header pd-y-20 pd-x-25">
-                  <h6 class="tx-14 mg-b-0 tx-uppercase tx-inverse tx-bold">Carregando sua aula</h6>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body pd-25">
-                  <div class="row">    
-                    <div class="col col-md-6">
-                            <div class="form-group">
-                                <label for="titulo" class="control-label">Modulos</label>
-                                <select  name="modulo_id" class="form-control">
-                                    @foreach($listamodulos as $modulo)
-                                 <option value="{{$modulo->id}}">{{$modulo->modulo_titulo}}</option>	
-                                    @endforeach
-                                </select>
-                            </div>
-                                
-                    </div>
-                </div>    
-                  <div class="row">           
-                        <div class="col col-md-6">
-                            <div class="form-group">
-                                <label for="aula_titulo" class="control-label">Título</label> 
-                                <input class="form-control" placeholder="Título do Vídeo" type="text" id="aula_titulo" name="aula_titulo" required>
-                               
-                            </div>
-                        </div>
-
-                        <div class="col col-md-6">
-                            <div class="form-group">
-                                <label for="specialidade" class="control-label">Adicionar Aula</label> 
-                                <input type="text" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Link da Aula" id="curso_link" name="aula_link" required>
-                               
-                            </div>
-                        </div>
-                  </div> 
-                  
-                  <div class="row">        
                 
-                        <div class="col col-md-6">
-                            <div class="form-group">
-                                <label for="aula_titulo" class="control-label">Descrição</label>
-                                <textarea class="form-control has-feedback-left" id="inputSuccess2" placeholder="Descrição" id="desc_aula" name="aula_descricao" required></textarea>               
-                               
-                            </div> 
-                        </div>
-            
-                        <div class="col col-md-6">
-                            <div class="form-group">
-                                <label for="name" class="control-label">Duração:</label> 
-                                <input type="float" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Duração" name="aula_duracao"  required>
-                           </div>   
-                        </div>
-                        
-                 </div>
-                 <div class="row">        
-         
-        
-                    <div class="col col-md-6">
-                        <div class="form-group">
-                            <label for="aula_conteudo" class="control-label">Arquivo complementar:</label> 
-                            <input type="file" class="form-control has-feedback-left" id="inputSuccess2" placeholder="" id="aula_conteudo" name="aula_conteudo"  >
-                           
-                        </div>
-                    </div>     
-   
-                </div>
-                        
-                  <p class="mg-b-5"> </p>
-                   
-                </div>
-                <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Enviar</button>
-                  <button type="button" class="btn btn-secondary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-              </form>
-            </div><!-- modal-dialog -->
-          </div><!-- modal -->
-	  
-	  
-	           <!--endModal-->
+                </li>
+                   <li> 
+                      
+                  <i class="fa fa-edit"></i>
+                  <small>DATA DE PUBLICAÇÃO:</small>
+                  <span>{{$listaCurso->curso_data}}</span>
+                  
+                
+                </li>
 
-	  
+                    <li> 
+                      
+                  <i class="fa fa-edit"></i>
+                  <small>DATA DE PUBLICAÇÃO:</small>
+                  <span>{{$listaCurso->curso_data}}</span>
+                  
+                
+                </li>
+                  
+              </ul>
 
 
-
-    
-						
-
-							
-													
-<div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
-@foreach($listamodulos as $modulo)
-    
-    
-<!-- Accordion card -->
-<div class="card">
- 
-  <!-- Card header -->
-  
-  <div class="card-header" role="tab" id="headingTwo{{$modulo->id}}">
-	
-	<a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo{{$modulo->id}}"
-	  aria-expanded="false" aria-controls="collapseTwo1">
-	  <h5 class="mb-0">
-    {{$modulo->modulo_titulo}}<i class="fas fa-angle-down rotate-icon"></i>	     	  
-    </h5>
-
-    <h5 style="margin-left: 75rem;" class="btn" onclick="Editar({{$modulo->id}})"><i class="fa fa-edit" style="color:teal; font-size:1.5rem;"></i></h5>
-    <h5 class="btn" onclick="Eliminar({{$modulo->id}})" ><i class="fa fa-trash" style="color:red; font-size:1.5rem;" ></i></h5>
-    
-	 
-  </a>
-  
-  
-	<div>
-	     
-    </div>	     
-    <div>
-   
-	  
-	  
-  </div>
-  
-<div id="collapseTwo{{$modulo->id}}" class="collapse" role="tabpanel" aria-labelledby="headingTwo{{$modulo->id}}"
-	data-parent="#accordionEx1">
-	<div class="card-body">
-	<table cellpadding="0" cellspacing="0" border="0">
-								
-							<tbody>						 
-								@foreach($listAulas as $aulas)	
-								@if($aulas->modulo_id==$modulo->id)
-								
-								<tr>									
-                                    <div class="mu-about-us-right">  
-                                    @if($listaCurso->curso_status==0)
+              <div class="btn-analise" style="margin-top:12rem">
+                  
+              @if($listaCurso->curso_status==0)
 									
-									<td align="left"><a id="mu-abtus-video" target="mutube-video" ><i class="ico ititulo"></i>{{$aulas->aula_titulo}}</a></td>
-									@else
-									    <td align="left"><a href="{{$aulas->aula_link}}" id="mu-abtus-video" target="mutube-video" ><i class="ico ititulo"></i>{{$aulas->aula_titulo}}</a></td>                                       
+									<i class="ico alert"></i><span class="">Em análise</span>
+									
 									@endif
+									
+									
+									@if($listaCurso->curso_status==1)
+
+                                        <td>
+                                            
+                                        <button class="btn btn-outline-teal active btn-block ">Aprovado</button>
                                         
-										<td align="left"><i class="ico iduracao"></i>{{$aulas->aula_duracao}}</td>
-										<td align="left"><i class="ico iassistido"></i>visto</td>
-										<td align="left"><i class="ico iaula"></i>Aula</td>
-									<td align="left"><a href="/del/{{$aulas->id}}"><i class="fa fa-trash"></i>Eliminar</a></td>
+                                        </td>
+                                       <button class="btn btn-outline-teal disabled btn-block mg-b-10"> <a  href="/disp/{{$listaCurso->id}}" >Disponibilizar</a> </button>
+                                        
+                                    @endif
+                                        
+                                    @if($listaCurso->curso_status==3)
+                                        
+                                        <td>Público</td>
+                                        <button class="btn btn-outline-danger active btn-block mg-b-10"> <a  href="/dispOff/{{$listaCurso->id}}">Desativar</a></button>
 
-								</tr>	
-								@endif
-								@endforeach				 
-											
-								</tbody>
-							</table>
-						</div>
-						</div>
-					</div>
-				<!--sidebar									
-			
-	</div>
-  </div>
+                                       
+                                        
+                                    @endif
+
+              </div>
+									
+									
+              </div>
+									
+									
+									
+
+          </div>
+
+      </div>
+    </div>
+</div>
+
+
+<div class="br-pagebody">
+	<div class="br-section-wrapper">
+
+        <div class="btn-modulos">
+             <button class="btn btn-outline-teal active btn-block mg-b-10">Aprovado</button>
+              <button class="btn btn-outline-teal active btn-block mg-b-10 bt-2">Aprovado</button>
+        </div>
+
+    <div id="accordion6" class="accordion accordion-head-colored accordion-info mg-t-20" role="tablist" aria-multiselectable="true">
+            <div class="card">
+              <div class="card-header" role="tab" id="headingOne6">
+                <h6 class="mg-b-0">
+                  <a data-toggle="collapse" data-parent="#accordion6" href="#collapseOne6" aria-expanded="false" aria-controls="collapseOne6" class="collapsed">
+                    Making a Beautiful CSS3 Button Set
+                  </a>
+                </h6>
+              </div><!-- card-header -->
+
+              <div id="collapseOne6" class="collapse" role="tabpanel" aria-labelledby="headingOne6" style="">
+                <div class="card-block pd-20">
+                  A concisely coded CSS3 button set increases usability across the board, gives you a ton of options, and keeps all the code involved to an absolute minimum. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" role="tab" id="headingTwo6">
+                <h6 class="mg-b-0">
+                  <a class="collapsed transition" data-toggle="collapse" data-parent="#accordion6" href="#collapseTwo6" aria-expanded="false" aria-controls="collapseTwo6">
+                    Horizontal Navigation Menu Fold Animation
+                  </a>
+                </h6>
+              </div>
+              <div id="collapseTwo6" class="collapse" role="tabpanel" aria-labelledby="headingTwo6">
+                <div class="card-block pd-20">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" role="tab" id="headingThree6">
+                <h6 class="mg-b-0">
+                  <a class="collapsed transition" data-toggle="collapse" data-parent="#accordion6" href="#collapseThree6" aria-expanded="false" aria-controls="collapseThree6">
+                    Creating CSS3 Button with Rounded Corners
+                  </a>
+                </h6>
+              </div>
+              <div id="collapseThree6" class="collapse" role="tabpanel" aria-labelledby="headingThree6">
+                <div class="card-block pd-20">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore.
+                </div>
+              </div><!-- collapse -->
+            </div><!-- card -->
+            </div>
+
 
 </div>
-<!-- Accord
-<!-- Accordion card -->
-	@endforeach	
 </div>
 
-</div>
-
-
-
-			</div>
-
-      <script type="text/javascript">
-
-        function Eliminar(id)
-        {
-         
-          window.location.href="/delete/"+id;
-        }
-
-        function Editar(id)
-        {
-          alert(id);
-          //window.location.href="/edit/"+id;
-        }
-      
-      </script>
 
 		
 

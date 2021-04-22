@@ -146,3 +146,182 @@ input[type="button"].btn-block {
     margin-top: 4rem;
     margin-left: 24rem;
 }
+
+
+/*detalhesforador*/
+
+@media (min-width: 992px){ 
+.detalhes-form .br-section-wrapper {
+    padding: 60px;
+    height: 50%;
+    bottom: 5rem;
+}
+}
+
+.detalhes-form .thumb {
+    float: left;
+    border: 0;
+    background: #dee1e6;
+    padding: 6px;
+}
+
+.detalhes-form .tx-12 {
+    font-size: 24px;
+    color: #212529;
+}
+
+
+.detalhes-form  ul, li, ol {
+    list-style: none;
+}
+
+.detalhes-form .inf ul{
+    margin-left: -2.2rem;
+}
+
+.detalhes-form ul li{
+    padding: 15px;
+}
+
+.detalhes-form ul > li:first-child {
+    padding-left: 0px;
+}
+
+.detalhes-form ul > li {
+    width: 33%;
+    float: left;
+    padding-left: 17px;
+}
+
+.detalhes-form .inf small {
+    font-size: 1.1em;
+    color: teal;
+}
+
+.detalhes-form .inf i {
+    font-size: 1.4em;
+    color: teal;
+}
+
+.detalhes-form .inf span {
+    font-size: 1.1em;
+    color: #212529;
+    display: block;
+    margin-left:1.9rem;
+}
+
+.detalhes-form  .btn-block{
+    display: inline;
+    width: 25%;
+}
+
+.detalhes-form  .btn-outline-teal a{
+    color: teal;
+    background-color: transparent;
+}
+
+.btn-modulos .btn-block{
+    display: inline;
+    width: 15%;
+    margin: 0;
+}
+
+
+.btn-analise .btn-block{
+    display: inline;
+    width: 20%;
+    margin: 0;
+}
+
+.btn-analise .btn-outline-danger{
+    color: white;
+    width: 23%;
+}
+.btn-analise .btn-outline-danger a {
+    color: white;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+
+.btn-modulos .mg-b-10 .bt-2 {
+    margin-bottom: 0px;
+}
+
+
+/*responsividade
+
+@media screen and (max-width:768px){
+    .detalhes-form .thumb{
+        background: black;
+        display: block;
+    }
+}
+
+@media scrren and (max-width:480px){
+
+}
+
+/*responsividade*/
+
+/*dashboard*/
+    .dashboard .roundede{
+    width: 330px;
+    height: 100px;
+    border: 1px solid #a2a1a1;
+    border-radius: 1.4rem;
+}
+
+.dashboard .pd-x-20 {
+    padding-left: 33px;
+    padding-right: 20px;
+}
+
+.dashboard .row-sm > div {
+    padding-left: 30px;
+    padding-right: 10px;
+}
+
+
+.primeiro .tx-whitee{
+    color: blue;
+}
+
+.segundo .tx-whitee{
+    color: teal;
+}
+
+.terceiro .tx-whitee{
+    color: red;
+}
+
+.quarto .tx-whitee{
+    color: green;
+}
+
+.tx-10 {
+    font-size: 15.2px;
+}
+
+.tx-white-8 {
+    color: #5a5656;
+}
+
+.tx-white{
+    color: #5a5656;
+}
+
+.terceiro .mg-l-20 {
+    margin-left: 50px;
+}
+
+.quarto .mg-l-20 {
+    margin-left: 50px;
+}
+
+.moviment-das{
+    margin-top: 3rem;
+    font-size: 1.4rem;
+    color:rgb(34, 28, 28);
+}
+/*dashboard*/
