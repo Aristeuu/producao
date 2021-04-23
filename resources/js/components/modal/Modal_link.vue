@@ -12,6 +12,7 @@
       <a v-if="tipo == 'link'" href="#" v-bind:class="css || ''" data-toggle="modal" v-bind:data-target="'#' + nome"><i :class="clas"></i>{{titulo}}</a>
     </span>
 
+    
   </span>
  
 </template>

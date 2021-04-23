@@ -61,10 +61,11 @@ class ModuloController extends Controller
         return Modulos::find($id);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        
         if(DB::table('modulo')          
-        ->where('id','=',$id)
+        ->where('id','=',$request->id)
         ->update(['modulo_titulo'=>$request->modulo_titulo,'modulo_descricao'=>$request->modulo_descricao]))
     {
         Session::flash('sms','O módulo foi editada com sucesso');

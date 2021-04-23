@@ -47,7 +47,10 @@ $dados->aula_conteudo=$img;
         Session::flash('sms','A aula foi inserida com sucesso');
         return redirect()->back();
         }
-    } 
+    }
+    
+   
+
 
 
 
@@ -62,7 +65,7 @@ $dados->aula_conteudo=$img;
         return Aulas::find($id);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
        
         $img=$request->file('aula_conteudo');
@@ -72,7 +75,7 @@ $dados->aula_conteudo=$img;
 $img=$request->file('aula_conteudo')->store('aula_conteudo');}
 
         if(DB::table('aulas')          
-        ->where('id','=',$id)
+        ->where('id','=',$request->id_aula)
         ->update(['aula_titulo'=>$request->aula_titulo,'aula_descricao'=>$request->aula_descricao,'aula_duracao'=>$request->aula_duracao,'aula_link'=>$request->aula_link,'aula_conteudo'=>$img]))
     {
         Session::flash('sms','Actualizada com sucesso');
@@ -82,7 +85,7 @@ $img=$request->file('aula_conteudo')->store('aula_conteudo');}
 }else{
    // dd($request);
     if(DB::table('aulas')          
-        ->where('id','=',$id)
+        ->where('id','=',$request->id_aula)
         ->update(['aula_titulo'=>$request->aula_titulo,'aula_descricao'=>$request->aula_descricao,'aula_duracao'=>$request->aula_duracao,'aula_link'=>$request->aula_link,'modulo_id'=>$request->modulo_id]))
     {
         Session::flash('sms','Actualizada com sucesso');

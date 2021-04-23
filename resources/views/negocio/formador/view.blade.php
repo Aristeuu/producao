@@ -103,7 +103,11 @@ sms="{{Session::get('sms')}}"
         <div class="btn-modulos">
              
              <modal_link tipo="button" nome="modulo" titulo="Novo Modulo" css="btn btn-outline-primary active btn-block mg-b-10"></modal_link>
-             <modal_link tipo="button" nome="aula" titulo="Carregar Aula" css="btn btn-outline-teal active btn-block mg-b-10 bt-2"></modal_link>
+            @if ($listamodulos->isNotEmpty())
+                <modal_link tipo="button" nome="aula" titulo="Carregar Aula" css="btn btn-outline-teal active btn-block mg-b-10 bt-2"></modal_link>
+            @endif
+             
+            
               
         </div>
       
@@ -217,8 +221,9 @@ sms="{{Session::get('sms')}}"
                 
                 
                 <!--end Modal-->
-      
 
+                
+                
     <div id="accordion6" class="accordion accordion-head-colored accordion-info mg-t-20" role="tablist" aria-multiselectable="true">
       @foreach($listamodulos as $modulo)
             <div class="card">
@@ -229,6 +234,7 @@ sms="{{Session::get('sms')}}"
                     <div class="btn-modul">
                       <span class="btn bttn-edit" onclick="Editar({{$modulo->id}})"><i class="fa fa-edit" style="color:teal;"></i></span>
                       <span class="btn" onclick="Eliminar({{$modulo->id}})"><i class="fa fa-trash" style="color:red;"></i></span>
+                    <modal_link tipo="button" nome="editarModulo" titulo="Editar" css="btn btn-outline-teal" v-bind:item="{{json_encode($modulo)}}" url="/edit/"></modal_link>
                     </div>
                   </a>
                  
@@ -252,7 +258,8 @@ sms="{{Session::get('sms')}}"
                                                 <td align="left"><i class="ico iduracao"></i>{{$aulas->aula_duracao}}</td>
                                                 <td align="left"><i class="fa fa-eye"></i>visto</td>
                                                 <td align="left"><i class="fa fa-graduation-cap"></i>Aula</td>
-                                                <td align="left" class="m-left"><a href="/{{$aulas->id}}" style="color:skyblue"><i class="fa fa-edit" style="color:skyblue"></i>Editar</a></td>
+                                                <td align="left" class="m-left">                    <modal_link tipo="button" nome="editarAula" titulo="Editar" css="btn btn-outline-teal" v-bind:item="{{json_encode($aulas)}}" url="/edit/"></modal_link></td>
+                                                
                                                 <td align="left"><a href="/del/{{$aulas->id}}" style="color:red"><i class="fa fa-trash" style="color:red"></i>Eliminar</a></td>
                                           
                                     </tr>
@@ -263,6 +270,118 @@ sms="{{Session::get('sms')}}"
                 </div>
               </div>
             </div>
+            <modal nome="editarModulo" titulo="">
+              <formulario action="/updateMod" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
+                {{ csrf_field() }}        
+                
+                <input type="hidden" name="id" v-model="$store.state.item.id">
+
+                <div class="form-layout form-layout-1">
+                  <div class="row mg-b-25">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Título: <span class="tx-danger">*</span></label>                           
+                        <input type="text" class="form-control" placeholder="Título da aula" type="text" id="modulo_titulo" name="modulo_titulo" v-model="$store.state.item.modulo_titulo" required >
+                        
+                      </div>
+                    </div><!-- col-4 -->                                                                                           
+                    <div class="col-lg-12">
+                      <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Descrição: <span class="tx-danger">*</span></label>                            
+                        <textarea class="form-control" placeholder="" id="modulo_desc" name="modulo_descricao" v-model="$store.state.item.modulo_descricao" required></textarea>
+                      </div>
+                    </div><!-- col-12 -->                   
+                                                                                                        
+                  </div><!-- row -->
+      
+                </div>        
+      
+                           
+                 <hr>            
+               <div>
+                 <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+                </div>  
+              </formulario>
+              <span slot="botoes">
+                <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+              </span>
+            </modal>      
+                                        
+                            
+            <!--end Modal-->
+
+
+            <modal nome="EditarAula" titulo="Editar Aula">
+              <formulario action="/updateAula" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
+                {{ csrf_field() }}
+
+                <input type="hidden" id="custId" name="id_aula" v-model="$store.state.item.id">
+
+                <div class="form-layout form-layout-1">
+                  <div class="row mg-b-25">
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Título: <span class="tx-danger">*</span></label>                           
+                        <input type="text" class="form-control" placeholder="Título da aula" type="text" id="aula_titulo" name="aula_titulo" v-model="$store.state.item.aula_titulo" required >
+                        
+                      </div>
+                    </div><!-- col-4 -->                                                                                           
+                    <div class="col-lg-12">
+                      <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Descrição: <span class="tx-danger">*</span></label>                            
+                        <textarea class="form-control" placeholder="Descrição da aula" id="desc_aula" name="aula_descricao" v-model="$store.state.item.aula_descricao" required></textarea>
+                      </div>
+                    </div><!-- col-12 -->  
+                    <div class="col-lg-12">
+                      <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Link da Aula: <span class="tx-danger">*</span></label>                           
+                        <input type="text" class="form-control" placeholder="Link da Aula" id="aula_link" name="aula_link" v-model="$store.state.item.aula_link" required >                            
+                      </div>
+                    </div><!-- col-12 -->        
+                    <div class="col-lg-6">
+                      <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Módulos: <span class="tx-danger">*</span></label>                           
+                        <select  name="modulo_id" class="form-control">                                
+                          @foreach($listamodulos as $modulo)
+                            <option value="{{$modulo->id}}">{{$modulo->modulo_titulo}}</option>	
+                          @endforeach						
+                        </select>
+                      </div>
+                    </div><!-- col-12 -->        
+                    <div class="col-lg-6">
+                      <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Duração: <span class="tx-danger">*</span></label>                           
+                        <input type="text" class="form-control" placeholder="Duração da Aula" id="aula_duracao" name="aula_duracao" v-model="$store.state.item.aula_duracao" required >                            
+                      </div>
+                    </div><!-- col-12 -->        
+                    <div class="col-lg-12">
+                      <div class="form-group mg-b-10-force">
+                        <label class="form-control-label">Arquivo complementar: </label>                           
+                        <input type="file" class="form-control" placeholder="" id="aula_conteudo" name="aula_conteudo" >                            
+                      </div>
+                    </div>                                         
+                  </div><!-- row -->
+      
+                </div>        
+      
+                           
+                 <hr>            
+               <div>
+                 <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+                </div>  
+              </formulario>
+              <span slot="botoes">
+                <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+              </span>
+            </modal>      
+                                        
+            
+            
+            <!--end Modal-->
+
+
+        
+
 
        @endforeach     
            

@@ -88,7 +88,8 @@ Route::get('/academias/yeto', 'Admin\AcademiaController@academiasfront');
 
 
 //aulas
-Route::get('/del/{var}', 'Admin\AulaController@destroy');
+Route::get('/del/{id}', 'Admin\AulaController@destroy');
+Route::post('/updateAula','Admin\AulaController@update');
 
 //pagamento
 Route::post('/pagamento/concluir','Admin\PagamentoController@concluir')->name('pagamento.concluir');
@@ -101,7 +102,7 @@ Route::post('filter', 'Admin\PagamentoController@filtro')->name('filtro');
 //modulos
 Route::get('/delete/{id}', 'Admin\ModuloController@destroy');
 Route::get('/edit/{var}', 'Admin\ModuloController@editar');
-Route::post('/updateMod/{var}', 'Admin\ModuloController@update');
+Route::post('/updateMod', 'Admin\ModuloController@update');
 
 
 
