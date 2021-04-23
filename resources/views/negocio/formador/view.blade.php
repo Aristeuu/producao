@@ -224,10 +224,12 @@ sms="{{Session::get('sms')}}"
             <div class="card">
               <div class="card-header" role="tab" id="headingOne{{$modulo->id}}">
                 <h6 class="mg-b-0">
-                  <a data-toggle="collapse" data-parent="#accordion6" href="#collapseOne{{$modulo->id}}" aria-expanded="false" aria-controls="collapseOne6" class="collapsed">
+                  <a data-toggle="collapse" data-parent="#accordion6" href="#collapseOne{{$modulo->id}}" aria-expanded="false" aria-controls="collapseOne6" class="collapsed text-16">
                     {{$modulo->modulo_titulo}}
-                    <span class="btn" onclick="Editar({{$modulo->id}})"><i class="fa fa-edit" style="color:teal;"></i></span>
-                    <span class="btn" onclick="Eliminar({{$modulo->id}})"><i class="fa fa-trash" style="color:red;"></i></span>
+                    <div class="btn-modul">
+                      <span class="btn bttn-edit" onclick="Editar({{$modulo->id}})"><i class="fa fa-edit" style="color:teal;"></i></span>
+                      <span class="btn" onclick="Eliminar({{$modulo->id}})"><i class="fa fa-trash" style="color:red;"></i></span>
+                    </div>
                   </a>
                  
                 </h6>
@@ -236,23 +238,23 @@ sms="{{Session::get('sms')}}"
 
               <div id="collapseOne{{$modulo->id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne{{$modulo->id}}" style="">
                 <div class="card-block pd-20">                    
-                  <table cellpadding="0" cellspacing="0" border="0">
+                  <table cellpadding="0" cellspacing="0" border="0" >
                     <tbody>
                         @foreach($listAulas as $aulas)
                                 @if($aulas->modulo_id==$modulo->id)
                                     <tr>
-                                          <div class="mu-about-us-right">
+                                          
                                               @if ($listaCurso->curso_status==0)
                                                   <td align="left"><a id="mu-abtus-video" target="mutube-video" ><i class="ico ititulo"></i>{{$aulas->aula_titulo}}</a></td>
                                                   @else
                                                   <td align="left"><a href="{{$aulas->aula_link}}" id="mu-abtus-video" target="mutube-video" ><i class="ico ititulo"></i>{{$aulas->aula_titulo}}</a></td>                                                  
                                               @endif
                                                 <td align="left"><i class="ico iduracao"></i>{{$aulas->aula_duracao}}</td>
-                                                <td align="left"><i class="ico iassistido"></i>visto</td>
-                                                <td align="left"><i class="ico iaula"></i>Aula</td>
-                                                <td align="left"><a href="/{{$aulas->id}}" style="color:skyblue"><i class="fa fa-edit" style="color:skyblue"></i>Editar</a></td>
+                                                <td align="left"><i class="fa fa-eye"></i>visto</td>
+                                                <td align="left"><i class="fa fa-graduation-cap"></i>Aula</td>
+                                                <td align="left" class="m-left"><a href="/{{$aulas->id}}" style="color:skyblue"><i class="fa fa-edit" style="color:skyblue"></i>Editar</a></td>
                                                 <td align="left"><a href="/del/{{$aulas->id}}" style="color:red"><i class="fa fa-trash" style="color:red"></i>Eliminar</a></td>
-                                          </div>
+                                          
                                     </tr>
                                 @endif    
                         @endforeach	
