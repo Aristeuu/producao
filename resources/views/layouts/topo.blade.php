@@ -78,7 +78,7 @@
             @if(auth()->user()->foto==null)
 			<img src="https://via.placeholder.com/500" class="wd-32 rounded-circle" alt="">
 			@else
-			<img src="http://producao.yetoafrica.com/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="">
+			<img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="">
 			@endif
           </div><!-- card-profile-img -->
           <h4 class="tx-normal tx-roboto tx-white">{{auth()->user()->name}}</h4>

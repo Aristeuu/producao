@@ -12,48 +12,24 @@
                      <div class="media-list bg-white rounded shadow-base">
                          <div class="row">
                          
-                      <table class="table table-striped">
-	                             <thead>
-                                    <tr>
-                                    <th>#</th>
-                                    <th>Nome</th>
-                                    <th>Email</th>
-                                    <th>Curso</th>
-                                   
-                                     </tr>
-                                       </thead>
-                                 <tbody>
                                         
-                                    
-                                    @foreach ($alunosCurso as $aluno_curso)                                                
-                                    <tr>                                                                               
-                                        
-
-                                            <td>{{$aluno_curso->id}}</td> 
-                                            <td>{{$aluno_curso->name}}</td>
-                                            <td>{{$aluno_curso->email}}</td>
-                                            <td>{{$aluno_curso->curso_nome}}</td>
-
-                                    </tr>        
-                                         
-                                    @endforeach
-                                     
-                                              </tbody>
                                             
-                                   
-                                    
-                                                          
-                                            </table>
-                                        </div>    
+                                        <pagina tamanho="12">
+                                            <painel titulo="" cor="moviment-das">
+                                                <Aluno_lista v-bind:titulos="['#','Foto','Nome','EMAIL','CURSO','VALOR','STATUS']" v-bind:itens="{{json_encode($alunosCurso)}}"></Aluno_lista>
+                                            </painel>    
+                                        </pagina>     
+                        </div>    
                                              
-                                             @endsection
+                                           
                                 </div> 
                             </div>    
                             </div>   
                             
                     
             </div>
-        </div>    
+        </div> 
+        @endsection   
 	
                         
                            
