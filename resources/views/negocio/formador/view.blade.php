@@ -19,7 +19,7 @@ sms="{{Session::get('sms')}}"
       <div class="row ht-100p">
 
           <div class="col-md-4">
-            <div class="thumb"><img src="http://localhost/yetoafrica/storage/app/public/{{$listaCurso->curso_img}}" width="400px"></div>   
+            <div class="thumb"><img src="{{$src}}{{$listaCurso->curso_img}}" width="400px"></div>   
           </div>
 
           <div class="col-8 inf">
@@ -28,7 +28,7 @@ sms="{{Session::get('sms')}}"
               <ul>
                   <li> 
                       
-                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-calendar"></i>
                   <small>DATA DE PUBLICAÇÃO:</small>
                   <span>{{$listaCurso->curso_data}}</span>
                   
@@ -36,18 +36,18 @@ sms="{{Session::get('sms')}}"
                 </li>
                    <li> 
                       
-                  <i class="fa fa-edit"></i>
-                  <small>DATA DE PUBLICAÇÃO:</small>
-                  <span>{{$listaCurso->curso_data}}</span>
+                  <i class="fa fa-bars"></i>
+                  <small>Módulos:</small>
+                  <span>{{$contMod}}</span>
                   
                 
                 </li>
 
                     <li> 
                       
-                  <i class="fa fa-edit"></i>
-                  <small>DATA DE PUBLICAÇÃO:</small>
-                  <span>{{$listaCurso->curso_data}}</span>
+                  <i class="fa fa-graduation-cap"></i>
+                  <small>Aulas:</small>
+                  <span>{{$contAula}}</span>
                   
                 
                 </li>
@@ -57,7 +57,7 @@ sms="{{Session::get('sms')}}"
 
               <div class="btn-analise" style="margin-top:12rem">
                   
-              @if($listaCurso->curso_status==0)
+                  @if($listaCurso->curso_status==0)
 									
 									<i class="ico alert"></i><span class="">Em análise</span>
 									
@@ -66,23 +66,21 @@ sms="{{Session::get('sms')}}"
 									
 									@if($listaCurso->curso_status==1)
 
-                                        <td>
+                      <td>
                                             
-                                        <button class="btn btn-outline-teal active btn-block ">Aprovado</button>
+                          <button class="btn btn-outline-teal active btn-block ">Aprovado</button>
                                         
-                                        </td>
-                                       <button class="btn btn-outline-teal disabled btn-block mg-b-10"> <a  href="/disp/{{$listaCurso->id}}" >Disponibilizar</a> </button>
+                      </td>
+                      <button class="btn btn-outline-teal disabled btn-block mg-b-10"><a  href="/disp/{{$listaCurso->id}}" >Disponibilizar</a> </button>
                                         
-                                    @endif
+                  @endif
                                         
-                                    @if($listaCurso->curso_status==3)
+                  @if($listaCurso->curso_status==3)
                                         
-                                        <td>Público</td>
-                                        <button class="btn btn-outline-danger active btn-block mg-b-10"> <a  href="/dispOff/{{$listaCurso->id}}">Desativar</a></button>
-
-                                       
-                                        
-                                    @endif
+                    <td> <button class="btn btn-outline-success active btn-block">Público</button></td>
+                    <button class="btn btn-outline-danger active btn-block mg-b-10"> <a  href="/dispOff/{{$listaCurso->id}}">Desativar</a></button>
+                                                                 
+                  @endif
 
               </div>
 									
@@ -103,61 +101,190 @@ sms="{{Session::get('sms')}}"
 	<div class="br-section-wrapper">
 
         <div class="btn-modulos">
-             <button class="btn btn-outline-teal active btn-block mg-b-10">Aprovado</button>
-              <button class="btn btn-outline-teal active btn-block mg-b-10 bt-2">Aprovado</button>
+             
+             <modal_link tipo="button" nome="modulo" titulo="Novo Modulo" css="btn btn-outline-primary active btn-block mg-b-10"></modal_link>
+             <modal_link tipo="button" nome="aula" titulo="Carregar Aula" css="btn btn-outline-teal active btn-block mg-b-10 bt-2"></modal_link>
+              
         </div>
+      
+        <!-- modal adicionar modulo-->
+           <modal nome="modulo" titulo="Adicionando Modulo">
+                  <formulario action="{{route('modulos.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
+                    {{ csrf_field() }}
+
+                    <input type="hidden" id="custId" name="id_curso" value="{{$listaCurso->id}}">
+
+                    <div class="form-layout form-layout-1">
+                      <div class="row mg-b-25">
+                        <div class="col-lg-12">
+                          <div class="form-group">
+                            <label class="form-control-label">Título: <span class="tx-danger">*</span></label>                           
+                            <input type="text" class="form-control" placeholder="Modulo 01" id="modulo_titulo" name="modulo_titulo" required >
+                            
+                          </div>
+                        </div><!-- col-4 -->                                                                                           
+                        <div class="col-lg-12">
+                          <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Descrição: <span class="tx-danger">*</span></label>                            
+                            <textarea class="form-control" name="modulo_descricao"  id="modulo_desci" required></textarea>
+                          </div>
+                        </div><!-- col-12 -->                                             
+                      </div><!-- row -->
+          
+                    </div>        
+          
+                               
+                     <hr>            
+                   <div>
+                     <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+                    </div>  
+                  </formulario>
+                  <span slot="botoes">
+                    <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+                  </span>
+                </modal>
+
+
+                <!--end Modal's-->
+
+              
+                <!--Modal aula-->
+
+                <modal nome="aula" titulo="Carregar Aula">
+                  <formulario action="{{route('aula.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
+                    {{ csrf_field() }}
+
+                    <input type="hidden" id="custId" name="id_curso" value="{{$listaCurso->id}}">
+
+                    <div class="form-layout form-layout-1">
+                      <div class="row mg-b-25">
+                        <div class="col-lg-12">
+                          <div class="form-group">
+                            <label class="form-control-label">Título: <span class="tx-danger">*</span></label>                           
+                            <input type="text" class="form-control" placeholder="Título da aula" type="text" id="aula_titulo" name="aula_titulo" required >
+                            
+                          </div>
+                        </div><!-- col-4 -->                                                                                           
+                        <div class="col-lg-12">
+                          <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Descrição: <span class="tx-danger">*</span></label>                            
+                            <textarea class="form-control" placeholder="Descrição da aula" id="desc_aula" name="aula_descricao" required></textarea>
+                          </div>
+                        </div><!-- col-12 -->  
+                        <div class="col-lg-12">
+                          <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Link da Aula: <span class="tx-danger">*</span></label>                           
+                            <input type="text" class="form-control" placeholder="Link da Aula" id="aula_link" name="aula_link" required >                            
+                          </div>
+                        </div><!-- col-12 -->        
+                        <div class="col-lg-6">
+                          <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Módulos: <span class="tx-danger">*</span></label>                           
+                            <select  name="modulo_id" class="form-control">                                
+                              @foreach($listamodulos as $modulo)
+                                <option value="{{$modulo->id}}">{{$modulo->modulo_titulo}}</option>	
+                              @endforeach						
+                            </select>
+                          </div>
+                        </div><!-- col-12 -->        
+                        <div class="col-lg-6">
+                          <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Duração: <span class="tx-danger">*</span></label>                           
+                            <input type="text" class="form-control" placeholder="Duração da Aula" id="aula_duracao" name="aula_duracao" required >                            
+                          </div>
+                        </div><!-- col-12 -->        
+                        <div class="col-lg-12">
+                          <div class="form-group mg-b-10-force">
+                            <label class="form-control-label">Arquivo complementar: </label>                           
+                            <input type="file" class="form-control" placeholder="" id="aula_conteudo" name="aula_conteudo">                            
+                          </div>
+                        </div>                                         
+                      </div><!-- row -->
+          
+                    </div>        
+          
+                               
+                     <hr>            
+                   <div>
+                     <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+                    </div>  
+                  </formulario>
+                  <span slot="botoes">
+                    <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+                  </span>
+                </modal>      
+                                            
+                
+                
+                <!--end Modal-->
+      
 
     <div id="accordion6" class="accordion accordion-head-colored accordion-info mg-t-20" role="tablist" aria-multiselectable="true">
+      @foreach($listamodulos as $modulo)
             <div class="card">
-              <div class="card-header" role="tab" id="headingOne6">
+              <div class="card-header" role="tab" id="headingOne{{$modulo->id}}">
                 <h6 class="mg-b-0">
-                  <a data-toggle="collapse" data-parent="#accordion6" href="#collapseOne6" aria-expanded="false" aria-controls="collapseOne6" class="collapsed">
-                    Making a Beautiful CSS3 Button Set
+                  <a data-toggle="collapse" data-parent="#accordion6" href="#collapseOne{{$modulo->id}}" aria-expanded="false" aria-controls="collapseOne6" class="collapsed">
+                    {{$modulo->modulo_titulo}}
+                    <span class="btn" onclick="Editar({{$modulo->id}})"><i class="fa fa-edit" style="color:teal;"></i></span>
+                    <span class="btn" onclick="Eliminar({{$modulo->id}})"><i class="fa fa-trash" style="color:red;"></i></span>
                   </a>
+                 
                 </h6>
+                
               </div><!-- card-header -->
 
-              <div id="collapseOne6" class="collapse" role="tabpanel" aria-labelledby="headingOne6" style="">
-                <div class="card-block pd-20">
-                  A concisely coded CSS3 button set increases usability across the board, gives you a ton of options, and keeps all the code involved to an absolute minimum. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch.
+              <div id="collapseOne{{$modulo->id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne{{$modulo->id}}" style="">
+                <div class="card-block pd-20">                    
+                  <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+                        @foreach($listAulas as $aulas)
+                                @if($aulas->modulo_id==$modulo->id)
+                                    <tr>
+                                          <div class="mu-about-us-right">
+                                              @if ($listaCurso->curso_status==0)
+                                                  <td align="left"><a id="mu-abtus-video" target="mutube-video" ><i class="ico ititulo"></i>{{$aulas->aula_titulo}}</a></td>
+                                                  @else
+                                                  <td align="left"><a href="{{$aulas->aula_link}}" id="mu-abtus-video" target="mutube-video" ><i class="ico ititulo"></i>{{$aulas->aula_titulo}}</a></td>                                                  
+                                              @endif
+                                                <td align="left"><i class="ico iduracao"></i>{{$aulas->aula_duracao}}</td>
+                                                <td align="left"><i class="ico iassistido"></i>visto</td>
+                                                <td align="left"><i class="ico iaula"></i>Aula</td>
+                                                <td align="left"><a href="/{{$aulas->id}}" style="color:skyblue"><i class="fa fa-edit" style="color:skyblue"></i>Editar</a></td>
+                                                <td align="left"><a href="/del/{{$aulas->id}}" style="color:red"><i class="fa fa-trash" style="color:red"></i>Eliminar</a></td>
+                                          </div>
+                                    </tr>
+                                @endif    
+                        @endforeach	
+                    </tbody>   
+                  </table>
                 </div>
               </div>
             </div>
-            <div class="card">
-              <div class="card-header" role="tab" id="headingTwo6">
-                <h6 class="mg-b-0">
-                  <a class="collapsed transition" data-toggle="collapse" data-parent="#accordion6" href="#collapseTwo6" aria-expanded="false" aria-controls="collapseTwo6">
-                    Horizontal Navigation Menu Fold Animation
-                  </a>
-                </h6>
-              </div>
-              <div id="collapseTwo6" class="collapse" role="tabpanel" aria-labelledby="headingTwo6">
-                <div class="card-block pd-20">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore.
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header" role="tab" id="headingThree6">
-                <h6 class="mg-b-0">
-                  <a class="collapsed transition" data-toggle="collapse" data-parent="#accordion6" href="#collapseThree6" aria-expanded="false" aria-controls="collapseThree6">
-                    Creating CSS3 Button with Rounded Corners
-                  </a>
-                </h6>
-              </div>
-              <div id="collapseThree6" class="collapse" role="tabpanel" aria-labelledby="headingThree6">
-                <div class="card-block pd-20">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore.
-                </div>
-              </div><!-- collapse -->
-            </div><!-- card -->
+
+       @endforeach     
+           
             </div>
 
 
 </div>
 </div>
 
+<script type="text/javascript">
 
+  function Eliminar(id)
+  {
+   
+    window.location.href="/delete/"+id;
+  }
+
+  function Editar(id)
+  {
+    alert(id);
+    //window.location.href="/edit/"+id;
+  }
+
+</script>
 		
 
 

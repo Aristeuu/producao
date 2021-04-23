@@ -4,60 +4,133 @@
 
 		@include('layouts.menu')
 		
-		<div class="br-pagebody">
+		
+	<div class="br-pagebody formadorperfil">
         <div class="br-section-wrapper">
-          <h6 class="br-section-label">Top Label Layout</h6>
-          <p class="br-section-text">A form with a label on top of each form control.</p>
-
+          <h6 class="br-section-label">Informações de Conta</h6>
+          
           <div class="form-layout form-layout-1">
             <div class="row mg-b-25">
-              <div class="col-lg-4">
+				 <div class="col-lg-12">
                 <div class="form-group">
-                  <label class="form-control-label">Firstname: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="firstname" value="John Paul" placeholder="Enter firstname">
+                  <label class="form-control-label">Nome:</label>
+                  <input class="form-control" type="text" name="nome" value="{{auth()->user()->name}}">
                 </div>
-              </div><!-- col-4 -->
-              <div class="col-lg-4">
+			  </div><!-- col-4 -->
+			   <div class="col-lg-12">
                 <div class="form-group">
-                  <label class="form-control-label">Lastname: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="lastname" value="McDoe" placeholder="Enter lastname">
+                  <label class="form-control-label">Email address:</label>
+                  <input class="form-control" type="text" name="email" value="{{auth()->user()->email}}">
                 </div>
-              </div><!-- col-4 -->
-              <div class="col-lg-4">
+			  </div><!-- col-4 -->
+			   <div class="col-lg-12">
                 <div class="form-group">
-                  <label class="form-control-label">Email address: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="email" value="johnpaul@yourdomain.com" placeholder="Enter email address">
+                  <label class="form-control-label">Senha:</label>
+                  <input class="form-control" type="password"   value="senha" name="password" >
                 </div>
-              </div><!-- col-4 -->
-              <div class="col-lg-8">
-                <div class="form-group mg-b-10-force">
-                  <label class="form-control-label">Mail Address: <span class="tx-danger">*</span></label>
-                  <input class="form-control" type="text" name="address" value="Market St. San Francisco" placeholder="Enter address">
-                </div>
-              </div><!-- col-8 -->
-              <div class="col-lg-4">
-                <div class="form-group mg-b-10-force">
-                  <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
-                  <select class="form-control select2 select2-hidden-accessible" data-placeholder="Choose country" data-select2-id="1" tabindex="-1" aria-hidden="true">
-                    <option label="Choose country" data-select2-id="3"></option>
-                    <option value="USA">United States of America</option>
-                    <option value="UK">United Kingdom</option>
-                    <option value="China">China</option>
-                    <option value="Japan">Japan</option>
-                  </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="2" style="width: 796px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-zslz-container"><span class="select2-selection__rendered" id="select2-zslz-container" role="textbox" aria-readonly="true"><span class="select2-selection__placeholder">Choose one</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                </div>
-              </div><!-- col-4 -->
+			  </div><!-- col-4 -->
+			
             </div><!-- row -->
+			<h6 class="br-section-label">Dados Pessoas</h6>
+			
+			<div class="form-layout form-layout-1">
+				<div class="row ">
+ 
+			   
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label class="form-control-label">BI:</label>
+                  <input class="form-control" type="text" name="bilhete" value="005902675LA044">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label class="form-control-label">Data de Nascimento:</label>
+                  <input class="form-control" type="date"  name="datanascimento">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <label class="form-control-label">Telefone:</label>
+                  <input class="form-control" type="text" name="telefone" value="{{auth()->user()->telefone}}" required>
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-3">
+                <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">Profissão:</label>
+                  <input class="form-control" type="text" name="profissão" >
+                </div>
+			  </div><!-- col-8 -->
+			</div><!-- row -->
+			</div>
 
-            <div class="form-layout-footer">
-              <button class="btn btn-info">Submit Form</button>
-              <button class="btn btn-secondary">Cancel</button>
-            </div><!-- form-layout-footer -->
-          </div><!-- form-layout -->
+				<h6 class="br-section-label">Endereço</h6>
+			
+			<div class="form-layout form-layout-1">
+				<div class="row mg-b-25">
+ 
+			   
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Bairro:</label>
+                  <input class="form-control" type="text" name="firstname" value="Bairro">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Província:</label>
+                  <input class="form-control" type="text" name="lastname" value="Província">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Município:</label>
+                  <input class="form-control" type="text" name="email" value="Município">
+                </div>
+              </div><!-- col-4 -->
+			</div><!-- row -->
+			    </div>
+				
+					<h6 class="br-section-label">Dados Bancários</h6>
+			
+			<div class="form-layout form-layout-1">
+				<div class="row mg-b-25">
+ 
+			   
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Conta Bancár:</label>
+                  <input class="form-control" type="text" name="conta bancaria" value="{{$bank_data[0]->conta_bancaria}}">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">IBAN:</label>
+                  <input class="form-control" type="text" name="Iban" value="{{$bank_data[0]->iban}}">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Titular:</label>
+                  <input class="form-control" type="text" name="titular" value="{{$bank_data[0]->titular}}">
+                </div>
+              </div><!-- col-4 -->
+			</div><!-- row -->
 
-          
+			
+           <div class="form-layout-footer container">
+              <button class="btn btn-oblong btn-outline-info btn-block mg-b-10" type="submit">Atualizar perfil</button>
+            </div>
 
+		 </div>
 
+		
+		
+         
+
+        </div><!-- br-section-wrapper -->
+      </div>
+	
 	
 
 @endsection
