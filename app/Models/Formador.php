@@ -123,7 +123,7 @@ public static function alunosCursos($idFormador){
   ->join('aluno','aluno.id_user', '=', 'users.id')
 //  ->join('perfil', 'perfil.id_user', '=', 'users.id')
   ->join('formador', 'formador.id', '=', 'cursos.id_formador')
-  ->select('pedidos_cursos.valor','pedidos_cursos.status','users.name','users.email','users.id','cursos.curso_nome')
+  ->select('pedidos_cursos.valor','pedidos_cursos.status','users.name','users.email','users.id','cursos.curso_nome','users.foto')
   //->groupBy('pedidos_cursos.valor','perfil.nome','users.tipo','perfil.foto','users.email','users.id')
   ->where('formador.id',$idFormador)
   ->get();  

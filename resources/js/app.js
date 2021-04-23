@@ -44,14 +44,14 @@ Vue.component('blog', require('./components/administracao/ListaBlog.vue').defaul
 Vue.component('formador', require('./components/administracao/ListaFormador.vue').default);
 Vue.component('cursoss', require('./components/negocio/ListaCursos.vue').default);
 Vue.component('perguntas', require('./components/administracao/Perguntas.vue').default);
-Vue.component('lista_alunos', require('./components/administracao/ListAluno.vue').default);
+Vue.component('aluno', require('./components/administracao/ListAluno.vue').default);
 Vue.component('contacto', require('./components/administracao/ListaContactos.vue').default);
 Vue.component('newslater', require('./components/administracao/ListaNewslater.vue').default);
 Vue.component('servicos', require('./components/administracao/ListaServicos.vue').default);
 Vue.component('cat_blog', require('./components/administracao/ListCatBlog.vue').default);
 Vue.component('aulamodulo', require('./components/administracao/Listaulasmodul.vue').default);
 Vue.component('modulor', require('./components/administracao/ListaModup.vue').default);
-Vue.component('tabela', require('./components/Table.vue').default);
+Vue.component('Aluno_lista', require('./components/TableListAluno.vue').default);
 Vue.component('tabela_relatorio', require('./components/tabelaRelatorio.vue').default);
 Vue.component('view', require('./components/negocio/view.vue').default);
 Vue.component('curso_single', require('./components/negocio/cursoSingle.vue').default);

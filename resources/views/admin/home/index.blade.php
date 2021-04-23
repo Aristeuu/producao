@@ -119,19 +119,18 @@
                   <div class="br-pagetitle">
                     <div>
                       @php
-                                                 
                                                   
                            
                       @endphp
                           <div >
                             <modal_link tipo="button" nome="adicionar" titulo="Novo curso"></modal_link>
-                           @if($saldoContabilistico != 0 || $saldoContabilistico != null )
-                           <modal_link tipo="button" nome="solicitar" titulo="Solicitar Valores"></modal_link>
-                              @else                             
-                                                                                                                        
-                            @endif
+                           @if($saldoContabilistico > 0 || $saldoContabilistico != null)
+                              @if($saldoDisponivel > 0 )
+                                <modal_link tipo="button" nome="solicitar" titulo="Solicitar Valores" css="btn btn-success"></modal_link> 
+                              @endif  
+                          @endif                           
                            @if($formador_conta == null)
-                           <modal_link tipo="button" nome="bankdata" titulo="Adicionar Dados Bancários"></modal_link>                          
+                              <modal_link tipo="button" nome="bankdata" titulo="Adicionar Dados Bancários"></modal_link>                          
                            @endif
                         </div>
           

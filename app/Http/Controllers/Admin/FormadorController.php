@@ -134,15 +134,15 @@ class FormadorController extends Controller
 
 
     public function alunosCurso($id){
-$buscarFormador=Formador::listarFormadorlogado(auth()->user()->id);
-$alunosCurso=Formador::alunosCurso($buscarFormador[0]->id,$id);
-$totalSaldos=0;
-foreach($alunosCurso as $lista){
-    $totalSaldos=$totalSaldos+$lista->valor;
-}
+        $buscarFormador=Formador::listarFormadorlogado(auth()->user()->id);
+        $alunosCurso=Formador::alunosCurso($buscarFormador[0]->id,$id);
+        $totalSaldos=0;
+        foreach($alunosCurso as $lista){
+            $totalSaldos=$totalSaldos+$lista->valor;
+        }
 
-$totalSaldo=$totalSaldos*0.70;
-return view('admin.formador.alunos',compact('alunosCurso','totalSaldo'));
+        $totalSaldo=$totalSaldos*0.70;
+        return view('admin.formador.alunos',compact('alunosCurso','totalSaldo'));
 
     }
 
@@ -153,11 +153,11 @@ return view('admin.formador.alunos',compact('alunosCurso','totalSaldo'));
         $totalSaldos=0;
         foreach($alunosCurso as $lista){
             $totalSaldos=$totalSaldos+$lista->valor;
-        }
+        }        
+        //dd($alunosCurso);
         $totalSaldo=$totalSaldos*0.70;
                 return view('admin.formador.alunosCursos',compact('alunosCurso','totalSaldo'));
-       
-            }
+       }
 
 
 
