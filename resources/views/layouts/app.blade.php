@@ -24,24 +24,13 @@ define('REQUIRE_PATH', '/oficial/' . THEME);
 
     <!-- Font awesome -->
     <link href="<?=REQUIRE_PATH?>/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="<?=REQUIRE_PATH?>/aos.css">
+    
     <!-- Bootstrap -->
     <link href="<?=REQUIRE_PATH?>/css/bootstrap.css" rel="stylesheet">   
-    <!-- Slick slider -->
-    <link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/slick.css">          
-    <!-- Fancybox slider -->
-    <link rel="stylesheet" href="<?=REQUIRE_PATH?>/css/jquery.fancybox.css" type="text/css" media="screen" /> 
-    <!-- Theme color -->
-    <link id="switcher" href="<?=REQUIRE_PATH?>/css/theme-color/default-theme.css" rel="stylesheet">          
-
-    <!-- Main style sheet -->
-    <link href="<?=REQUIRE_PATH?>/css/style.css" rel="stylesheet">    
-<!-- CSS personalizado -->
-<link rel="stylesheet" href="<?=REQUIRE_PATH?>/bracket.css">
-<link rel="stylesheet" href="<?=REQUIRE_PATH?>/personalizado.css">
-<link rel="stylesheet" href="<?=REQUIRE_PATH?>/banner.css">
-<link rel="stylesheet" href="<?=REQUIRE_PATH?>/font.css">
    
+<link rel="stylesheet" href="<?=REQUIRE_PATH?>/bracket.css">
+<link rel="stylesheet" href="<?=REQUIRE_PATH?>/homepage.css">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
@@ -75,80 +64,7 @@ define('REQUIRE_PATH', '/oficial/' . THEME);
 
   </div>
   <!-- Start footer -->
-  <footer id="mu-footer">
-    <!-- start footer top -->
-    <div class="mu-footer-top">
-      <div class="container">
-        <div class="mu-footer-top-area">
-          <div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="mu-footer-widget">
-                <h4>A Sua plataforma</h4>
-                <ul>
-                  <li><a href="<?=HOME?>/cursonegocio">Cursos</a></li>
-                  <li><a href="<?=HOME?>/formadores">Formadores</a></li>
-                  <li><a href="<?=HOME?>/contacto">Fala Connosco</a></li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="mu-footer-widget">
-                <h4>Nosso Conteúdo</h4>
-                <ul>
-                  <li><a href="<?= HOME ?>/blogfront">Blog</a></li>
-                  <li><a href="<?=HOME?>/perguntas">Perguntas</a></li>
-                                   
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="mu-footer-widget">
-                <h4>Newsletter</h4>
-                @if(Session::get('sms'))
-                  <p class="btn-success">{{Session::get('sms')}}</p>
-
-                  @else
-                  <p>Deixa o seu email para estar actualizado</p>
-                @endif
-             
-                <form action="{{route('newslater.store')}}" class="mu-subscribe-form" method="post">
-                {{ csrf_field() }}
-                @if($errors->all())
-       @foreach($errors->all() as $key=>$value)
-        <p class="btn-danger">{{$value}}</p>
-        @endforeach
-        @endif
-                  <input type="email" name="email" placeholder="Teu email">
-                  <button class="mu-subscribe-btn" type="submit">Inscreva-se!</button>
-                </form>               
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3">
-              <div class="mu-footer-widget">
-                <h4>Contactos
-                </h4>
-                <address>
-                  <p>C20, Kilamba, Luanda, Angola</p>
-                  <p>Telefone: 	+244 222 719 987 </p>
-                  <p>Email: contacto@yetoafrica.com</p>
-                </address>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- end footer top -->
-    <!-- start footer bottom -->
-    <div class="mu-footer-bottom">
-      <div class="container">
-        <div class="mu-footer-bottom-area">
-          <p>&copy; Todos os direitos reservados a Yetoafrica</p>
-        </div>
-      </div>
-    </div>
-    <!-- end footer bottom -->
-  </footer>
+  
   <!-- End footer -->
   <script src="{{ asset('js/app.js') }}"></script>
   <!-- jQuery library -->

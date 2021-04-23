@@ -1,122 +1,63 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="site">
+
 		@include('layouts.menu')
 		
-		
-		
-	
-	
+		<div class="br-pagebody">
+        <div class="br-section-wrapper">
+          <h6 class="br-section-label">Top Label Layout</h6>
+          <p class="br-section-text">A form with a label on top of each form control.</p>
 
-		
-	<div class="rows base-perfil py-6">
-				<div class="col-12">
-				<div class="caixa">
-                    
-					<div class="rows">
-					    	 <form action="/editarperfil/{{auth()->user()->id}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
-                    {{ csrf_field() }}
-						<div class="col-12">
-						    
-						    <div class="col-6">
-							
-							<div class="thumb">
-                            @if(@isset(Auth()->user()->foto))
-                                <img src="http://producao.yetoafrica.com/storage/app/public/{{auth()->user()->foto}}">
-                                @else
-				                  <img src="http://producao.yetoafrica.com/public/backend/img/foto01.png">
-                                  @endif
-								<input type="file" name="foto">
-							</div>
-						
-						</div>
-						<div class="col-6">
-							<div class="py-10">
-								<label>Nome</label>
-							  <input type="text" placeholder="Digita o nome" name="name" value="{{auth()->user()->name}}">
-							</div>
-							<div class="py-1">
-								<label>Email</label>
-								<input type="email" placeholder="Digita o email" name="email" value="{{auth()->user()->email}}">
-							</div>
-							<div class="py-1">
-								<label>Senha</label>
-								<input type="password" name="password" placeholder="Senha">
-							</div>
-						</div>
-						
-					</div>
-					
-					<fieldset>
-					<legend>Dados pessoais</legend>
-					<div class="rows">
-						<div class="col-3 mb-3">
-							<label>BI</label>
-							<input type="text" placeholder="005902675LA044" name="bilhete">
-						</div>
-						<div class="col-3 mb-3">
-							<label>Data de nascimento</label>
-							<input type="date" name="data_nasc" placeholder="Data">
-						</div>
-						<div class="col-3 mb-3">
-							<label>Telefone</label>
-							<input type="text" name="telefone" placeholder="Telefone" value="{{auth()->user()->telefone}}" required>
-						</div>
-						<div class="col-3 mb-3">
-							<label>Profissão</label>
-							<input type="text" name="profissao" placeholder="Profissão">
-						</div>
-					</div>
-					</fieldset>
-					
-					<fieldset>
-					<legend>Endereço</legend>
-					<div class="rows">
-						<div class="col-4 mb-3">
-							<label>Bairro</label>
-							<input type="text" name="bairro" placeholder="Bairro">
-						</div>
-						<div class="col-4 mb-3">
-							<label>Município</label>
-							<input type="text" name="municipio" placeholder="Município">
-						</div>
-						<div class="col-4 mb-3">
-							<label>Província</label>
-							<input type="text" name="provincia" placeholder="Endereço">
-						</div>
-					</div>
-				    </fieldset>
-				    
-				    <fieldset>
-					<legend>Dados bancários</legend>
-					<div class="rows">
-						<div class="col-3 mb-3">
-							<label>Conta Bancária</label>
-							<input type="text" placeholder="3102201210001" name="conta_bancaria" value="{{$bank_data[0]->conta_bancaria}}">
-						</div>
-						<div class="col-3 mb-3">
-							<label>IBAN</label>
-							<input type="text" name="iban" value="{{$bank_data[0]->iban}}" >
-						</div>
-						<div class="col-3 mb-3">
-							<label>Titular</label>
-							<input type="text" name="titular" value="{{$bank_data[0]->titular}}" >
-						</div>
-						
-					</div>
-					</fieldset>
-<button class="btn btn-outline-info bd-2 d-table m-auto px-5 width-auto" type="submit" >Atualizar perfil</button>
-			</form>
-				</div>
-				</div>
-				</div>
-		
-		
-		
-		</div>        
-	</div>
-	
+          <div class="form-layout form-layout-1">
+            <div class="row mg-b-25">
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Firstname: <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="firstname" value="John Paul" placeholder="Enter firstname">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Lastname: <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="lastname" value="McDoe" placeholder="Enter lastname">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Email address: <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="email" value="johnpaul@yourdomain.com" placeholder="Enter email address">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-8">
+                <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">Mail Address: <span class="tx-danger">*</span></label>
+                  <input class="form-control" type="text" name="address" value="Market St. San Francisco" placeholder="Enter address">
+                </div>
+              </div><!-- col-8 -->
+              <div class="col-lg-4">
+                <div class="form-group mg-b-10-force">
+                  <label class="form-control-label">Country: <span class="tx-danger">*</span></label>
+                  <select class="form-control select2 select2-hidden-accessible" data-placeholder="Choose country" data-select2-id="1" tabindex="-1" aria-hidden="true">
+                    <option label="Choose country" data-select2-id="3"></option>
+                    <option value="USA">United States of America</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="China">China</option>
+                    <option value="Japan">Japan</option>
+                  </select><span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="2" style="width: 796px;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-labelledby="select2-zslz-container"><span class="select2-selection__rendered" id="select2-zslz-container" role="textbox" aria-readonly="true"><span class="select2-selection__placeholder">Choose one</span></span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                </div>
+              </div><!-- col-4 -->
+            </div><!-- row -->
+
+            <div class="form-layout-footer">
+              <button class="btn btn-info">Submit Form</button>
+              <button class="btn btn-secondary">Cancel</button>
+            </div><!-- form-layout-footer -->
+          </div><!-- form-layout -->
+
+          
+
+
 	
 
 @endsection

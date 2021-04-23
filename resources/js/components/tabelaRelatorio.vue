@@ -8,8 +8,9 @@
         
         </div>     
     </div> 
-        <hr>
-                <table class="table table-striped">
+             <div class="tabl-lis">
+         <div class="bd bd-gray-300 rounded table-responsive">
+                <table class="table table-striped mg-b-0">
                     <thead>
                         <tr>
                           
@@ -52,7 +53,8 @@
                     </tbody>
                 </table>   
                 
-
+ </div> 
+ </div>
         
             </div>
  

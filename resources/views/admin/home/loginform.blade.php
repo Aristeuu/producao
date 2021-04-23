@@ -2,7 +2,7 @@
 
 
 define('THEME', 'assets');
-define('REQUIRE_PATH', '/public/oficial/' . THEME);
+define('REQUIRE_PATH', '/oficial/' . THEME);
 
 
 @endphp
@@ -13,7 +13,7 @@ define('REQUIRE_PATH', '/public/oficial/' . THEME);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://kit.fontawesome.com/64d58efce2.js" ></script>
-    <link rel="stylesheet" href="/public/login/style.css" />  
+    <link rel="stylesheet" href="/login/style.css" />  
     <!-- Favicon -->
     <link rel="shortcut icon" href="<?=REQUIRE_PATH?>/img/fiveicon13.png" type="image/x-icon">
 
@@ -129,8 +129,8 @@ define('REQUIRE_PATH', '/public/oficial/' . THEME);
       </div>
     </div>
 
-    <script type="text/javascript" src="/public/login/app.js"></script>
-    <script type="text/javascript" src="/public/login/jquery.js"></script>
+    <script type="text/javascript" src="/login/app.js"></script>
+    <script type="text/javascript" src="/login/jquery.js"></script>
 
     
 

@@ -3548,6 +3548,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titulos', 'itens', 'criar', 'editar', 'deletar', 'token', 'modal', 'valor'],
   data: function data() {
@@ -6958,6 +6959,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -43920,7 +43923,7 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("div", { staticClass: "bd bd-gray-300 rounded table-responsive" }, [
+    _c("div", { staticClass: "bd bd-gray-300 rounded table-responsive " }, [
       _c("table", { staticClass: "table table-striped mg-b-0" }, [
         _c("thead", [
           _c(
@@ -50602,197 +50605,203 @@ var render = function() {
       1
     ),
     _vm._v(" "),
-    _c("hr"),
-    _vm._v(" "),
-    _c("table", { staticClass: "table table-striped" }, [
-      _c("thead", [
-        _c(
-          "tr",
-          [
-            _vm._l(_vm.titulos, function(titulo) {
-              return _c("th", [_vm._v(_vm._s(titulo))])
-            }),
-            _vm._v(" "),
-            _vm.editar || _vm.deletar ? _c("th", [_vm._v("Acções")]) : _vm._e()
-          ],
-          2
-        )
-      ]),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.itens, function(item, index) {
-          return _c(
-            "tr",
-            [
-              _vm._l(item, function(i) {
-                return _c("td", [_vm._v(_vm._s(i))])
-              }),
-              _vm._v(" "),
-              _vm.editar || _vm.deletar
-                ? _c("td", [
-                    _vm.deletar && _vm.token
-                      ? _c(
-                          "form",
-                          {
-                            attrs: {
-                              id: index,
-                              action: _vm.deletar + item.id,
-                              method: "post"
-                            }
-                          },
-                          [
-                            _c("input", {
-                              attrs: {
-                                type: "hidden",
-                                name: "_method",
-                                value: "DELETE"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("input", {
-                              attrs: { type: "hidden", name: "_token" },
-                              domProps: { value: _vm.token }
-                            }),
-                            _vm._v(" "),
-                            _vm.editar && !_vm.modal
-                              ? _c(
-                                  "a",
-                                  {
-                                    staticClass: "btn btn-info btn-xs",
-                                    attrs: { href: _vm.editar }
-                                  },
-                                  [
-                                    _c("i", { staticClass: "fa fa-edit" }),
-                                    _vm._v(" editar ")
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.editar && _vm.modal
-                              ? _c("modal_link", {
-                                  attrs: {
-                                    url: _vm.editar,
-                                    item: item,
-                                    tipo: "button",
-                                    nome: "editar",
-                                    css: "btn btn-info btn-xs",
-                                    titulo: "Editar"
-                                  }
-                                })
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _c(
-                              "a",
+    _c("div", { staticClass: "tabl-lis" }, [
+      _c("div", { staticClass: "bd bd-gray-300 rounded table-responsive" }, [
+        _c("table", { staticClass: "table table-striped mg-b-0" }, [
+          _c("thead", [
+            _c(
+              "tr",
+              [
+                _vm._l(_vm.titulos, function(titulo) {
+                  return _c("th", [_vm._v(_vm._s(titulo))])
+                }),
+                _vm._v(" "),
+                _vm.editar || _vm.deletar
+                  ? _c("th", [_vm._v("Acções")])
+                  : _vm._e()
+              ],
+              2
+            )
+          ]),
+          _vm._v(" "),
+          _c(
+            "tbody",
+            _vm._l(_vm.itens, function(item, index) {
+              return _c(
+                "tr",
+                [
+                  _vm._l(item, function(i) {
+                    return _c("td", [_vm._v(_vm._s(i))])
+                  }),
+                  _vm._v(" "),
+                  _vm.editar || _vm.deletar
+                    ? _c("td", [
+                        _vm.deletar && _vm.token
+                          ? _c(
+                              "form",
                               {
-                                staticClass: "btn btn-danger btn-xs",
-                                attrs: { href: "#" },
-                                on: {
-                                  click: function($event) {
-                                    return _vm.executaForm(index)
-                                  }
+                                attrs: {
+                                  id: index,
+                                  action: _vm.deletar + item.id,
+                                  method: "post"
                                 }
                               },
                               [
-                                _c("i", { staticClass: "fa fa-trash-o" }),
-                                _vm._v(" deletar")
-                              ]
-                            )
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    !_vm.token
-                      ? _c(
-                          "span",
-                          [
-                            _vm.editar && !_vm.modal
-                              ? _c(
-                                  "a",
-                                  {
-                                    staticClass: "btn btn-info btn-xs",
-                                    attrs: { href: _vm.editar }
-                                  },
-                                  [
-                                    _c("i", { staticClass: "fa fa-edit" }),
-                                    _vm._v(" editar ")
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.editar && _vm.modal
-                              ? _c("modal_link", {
+                                _c("input", {
                                   attrs: {
-                                    item: item,
-                                    url: _vm.editar,
-                                    tipo: "button",
-                                    nome: "editar",
-                                    css: "btn btn-info btn-xs",
-                                    titulo: "Editar"
+                                    type: "hidden",
+                                    name: "_method",
+                                    value: "DELETE"
                                   }
-                                })
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.deletar
-                              ? _c(
+                                }),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: { type: "hidden", name: "_token" },
+                                  domProps: { value: _vm.token }
+                                }),
+                                _vm._v(" "),
+                                _vm.editar && !_vm.modal
+                                  ? _c(
+                                      "a",
+                                      {
+                                        staticClass: "btn btn-info btn-xs",
+                                        attrs: { href: _vm.editar }
+                                      },
+                                      [
+                                        _c("i", { staticClass: "fa fa-edit" }),
+                                        _vm._v(" editar ")
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.editar && _vm.modal
+                                  ? _c("modal_link", {
+                                      attrs: {
+                                        url: _vm.editar,
+                                        item: item,
+                                        tipo: "button",
+                                        nome: "editar",
+                                        css: "btn btn-info btn-xs",
+                                        titulo: "Editar"
+                                      }
+                                    })
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _c(
                                   "a",
                                   {
                                     staticClass: "btn btn-danger btn-xs",
-                                    attrs: { href: _vm.deletar }
+                                    attrs: { href: "#" },
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.executaForm(index)
+                                      }
+                                    }
                                   },
                                   [
                                     _c("i", { staticClass: "fa fa-trash-o" }),
                                     _vm._v(" deletar")
                                   ]
                                 )
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm.token && !_vm.deletar
-                      ? _c(
-                          "span",
-                          [
-                            _vm.editar && !_vm.modal
-                              ? _c(
-                                  "a",
-                                  {
-                                    staticClass: "btn btn-info btn-xs",
-                                    attrs: { item: item, href: _vm.editar }
-                                  },
-                                  [
-                                    _c("i", { staticClass: "fa fa-edit" }),
-                                    _vm._v(" editar ")
-                                  ]
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _vm.editar && _vm.modal
-                              ? _c("modal_link", {
-                                  attrs: {
-                                    url: _vm.editar,
-                                    tipo: "button",
-                                    nome: "editar",
-                                    css: "btn btn-info btn-xs",
-                                    titulo: "Editar"
-                                  }
-                                })
-                              : _vm._e()
-                          ],
-                          1
-                        )
-                      : _vm._e()
-                  ])
-                : _vm._e()
-            ],
-            2
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        !_vm.token
+                          ? _c(
+                              "span",
+                              [
+                                _vm.editar && !_vm.modal
+                                  ? _c(
+                                      "a",
+                                      {
+                                        staticClass: "btn btn-info btn-xs",
+                                        attrs: { href: _vm.editar }
+                                      },
+                                      [
+                                        _c("i", { staticClass: "fa fa-edit" }),
+                                        _vm._v(" editar ")
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.editar && _vm.modal
+                                  ? _c("modal_link", {
+                                      attrs: {
+                                        item: item,
+                                        url: _vm.editar,
+                                        tipo: "button",
+                                        nome: "editar",
+                                        css: "btn btn-info btn-xs",
+                                        titulo: "Editar"
+                                      }
+                                    })
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.deletar
+                                  ? _c(
+                                      "a",
+                                      {
+                                        staticClass: "btn btn-danger btn-xs",
+                                        attrs: { href: _vm.deletar }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fa fa-trash-o"
+                                        }),
+                                        _vm._v(" deletar")
+                                      ]
+                                    )
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          : _vm._e(),
+                        _vm._v(" "),
+                        _vm.token && !_vm.deletar
+                          ? _c(
+                              "span",
+                              [
+                                _vm.editar && !_vm.modal
+                                  ? _c(
+                                      "a",
+                                      {
+                                        staticClass: "btn btn-info btn-xs",
+                                        attrs: { item: item, href: _vm.editar }
+                                      },
+                                      [
+                                        _c("i", { staticClass: "fa fa-edit" }),
+                                        _vm._v(" editar ")
+                                      ]
+                                    )
+                                  : _vm._e(),
+                                _vm._v(" "),
+                                _vm.editar && _vm.modal
+                                  ? _c("modal_link", {
+                                      attrs: {
+                                        url: _vm.editar,
+                                        tipo: "button",
+                                        nome: "editar",
+                                        css: "btn btn-info btn-xs",
+                                        titulo: "Editar"
+                                      }
+                                    })
+                                  : _vm._e()
+                              ],
+                              1
+                            )
+                          : _vm._e()
+                      ])
+                    : _vm._e()
+                ],
+                2
+              )
+            }),
+            0
           )
-        }),
-        0
-      )
+        ])
+      ])
     ])
   ])
 }

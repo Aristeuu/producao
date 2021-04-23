@@ -325,3 +325,11 @@ input[type="button"].btn-block {
     color:rgb(34, 28, 28);
 }
 /*dashboard*/
+
+
+.tabl-lis .bd-gray-300 {
+    border-color: #dee2e6;
+    width: 103%;
+}
+
+

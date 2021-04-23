@@ -1,0 +1,91 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.navbar{
+    text-align: center;
+    height:10%;
+    font-size: 1.2em;
+}
+.bd-navbar {
+    padding: .75rem 0;
+}
+
+.navgation .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color:#f8f8f8;
+}
+
+.navbar .navbar-brand img{
+    margin-left: -16rem;
+    width: 140px;
+}
+
+section{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 80%;
+    width: 100%;
+    display: flex;
+}
+
+.content{
+    margin-top: 15rem;
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.image{
+    width: calc(50% + 270px);
+    height: 100%;
+    background: teal;
+    box-sizing: border-box;
+    border-left: 200px solid #fff;
+    border-bottom: 600px solid transparent;
+}
+
+.content .text-md-start{
+    top: 5rem;
+   margin-left: 6rem;
+}
+
+/*button-banner*/
+.b-curso{
+    margin-top: 5rem;
+}
+.b-curso .btn-block {
+    display: inline-block;
+    width: 30%;   
+}
+
+.b-curso .btn-block + .btn-block {
+    margin-top: 0px;
+}
+
+.b-curso .btn-teal{
+    color: #fff;
+    background-color: #1CAF9A;
+    border-color: #189987;
+    font-size: 1.2em;
+}
+
+.b-curso .btn-outline-teal {
+    color: #1CAF9A;
+    background-color: transparent;
+    background-image: none;
+    border-color: #1CAF9A;
+    font-size: 1.2em;
+}
+
+
+
+.row-banner .transition-timer-carousel{
+    display: inline;
+}
+
+.transition-timer-carousel .row{
+    display: inline-block;
+}

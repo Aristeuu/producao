@@ -9,7 +9,7 @@
         </div>     
     </div> 
       
-        <div class="bd bd-gray-300 rounded table-responsive">
+        <div class="bd bd-gray-300 rounded table-responsive ">
                 <table class="table table-striped mg-b-0">
                     <thead>
                         <tr>
@@ -55,6 +55,7 @@
                 
 
         </div>
+        
             </div>
  
 </template>

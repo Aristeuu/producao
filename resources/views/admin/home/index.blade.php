@@ -120,7 +120,7 @@
                     <div>
                       @php
                                                  
-                            $saldoContabilistico=1000;                   
+                                           
                            
                       @endphp
                           <div >
@@ -374,20 +374,7 @@
         
 			  
     </div>
-	 <div class="br-mainpanel">
-      
-
-			<footer class="br-footer">
-			  <div class="footer-left">
-				<div class="mg-b-2">Copyright &copy; 2020. Yetoáfrica. All Rights Reserved.</div>
-			  </div>
-			  <div class="footer-right d-flex align-items-center">
-				<span class="tx-uppercase mg-r-10">Partilhar:</span>
-				<a target="_blank" class="pd-x-5" href="https://www.facebook.com/yetoafrica?fref=mentions"><i class="fab fa-facebook tx-20"></i></a>
-				<a target="_blank" class="pd-x-5" href="https://www.instagram.com/yetoafrica/"><i class="fab fa-instagram tx-20"></i></a>
-			  </div>
-			</footer>
-		  </div><!-- br-mainpanel -->
+	
 		  <!-- ########## END: MAIN PANEL ########## -->
 	  
 		 

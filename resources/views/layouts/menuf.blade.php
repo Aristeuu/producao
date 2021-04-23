@@ -1,8 +1,9 @@
  
   <!-- Start menu -->
 
-  <section id="mu-menu">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">  
+ 
+  <header class="navgation">
+    <nav class="navbar navbar-default navbar-fixed-top bd-navbar" role="navigation">  
       <div class="container">
          
               <div class="navbar-header">
@@ -15,7 +16,7 @@
           </button>
           <!-- LOGO -->              
           <!-- TEXT BASED LOGO -->
-          <a class="navbar-brand" href="/"><img src="/public/oficial/assets/img/esse.png" alt=""></a>
+          <a class="navbar-brand" href="/"><img src="http://localhost/yetoafrica/public/oficial/assets/img/esse.png" alt=""></a>
           <!-- IMG BASED LOGO  -->
           <!-- <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt="logo"></a> -->
         </div>
@@ -39,6 +40,25 @@
         </div><!--/.nav-collapse -->        
       </div>     
     </nav>
-  </section>
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- End menu -->
