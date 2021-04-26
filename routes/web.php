@@ -107,8 +107,8 @@ Route::post('/updateMod', 'Admin\ModuloController@update');
 
 
 //admin 
-Route::get('/on/{var}','Admin\CursoController@on');//funcao para ativar o curso para o formador
-Route::get('/off/{var}','Admin\CursoController@off');// para desativar o curso para o formador
+Route::get('/on/{id}','Admin\CursoController@on');//funcao para ativar o curso para o formador
+Route::get('/off/{id}','Admin\CursoController@off');// para desativar o curso para o formador
 Route::get('/admin_curso/{id}','Admin\FormadorController@cursoview');//rota para ver o curso para o admin
 Route::get('/admin_aulafree/{id}','Admin\AulaController@free');//rota para tornar a aula grátis
 Route::get('/admin_aulades/{id}','Admin\AulaController@unfree');//rpta para desativar aula grátis

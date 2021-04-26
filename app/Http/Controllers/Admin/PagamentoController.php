@@ -132,7 +132,7 @@ public function relatoriodecompras()
             $listCursos=Pedido::cursoPr($idusuario);
             
           
-                
+          //      dd($listCursos);
    
             return view('admin.pagamento.relatoriodecompras', compact('listCursos'));
     

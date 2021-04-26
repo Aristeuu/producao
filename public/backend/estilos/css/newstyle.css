@@ -408,6 +408,10 @@ ol {
     color: #5a5656;
 }
 
+.txte-white {
+    color: white;
+}
+
 .terceiro .mg-l-20 {
     margin-left: 50px;
 }
@@ -417,14 +421,12 @@ ol {
 }
 
 .moviment-das {
-    
     font-size: 1rem;
     color: rgb(93 82 82);
 }
 
 
 /*dashboard*/
-
 
 .tabl-lis .bd-gray-300 {
     border-color: #dee2e6;
@@ -434,17 +436,17 @@ ol {
 
 /*accordio*/
 
-.card-header .btn-modul{
+.card-header .btn-modul {
     display: contents;
     margin-left: 75rem;
 }
 
-.card-header .btn-modul .bttn-edit{
+.card-header .btn-modul .bttn-edit {
     text-align: left;
     margin-left: 70rem;
 }
 
-.card-header .btn-modul span i{
+.card-header .btn-modul span i {
     font-size: 1.2em;
 }
 
@@ -459,10 +461,14 @@ ol {
 .pd-20 table tr td.m-left {
     margin-left: 4rem;
 }
+
+
 /*accordion*/
 
+
 /*perfilforador*/
-.formadorperfil .br-section-label{
+
+.formadorperfil .br-section-label {
     margin-left: 2rem;
     font-size: 1.6em;
 }
@@ -474,32 +480,37 @@ ol {
 }
 
 .formadorperfil .br-section-label {
-   
     margin-top: 50px;
     margin-bottom: 1px;
 }
 
-.formadorperfil .form-layout-footer{
+.formadorperfil .form-layout-footer {
     margin-top: 6rem;
     text-align: center;
 }
 
-.formadorperfil .form-layout-footer button.btn-block{
+.formadorperfil .form-layout-footer button.btn-block {
     width: 30%;
 }
 
-/*perfilforador*/ 
+
+/*perfilforador*/
+
 
 /*modais*/
-.botn-geral input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block {
+
+.botn-geral input[type="submit"].btn-block,
+input[type="reset"].btn-block,
+input[type="button"].btn-block {
     margin-top: 1rem;
     width: 50%;
     margin-left: 1rem;
 }
 
 .editarcurso .form-group {
-    margin-top: 0.19rem; 
+    margin-top: 0.19rem;
     width: 100%;
 }
-/*modais*/
 
+
+/*modais*/

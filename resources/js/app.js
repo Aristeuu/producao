@@ -52,6 +52,7 @@ Vue.component('cat_blog', require('./components/administracao/ListCatBlog.vue').
 Vue.component('aulamodulo', require('./components/administracao/Listaulasmodul.vue').default);
 Vue.component('modulor', require('./components/administracao/ListaModup.vue').default);
 Vue.component('Aluno_lista', require('./components/TableListAluno.vue').default);
+Vue.component('Aluno_compras', require('./components/tabelaCompras.vue').default);
 Vue.component('tabela_relatorio', require('./components/tabelaRelatorio.vue').default);
 Vue.component('view', require('./components/negocio/view.vue').default);
 Vue.component('curso_single', require('./components/negocio/cursoSingle.vue').default);

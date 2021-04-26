@@ -7,6 +7,9 @@
 		
 	<div class="br-pagebody formadorperfil">
         <div class="br-section-wrapper">
+          <form action="/editarperfil/{{auth()->user()->id}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
+            {{ csrf_field() }}
+
           <h6 class="br-section-label">Informações de Conta</h6>
           
           <div class="form-layout form-layout-1">
@@ -14,7 +17,7 @@
 				 <div class="col-lg-12">
                 <div class="form-group">
                   <label class="form-control-label">Nome:</label>
-                  <input class="form-control" type="text" name="nome" value="{{auth()->user()->name}}">
+                  <input class="form-control" type="text" name="name" value="{{auth()->user()->name}}">
                 </div>
 			  </div><!-- col-4 -->
 			   <div class="col-lg-12">
@@ -40,13 +43,13 @@
               <div class="col-lg-3">
                 <div class="form-group">
                   <label class="form-control-label">BI:</label>
-                  <input class="form-control" type="text" name="bilhete" value="005902675LA044">
+                  <input class="form-control" type="text" name="bilhete" placeholder="005902675LA044">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-3">
                 <div class="form-group">
                   <label class="form-control-label">Data de Nascimento:</label>
-                  <input class="form-control" type="date"  name="datanascimento">
+                  <input class="form-control" type="date"  name="data_nasc">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-3">
@@ -58,7 +61,7 @@
               <div class="col-lg-3">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Profissão:</label>
-                  <input class="form-control" type="text" name="profissão" >
+                  <input class="form-control" type="text" name="profissao" >
                 </div>
 			  </div><!-- col-8 -->
 			</div><!-- row -->
@@ -72,20 +75,20 @@
 			   
               <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">Bairro:</label>
-                  <input class="form-control" type="text" name="firstname" value="Bairro">
-                </div>
-              </div><!-- col-4 -->
-              <div class="col-lg-4">
-                <div class="form-group">
                   <label class="form-control-label">Província:</label>
-                  <input class="form-control" type="text" name="lastname" value="Província">
+                  <input class="form-control" type="text" name="provincia" placeholder="Provincia">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">Município:</label>
-                  <input class="form-control" type="text" name="email" value="Município">
+                  <label class="form-control-label">Municipio:</label>
+                  <input class="form-control" type="text" name="municipio" placeholder="Municipio">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Bairro:</label>
+                  <input class="form-control" type="text" name="bairro" placeholder="Bairro">
                 </div>
               </div><!-- col-4 -->
 			</div><!-- row -->
@@ -99,14 +102,14 @@
 			   
               <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">Conta Bancár:</label>
-                  <input class="form-control" type="text" name="conta bancaria" value="{{$bank_data[0]->conta_bancaria}}">
+                  <label class="form-control-label">Conta Bancários:</label>
+                  <input class="form-control" type="text" name="conta_bancaria" value="{{$bank_data[0]->conta_bancaria}}">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">IBAN:</label>
-                  <input class="form-control" type="text" name="Iban" value="{{$bank_data[0]->iban}}">
+                  <input class="form-control" type="text" name="iban" value="{{$bank_data[0]->iban}}">
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
@@ -125,7 +128,7 @@
 		 </div>
 
 		
-		
+		</form>
          
 
         </div><!-- br-section-wrapper -->

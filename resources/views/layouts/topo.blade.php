@@ -80,8 +80,9 @@
 			@else
 			<img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="">
 			@endif
-          </div><!-- card-profile-img -->
-          <h4 class="tx-normal tx-roboto tx-white">{{auth()->user()->name}}</h4>
+		  </div><!-- card-profile-img -->
+		  
+          <h4 class="tx-normal tx-roboto txte-white">{{auth()->user()->name}}</h4>
       
         </div><!-- card-body -->
       </div><!-- card -->
@@ -173,7 +174,7 @@
 			<img src="http://producao.yetoafrica.com/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="">
 			@endif
           </div><!-- card-profile-img -->
-          <h4 class="tx-normal tx-roboto tx-white">{{auth()->user()->name}}</h4>
+          <h4 class="tx-normal tx-roboto txte-white">{{auth()->user()->name}}</h4>
       
         </div><!-- card-body -->
       </div><!-- card -->

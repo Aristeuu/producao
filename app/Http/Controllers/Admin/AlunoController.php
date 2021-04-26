@@ -74,7 +74,7 @@ class AlunoController extends Controller
         
        $pagamento = Pagamentos::cursoComprovante($id_aluno);
 
-       dd($pagamento);
+//dd($pagamento);
         
         return view('admin.config.alunoCurso',compact('cursosAlunos','aluno','pagamento'));    
 

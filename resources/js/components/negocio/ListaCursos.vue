@@ -21,7 +21,7 @@
                                   <a v-if="ver" v-bind:href="ver+item.id" class="btn btn-xs btn-success"><i class="fa fa-eye"></i>Detalhe</a>
                                   <modal_link v-if="modal" v-bind:item="item" v-bind:url="editar" nome="formEditar" tipo="button"  titulo="editar" clas="fa fa-edit"></modal_link>
                                   <a v-if="editar && !modal" v-bind:item="item"   v-bind:href="editar"  class="btn btn-info btn-xs"><i class="fa fa-edit"></i> editar </a>
-                            </div>
+                            </div>    
     </div>
  </div>
   </div>
