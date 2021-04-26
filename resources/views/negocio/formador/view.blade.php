@@ -118,7 +118,7 @@
                           </div>
                         </div><!-- col-4 -->                                                                                           
                         <div class="col-lg-12">
-                          <div class="form-group mg-b-10-force">
+                          <div class="form-group">
                             <label class="form-control-label">Descrição: <span class="tx-danger">*</span></label>                            
                             <textarea class="form-control" name="modulo_descricao"  id="modulo_desci" required></textarea>
                           </div>
@@ -128,10 +128,10 @@
                     </div>        
           
                                
-                     <hr>            
-                   <div>
-                     <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
-                    </div>  
+                       <div class="botn-geral">
+                     <input type="submit" value="Enviar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
+                    </div>     
+                
                   </formulario>
                   <span slot="botoes">
                     <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
@@ -160,19 +160,19 @@
                           </div>
                         </div><!-- col-4 -->                                                                                           
                         <div class="col-lg-12">
-                          <div class="form-group mg-b-10-force">
+                          <div class="form-group">
                             <label class="form-control-label">Descrição: <span class="tx-danger">*</span></label>                            
                             <textarea class="form-control" placeholder="Descrição da aula" id="desc_aula" name="aula_descricao" required></textarea>
                           </div>
                         </div><!-- col-12 -->  
                         <div class="col-lg-12">
-                          <div class="form-group mg-b-10-force">
+                          <div class="form-group">
                             <label class="form-control-label">Link da Aula: <span class="tx-danger">*</span></label>                           
                             <input type="text" class="form-control" placeholder="Link da Aula" id="aula_link" name="aula_link" required >                            
                           </div>
                         </div><!-- col-12 -->        
                         <div class="col-lg-6">
-                          <div class="form-group mg-b-10-force">
+                          <div class="form-group">
                             <label class="form-control-label">Módulos: <span class="tx-danger">*</span></label>                           
                             <select  name="modulo_id" class="form-control">                                
                               @foreach($listamodulos as $modulo)
@@ -182,13 +182,13 @@
                           </div>
                         </div><!-- col-12 -->        
                         <div class="col-lg-6">
-                          <div class="form-group mg-b-10-force">
+                          <div class="form-group">
                             <label class="form-control-label">Duração: <span class="tx-danger">*</span></label>                           
                             <input type="text" class="form-control" placeholder="Duração da Aula" id="aula_duracao" name="aula_duracao" required >                            
                           </div>
                         </div><!-- col-12 -->        
                         <div class="col-lg-12">
-                          <div class="form-group mg-b-10-force">
+                          <div class="form-group">
                             <label class="form-control-label">Arquivo complementar: </label>                           
                             <input type="file" class="form-control" placeholder="" id="aula_conteudo" name="aula_conteudo">                            
                           </div>
@@ -197,11 +197,10 @@
           
                     </div>        
           
-                               
-                     <hr>            
-                   <div>
-                     <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
-                    </div>  
+                         
+                   <div class="botn-geral">
+                     <input type="submit" value="Enviar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
+                    </div>   
                   </formulario>
                   <span slot="botoes">
                     <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
@@ -222,9 +221,9 @@
                   <a data-toggle="collapse" data-parent="#accordion6" href="#collapseOne{{$modulo->id}}" aria-expanded="false" aria-controls="collapseOne6" class="collapsed text-16">
                     {{$modulo->modulo_titulo}}
                     <div class="btn-modul">
-                      <span class="btn bttn-edit" onclick="Editar({{$modulo->id}})"><i class="fa fa-edit" style="color:teal;"></i></span>
-                      <span class="btn" onclick="Eliminar({{$modulo->id}})"><i class="fa fa-trash" style="color:red;"></i></span>
-                    <modal_link tipo="button" nome="editarModulo" titulo="Editar" css="btn btn-outline-teal" v-bind:item="{{json_encode($modulo)}}" url="/edit/"></modal_link>
+                      
+                      <span class="btn bttn-edit" onclick="Eliminar({{$modulo->id}})"><i class="fa fa-trash" style="color:red;"></i></span>
+                    <modal_link tipo="button" nome="editarModulo" titulo="" css="btn btn-outline-teal" css="fa fa-edit" v-bind:item="{{json_encode($modulo)}}" url="/edit/"></modal_link>
                     </div>
                   </a>
                  
@@ -276,7 +275,7 @@
                       </div>
                     </div><!-- col-4 -->                                                                                           
                     <div class="col-lg-12">
-                      <div class="form-group mg-b-10-force">
+                      <div class="form-group">
                         <label class="form-control-label">Descrição: <span class="tx-danger">*</span></label>                            
                         <textarea class="form-control" placeholder="" id="modulo_desc" name="modulo_descricao" v-model="$store.state.item.modulo_descricao" required></textarea>
                       </div>
@@ -286,11 +285,10 @@
       
                 </div>        
       
-                           
-                 <hr>            
-               <div>
-                 <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
-                </div>  
+                      
+               <div class="botn-geral">
+                     <input type="submit" value="Enviar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
+                    </div>   
               </formulario>
               <span slot="botoes">
                 <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
@@ -317,19 +315,19 @@
                       </div>
                     </div><!-- col-4 -->                                                                                            
                     <div class="col-lg-12">
-                      <div class="form-group mg-b-10-force">
+                      <div class="form-group">
                         <label class="form-control-label">Descrição: <span class="tx-danger">*</span></label>                            
                         <textarea class="form-control" placeholder="Descrição da aula" id="desc_aula" name="aula_descricao" v-model="$store.state.item.aula_descricao" required></textarea>
                       </div>
                     </div><!-- col-12 -->  
                     <div class="col-lg-12">
-                      <div class="form-group mg-b-10-force">
+                      <div class="form-group">
                         <label class="form-control-label">Link da Aula: <span class="tx-danger">*</span></label>                           
                         <input type="text" class="form-control" placeholder="Link da Aula" id="aula_link" name="aula_link" v-model="$store.state.item.aula_link" required >                            
                       </div>
                     </div><!-- col-12 -->        
                     <div class="col-lg-6">
-                      <div class="form-group mg-b-10-force">
+                      <div class="form-group ">
                         <label class="form-control-label">Módulos: <span class="tx-danger">*</span></label>                           
                         <select  name="modulo_id" class="form-control">                                
                           @foreach($listamodulos as $modulo)
@@ -339,13 +337,13 @@
                       </div>
                     </div><!-- col-12 -->        
                     <div class="col-lg-6">
-                      <div class="form-group mg-b-10-force">
+                      <div class="form-group ">
                         <label class="form-control-label">Duração: <span class="tx-danger">*</span></label>                           
                         <input type="text" class="form-control" placeholder="Duração da Aula" id="aula_duracao" name="aula_duracao" v-model="$store.state.item.aula_duracao" required >                            
                       </div>
                     </div><!-- col-12 -->        
                     <div class="col-lg-12">
-                      <div class="form-group mg-b-10-force">
+                      <div class="form-group">
                         <label class="form-control-label">Arquivo complementar: </label>                           
                         <input type="file" class="form-control" placeholder="" id="aula_conteudo" name="aula_conteudo" >                            
                       </div>
@@ -355,10 +353,9 @@
                 </div>        
       
                            
-                 <hr>            
-               <div>
-                 <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
-                </div>  
+                <div class="botn-geral">
+                     <input type="submit" value="Enviar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
+                    </div> 
               </formulario>
               <span slot="botoes">
                 <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">

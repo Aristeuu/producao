@@ -122,11 +122,11 @@
                                                   
                            
                       @endphp
-                          <div >
+                          <div class="botn-geral">
                             <modal_link tipo="button" nome="adicionar" titulo="Novo curso"></modal_link>
                            @if($saldoContabilistico > 0 || $saldoContabilistico != null)
                               @if($saldoDisponivel > 0 )
-                                <modal_link tipo="button" nome="solicitar" titulo="Solicitar Valores" css="btn btn-success"></modal_link> 
+                                <modal_link tipo="button" nome="solicitar" titulo="Solicitar Valores" css="btn btn-success active btn-block mg-b-10"></modal_link> 
                               @endif  
                           @endif                           
                            @if($formador_conta == null)
@@ -174,25 +174,25 @@
                           </div>
                         </div><!-- col-4 -->
                         <div class="col-lg-6">
-                          <div class="form-group mg-b-10-force">
+                          <div class="form-group">
                             <label class="form-control-label">Preço: <span class="tx-danger">*</span></label>
                             <input class="form-control" type="text" name="curso_preco" placeholder="15000" required>
                           </div>
                         </div><!-- col-8 -->
                         <div class="col-lg-6">
-                          <div class="form-group mg-b-10-force">
+                          <div class="form-group">
                             <label class="form-control-label">Duração: <span class="tx-danger">*</span></label>
                             <input class="form-control" type="text" name="curso_duracao" placeholder="10 dias" required>
                           </div>
                         </div><!-- col-4 -->
                         <div class="col-lg-12">
-                          <div class="form-group mg-b-10-force">
+                          <div class="form-group">
                             <label class="form-control-label">Descrição: <span class="tx-danger">*</span></label>                            
                             <textarea class="form-control" name="curso_descricao" required></textarea>
                           </div>
                         </div><!-- col-12 -->
                         <div class="col-lg-12">
-                          <div class="form-group mg-b-10-force">
+                          <div class="form-group">
                             <label class="form-control-label">Vídeo Promocional: <span class="tx-danger">*</span></label>
                             <input class="form-control" type="text" name="curso_link" placeholder="Vídeo Promocional">
                           </div>
@@ -201,14 +201,13 @@
           
                     </div>        
           
-                               
-                     <hr>            
-                   <div>
-                     <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+                          
+                   <div class="botn-geral">
+                     <input type="submit" value="Enviar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
                     </div>  
                   </formulario>
                   <span slot="botoes">
-                    <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+                    <input type="submit" value="Enviar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
                   </span>
                 </modal>
                 <!--end Modal's-->
@@ -272,13 +271,14 @@
                                    
                  <input class="form-control" type="hidden" name="id_formador" value={{$id_formador}}>
 
-                 <hr>
+                    <div class="botn-geral">
+                     <input type="submit" value="Enviar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
+                    </div> 
 
-                 <button form="formBanco" type="submit" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Enviar</button>
 
                   </formulario>
                   <span slot="botoes">
-                    <button form="formBanco" type="submit" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Enviar</button>
+                    <button form="formBanco" type="submit" class="btn btn-teal active btn-block mg-b-10">Enviar</button>
                   </span>
                 </modal>
 

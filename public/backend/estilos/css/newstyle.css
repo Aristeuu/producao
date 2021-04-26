@@ -8,6 +8,12 @@ html {
     bottom: 9rem;
 }
 
+.modal-body {
+    position: relative;
+    flex: 1 1 auto;
+    padding: 1rem;
+}
+
 .editar-perf .tx-normal i {
     margin: 0 0.4rem;
     font-size: 2rem;
@@ -31,8 +37,7 @@ html {
 
 .form-group {
     margin-top: 2rem;
-    width: 97%;
-    margin-left: 1rem;
+    width: 100%;
 }
 
 .bg-mantle {
@@ -289,8 +294,9 @@ ol {
 }
 
 .detalhes-form .inf i {
-    font-size: 1.4em;
+    font-size: 1.6rem;
     color: teal;
+    margin: 0 0.1rem;
 }
 
 .detalhes-form .inf span {
@@ -483,3 +489,16 @@ ol {
 }
 
 /*perfilforador*/ 
+
+/*modais*/
+.botn-geral input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="button"].btn-block {
+    margin-top: 1rem;
+    width: 50%;
+    margin-left: 1rem;
+}
+
+.editarcurso .form-group {
+    margin-top: 0.19rem; 
+    width: 100%;
+}
+/*modais*/

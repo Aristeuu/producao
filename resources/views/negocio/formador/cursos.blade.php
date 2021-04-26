@@ -4,7 +4,7 @@
 
 		@include('layouts.menu')
 	    
-	    <div class=" br-pagebody">
+	    <div class=" br-pagebody editarcurso">
        <cursoss v-bind:titulos="['']"
 
       v-bind:itens="{{json_encode($listMeuscursos)}}"
@@ -87,8 +87,10 @@
                  </div>
              </div>
            </div> 
-           <hr>
-              <input type="submit" value="Enviar" class="btn btn-info" name="Cadatrar">                                      
+          
+               <div class="botn-geral">
+                     <input type="submit" value="Enviar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
+                    </div>                                       
        </formulario>
         <span slot="botoes">
           <input form="formEditar" type="submit" value="Enviar" class="btn btn-info" name="Cadatrar">                     
