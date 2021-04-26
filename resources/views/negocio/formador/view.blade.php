@@ -223,7 +223,7 @@
                     <div class="btn-modul">
                       
                       <span class="btn bttn-edit" onclick="Eliminar({{$modulo->id}})"><i class="fa fa-trash" style="color:red;"></i></span>
-                    <modal_link tipo="button" nome="editarModulo" titulo="" css="btn btn-outline-teal" css="fa fa-edit" v-bind:item="{{json_encode($modulo)}}" url="/edit/"></modal_link>
+                    <modal_link tipo="button" nome="editarModulo" titulo="" css="btn btn-outline-teal" clas="fa fa-edit" v-bind:item="{{json_encode($modulo)}}" url="/edit/"></modal_link>
                     </div>
                   </a>
                  
@@ -247,7 +247,7 @@
                                                 <td align="left"><i class="ico iduracao"></i>{{$aulas->aula_duracao}}</td>
                                                 <td align="left"><i class="fa fa-eye"></i>visto</td>
                                                 <td align="left"><i class="fa fa-graduation-cap"></i>Aula</td>
-                                                <td align="left" class="m-left">                    <modal_link tipo="button" nome="editarAula" titulo="Editar" css="btn btn-outline-teal" v-bind:item="{{json_encode($aulas)}}" url="/edit/"></modal_link></td>
+                                                <td align="left" class="m-left">                    <modal_link tipo="button" nome="Aulaedit" titulo="" clas="fa fa-edit" css="btn btn-outline-teal" v-bind:item="{{json_encode($aulas)}}" url="/edit/"></modal_link></td>
                                                 
                                                 <td align="left"><a href="/del/{{$aulas->id}}" style="color:red"><i class="fa fa-trash" style="color:red"></i>Eliminar</a></td>
                                           
@@ -299,7 +299,7 @@
             <!--end Modal-->
 
 
-            <modal nome="EditarAula" titulo="Editar Aula">
+            <modal nome="Aulaedit" titulo="Editar Aula">
               <formulario action="/updateAula" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
                 {{ csrf_field() }}
 
