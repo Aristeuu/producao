@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="bd rounded table-responsive">
+        <div class="bd rounded table-responsive tabl-aluno">
                 <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -10,24 +10,23 @@
                 <tbody>
                     <tr v-for="(item,index) in itens">
                         <td>{{item.id}}</td>
-                         <div class="card-profile-img">
-                            <span v-if="item.foto!=null">
-                            <td><img :src="'http://localhost/yetoafrica/storage/app/public/'+item.foto" alt="" class="wd-32 rounded-circle"></td>                        
-                            </span>
-                            <span v-if="item.foto==null">
-                            <td><img :src="'http://localhost/yetoafrica/storage/app/public/utilizadores/semfoto.jpg'" alt="" class="wd-32 rounded-circle"></td>                        
-                            </span>
-                         </div>                            
+                         
+                           
+                            <td v-if="item.foto!=null"><img :src="'http://localhost/producao/storage/app/public/'+item.foto" alt="" class="wd-32 rounded-circle"></td>                        
+                        
+                           
+                            <td v-if="item.foto==null"><img :src="'http://localhost/producao/storage/app/public/utilizadores/semfoto.jpg'" alt="" class="wd-32 rounded-circle"></td>                        
+                         
+                                                  
                         <td>{{item.name}}</td>
                         <td>{{item.email}}</td>
                         <td>{{item.curso_nome}}</td>
                         <td>{{item.valor}} kz</td>
-                        <span v-if="item.status=='PE'">
-                            <td class="btn btn-warning">PENDENTE</td>
-                        </span>
-                        <span v-if="item.status=='PA'">
-                            <td class="btn btn-success">PAGO</td>
-                        </span>
+                        
+                            <td class="btn btn-warning " v-if="item.status=='PE'" style="margin-top:0.2rem">PENDENTE</td>
+                  
+                            <td class="btn btn-success" v-if="item.status=='PA'">PAGO</td>
+                     
                         
                     </tr>
                 </tbody>
@@ -49,3 +48,16 @@
         props:['titulos','itens']
     }
 </script>
+
+<style>
+
+.wd-32 {
+    width: 50px;
+}
+.tabl-aluno  td img{
+   margin-top: -0.6rem;
+}
+
+
+
+</style>
