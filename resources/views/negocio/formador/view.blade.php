@@ -1,15 +1,5 @@
 @extends('layouts.admin')
-<modulo
-v-bind:titulos="['Título','Descricao','Curso']"
 
-v-bind:itens="{{json_encode($listamodulos)}}"
- 
-sms="{{Session::get('sms')}}"
-
->
-
-
-</modulo>
 @section('content')
 
 		@include('layouts.menu') 
@@ -325,7 +315,7 @@ sms="{{Session::get('sms')}}"
                         <input type="text" class="form-control" placeholder="Título da aula" type="text" id="aula_titulo" name="aula_titulo" v-model="$store.state.item.aula_titulo" required >
                         
                       </div>
-                    </div><!-- col-4 -->                                                                                           
+                    </div><!-- col-4 -->                                                                                            
                     <div class="col-lg-12">
                       <div class="form-group mg-b-10-force">
                         <label class="form-control-label">Descrição: <span class="tx-danger">*</span></label>                            
