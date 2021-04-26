@@ -12,7 +12,7 @@
                         </div>
  <div class="row cursos py-4" >                                 
     <div class="col-md-6 col-lg-3 col-xs-12 col-sm-6"   v-for="(item,index) in lista" >
-          <img class="img-responsive" :src="'http://localhost/yetoafrica/storage/app/public/'+item.curso_img" style="max-width: 100%;width: 350px;height: 250px;	object-fit: cover;">
+          <img class="img-responsive" :src="'http://localhost/producao/storage/app/public/'+item.curso_img" style="max-width: 100%;width: 350px;height: 250px;	object-fit: cover;">
                             <div class="white-box">
                                 <h3 class="m-t-20 m-b-20"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{item.curso_nome}}</font></font></h3>
                                 <div class="text-muted"><span class="m-r-10"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{item.curso_preco}}</font></font></span> <a class="text-muted m-l-10" href="#">kz<font style="vertical-align: inherit;"><font style="vertical-align: inherit;"></font></font></a></div>

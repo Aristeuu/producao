@@ -6,48 +6,37 @@
 
 @include('layouts.menu')
      
-  
 
-               <div class="rows cursos py-3">
+<div class="br-section-aluno">
+        <div class="row">
                    
  @forelse ($compras as $pedido)
 
 @foreach ($pedido->pedido_cursos_itens as $pedido_curso)
 
+    <div class="col-md-3">   
+         <div class="card" style="width: 21rem;">
+            <img src="http://localhost/producao/storage/app/public/{{ $pedido_curso->curso->curso_img }}" class="card-img-top" alt="..." style="	max-width: 100%;	width: 360px; height: 260px; object-fit: cover;">
+            <div class="card-body">
+            <p class="card-text">{{$pedido_curso->curso->curso_nome}}</p>
 
-         <div class="col-3">
-                <div class="caixa">
-            
+            <div class="progress mg-b-20">
+            <div class="progress-bar progress-bar-striped wd-25p bg-info" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+
+           <div class="btnc-aluno">
+              <button class="btn btn-outline-info active "><a href="/aulaestudante/{{$pedido_curso->curso->id}}">ver</a></button>
+              <button class="btn btn-outline-warning active "><a href="/pagamento/{{$pedido_curso->curso_id}}">pagar</a></button>
+           </div>
+
+            </div>
+            </div>
+
+            </div>
+                                            
                                    
-                                    <img  class="card-img-top img-fluid" src="http://producao.yetoafrica.com/storage/app/public/{{ $pedido_curso->curso->curso_img }}" style="	max-width: 100%;	width: 360px; height: 260px; object-fit: cover;" alt="a" >
-                                <div class="del-curso">
-                                         <p class="card-text">{{$pedido_curso->curso->curso_nome}}</p>
-                                       
-                                        <div class="progress mg-b-20">
-                                        <div class="progress-bar wd-35p"
-                                        role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">35</div>
-                                        </div>
-                                        <a href="/aulaestudante/{{$pedido_curso->curso->id}}" class="btn btn-teal btn-with-icon">
-                                        <div class="ht-30">
-                                            <span class="icon wd-20"><i class="fa fa-send"></i></span>
-                                            <span class="pd-x-12">Ver</span>
-                                          </div>
-                                          </a>
-                                        @if($pedido_curso->status=='PE')
-                                            
-                                            <a href="/pagamento/{{$pedido_curso->curso_id}}"  class="btn btn-info btn-with-icon">                                       
-                                            <div class="ht-30">
-                                            <span class="icon wd-20"><i class="fa fa-send"></i></span>
-                                            <span class="pd-x-12">Pagar</span>
-                                          </div></a>
-                                            
-                                       
-                                        @endif
-                                        </div>
-                                
-                       </div> 
-                </div>
-                
+                                  
+                               
  @endforeach
 
                     @empty
@@ -105,8 +94,7 @@
 
         
         
-        
-        
+   </div>
        </div> 
                                 
 @endcan

@@ -50285,7 +50285,7 @@ var render = function() {
               },
               attrs: {
                 src:
-                  "http://localhost/yetoafrica/storage/app/public/" +
+                  "http://localhost/producao/storage/app/public/" +
                   item.curso_img
               }
             }),
