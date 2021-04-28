@@ -2,6 +2,10 @@ html {
     overflow-x: hidden;
 }
 
+.texto-white {
+    color: white;
+}
+
 .profil {
     margin-top: 3rem;
     margin-left: 15rem;
@@ -513,4 +517,40 @@ input[type="button"].btn-block {
 }
 
 
-/*modais*/
+/*cards do aluno*/
+
+@media (min-width: 992px) {
+    .br-section-aluno {
+        padding: 50px;
+    }
+}
+
+@media (min-width: 768px) {
+    .br-section-aluno .col-md-3 {
+        flex: 0 0 25%;
+        max-width: 24%;
+    }
+}
+
+.btnc-aluno .btn a {
+    color: white;
+}
+
+
+/*crads do aluno*/
+
+
+/*assistir do aluno*/
+
+.bg-color {
+    background-color: #212529;
+}
+
+
+/*assistir do aluno*/
+
+@media (min-width: 576px) {
+    .br-pagebody {
+        padding: 0 350px;
+    }
+}
