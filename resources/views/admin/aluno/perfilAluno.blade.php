@@ -28,7 +28,7 @@
 						 <div class="col-lg-12">
 						  <div class="form-group">
 							<label class="form-control-label">Senha:</label>
-							<input class="form-control" type="password"   value="senha" name="password" >
+							<input class="form-control" type="password"  name="password" >
 						  </div>
 						</div><!-- col-4 -->
 					  

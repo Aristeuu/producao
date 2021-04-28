@@ -217,6 +217,7 @@
                   <h4 class="lh-3 mg-b-20"><a href="" class="tx-inverse hover-primary">Saldo disponível: {{number_format($saldoDisponivel)}} Kz</a></h4>
                   <formulario  id="formSolicitar" action="{{route('operacoes.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
                     {{ csrf_field() }}
+                  <input type="hidden" name="saldoDisponivel" value="{{$saldoDisponivel}}">
                     <div class="input-group">
                       <div class="input-group-prepend">
                           <span class="input-group-text">AKZ</span>

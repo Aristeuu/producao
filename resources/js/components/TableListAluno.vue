@@ -22,7 +22,7 @@
                         <td>{{item.email}}</td>
                         <td>{{item.curso_nome}}</td>
                         <td>{{item.valor}} kz</td>
-                        
+                        <td>{{item.created_at}}</td>
                             <td class="btn btn-warning " v-if="item.status=='PE'" style="margin-top:0.2rem">PENDENTE</td>
                   
                             <td class="btn btn-success" v-if="item.status=='PA'">PAGO</td>

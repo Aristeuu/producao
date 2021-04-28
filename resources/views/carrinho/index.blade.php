@@ -1,10 +1,10 @@
 @php
 
-define('HOME', 'http://yetoafrica.com');
+define('HOME', 'http://localhost/yetoafrica');
 define('THEME', 'carrinho');
 
 define('INCLUDE_PATH', HOME . '/public/');
-define('REQUIRE_PATH', '/public/' . THEME);
+define('REQUIRE_PATH', '/' . THEME);
 
 @endphp
 <!DOCTYPE html>

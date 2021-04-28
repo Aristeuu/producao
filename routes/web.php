@@ -82,8 +82,8 @@ Route::resource('publicacao', 'Admin\PublicacaoController');
 Route::post('/comentario', 'Admin\ComentarioController@store')->name('comentario.store');
 Route::post('/editarperfil/{id}', 'Admin\UtilizadorController@editarPerfil');
 Route::post('/editarperfilAluno/{id}', 'Admin\UtilizadorController@editarPerfilAluno');
-
 Route::get('/academias/yeto', 'Admin\AcademiaController@academiasfront');
+Route::post('/producao','Admin\CoproducaoController@store')->name('coproducao.store');
 
 
 

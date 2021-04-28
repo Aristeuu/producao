@@ -18,6 +18,14 @@ class Formador extends Model
                     ->paginate(10);
     }
 
+    //Função que retorna os formadores
+    public static function listarFormadores(){
+      return DB::table('formador')
+                  ->join('users', 'users.id', '=', 'formador.id_user')
+                  ->select('users.tipo','users.email','formador.id','users.name','users.foto')
+                  ->where('users.tipo','formador')
+                  ->get();
+  }
    
     public static function verTipo($id){
         return DB::table('perfil')
@@ -46,6 +54,17 @@ public static function listarFormadorCurso($id){
               ->select('users.tipo','perfil.pais','perfil.bilhete','users.email','formador.id','users.name')
               ->where('users.id',$id)
               ->paginate(10);
+}
+
+
+//função que retorna o formador pelo id do curso
+public static function FormadorCurso($id){
+  return DB::table('formador')
+              ->join('users', 'users.id', '=', 'formador.id_user')             
+              ->join('cursos', 'cursos.id_formador','=','formador.id')
+              ->select('users.tipo','users.email','formador.id','users.name','users.foto')
+              ->where('cursos.id_formador',$id)
+              ->get();
 }
 
 //Função que retorna o total de valores angariado por um formador em todos os cursos
@@ -123,7 +142,7 @@ public static function alunosCursos($idFormador){
   ->join('aluno','aluno.id_user', '=', 'users.id')
 //  ->join('perfil', 'perfil.id_user', '=', 'users.id')
   ->join('formador', 'formador.id', '=', 'cursos.id_formador')
-  ->select('pedidos_cursos.valor','pedidos_cursos.status','users.name','users.email','users.id','cursos.curso_nome','users.foto')
+  ->select('pedidos_cursos.valor','pedidos_cursos.status','pedidos_cursos.created_at','users.name','users.email','users.id','cursos.curso_nome','users.foto')
   //->groupBy('pedidos_cursos.valor','perfil.nome','users.tipo','perfil.foto','users.email','users.id')
   ->where('formador.id',$idFormador)
   ->get();  

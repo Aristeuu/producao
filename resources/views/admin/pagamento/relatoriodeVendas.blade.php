@@ -64,11 +64,11 @@
             <div class="row input-daterange">
               <div class="col-md-4">
                 <label>De</label>
-                 <input type="date" name="from_date" id="from_date" class="form-control" placeholder="from Date">
+                 <input type="date" name="from_date" id="from_date" class="form-control" placeholder="from Date" required>
                </div>
                <div class="col-md-4">
                  <label>Para</label>
-                 <input type="date" name="to_date" id="to_date" class="form-control" placeholder="to Date">
+                 <input type="date" name="to_date" id="to_date" class="form-control" placeholder="to Date" required>
                </div>
                <div class="col-md-4" style="top:1.4rem;">
               
@@ -80,17 +80,22 @@
                 
      
       <pagina tamanho="12">
-        <painel >
-         <tabela_relatorio v-bind:titulos="['#','Curso','Valor','Data']" v-bind:itens="{{json_encode($listCursos)}}"></tabela_relatorio>
+        <painel>
+          @if ($alunosCurso->isNotEmpty())
+          <Aluno_lista v-bind:titulos="['#','Foto','Nome','EMAIL','CURSO','VALOR','DATA','STATUS']" v-bind:itens="{{json_encode($alunosCurso)}}"></Aluno_lista> 
+          @else
+            <span>Sem Registos</span>
+          @endif
+         
         </painel>
       </pagina>
             
          
           
        
-        
+      
          
-            
+     
                 
           
                 

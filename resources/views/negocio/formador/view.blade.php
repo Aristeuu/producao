@@ -43,14 +43,33 @@
                 </li>
                   
               </ul>
+              <h4 class=" tx-12 d-inline-block mg-b-10 texto-12">Coprodução</h4>
+            <div class="row">
+              <div class="col col-md-2">
+                <label>
+                  <p>
+                  <strong>Plataforma</strong> 10%
+                  </p>
+                </label> 
+              </div>
+              <div class="card-profile-img">                
+                <img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
+                </div><!-- card-profile-img -->      
+                {{$id_formador->name}}
+                <modal_link  nome="coproducao" titulo="coprodução" css="btn btn-outline-info active" clas="fa fa-user-plus"></modal_link>
+            </div>
+           
 
 
-              <div class="btn-analise" style="margin-top:12rem">
+              <div class="btn-analise" style="margin-top:4rem">
                   
                   @if($listaCurso->curso_status==0)
 									
-									<i class="ico alert"></i><span class="">Em análise</span>
-									
+									<td>
+                                            
+                    <button class="btn btn-outline-warning active btn-block ">Em análise</button>
+                                  
+                </td>
 									@endif
 									
 									
@@ -100,6 +119,65 @@
             
               
         </div>
+
+        <!-- modal adicionar modulo-->
+        <modal nome="coproducao" titulo="Adicionar Coprodução">
+        <formulario action="{{route('coproducao.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
+            {{ csrf_field() }}
+
+            <input type="text" id="custId" name="id_curso" value="{{$listaCurso->id}}">
+            <input type="text" id="id_formador" name="id_formador" value="{{$id_formador->id}}">
+            
+                       
+            <div class="form-layout form-layout-1">
+              <div class="row mg-b-25">                              
+                <div class="col-lg-12">
+                  <label class="ckbox">
+                    <input type="checkbox" id="coYeto" name="coYeto">
+                    <span>Yetoáfrica</span> 50%
+                  </label> 
+                  <!-- col-4 -->  
+                </div>  
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label">Formadores: <span class="tx-danger">*</span></label>                            
+                    <select  name="id_coP" class="form-control">                                
+                      @foreach($listaFormadores as $formador)
+                        <option value="{{$formador->id}}">{{$formador->name}}</option>	
+                      @endforeach						
+                    </select>
+                  </div>
+                </div><!-- col-12 --> 
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label class="form-control-label">Percentagem %: <span class="tx-danger">*</span></label>                            
+                    <div class="input-group">                      
+                      <input class="form-control" type="text" name="percenC" required placeholder="10">
+                      <div class="input-group-append">
+                          <span class="input-group-text">%</span>
+                      </div>
+                  </div>
+                  </div>
+                </div><!-- col-12 -->                                                             
+              </div><!-- row -->
+  
+            </div>        
+  
+                       
+               <div class="botn-geral">
+             <input type="submit" value="Enviar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
+            </div>     
+        
+          </formulario>
+          <span slot="botoes">
+            <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+          </span>
+        </modal>
+
+
+        <!--end Modal's-->
+
+
       
         <!-- modal adicionar modulo-->
            <modal nome="modulo" titulo="Adicionando Modulo">
@@ -247,7 +325,14 @@
                                                 <td align="left"><i class="ico iduracao"></i>{{$aulas->aula_duracao}}</td>
                                                 <td align="left"><i class="fa fa-eye"></i>visto</td>
                                                 <td align="left"><i class="fa fa-graduation-cap"></i>Aula</td>
-                                                <td align="left" class="m-left">                    <modal_link tipo="button" nome="Aulaedit" titulo="" clas="fa fa-edit" css="btn btn-outline-teal" v-bind:item="{{json_encode($aulas)}}" url="/edit/"></modal_link></td>
+                                                @if($aulas->aula_status==0)	
+									                                <td align="left"><a href="/admin_aulafree/{{$aulas->id}}" class="btn-danger">Grátis Off</a></td>
+                                                @endif
+                                    
+                                                @if($aulas->aula_status==2)	
+									                                <td align="left"><a href="/admin_aulades/{{$aulas->id}}" class="btn-success">Grátis On</a></td>									    
+                                                @endif
+                                                <td align="left" class="m-left"><modal_link tipo="button" nome="Aulaedit" titulo="" clas="fa fa-edit" css="btn btn-outline-teal" v-bind:item="{{json_encode($aulas)}}" url="/edit/"></modal_link></td>
                                                 
                                                 <td align="left"><a href="/del/{{$aulas->id}}" style="color:red"><i class="fa fa-trash" style="color:red"></i></a></td>
                                           

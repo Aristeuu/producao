@@ -22,6 +22,7 @@ define('SCRIPT', 'http://localhost:8000');
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 	    <link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/bracket.css">
 		<link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/newstyle.css">
+		
 
 		<!-- Styles -->
 		
@@ -78,9 +79,8 @@ define('SCRIPT', 'http://localhost:8000');
 	<script src="http://maps.google.com/maps/api/js?key=AIzaSyAq8o5-8Y5pudbJMJtDFzb8aHiWJufa5fg"></script>
 	<script src="<?=SCRIPT?>/js/app.js"></script>
 	<script src="{{ asset('/js/bracket.js') }}"></script>
-	
 
-	
+
 
 
 	<script src="{{ asset('/js/gmaps.min.js') }}"></script>

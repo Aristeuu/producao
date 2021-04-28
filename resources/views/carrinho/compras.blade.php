@@ -16,7 +16,7 @@
 
     <div class="col-md-3">   
          <div class="card" style="width: 21rem;">
-            <img src="http://localhost/producao/storage/app/public/{{ $pedido_curso->curso->curso_img }}" class="card-img-top" alt="..." style="	max-width: 100%;	width: 360px; height: 260px; object-fit: cover;">
+            <img src="http://localhost/yetoafrica/storage/app/public/{{ $pedido_curso->curso->curso_img }}" class="card-img-top" alt="..." style="	max-width: 100%;	width: 360px; height: 260px; object-fit: cover;">
             <div class="card-body">
             <p class="card-text">{{$pedido_curso->curso->curso_nome}}</p>
 
@@ -26,7 +26,10 @@
 
            <div class="btnc-aluno">
               <button class="btn btn-outline-info active "><a href="/aulaestudante/{{$pedido_curso->curso->id}}">ver</a></button>
-              <button class="btn btn-outline-warning active "><a href="/pagamento/{{$pedido_curso->curso_id}}">pagar</a></button>
+             @if ($pedido_curso->status=='PE')
+             <button class="btn btn-outline-warning active "><a href="/pagamento/{{$pedido_curso->curso_id}}">pagar</a></button>   
+             @endif
+              
            </div>
 
             </div>
@@ -55,7 +58,7 @@
                       <div class="col-3">
                          <div class="caixa">
                                            
-                              <a href="/detalhes/{{base64_encode($curso->id)}}">   <img src="http://producao.yetoafrica.com/storage/app/public/{{$curso->curso_img}}" class="card-img-top img-fluid" style="max-width: 100%;	width: 360px; height: 260px; object-fit: cover;" alt="a" /></a>
+                              <a href="/detalhes/{{base64_encode($curso->id)}}">   <img src="http://localhost/yetoafrica/storage/app/public/{{$curso->curso_img}}" class="card-img-top img-fluid" style="max-width: 100%;	width: 360px; height: 260px; object-fit: cover;" alt="a" /></a>
                                         
                                    
                                         <div class="del-curso">

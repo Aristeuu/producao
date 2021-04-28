@@ -174,11 +174,17 @@ public function view($id){
     $src=config('app.image');
     //////////////////////////////////      
 
-    
+   // dd($listaCurso);
     $listamodulos=Modulos::listaModul($id1);
     $contMod  =$listamodulos->count();
     $listAulas=Aulas::listaAulaCurso($id1);
-    $contAula = $listAulas->count();        
+    $contAula = $listAulas->count(); 
+
+
+    $buscarFormador=Formador::FormadorCurso($listaCurso->id_formador);       
+    
+    $id_formador = $buscarFormador[0];
+    $listaFormadores = Formador::listarFormadores();
     
    
    foreach($listaCategorias as $lista){
@@ -188,7 +194,7 @@ public function view($id){
 
 
    
-  return view('negocio.formador.view',compact('src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
+  return view('negocio.formador.view',compact('listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
 
 }
 

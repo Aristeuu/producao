@@ -191,6 +191,7 @@ else{
         $conta = $request->input('conta_bancaria');
         $iban = $request->input('iban');
         $titular = $request->input('titular');
+       // dd($img);
         
         
         if($img!=null){

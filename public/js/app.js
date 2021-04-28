@@ -44363,6 +44363,8 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(item.valor) + " kz")]),
               _vm._v(" "),
+              _c("td", [_vm._v(_vm._s(item.created_at))]),
+              _vm._v(" "),
               item.status == "PE"
                 ? _c(
                     "td",
@@ -50387,7 +50389,7 @@ var render = function() {
               },
               attrs: {
                 src:
-                  "http://localhost/producao/storage/app/public/" +
+                  "http://localhost/yetoafrica/storage/app/public/" +
                   item.curso_img
               }
             }),
