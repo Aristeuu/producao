@@ -1,6 +1,6 @@
 
 @can('est')
- <div class=" br-profile-page">
+ <div class=" br-profile-page topo">
      
 
       <div class="card shadow-base bd-0 rounded-0 widget-4">

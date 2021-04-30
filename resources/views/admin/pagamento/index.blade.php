@@ -3,7 +3,7 @@
 @section('content')
 		@include('layouts.menu')
 		
-		<div class=" br-pagebody">
+		<div class=" br-pagebody-pagamento">
 
 		<div class="mg-t-20 mg-lg-t-0">
             <div class="card bd-0 shadow-base widget-15 ht-100p">

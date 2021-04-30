@@ -24,7 +24,7 @@ class Aulas extends Model
    
         $listaBlog=DB::table('aulas')
         ->join('modulo','modulo.id','=','aulas.modulo_id')
-        ->select('aulas.id','aulas.aula_titulo','aulas.aula_duracao','modulo.modulo_titulo')
+        ->select('aulas.id','aulas.aula_titulo','aulas.aula_duracao','aulas.aula_conteudo','aulas.aula_link','modulo.modulo_titulo')
         ->where('modulo.id',$id)
          ->paginate(10);
         return $listaBlog;

@@ -2,89 +2,131 @@
 
 @section('content')
 
-		@include('layouts.menu') 
-	
-<div class="br-pagebody detalhes-form">
-	<div class="br-section-wrapper">
-      <div class="row ht-100p">
+    @include('layouts.menu') 
+    
 
-          <div class="col-md-4">
-            <div class="thumb"><img src="{{$src}}{{$listaCurso->curso_img}}" width="400px"></div>   
+    <div class="br-pagebody view-aula">
+      <div class="br-section-wrapper">
+
+      <div class="container-fluid">
+        <div class="row">
+
+        <div class="col-sm-8 col-md-6">
+
+        <div class="imagem">
+          <img src="{{$src}}{{$listaCurso->curso_img}}">
+        </div>
+        </div>
+
+        
+        <div class="col-sm-8 col-md-6">
+
+        <div class="informacoes-aula">
+          <h4>Formação de {{$listaCurso->curso_nome}}</h4>
+        </div>
+
+        <div class="conteudo-aula">
+            <div class="row">
+        <div class="col-sm-4 col-md-4">
+          <i class="fa fa-calendar tx-30"></i>
+                  <small>DATA DE PUBLICAÇÃO</small>
+                  <span>{{$listaCurso->curso_data}}</span>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <i class="fa fa-bars tx-30"></i>
+                  <small>Módulos</small>
+                  <span>{{$contMod}}</span>
           </div>
 
-          <div class="col-8 inf">
-              <div class="detal">
-                <h4 class=" tx-12 d-inline-block mg-b-10 texto-12">Formação de {{$listaCurso->curso_nome}}</h4>
-              <ul>
-                  <li> 
-                      
-                  <i class="fa fa-calendar"></i>
-                  <small>DATA DE PUBLICAÇÃO:</small>
-                  <span>{{$listaCurso->curso_data}}</span>
-                  
-                
-                </li>
-                   <li> 
-                      
-                  <i class="fa fa-bars"></i>
-                  <small>Módulos:</small>
-                  <span>{{$contMod}}</span>
-                  
-                
-                </li>
-
-                    <li> 
-                      
-                  <i class="fa fa-graduation-cap"></i>
-                  <small>Aulas:</small>
+        <div class="col-sm-4 col-md-4">
+           <i class="fa fa-graduation-cap tx-30"></i>
+                  <small>Aulas</small>
                   <span>{{$contAula}}</span>
-                  
-                
-                </li>
-                  
-              </ul>
+</div>
+
+        </div>
+      </div>
 
 
-              <div class="btn-analise" style="margin-top:12rem">
+      
+            
+
+        <div class="btn-demo">
                   
                   @if($listaCurso->curso_status==0)
-									
-									<i class="ico alert"></i><span class="">Em análise</span>
+
+                  <button class="btn btn-outline-warning ">Em análise</button>
+								
 									
 									@endif
 									
 									
 									@if($listaCurso->curso_status==1)
 
-                      <td>
+                      
                                             
-                          <button class="btn btn-outline-teal active btn-block ">Aprovado</button>
+                          <button class="btn btn-outline-success ">Aprovado</button>
                                         
-                      </td>
-                      <button class="btn btn-outline-teal disabled btn-block mg-b-10"><a  href="/disp/{{$listaCurso->id}}" >Disponibilizar</a> </button>
+                     
+                      <button class="btn btn-outline-success disabled"><a  href="/disp/{{$listaCurso->id}}" >Disponibilizar</a> </button>
                                         
                   @endif
                                         
                   @if($listaCurso->curso_status==3)
                                         
-                    <td> <button class="btn btn-outline-success active btn-block">Público</button></td>
-                    <button class="btn btn-outline-danger active btn-block mg-b-10"> <a  href="/dispOff/{{$listaCurso->id}}">Desativar</a></button>
+                     <button class="btn btn-outline-success active">Público</button>
+                    <button class="btn btn-outline-danger active "> <a  href="/dispOff/{{$listaCurso->id}}">Desativar</a></button>
                                                                  
                   @endif
 
               </div>
-									
-									
-              </div>
-									
-									
-									
 
-          </div>
+
+
+        </div>
+
+        </div>
+      </div>
+
+
+
+
+
 
       </div>
     </div>
-</div>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <div class="br-pagebody">

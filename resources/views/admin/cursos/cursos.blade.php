@@ -54,7 +54,7 @@
    </div>
  </section>
 
- <section id="mu-course-content">
+ <section>
    <div class="container">
      <div class="row">
     

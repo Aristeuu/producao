@@ -96,10 +96,17 @@ class EstudanteAulaController extends Controller
          $aluno_id    =  $recebe[0]->id;       
          $comprovante = Pagamentos::cursoComprovante($pedido_id,$aluno_id);
 
+         
+
+         $primeiraAula = Aulas::listaAulaModulo($listamodulos[0]->id);
         
-      // dd($comprovante);
         
-         return view('negocio.estudante.aula',compact('comprovante','id_curso','curso','listAulas','listamodulos','compras'));
+
+         
+        
+      
+        
+         return view('negocio.estudante.aula',compact('primeiraAula','comprovante','id_curso','curso','listAulas','listamodulos','compras'));
     }
 
     /**
@@ -111,7 +118,8 @@ class EstudanteAulaController extends Controller
         $listAula=Aulas::find($id_aula);
         $curso=Aulas::listaCurso($id_aula);
         $listAulas=Aulas::listaAulaCurso($curso[0]->id);
-        $listamodulos=Modulos::listaModul($curso[0]->id);     
+        $listamodulos=Modulos::listaModul($curso[0]->id); 
+            
              
         $recebe = Aluno::listarAlunologado(Auth::id());
         
@@ -120,7 +128,7 @@ class EstudanteAulaController extends Controller
          $aluno_id   =  $recebe[0]->id;       
          $comprovante = Pagamentos::cursoComprovante($pedido_id,$aluno_id);
 
-              
+       // dd($listAulas);      
         
         return view('negocio.estudante.aulaview',compact('listAula','comprovante','id_curso','curso','listAulas','listamodulos','compras'));
     }

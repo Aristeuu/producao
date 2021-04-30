@@ -48,66 +48,6 @@ html {
     background-image: linear-gradient(to right, #212529 0%, #06d3ef 100%);
 }
 
-.col-sm-4,
-.col-sm-5,
-.col-sm-6,
-.col-sm-7,
-.col-sm-8,
-.col-sm-9,
-.col-sm-10,
-.col-sm-11,
-.col-sm-12,
-.col-sm,
-.col-sm-auto,
-.col-md-1,
-.col-md-2,
-.col-md-3,
-.col-md-4,
-.col-md-5,
-.col-md-6,
-.col-md-7,
-.col-md-8,
-.col-md-9,
-.col-md-10,
-.col-md-11,
-.col-md-12,
-.col-md,
-.col-md-auto,
-.col-lg-1,
-.col-lg-2,
-.col-lg-3,
-.col-lg-4,
-.col-lg-5,
-.col-lg-6,
-.col-lg-7,
-.col-lg-8,
-.col-lg-9,
-.col-lg-10,
-.col-lg-11,
-.col-lg-12,
-.col-lg,
-.col-lg-auto,
-.col-xl-1,
-.col-xl-2,
-.col-xl-3,
-.col-xl-4,
-.col-xl-5,
-.col-xl-6,
-.col-xl-7,
-.col-xl-8,
-.col-xl-9,
-.col-xl-10,
-.col-xl-11,
-.col-xl-12,
-.col-xl,
-.col-xl-auto {
-    position: relative;
-    width: 100%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin: 0 0 3rem;
-}
 
 .btn-block {
     display: block;
@@ -149,6 +89,7 @@ html {
     margin: 0 0 19px;
 }
 
+.modal-body 
 .col-md-4,
 .col-md-5,
 .col-md-6,
@@ -365,69 +306,6 @@ ol {
 /*responsividade*/
 
 
-/*dashboard*/
-
-.dashboard .roundede {
-    width: 330px;
-    height: 100px;
-    border: 1px solid #a2a1a1;
-    border-radius: 1.4rem;
-}
-
-.dashboard .pd-x-20 {
-    padding-left: 33px;
-    padding-right: 20px;
-}
-
-.dashboard .row-sm>div {
-    padding-left: 30px;
-    padding-right: 10px;
-}
-
-.primeiro .tx-whitee {
-    color: blue;
-}
-
-.segundo .tx-whitee {
-    color: teal;
-}
-
-.terceiro .tx-whitee {
-    color: red;
-}
-
-.quarto .tx-whitee {
-    color: green;
-}
-
-.tx-10 {
-    font-size: 15.2px;
-}
-
-.tx-white-8 {
-    color: #5a5656;
-}
-
-.tx-white {
-    color: #5a5656;
-}
-
-.terceiro .mg-l-20 {
-    margin-left: 50px;
-}
-
-.quarto .mg-l-20 {
-    margin-left: 50px;
-}
-
-.moviment-das {
-    
-    font-size: 1rem;
-    color: rgb(93 82 82);
-}
-
-
-/*dashboard*/
 
 
 .tabl-lis .bd-gray-300 {
@@ -534,9 +412,727 @@ ol {
 }
 /*assistir do aluno*/
 
+
+/*assistir do aluno*/
 @media (min-width: 576px){ 
-.br-pagebody {
+.br-pagebody-pagamento {
+    margin-top: 4rem;
     padding: 0 350px;
 }
 }
 
+@media (min-width: 768px){ 
+.br-pagebody-pagamento {
+    margin-top: 2rem;
+    padding: 0 30px;
+}
+}
+
+@media (min-width: 576px){ 
+.estudent {
+    width: auto;
+}
+}
+
+
+
+/*assistir do aluno*/
+
+.br-pagebody-pagamento .mg-t-20 {
+    margin-top: 10px;
+    margin-bottom: 4rem;
+}
+
+
+#sidebar-wrapper{
+    min-height: 100vh;
+    background: #17A2B8;
+}
+#side-bar .card-header
+{
+ 
+    border-top: 1px solid rgb(0, 0, 0, 0.125);
+}
+
+#side-bar .card
+{
+ 
+    border-top: 1px solid rgb(0, 0, 0, 0.125);
+}
+
+
+
+
+
+.navigation-module-pages-info {
+    float: right;
+    display: table;
+}
+
+
+
+.progress-indicator {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.progress-indicator .progress-indicator-bar {
+    margin: 0 18px 0 0;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    vertical-align: middle;
+}
+svg {
+    overflow: hidden;
+}
+img, svg {
+    vertical-align: middle;
+}
+
+.progress-indicator .progress-indicator-outer {
+    stroke-width: 1px;
+}
+
+.progress-indicator .progress-indicator-initial .progress-indicator-inner {
+    stroke: #b92d1e;
+}
+.progress-indicator .progress-indicator-inner {
+    stroke-linecap: round;
+    stroke-width: 2px;
+    transition: all .3s ease-in;
+    transition-property: stroke-dashoffset,stroke;
+}
+
+.progress-indicator .progress-indicator-percentage {
+    text-anchor: middle;
+    transition: fill .3s ease-in;
+}
+
+
+
+
+/*menu lateral do aluno*/
+
+#sidebar-heading {
+    margin-left: 4.7rem;
+    width: 15rem;
+    left: -100%;
+    margin-bottom: -2rem;
+
+}
+
+#sidebar-heading .progress-indicator{
+    padding: 2rem;
+    text-align: center;
+    margin-left: 4.7rem;
+}
+
+
+
+
+
+
+.br-sideleft {
+    width: 18.3rem;
+    min-height: 100vh;
+}
+
+.br-sideleft .pd-x-10 {
+    padding-left: 80px;
+    padding-right: 10px;
+    margin-top: -6rem;
+    margin-bottom: 3rem;
+}
+
+.complentar .btn-sucess.disabled, .btn-sucess:disabled {
+    color: #fff;
+    background-color: #F49917;
+    border-color: #F49917;
+    margin-top: 3rem;
+}
+
+.aula-aluno .br-section-label {
+    color: #343a40;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.aula-aluno .br-section-wrapper {
+    padding: 30px 20px;
+    border-radius: 3px;
+}
+
+.aula .br-section-wrapper {
+    padding: 30px 20px;
+    border-radius: 3px;
+}
+
+.card-body:hover{
+    
+}
+
+@media (min-width: 992px){ 
+.aula-aluno .br-mainpanel {
+    margin-left: 5px;
+}
+ }
+
+@media (min-width: 576px){ 
+
+.aula-aluno .br-pagebody {
+    padding: 0 0px;
+}
+}
+
+.aula-aluno .br-pagebody {
+    margin-top: 10px;
+    padding: 0 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:768px){
+    #sidebar-wrapper{
+        margin-left: -18rem;
+    }
+    #sidebar-wrapper.toggled{
+        margin-left: 0;
+    }
+}
+
+
+.accordion .card-header a {
+    display: block;
+    padding: 25px; 
+}
+
+
+#content-wrapper .content-streaming .base-content .content-page-title {
+    margin-top: 30px;
+}
+#content-wrapper article h2, article h3, article h4, article h5, article h6 {
+    font-weight: lighter;
+    margin-bottom: 4px;
+}
+#content-wrapper h6 {
+    margin-top:2rem;
+    font-size: 1.4rem;
+    text-align: center;
+    color: black;
+}
+
+.base-cursos{
+    margin-top: 8rem;
+}
+
+.modulos-aluno a i{
+    margin-top: 1rem;
+    margin-left: 4rem;
+    font-size: 2.4rem;
+}
+
+.form-check-inline {
+    margin: 0.7rem 1rem;
+}
+
+
+.br-menu-link.active {
+    background-image: linear-gradient(to right, #17A2B8 0%, #17A2B8 100%);
+    background-repeat: repeat-x;
+
+}
+
+.br-menu-sub {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 21px;
+    background-color: #17A2B8;
+    color: rgb(29, 27, 27);
+    display: none;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+.modulos .accordion{
+    margin-right: 3rem;
+    border: none;
+}
+
+.modulos .accordion a{
+    color: white;
+}
+
+.modulos .accordion a:hover{
+   color: #212529;
+}
+
+
+.modulos .card-header, .card-footer {
+    border-color: #909798;
+}
+
+.modulos .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 20px;
+    word-wrap: break-word;
+     background-color: #17A2B8; 
+    background-clip: border-box;
+    border-radius: 3px;
+}
+
+
+
+.modulos .card {
+    border: 1px solid #17A2B8; 
+}
+
+.modulos .card-body ul li a{
+    margin-left: -2.5rem;
+}
+
+.mb-0 a {
+    margin-bottom: 0 !important;
+    color: white;
+}
+#wrapper .mp-0{
+    margin: 0px;
+    padding: 0;
+}
+
+#wrapper .content{
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#wrapper .main_container {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+   transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px){ 
+.main_container {
+    width: 100%;
+    margin-left: 0;
+} }
+
+.modulos-aluno .ht-100p {
+    margin-top: 6rem;
+    text-align: center;
+    margin-left: 3rem;
+}
+
+.aulas-drop{
+    display: flex;
+}
+
+.aulas-drop .checkb input{
+    margin: 0 5rem;
+}
+
+#sidebar-wrapper .fa{
+    padding-right: 1rem;
+    color: white;
+    font-size: 2em;
+}
+
+.list-group-item {
+    background-color: transparent;
+    color: white;
+    width: 18rem;
+}
+/*menu lateral do aluno*/
+
+/*
+
+
+.ver-aula .card-header:first-child {
+    border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+}
+
+.ver-aula .navigation-module-border, .navigation-module-header {
+    border-left-style: solid;
+    border-left-width: 5px;
+}
+.ver-aula .navigation-module-header {
+    background: #fff;
+    font-size: 12px;
+    padding: 20px;
+    border-radius: 0;
+    transition: all .3s ease-in;
+    transition-property: border,background;
+    color: #9ba5af;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #e9edf1;
+    border-left: transparent;
+}
+.ver-aula .card-header {
+    background: linear-gradient(
+180deg
+,#fff 0,#f7f9fa);
+    padding: .75rem 1.5rem;
+}
+.ver-aula .card-header {
+    padding: 1.5rem;
+    margin-bottom: 0;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.ver-aula .theme-red .svg-theme {
+    fill: #e74c3c;
+}
+.ver-aula .navigation-module-icon {
+    max-width: 19px;
+    min-width: 19px;
+    margin-right: 25px;
+    height: 18px;
+}
+.ver-aula svg {
+    overflow: hidden;
+}
+.ver-aula img, svg {
+    vertical-align: middle;
+}
+
+.ver-aula .navigation-module-content {
+    width: 100%;
+}
+.ver-aula .navigation-module-pages-info {
+    float: right;
+    display: table;
+}
+.ver-aula .navigation-module-title {
+    color: #444;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0;
+}
+
+.ver-aula .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin: 0 0 0px;
+    margin-top: -1rem;
+    margin-left: -1rem;
+}
+
+
+
+.ver-aula .content-streaming .main-content .base-content {
+    background-size: cover;
+}
+.ver-aula .main-content>section.base-content {
+    padding-top: 120px;
+    transition: all 1s cubic-bezier(.2,1,.22,1);
+    will-change: background;
+}
+.ver-aula .content-streaming .base-content {
+    z-index: 4;
+    position: relative;
+}
+.ver-aula .main-content>section {
+    padding: 30px;
+    position: relative;
+    background: #fff;
+    z-index: 1;
+}
+.ver-aula article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
+    display: block;
+}
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.collapse-modulos .accordion-inverse .card-header a {
+    background-color: #17A2B8;
+    margin-left: -1rem;
+}
+
+.theme-red .svg-theme {
+    fill: #e74c3c;
+}
+.navigation-module-icon {
+    max-width: 19px;
+    min-width: 19px;
+    margin-right: 5px;
+    height: 18px;
+}
+svg {
+    overflow: hidden;
+}
+img, svg {
+    vertical-align: middle;
+}
+
+.collapse-modulos .pd-20 {
+    padding: 0px;
+}
+
+.navigation-modules {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.collapse-modulos ul li{
+    margin: 0;
+    color: white;
+}
+
+.collapse-modulos ul li a{
+    color: white;
+}
+
+.navigation-page {
+    z-index: 2;
+    transition: background .3s ease-in;
+    font-size: 14px;
+    line-height: 18px;
+    color: #444;
+    display: flex;
+    padding:8px 0px 16px 5px;
+    cursor: pointer;
+}
+
+.list-aula .navigation-page-status {
+    min-width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #f3f3f3;
+    border: 1px solid #e9edf1;
+    margin-right: 21px;
+    padding: 0;
+    font-size: 13px;
+    line-height: 22px;
+    color: transparent;
+    cursor: pointer;
+    transition: all .2s linear;
+    transition-property: color,background,border;
+}
+
+.membership-infos {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 22px;
+}
+
+.membership-infos .membership-info-name {
+    font-size: 14px;
+    color: #444;
+}
+
+.collapse-modulos .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #17A2B8;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 3px;
+}
+
+
+
+.content-related .content-related-info {
+    margin-bottom: 30px;
+}
+
+
+.content-related .btn-page-done {
+    display: block;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #e9edf1;
+    color: #444;
+    padding: 14px;
+}
+.content-related .btn {
+    white-space: normal;
+}
+.content-related .btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #444;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem 1rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.content-related .btn-page-done .icon, .upsell .btn-offers .icon {
+    padding: 0 3px;
+    border: 1px solid #2ecc71;
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 50%;
+    margin-right: 8px;
+    color: transparent;
+    transition: color .3s ease-in;
+}
+
+.content-related-info .btn-page-done{ 
+    width: 100%;
+    border: 1px solid rgb(0, 0, 0, 0.125);
+}
+.accordion ul li:hover{
+    background: #2e415b;
+    transition: 0.3s ease;
+}
+
+
+
+/**/
+#side-bar{
+    background-color:#17A2B8;
+    backdrop-filter: blur(15px);
+    width: 290px;
+    height:100vh;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+}
+
+
+/*carrinho aluno*/
+.cursos-aluno{
+    margin-top: 2rem;
+}
+/*carrrinho aluno*/
+
+/*Dashboard*/
+.dashboard{
+    margin-top: 30px;
+    padding: 0 15px;
+}
+
+.dashboard .row-sm > div {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 0 3rem;
+}
+
+.dashboard .roundede {
+    border-radius: 3rem !important;
+    border: 1px solid #a2a1a1;
+}
+
+.primeiro .tx-color {
+    color: blue;
+}
+
+.segundo .tx-color {
+    color: teal;
+}
+
+.terceiro .tx-color {
+    color: red;
+}
+
+.quarto .tx-color {
+    color: green;
+}
+
+.dashboard .tx-white-8 {
+    color: rgb(62 53 53 / 80%);
+}
+
+.dashboard .ht-50 {
+    height: 20px;
+}
+.dashboard  .tx-black {
+    color: #5a5656;
+}
+/*Dashboard*/
+
+.imagem img{
+    width:100%;
+}
+
+.informacoes-aula h4{
+    color: #343a40;
+}
+
+.conteudo-aula h6{
+    padding: 0.65rem 0.75rem;
+}
+
+.conteudo-aula i{
+   color: #17A2B8;
+}
+
+.conteudo-aula small{
+   color: black;
+   font-size: 1.1em;
+}
+
+.conteudo-aula span{
+    display: block;
+    margin: 0 2rem;
+    font-size: 1.1em;
+    color: black;
+}
+
+.view-aula .btn-demo{
+    display: flex;
+    margin-top: 1rem;
+}
+
+.view-aula .btn{
+    
+    margin: 0 0.3rem;
+}
+
+.view-aula .btn a{
+   color: white;
+}

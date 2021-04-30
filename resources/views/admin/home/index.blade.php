@@ -281,64 +281,66 @@
                     <button form="formBanco" type="submit" class="btn btn-teal active btn-block mg-b-10">Enviar</button>
                   </span>
                 </modal>
+               
+          
 
-            <div class="br-pagebody dashboard">
+            <div class="dashboard">
+
+            <div class="row row-sm">
+          <div class="col-sm-6 col-xl-3">
+            <div class="roundede overflow-hidden">
+              <div class="pd-x-20 pd-t-20 d-flex align-items-center primeiro">
+                <i class="fa fa-balance-scale tx-50 lh-0 tx-color op-7"></i>
+                <div class="mg-l-20">
+                  <p class=" tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Saldo contabilístico</p>
+                  <p class="tx-24 tx-black tx-lato tx-bold mg-b-0 lh-1">{{number_format($saldoContabilistico, 2) }} Kz</p>
+                </div>
+              </div>
+              <div class="ht-50 tr-y-1 rickshaw_graph"></div>
+            </div>
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-sm-t-0">
+            <div class=" roundede overflow-hidden">
+              <div class="pd-x-20 pd-t-20 d-flex align-items-center segundo">
+                <i class="fa fa-balance-scale tx-60 lh-0 tx-color op-7"></i>
+                <div class="mg-l-20">
+                  <p class=" tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Saldo disponível</p>
+                  <p class="tx-24 tx-black tx-lato tx-bold mg-b-0 lh-1">{{number_format($saldoDisponivel, 2) }} Kz</p>
+                </div>
+              </div>
+              <div  class="ht-50 tr-y-1 rickshaw_graph"></div>
+            </div>
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+            <div class=" roundede overflow-hidden">
+              <div class="pd-x-20 pd-t-20 d-flex align-items-center terceiro">
+                <i class="fa fa-balance-scale tx-60 lh-0 tx-color op-7"></i>
+                <div class="mg-l-20">
+                  <p class=" tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Entrada</p>
+                  <p class="tx-24 tx-black tx-lato tx-bold mg-b-0 lh-1">{{ number_format($entrada, 2) }} Kz</p>
+                </div>
+              </div>
+              <div class="ht-50 tr-y-1 rickshaw_graph"></div>
+            </div>
+          </div><!-- col-3 -->
+          <div class="col-sm-6 col-xl-3 mg-t-20 mg-xl-t-0">
+            <div class="roundede overflow-hidden">
+              <div class="pd-x-20 pd-t-20 d-flex align-items-center quarto">
+                <i class="fa fa-balance-scale tx-60 lh-0 tx-color op-7"></i>
+                <div class="mg-l-20">
+                  <p class=" tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Saída</p>
+                  <p class="tx-24 tx-black tx-lato tx-bold mg-b-0 lh-1">{{number_format($saida, 2 )}} Kz</p>
+                </div>
+              </div>
+              <div class="ht-50 tr-y-1 rickshaw_graph"></div>
+            </div>
+          </div><!-- col-3 -->
+        </div>
+
+
+            
                  
-                    
-          <div class="row row-sm">
-				<div class="col-sm-8 col-xl-3">
-				  <div class=" roundede overflow-hidden">
-					<div class="pd-x-20 pd-t-20 d-flex align-items-center primeiro">
-					  <i class="fa fa-balance-scale tx-40 lh-0 tx-whitee op-7"></i>
-					  <div class="mg-l-20">
-						<p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Saldo contabilístico</p>
-						<p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{number_format($saldoContabilistico, 2) }} Kz</p>
-						<span class="tx-11 tx-roboto tx-white-8"></span>
-					  </div>
-					</div>
-					<div  class="ht-50 tr-y-1"></div>
-				  </div>
-				</div><!-- col-3 -->
-				<div class="col-sm-8 col-xl-3 mg-t-20 mg-sm-t-0">
-				  <div class=" roundede overflow-hidden">
-					<div class="pd-x-20 pd-t-20 d-flex align-items-center segundo">
-					  <i class="fa fa-balance-scale tx-40 lh-0 tx-whitee op-7"></i>
-					  <div class="mg-l-20">
-						<p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Saldo disponível</p>
-						<p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{number_format($saldoDisponivel, 2) }} Kz</p>
-						<span class="tx-11 tx-roboto tx-white-8"></span>
-					  </div>
-					</div>
-					<div  class="ht-50 tr-y-1"></div>
-				  </div>
-				</div><!-- col-3 -->
-				<div class="col-sm-8 col-xl-3 mg-t-20 mg-xl-t-0">
-				  <div class=" roundede overflow-hidden">
-					<div class="pd-x-20 pd-t-20 d-flex align-items-center terceiro">
-					  <i class="fa fa-balance-scale tx-40 lh-0 tx-whitee op-7"></i>
-					  <div class="mg-l-20">
-						<p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Entrada</p>
-						<p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{ number_format($entrada, 2) }} Kz</p>
-						<span class="tx-11 tx-roboto tx-white-8"></span>
-					  </div>
-					</div>
-					<div  class="ht-50 tr-y-1"></div>
-				  </div>
-				</div><!-- col-3 -->
-				<div class="col-sm-8 col-xl-3 mg-t-20 mg-xl-t-0">
-				  <div class=" roundede overflow-hidden">
-					<div class="pd-x-20 pd-t-20 d-flex align-items-center quarto">
-					  <i class="fa fa-balance-scale tx-40 lh-0 tx-whitee op-7"></i>
-					  <div class="mg-l-20">
-						<p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Saída</p>
-						<p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{number_format($saida, 2 )}} Kz</p>
-						<span class="tx-11 tx-roboto tx-white-8"></span>
-					  </div>
-					</div>
-					<div  class="ht-50 tr-y-1"></div>
-				  </div>
-				</div><!-- col-3 -->
-			  </div><!-- row -->
+         
                 
             
     
@@ -349,30 +351,15 @@
         </painel>
       </pagina>
    
+
+
     
      
         
             
       
             
-                </div><!--pagebody -->
-                
-              </div><!-- card -->
-
-              <!--div class="bg-white pd-y-12 tx-center mg-t-15 mg-xs-t-30 shadow-base rounded">
-                <a href="" class="tx-gray-600 hover-info">Load more</a>
-                
-                
-          </div--><!-- bd -->
-                
-                
-                
-              </div>
-            </div><!-- col-lg-8 -->
-            
-        
-			  
-    </div>
+               
 	
 		  <!-- ########## END: MAIN PANEL ########## -->
 	  
