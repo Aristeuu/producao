@@ -32,7 +32,7 @@ class PagamentoController extends Controller
     
     public function store(Request $req)
     {
-        $this->middleware('VerifyCsrfToken');
+        $this->middleware('VerifyCsrfToken'); 
 
         
         $idpedido  = $req->input('pedido_id');

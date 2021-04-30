@@ -54,9 +54,24 @@
               </div>
               <div class="card-profile-img">                
                 <img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
-                </div><!-- card-profile-img -->      
                 {{$id_formador->name}}
-                <modal_link  nome="coproducao" titulo="coprodução" css="btn btn-outline-info active" clas="fa fa-user-plus"></modal_link>
+              </div><!-- card-profile-img -->      
+                
+                @if(@isset($yetoAfrica))
+                <div class="col col-md-2">
+                  <label>
+                    <p>
+                    <strong>Yetoáfrica</strong>
+                    </p>
+                  </label>
+                </div>  
+                @endif
+                @if ($listaCoProdutor->isEmpty())
+                    <modal_link  nome="coproducao" titulo="coprodução" css="btn btn-outline-info active" clas="fa fa-user-plus"></modal_link>
+                    @else
+                    <modal_link tipo="button" nome="editarproducao" titulo="coprodução" css="btn btn-outline-info active" clas="fa fa-user-plus" v-bind:item="{{json_encode($listaCoProdutor)}}" url="/edit/"></modal_link>
+                @endif
+                
             </div>
            
 
@@ -120,63 +135,7 @@
               
         </div>
 
-        <!-- modal adicionar modulo-->
-        <modal nome="coproducao" titulo="Adicionar Coprodução">
-        <formulario action="{{route('coproducao.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
-            {{ csrf_field() }}
-
-            <input type="text" id="custId" name="id_curso" value="{{$listaCurso->id}}">
-            <input type="text" id="id_formador" name="id_formador" value="{{$id_formador->id}}">
-            
-                       
-            <div class="form-layout form-layout-1">
-              <div class="row mg-b-25">                              
-                <div class="col-lg-12">
-                  <label class="ckbox">
-                    <input type="checkbox" id="coYeto" name="coYeto">
-                    <span>Yetoáfrica</span> 50%
-                  </label> 
-                  <!-- col-4 -->  
-                </div>  
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label class="form-control-label">Formadores: <span class="tx-danger">*</span></label>                            
-                    <select  name="id_coP" class="form-control">                                
-                      @foreach($listaFormadores as $formador)
-                        <option value="{{$formador->id}}">{{$formador->name}}</option>	
-                      @endforeach						
-                    </select>
-                  </div>
-                </div><!-- col-12 --> 
-                <div class="col-lg-12">
-                  <div class="form-group">
-                    <label class="form-control-label">Percentagem %: <span class="tx-danger">*</span></label>                            
-                    <div class="input-group">                      
-                      <input class="form-control" type="text" name="percenC" required placeholder="10">
-                      <div class="input-group-append">
-                          <span class="input-group-text">%</span>
-                      </div>
-                  </div>
-                  </div>
-                </div><!-- col-12 -->                                                             
-              </div><!-- row -->
-  
-            </div>        
-  
-                       
-               <div class="botn-geral">
-             <input type="submit" value="Enviar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
-            </div>     
-        
-          </formulario>
-          <span slot="botoes">
-            <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
-          </span>
-        </modal>
-
-
-        <!--end Modal's-->
-
+   
 
       
         <!-- modal adicionar modulo-->
@@ -446,10 +405,144 @@
                 <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
               </span>
             </modal>      
-                                        
-            
-            
+                                      
+                       
             <!--end Modal-->
+
+                 <!-- modal adicionar modulo-->
+        <modal nome="coproducao" titulo="Adicionar Coprodução">
+          <formulario action="{{route('coproducao.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
+              {{ csrf_field() }}
+  
+              <input type="hidden" id="custId" name="id_curso" value="{{$listaCurso->id}}">
+              <input type="hidden" id="id_formador" name="id_formador" value="{{$id_formador->id}}">
+              
+                         
+              <div class="form-layout form-layout-1">
+                <div class="row mg-b-25">                              
+                  <div class="col-lg-12">
+                    <label class="ckbox">
+                      <input type="checkbox" id="coYeto" name="coYeto">
+                      <span>Yetoáfrica</span> 50%
+                    </label> 
+                    <!-- col-4 -->  
+                  </div>
+                  <div class="col-lg-12">
+                    <label class="ckbox" id="">
+                      <input type="checkbox" id="isChecked">
+                      <span id="check">Formadores</span>
+                    </label> 
+                    <!-- col-4 -->  
+                  </div>  
+                  <div class="col-lg-12" style="display: none" id="formador">
+                    <div class="form-group">
+                      <label class="form-control-label">Formadores: <span class="tx-danger">*</span></label>                            
+                      <select  name="id_coP" class="form-control">                                
+                        @foreach($listaFormadores as $formador)
+                          <option value="{{$formador->id}}" id="coformador">{{$formador->name}}</option>	
+                        @endforeach						
+                      </select>
+                    </div>
+                  </div><!-- col-12 --> 
+                  <div class="col-lg-12" style="display: none" id="percentagem">
+                    <div class="form-group">
+                      <label class="form-control-label">Percentagem %: <span class="tx-danger">*</span></label>                            
+                      <div class="input-group">                      
+                        <input class="form-control" type="text" name="percenC" placeholder="10">
+                        <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                    </div>
+                  </div><!-- col-12 -->                                                             
+                </div><!-- row -->
+    
+              </div>        
+    
+                         
+                 <div class="botn-geral">
+               <input type="submit" value="Adicionar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
+              </div>                   
+            		         
+                      
+            </formulario>
+            <span slot="botoes">
+              <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+            </span>
+          </modal>
+  
+  
+          <!--end Modal's-->
+                    <!-- modal adicionar modulo-->
+        <modal nome="editarproducao" titulo="Adicionar Coprodução">
+          <formulario action="" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
+              {{ csrf_field() }}
+  
+              <input type="hidden" id="custId" name="id_curso" value="{{$listaCurso->id}}">
+              <input type="hidden" id="id_formador" name="id_formador" value="{{$id_formador->id}}">
+              
+                         
+              <div class="form-layout form-layout-1">
+                <div class="row mg-b-25">                              
+                  <div class="col-lg-12">
+                    <label class="ckbox">
+                      @if(@isset($yetoAfrica))
+                        <input type="checkbox" id="coYeto" name="coYeto" v-model="$store.state.item.statusYeto" checked>
+                        @else
+                        <input type="checkbox" id="coYeto" name="coYeto" v-model="$store.state.item.statusYeto">
+                      @endif   
+                      <span>Yetoáfrica</span> 50%
+                    </label> 
+                    <!-- col-4 -->  
+                  </div>
+                  <div class="col-lg-12">
+                    <label class="ckbox" id="">
+                      <input type="checkbox" id="isChecked">
+                      <span id="check">Formadores</span>
+                    </label> 
+                    <!-- col-4 -->  
+                  </div>  
+                  <div class="col-lg-12" style="display: none" id="formador">
+                    <div class="form-group">
+                      <label class="form-control-label">Formadores: <span class="tx-danger">*</span></label>                            
+                      <select  name="id_coP" class="form-control">                                
+                        @foreach($listaFormadores as $formador)
+                          <option value="{{$formador->id}}" id="coformador">{{$formador->name}}</option>	
+                        @endforeach						
+                      </select>
+                    </div>
+                  </div><!-- col-12 --> 
+                  <div class="col-lg-12" style="display: none" id="percentagem">
+                    <div class="form-group">
+                      <label class="form-control-label">Percentagem %: <span class="tx-danger">*</span></label>                            
+                      <div class="input-group">                      
+                        <input class="form-control" type="text" name="percenC" placeholder="10">
+                        <div class="input-group-append">
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                    </div>
+                  </div><!-- col-12 -->                                                             
+                </div><!-- row -->
+    
+              </div>        
+    
+                         
+                 <div class="botn-geral">
+               <input type="submit" value="Adicionar" class="btn btn-teal active btn-block mg-b-10"  name="Cadastrar">
+              </div>                   
+            		         
+                      
+            </formulario>
+            <span slot="botoes">
+              <input type="submit" value="Enviar" class="btn btn-info"  name="Cadastrar">
+            </span>
+          </modal>
+  
+  
+          <!--end Modal's-->
+  
+  
 
 
         
@@ -459,26 +552,16 @@
            
             </div>
 
+          
+
 
 </div>
 </div>
 
-<script type="text/javascript">
 
-  function Eliminar(id)
-  {
-   
-    window.location.href="/delete/"+id;
-  }
 
-  function Editar(id)
-  {
-    alert(id);
-    //window.location.href="/edit/"+id;
-  }
-
-</script>
 		
 
 
 @endsection
+

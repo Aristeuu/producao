@@ -128,7 +128,7 @@
 			  <!-- loop ends here -->
 			  <a href="" class="media-list-link read">
 				<div class="media">
-				  <img src="http://producao.yetoafrica.com/storage/app/public/{{auth()->user()->foto}}" alt="">
+				  <img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" alt="">
 				  <div class="media-body">
 					<p class="noti-text"><strong></strong>  <strong>T</strong></p>
 					<span></span>
@@ -137,7 +137,7 @@
 			  </a>
 			  <a href="" class="media-list-link read">
 				<div class="media">
-				  <img src="http://producao.yetoafrica.com/storage/app/public/{{auth()->user()->foto}}" alt="">
+				  <img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" alt="">
 				 
 				  <div class="media-body">
 					<p class="noti-text">
@@ -322,10 +322,3 @@
 	</div><!-- br-header-right -->
   </div>
 @endcan
-<script type="text/javascript">
-
-	function alterar()
-	{
-		alert("alterar");
-	}
-</script>

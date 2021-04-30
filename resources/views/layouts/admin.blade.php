@@ -20,7 +20,12 @@ define('SCRIPT', 'http://localhost:8000');
 		<meta name="viewport" content="width=device-width, initial-scale=1">				
 
 		<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-	    <link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/bracket.css">
+		<link href="<?=REQUIRE_PATH?>/css/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+		<link href="<?=REQUIRE_PATH?>/css/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
+		<link href="<?=REQUIRE_PATH?>/css/lib/rickshaw/rickshaw.min.css" rel="stylesheet">
+		<link href="<?=REQUIRE_PATH?>/css/lib/select2/css/select2.min.css" rel="stylesheet">
+	
+		<link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/bracket.css">
 		<link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/newstyle.css">
 		
 
@@ -55,44 +60,66 @@ define('SCRIPT', 'http://localhost:8000');
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
 	
-    <script script  src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"> </script>
-  
+    <script script  src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"> </script>  
     
-    <script src="<?=REQUIRE_PATH?>/js/jquery.min.js"></script>
+   
     
-
+	<script src="<?=SCRIPT?>/js/app.js"></script>
 	
+	<script src="{{ asset('/js/jquery.min.js') }}"></script>
 	<script src="{{ asset('/js/datepicker.js') }}"></script>
 	<script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
 	<script src="{{ asset('/js/perfect-scrollbar.min.js') }}"></script>
 	<script src="{{ asset('/js/moment.min.js') }}"></script>
+	<script src="{{ asset('/js/highlight.pack.min.js') }}"></script>
 	<script src="{{ asset('/js/jquery.peity.min.js') }}"></script>
-	<script src="{{ asset('/js/d3.min.js') }}"></script>
-	<script src="{{ asset('/js/d3.layout.min.js') }}"></script>
-	<script src="{{ asset('/js/rickshaw.min.js') }}"></script>
-	<script src="{{ asset('/js/jquery.flot.js') }}"></script>
-	<script src="{{ asset('/js/jquery.flot.resize.js') }}"></script>
-	<script src="{{ asset('/js/jquery.flot.spline.min.js') }}"></script>
-	<script src="{{ asset('/js/jquery.sparkline.min.js') }}"></script>
-    <script src="{{ asset('/js/echarts.min.js') }}"></script>
-	<script src="{{ asset('/js/select2.full.min.js') }}"></script>
-	<script src="http://maps.google.com/maps/api/js?key=AIzaSyAq8o5-8Y5pudbJMJtDFzb8aHiWJufa5fg"></script>
-	<script src="<?=SCRIPT?>/js/app.js"></script>
 	<script src="{{ asset('/js/bracket.js') }}"></script>
-
-
-
-
-	<script src="{{ asset('/js/gmaps.min.js') }}"></script>
-	<script src="{{ asset('/js/map.shiftworker.js') }}"></script>
-	<script src="{{ asset('/js/ResizeSensor.js') }}"></script>
-	<script src="{{ asset('/js/dashboard.js') }}"></script>
-
 	
+	<script>
+
+		function Eliminar(id)
+		{
+		 
+		  window.location.href="/delete/"+id;
+		}  
+	  
+	  </script>
+	  
+	  
+	  <script>
+		$(document).ready(function(){   
+		  $("#isChecked").change(function(){      
+			  if($(this).prop('checked')){
+				  $('#formador').show();
+				  $('#percentagem').show();  
+						   
+			  }
+			  else
+			  {
+				$('#formador').hide();
+				$("#percentagem").hide();
+			   
+			  }
+		  });
+	  
+		});
+	  </script>
+	  <script type="text/javascript">
 
 
-  
-	
+		'use strict'
+		  
+		  const currentLocation = location.href;
+		  const menuItem        = document.querySelectorAll('a');
+		  const menuLength      = menuItem.length;
+		  for( let i = 0; i<menuLength; i++)
+			  if(menuItem[i].href ===currentLocation)
+			  {
+				menuItem[i].className = "nav-link active";
+			  }
+		
+		</script>
+    
 	
 	
 </body>

@@ -19,11 +19,12 @@ class Formador extends Model
     }
 
     //Função que retorna os formadores
-    public static function listarFormadores(){
+    public static function listarFormadores($id){
       return DB::table('formador')
                   ->join('users', 'users.id', '=', 'formador.id_user')
                   ->select('users.tipo','users.email','formador.id','users.name','users.foto')
                   ->where('users.tipo','formador')
+                  ->where('users.id','<>',$id)
                   ->get();
   }
    

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CoproducaoController extends Controller
 {
@@ -35,18 +36,44 @@ class CoproducaoController extends Controller
      */
     public function store(Request $request)
     {
-        /*
-		$id_curso           = $req->input('id_curso');
-        $id_formador        = $req->input('id_formador');
-        $id_cop             = $req->input('id_coP');
-        $statusYeto         = $req->input('coYeto');
-		$percenC            = $req->input('percenC');
         
-        */
-        $data = $request->all();
+		$id_curso           = $request->input('id_curso');
+        $id_formador        = $request->input('id_formador');
+        $id_cop             = $request->input('id_coP');
+        $statusYeto         = $request->input('coYeto');
+        $percenC            = $request->input('percenC');
+        $percenF            = 90;       
+        
+        
+        if($statusYeto==null)
+        {
+            $status = false;
+            $percenF = $percenF - $percenC;
+        }
+        else
+        {
+            $status = true;
+            $percenF = $percenF - $percenC - 50;
 
-        dd($data);
-		
+        }
+       
+        if($percenF<=0)
+        {
+            return redirect()->back();    
+        }
+        if($statusYeto==null && $percenC==null)
+        {
+            return redirect()->back();    
+        }
+        if($statusYeto!=null && $percenC==null)
+        {
+            $id_cop=null;    
+        }
+        
+
+        DB::table('coproducao')->insert(['id_curso'=>$id_curso,'id_formador'=>$id_formador,'id_cop'=>$id_cop,'statusYeto'=>$status,'percenF'=>$percenF,'percenC'=>$percenC]);
+        
+        return redirect()->back();
         
 	
     }

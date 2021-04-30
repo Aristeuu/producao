@@ -25,10 +25,10 @@
 
 
     <!-- vendor css -->
-    <link href="../lib/@fortawesome/fontawesome-free/csss/all.min.css" rel="stylesheet">
+  <link href="{{asset('backend/estilos/css')}}/lib/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
     <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-    <link href="../lib/rickshaw/rickshaw.min.css" rel="stylesheet">
-    <link href="../lib/select2/css/select2.min.css" rel="stylesheet">
+    <link href="{{asset('backend/estilos/css')}}/lib/rickshaw/rickshaw.min.css" rel="stylesheet">
+    <link href="{{asset('backend/estilos/css')}}/lib/select2/css/select2.min.css" rel="stylesheet">
 
     
 
@@ -192,18 +192,7 @@
 
 
 
-<script type="text/javascript">
-  
-  const currentLocation = location.href;
-  const menuItem        = document.querySelectorAll('a');
-  const menuLength      = menuItem.length;
-  for( let i = 0; i<menuLength; i++)
-      if(menuItem[i].href ===currentLocation)
-      {
-        menuItem[i].className = "nav-link active";
-      }
 
-</script>
 
 
 

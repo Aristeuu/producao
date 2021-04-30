@@ -10,6 +10,7 @@ use App\Models\Cursos;
 use App\Models\Aulas;
 use App\Models\Formador;
 use App\Models\Modulos;
+use App\Models\Coproducao;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -184,8 +185,19 @@ public function view($id){
     $buscarFormador=Formador::FormadorCurso($listaCurso->id_formador);       
     
     $id_formador = $buscarFormador[0];
-    $listaFormadores = Formador::listarFormadores();
+   
+    $listaFormadores = Formador::listarFormadores(auth()->user()->id);
     
+    $listaCoProdutor = Coproducao::CursoCoprodutores($listaCurso->id);
+
+    $yetoAfrica = null;   
+    if($listaCoProdutor->isNotEmpty())
+    {
+        $yetoAfrica = $listaCoProdutor[0]->statusYeto;
+        //dd($yetoAfrica);
+    }
+
+
    
    foreach($listaCategorias as $lista){
          if($lista->id==$listaCurso->id_categoria)
@@ -194,7 +206,7 @@ public function view($id){
 
 
    
-  return view('negocio.formador.view',compact('listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
+  return view('negocio.formador.view',compact('listaCoProdutor','yetoAfrica','listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
 
 }
 
