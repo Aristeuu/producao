@@ -6737,6 +6737,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['titulos', 'itens', 'ordem', 'ordemcol', 'ver', 'token', 'modal', 'editar', 'categoria'],
   data: function data() {
@@ -11642,6 +11653,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "\n.wd-32 {\r\n    width: 50px;\n}\n.tabl-aluno  td img{\r\n   margin-top: -0.6rem;\n}\r\n\r\n\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/negocio/ListaCursos.vue?vue&type=style&index=0&lang=css&":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/negocio/ListaCursos.vue?vue&type=style&index=0&lang=css& ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.card-custom {\r\n  overflow: hidden;\r\n  min-height: 450px;\r\n  box-shadow: 0 0 6px rgba(10, 10, 10, 0.3);\n}\n.card-body p{\r\n \r\n    color: teal;\r\n    font-size:1.3em;\n}\n.card-text{\r\n \r\n    color: #212529;\n}\n.card-footer {\r\n    padding: 0.75rem 0.2rem;\r\n    background-color: rgba(0, 0, 0, 0.03);\r\n    border-top: 1px solid rgba(0, 0, 0, 0.125);\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n", ""]);
 
 // exports
 
@@ -42916,6 +42946,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/negocio/ListaCursos.vue?vue&type=style&index=0&lang=css&":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/negocio/ListaCursos.vue?vue&type=style&index=0&lang=css& ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ListaCursos.vue?vue&type=style&index=0&lang=css& */ "./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/negocio/ListaCursos.vue?vue&type=style&index=0&lang=css&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/tabelaCompras.vue?vue&type=style&index=0&lang=css&":
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader??ref--6-1!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-2!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/tabelaCompras.vue?vue&type=style&index=0&lang=css& ***!
@@ -50373,161 +50433,94 @@ var render = function() {
     _vm._v(" "),
     _c(
       "div",
-      { staticClass: "row cursos py-4" },
+      { staticClass: "row pt-5 m-auto" },
       _vm._l(_vm.lista, function(item, index) {
-        return _c(
-          "div",
-          { staticClass: "col-md-6 col-lg-3 col-xs-12 col-sm-6" },
-          [
-            _c("img", {
-              staticClass: "img-responsive",
-              staticStyle: {
-                "max-width": "100%",
-                width: "350px",
-                height: "250px",
-                "object-fit": "cover"
-              },
-              attrs: {
-                src:
-                  "http://localhost/yetoafrica/storage/app/public/" +
-                  item.curso_img
-              }
-            }),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: "white-box" },
-              [
+        return _c("div", { staticClass: "col-md-6 col-lg-3 pb-3" }, [
+          _c(
+            "div",
+            { staticClass: "card card-custom bg-white border-white border-0" },
+            [
+              _c("img", {
+                staticClass: "card-img-top img-fluid",
+                attrs: {
+                  src:
+                    "http://localhost/yetoafrica/storage/app/public/" +
+                    item.curso_img
+                }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "card-body" }, [
+                _c("h4", { staticClass: "card-text" }, [
+                  _vm._v(_vm._s(item.curso_nome))
+                ]),
+                _vm._v(" "),
+                _c("h4", { staticClass: "card-title" }, [
+                  _vm._v(_vm._s(item.curso_preco) + " KZ")
+                ]),
+                _vm._v(" "),
+                _vm.categoria
+                  ? _c("p", { staticClass: "card-text" }, [
+                      _vm._v("Categoria: " + _vm._s(item.cat_nome))
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
                 _c(
-                  "h3",
-                  { staticClass: "m-t-20 m-b-20" },
+                  "div",
+                  {
+                    staticClass: "card-footer",
+                    staticStyle: {
+                      background: "inherit",
+                      "border-color": "inherit"
+                    }
+                  },
                   [
-                    _c(
-                      "font",
-                      { staticStyle: { "vertical-align": "inherit" } },
-                      [
-                        _c(
-                          "font",
-                          { staticStyle: { "vertical-align": "inherit" } },
-                          [_vm._v(_vm._s(item.curso_nome))]
+                    _vm.ver
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-outline-primary",
+                            attrs: { href: _vm.ver + item.id }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-eye" }),
+                            _vm._v("Detalhe")
+                          ]
                         )
-                      ],
-                      1
-                    )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.modal
+                      ? _c("modal_link", {
+                          attrs: {
+                            item: item,
+                            url: _vm.editar,
+                            nome: "formEditar",
+                            tipo: "button",
+                            titulo: "editar",
+                            clas: "fa fa-edit"
+                          }
+                        })
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.editar && !_vm.modal
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-success",
+                            attrs: { item: item, href: _vm.editar }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-edit" }),
+                            _vm._v(" editar ")
+                          ]
+                        )
+                      : _vm._e()
                   ],
                   1
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-muted" }, [
-                  _c(
-                    "span",
-                    { staticClass: "m-r-10" },
-                    [
-                      _c(
-                        "font",
-                        { staticStyle: { "vertical-align": "inherit" } },
-                        [
-                          _c(
-                            "font",
-                            { staticStyle: { "vertical-align": "inherit" } },
-                            [_vm._v(_vm._s(item.curso_preco))]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "a",
-                    { staticClass: "text-muted m-l-10", attrs: { href: "#" } },
-                    [
-                      _vm._v("kz"),
-                      _c(
-                        "font",
-                        { staticStyle: { "vertical-align": "inherit" } },
-                        [
-                          _c("font", {
-                            staticStyle: { "vertical-align": "inherit" }
-                          })
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "text-muted" }, [
-                  _c(
-                    "span",
-                    { staticClass: "m-r-10" },
-                    [
-                      _c(
-                        "font",
-                        { staticStyle: { "vertical-align": "inherit" } },
-                        [
-                          _c(
-                            "font",
-                            { staticStyle: { "vertical-align": "inherit" } },
-                            [
-                              _vm.categoria
-                                ? _c("span", [_vm._v(" Categoria: ")])
-                                : _vm._e(),
-                              _vm._v(" " + _vm._s(item.cat_nome))
-                            ]
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ]),
-                _vm._v(" "),
-                _vm.ver
-                  ? _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-xs btn-success",
-                        attrs: { href: _vm.ver + item.id }
-                      },
-                      [_c("i", { staticClass: "fa fa-eye" }), _vm._v("Detalhe")]
-                    )
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.modal
-                  ? _c("modal_link", {
-                      attrs: {
-                        item: item,
-                        url: _vm.editar,
-                        nome: "formEditar",
-                        tipo: "button",
-                        titulo: "editar",
-                        clas: "fa fa-edit"
-                      }
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                _vm.editar && !_vm.modal
-                  ? _c(
-                      "a",
-                      {
-                        staticClass: "btn btn-info btn-xs",
-                        attrs: { item: item, href: _vm.editar }
-                      },
-                      [
-                        _c("i", { staticClass: "fa fa-edit" }),
-                        _vm._v(" editar ")
-                      ]
-                    )
-                  : _vm._e()
-              ],
-              1
-            )
-          ]
-        )
+                )
+              ])
+            ]
+          )
+        ])
       }),
       0
     )
@@ -65424,7 +65417,9 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ListaCursos_vue_vue_type_template_id_76c3851a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListaCursos.vue?vue&type=template&id=76c3851a& */ "./resources/js/components/negocio/ListaCursos.vue?vue&type=template&id=76c3851a&");
 /* harmony import */ var _ListaCursos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListaCursos.vue?vue&type=script&lang=js& */ "./resources/js/components/negocio/ListaCursos.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _ListaCursos_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ListaCursos.vue?vue&type=style&index=0&lang=css& */ "./resources/js/components/negocio/ListaCursos.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -65432,7 +65427,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _ListaCursos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _ListaCursos_vue_vue_type_template_id_76c3851a___WEBPACK_IMPORTED_MODULE_0__["render"],
   _ListaCursos_vue_vue_type_template_id_76c3851a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -65461,6 +65456,22 @@ component.options.__file = "resources/js/components/negocio/ListaCursos.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaCursos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./ListaCursos.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/negocio/ListaCursos.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaCursos_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/negocio/ListaCursos.vue?vue&type=style&index=0&lang=css&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/negocio/ListaCursos.vue?vue&type=style&index=0&lang=css& ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaCursos_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/style-loader!../../../../node_modules/css-loader??ref--6-1!../../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../../node_modules/postcss-loader/src??ref--6-2!../../../../node_modules/vue-loader/lib??vue-loader-options!./ListaCursos.vue?vue&type=style&index=0&lang=css& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/negocio/ListaCursos.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaCursos_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaCursos_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaCursos_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaCursos_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_style_loader_index_js_node_modules_css_loader_index_js_ref_6_1_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_6_2_node_modules_vue_loader_lib_index_js_vue_loader_options_ListaCursos_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -65725,8 +65736,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp7.2.0\htdocs\yetoafrica\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp7.2.0\htdocs\yetoafrica\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\producao\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\producao\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

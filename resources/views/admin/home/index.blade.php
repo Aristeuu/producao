@@ -113,9 +113,6 @@
  
       <div class="br-pagebody">
         <div class="br-section-wrapper">
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="">
                   <div class="br-pagetitle">
                     <div>
                       @php
@@ -230,7 +227,9 @@
                    <input class="form-control" type="hidden" name="email" value={{$id_email}}>
                    <input class="form-control" type="hidden" name="name" value={{$id_name}}>
                   </div>
-                  <hr>
+
+                  
+
                   <button form="formSolicitar" type="submit" class="btn btn-primary tx-11 tx-uppercase pd-y-12 pd-x-25 tx-mont tx-medium">Enviar</button>                  
                   </formulario>
                   <span slot="botoes">

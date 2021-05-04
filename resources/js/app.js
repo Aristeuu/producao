@@ -58,6 +58,8 @@ Vue.component('curso_single', require('./components/negocio/cursoSingle.vue').de
 Vue.component('ckeditor', require('vue-ckeditor2').default);
 
 
+
+
 const app = new Vue({
     el: '#app',
     store,

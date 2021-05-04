@@ -30,7 +30,7 @@
                     <svg class="navigation-module-icon svg-theme" viewBox="0 0 19 17">
       <path d="M1.421,15.612 L17.58,15.612 L17.58,4.198 L8.091,4.198 C7.813,4.198 7.56,4.039 7.445,3.791 L6.326,1.387 L1.421,1.387 L1.421,15.612 Z M0.711,17 C0.318,17 0,16.689 0,16.306 L0,0.694 C0,0.31 0.318,0 0.711,0 L6.784,0 C7.062,0 7.315,0.159 7.43,0.406 L8.549,2.81 L18.29,2.81 C18.682,2.81 19,3.121 19,3.504 L19,16.306 C19,16.689 18.682,17 18.29,17 L0.711,17 Z"></path>
   <polygon points="13.0546875 10.6816406 6 10.6816406 6 9 13.0546875 9"></polygon>
-  <polygon class="navigation-module-icon-plus" points="13.0546875 10.6816406 6 10.6816406 6 9 13.0546875 9"></polygon>
+  <polygon class="navigation-module-icon-plus text-white" points="13.0546875 10.6816406 6 10.6816406 6 9 13.0546875 9"></polygon>
     </svg>{{$modulo->modulo_titulo}}
                   </a>
                 </h6>
@@ -39,11 +39,11 @@
               <div id="collapseOne7{{$modulo->id}}" class="collapse show" role="tabpanel" aria-labelledby="headingOne7{{$modulo->id}}">
                 <div class="card-block pd-20">
 
-			<ul class="list-aula navigation-modules" id="navigation-modules" role="tablist">
+			<ul class="list-aula navigation-modules list-group" id="navigation-modules" role="tablist">
 			@foreach($listAulas as $aulas)
 
 			@if($aulas->modulo_id==$modulo->id)
-			<li data-page-hash="vROx6RoBeD" class="navigation-page active">
+			<li data-page-hash="vROx6RoBeD" class="navigation-page  list-group-item rounded-top-0">
       
 			@if($aulas->aula_status==0 && $compras[0]->status=='PE')
 			<a href="">{{$aulas->aula_titulo}}</a>

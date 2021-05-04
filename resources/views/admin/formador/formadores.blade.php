@@ -29,24 +29,6 @@
         margin:25px 0;
       
     }
-    .btn-formador{
-     width: 90%;
-     padding: 10px 0;
-    background:#0c9da0;
-    color:#ffffff;
-    font-weight: bold;
-    font-size: 18px;
-    border: none;
-    border-radius: 3px;
-    transition: 1s all;
-    cursor: pointer;
-  
-    }
-    .btn-formador:hover{
-    background:#0a9294;
-    transform: scale(1.2);
- 
-    }
 
     .col-3 h5{
         font-size: 60px;
@@ -71,7 +53,7 @@
     <div class="container">
     <div class="row">
      <div class="col-3">
-                  <img src="http://yetoafrica.com/public/oficial/assets/img/80.png"  alt="">
+                  <img src="http://localhost/yetoafrica/public/oficial/assets/img/80.png"  alt="">
       </div>
            
       <div class="col-3">
@@ -91,12 +73,14 @@
                 <h1>Crie um infoproduto</h1>
                 <p>Ganhe dinheiro ensinando às pessoas.</p>
             
-                <a href="/admin/login/" class="btn-formador"> Torna-se um formador</a>
+                
+                <button class="btn btn-primary mg-b-10"><a href="/admin/login/" class="text-white"> Torna-se um formador</a></button>
+                
              
             </div>
 
             <div class="col-2">
-                  <img src="http://yetoafrica.com/public/oficial/assets/img/12.png" alt="">
+                  <img src="http://localhost/yetoafrica/public/oficial/assets/img/12.png" alt="">
             </div>
     </div>
 
@@ -104,7 +88,7 @@
     <div class="container">
     <div class="row">
      <div class="col-2">
-                  <img src="http://yetoafrica.com/public/oficial/assets/img/13.png"  alt="">
+                  <img src="http://localhost/yetoafrica/public/oficial/assets/img/13.png"  alt="">
       </div>
            
       <div class="col-2">
@@ -125,7 +109,7 @@
             </div>
 
             <div class="col-2">
-                  <img src="http://yetoafrica.com/public/oficial/assets/img/cursos.png" alt="">
+                  <img src="http://localhost/yetoafrica/public/oficial/assets/img/cursos.png" alt="">
             </div>
     </div>
      </div>

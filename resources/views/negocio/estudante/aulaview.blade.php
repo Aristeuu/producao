@@ -43,18 +43,21 @@
   <div id="collapseTwo{{$modulo->id}}" class="collapse" role="tabpanel" aria-labelledby="headingTwo{{$modulo->id}}"
 	data-parent="#accordionEx1">
 	<div class="card-body">
-<ul>
+		<div class="table-responsive mx-3">
+              <table  class="table table-hover mb-0">
+              <tbody>
+				
 @foreach($listAulas as $aulas)	
 								@if($aulas->modulo_id==$modulo->id)
-								<li>
+								<tr>
 											
                                     @if($aulas->aula_status==0 && $compras[0]->status=='PE' )
-                                    <div><a><i class="marcado"></i>{{$aulas->aula_titulo}}</a></div>
+                                    <td><a>{{$aulas->aula_titulo}}</a></td>
                                     @endif
 
                                     @if($aulas->aula_status==2 && $compras[0]->status=='PE')
 									<div class="aulas-drop">
-										<div><a href="/aulaestudante/{{$id_curso}}/{{$aulas->id}}"><i class="marcado"></i></i>{{$aulas->aula_titulo}}</a></div>
+										<td><a href="/aulaestudante/{{$id_curso}}/{{$aulas->id}}"><i class="marcado"></i></i>{{$aulas->aula_titulo}}</a></td>
 										  <div class="form-check checkb"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
 									</div>
 
@@ -70,15 +73,17 @@
 										
 										
 										
-										
-										
-									</li>
+</tr>	
+									
 								@endif
-								@endforeach		
-</ul>					 
-									 
+								@endforeach	
+								</tbody>   
+              </table>
+              </div>	
+				 
 											
 							
+						
 						</div>
 						</div>
 						@endforeach		
