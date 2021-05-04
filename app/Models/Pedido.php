@@ -38,9 +38,9 @@ class Pedido extends Model
         ->join('users','users.id','=','pedidos.user_id')
         ->join('pedidos_cursos','pedidos_cursos.pedido_id','=','pedidos.id')
         ->join('cursos','cursos.id','=','pedidos_cursos.curso_id')
-        ->select('pedidos.status','pedidos_cursos.curso_id','cursos.curso_nome','cursos.curso_preco','cursos.curso_data','pedidos_cursos.status')
+        ->select('pedidos_cursos.curso_id','cursos.curso_nome','cursos.curso_preco','cursos.curso_img','pedidos_cursos.created_at','pedidos_cursos.status')
         ->where('users.id',$id)
-        ->orderBy('cursos.id','desc')
+        ->orderBy('pedidos_cursos.id','desc')
         ->get();
         return $listaFormador;
     }

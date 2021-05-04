@@ -9,56 +9,87 @@
             <div class="card bd-0 shadow-base widget-15 ht-100p">
               <div class="card-body">
                 <div class="card-title">*A validação do pagamento do curso inicia 24h após a sua
-                                efetivação</div>
-               
-
+								efetivação
+				</div>
+				
+				
+				<div class="listapgamento">
+					<ul>
+						<li>Curso: {{$curso->curso_nome}}</li>
+						<li>Preço: {{$curso->curso_preco}} kz </li>
+						<li>Categoria: {{$categoria[0]->cat_nome}}</li>
+					</ul>
+				</div>
                 
+				<formulario action="{{route('pagamentos.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
+					{{ csrf_field() }}
+					<div class="form-group">  
+						<input type="hidden" id="pedido_id" name="pedido_id" value="{{$compras[0]->pedido_id}}">
+						<input type="hidden" id="cursoId" name="curso_id" value="{{$compras[0]->curso_id}}">
+						<input type="hidden" id="cursoId" name="id" value="{{$compras[0]->id}}">				                 		
+                 	
+                	</div><!-- form-group -->
 
-                <div class="form-group" action="{{route('pagamentos.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">  
-    {{ csrf_field() }}
-    <input type="hidden" id="pedido_id" name="pedido_id" value="{{$compras[0]->pedido_id}}">
-    <input type="hidden" id="cursoId" name="curso_id" value="{{$compras[0]->curso_id}}">
-	<input type="hidden" id="cursoId" name="id" value="{{$compras[0]->id}}">
-	
-                  <label class="form-control-label">Curso: {{$curso->curso_nome}} </label>
-                  <input type="text" for="name"  class="form-control">
-                </div><!-- form-group -->
+              	   <div class="form-group">
+                    
+                   </div><!-- form-group -->
+	            <div class="text-form">Formas de Pagamento</div>
 
-                <div class="form-group">
-                  <label class="form-control-label">Preço: {{$curso->curso_preco}} kz </label>
-                  <input type="text" for="name" class="form-control">
-                </div><!-- form-group -->
-	<div class="card-title">Formas de Pagamento</div>
-
-	<label class="radio_wrap" data-radio="radio_1">
-    			<input type="radio" name="sports" class="input" checked>
-    			<span class="radio_mark">
-    			Transferência Bancária
-    			</span>
-			</label>
-			
-			<label class="radio_wrap" data-radio="radio_2">
-    			<input type="radio" name="sports" class="input">
-    			<span class="radio_mark">
-    			Whatsapp
-    			</span>
-    		</label>
+					<div class="radio_tabs">
+						<label class="radio_wrap" data-radio="radio_1">
+							<input type="radio" name="sports" class="input" checked>
+							<span class="radio_mark">
+							Transferência Bancária
+							</span>
+						</label>
+						<label class="radio_wrap" data-radio="radio_2">
+							<input type="radio" name="sports" class="input">
+							<span class="radio_mark">
+							Whatsapp
+							</span>
+						</label>
+					
+					</div>
+					<div class="content">
+						<div class="radio_content radio_1">
+							 kononia Digital LDA
+							<p>IBAN: AO06.0040.0000.0407.5121.1011.1</p>
+							<p>SWIFT:BAIPAOLU</p>
+							
+							
+							<div class="row">
+								<div class="col col-md-12">
+									<div class="form-group">
+										<label for="specialidade" class="control-label">Comprovante: </label> 
+										<input type="file" class="form-control has-feedback-left" id="inputSuccess2" placeholder="" id="curso_img" name="curso_comprovativo"  required>
+							   
+									 </div>
+								</div>
+				
+				   
+							</div>
+							<div class="row">
+				  
+								<div class="col-lg-12">
+									<input type="submit" value="Enviar" class="btn btn-info" name="Cadastrar">
+								</div>
+							</div>
+							
+						</div>
+						<div class="radio_content radio_2">
+						 <button type="button" class="btn btn-success"><a href="https://api.whatsapp.com/send?l=pt-BR&phone=244938535602&text=Conversa%20via%20WhatsApp" class="icon-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i>Finalizar compra</a></button>
+						
+						
+					</div>
+					</div>				
         
 
-                <p class="mg-b-0 mg-t-20">
-                  <label class="ckbox">
-                    <input type="checkbox" checked="">
-                    <span></span>
-                  </label>
-                </p>
-              </div><!-- card-body -->
-              <div class="card-footer mg-t-auto">
-                <button class="btn btn-info bd-0 btn-oblong">Submit</button>
-                <button class="btn btn-secondary bg-gray-400 bd-0 btn-oblong mg-l-5">Cancel</button>
-              </div><!-- card-footer -->
+                
+              </div><!-- card-body -->             
             </div><!-- card -->
 		  </div>
 		  </div>
+		</formulario>
 
 
 

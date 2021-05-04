@@ -20,27 +20,33 @@ define('REQUIRE_PATH', '/oficial/' . THEME);
     <title>Yetoafrica</title>
      @yield('seo')
     <!-- Favicon -->
-    <link rel="shortcut icon" href="<?=REQUIRE_PATH?>/img/fiveicon13.png" type="image/x-icon">
+   <!-- Favicon -->
+   <link rel="shortcut icon" href="<?=REQUIRE_PATH?>/img/fiveicon13.png" type="image/x-icon">
 
-    <!-- Font awesome -->
-    <link href="<?=REQUIRE_PATH?>/css/font-awesome.css" rel="stylesheet">
-    
-    <!-- Bootstrap -->
-    <link href="<?=REQUIRE_PATH?>/css/bootstrap.css" rel="stylesheet">   
-   
+   <!-- Font awesome -->
+   <link href="<?=REQUIRE_PATH?>/css/font-awesome.css" rel="stylesheet">
+   <link rel="stylesheet" href="<?=REQUIRE_PATH?>/aos.css">
+   <!-- Bootstrap -->
+   <link href="<?=REQUIRE_PATH?>/css/bootstrap.css" rel="stylesheet">   
+   <!-- Slick slider -->
+   <link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/slick.css">          
+   <!-- Fancybox slider -->
+   <link rel="stylesheet" href="<?=REQUIRE_PATH?>/css/jquery.fancybox.css" type="text/css" media="screen" /> 
+   <!-- Theme color -->
+   <link id="switcher" href="<?=REQUIRE_PATH?>/css/theme-color/default-theme.css" rel="stylesheet">          
+
+   <!-- Main style sheet -->
+   <link href="<?=REQUIRE_PATH?>/css/style.css" rel="stylesheet">    
+<!-- CSS personalizado -->
 <link rel="stylesheet" href="<?=REQUIRE_PATH?>/bracket.css">
-<link rel="stylesheet" href="<?=REQUIRE_PATH?>/homepage.css">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="<?=REQUIRE_PATH?>/personalizado.css">
+<link rel="stylesheet" href="<?=REQUIRE_PATH?>/banner.css">
+<link rel="stylesheet" href="<?=REQUIRE_PATH?>/font.css">
+  
+   <!-- Google Fonts -->
+   <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,900&display=swap" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+   
   </head>
   <body> 
 

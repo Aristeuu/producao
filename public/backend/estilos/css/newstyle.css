@@ -6,6 +6,14 @@ html {
     color: white;
 }
 
+.text-black{
+   color: #333;
+}
+
+.view-aula .mg-0{
+    margin: 0;
+}
+
 .profil {
     margin-top: 3rem;
     margin-left: 15rem;
@@ -267,23 +275,6 @@ ol {
     margin: 0;
 }
 
-.btn-analise .btn-block {
-    display: inline;
-    width: 20%;
-    margin: 0;
-}
-
-.btn-analise .btn-outline-danger {
-    color: white;
-    width: 23%;
-}
-
-.btn-analise .btn-outline-danger a {
-    color: white;
-    text-decoration: none;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-}
 
 .btn-modulos .mg-b-10 .bt-2 {
     margin-bottom: 0px;
@@ -291,6 +282,347 @@ ol {
 
 
 /*responsividade
+
+        html {
+            overflow-x: hidden;
+        }
+        
+        .texto-white {
+            color: white;
+        }
+        
+        .profil {
+            margin-top: 3rem;
+            margin-left: 15rem;
+            bottom: 9rem;
+        }
+        
+        .modal-body {
+            position: relative;
+            flex: 1 1 auto;
+            padding: 1rem;
+        }
+        
+        .editar-perf .tx-normal i {
+            margin: 0 0.4rem;
+            font-size: 2rem;
+        }
+        
+        .pd-30 {
+            padding: 30px;
+            width: 69%;
+            margin-left: 16rem;
+        }
+        
+        .listcurso .tx-11 {
+            font-size: 1.3em;
+        }
+        
+        .listcurso .tx-13 {
+            font-size: 1.5em;
+            margin-left: 5rem;
+            background-image: linear-gradient(to right, #212529 0%, #06d3ef 100%);
+        }
+        
+        .form-group {
+            margin-top: 2rem;
+            width: 100%;
+        }
+        
+        .bg-mantle {
+            background-image: linear-gradient(to right, #212529 0%, #06d3ef 100%);
+        }
+        
+        .col-sm-4,
+        .col-sm-5,
+        .col-sm-6,
+        .col-sm-7,
+        .col-sm-8,
+        .col-sm-9,
+        .col-sm-10,
+        .col-sm-11,
+        .col-sm-12,
+        .col-sm,
+        .col-sm-auto,
+        .col-md-1,
+        .col-md-2,
+        .col-md-3,
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md,
+        .col-md-auto,
+        .col-lg-1,
+        .col-lg-2,
+        .col-lg-3,
+        .col-lg-4,
+        .col-lg-5,
+        .col-lg-6,
+        .col-lg-7,
+        .col-lg-8,
+        .col-lg-9,
+        .col-lg-10,
+        .col-lg-11,
+        .col-lg-12,
+        .col-lg,
+        .col-lg-auto,
+        .col-xl-1,
+        .col-xl-2,
+        .col-xl-3,
+        .col-xl-4,
+        .col-xl-5,
+        .col-xl-6,
+        .col-xl-7,
+        .col-xl-8,
+        .col-xl-9,
+        .col-xl-10,
+        .col-xl-11,
+        .col-xl-12,
+        .col-xl,
+        .col-xl-auto {
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin: 0 0 3rem;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .buttons {
+            display: flex;
+            padding: 0.75rem 1.25rem;
+        }
+        
+        .buttons .btn {
+            margin-top: -2rem;
+        }
+        
+        .buttons a .butt2 {
+            margin-left: 1.7rem;
+        }
+        
+        .buttons a .butt2:hover {
+            color: white;
+        }
+        
+        .card-item-img a {
+            margin-right: 2rem;
+            color: #06d3ef;
+            width: 30%;
+        }
+        
+        .card-item-img i {
+            color: #06d3ef;
+        }
+        
+        .btn-secondary {
+            background-color: white;
+        }
+        
+        .card-deck p {
+            margin: 0 0 19px;
+        }
+        
+        .col-md-4,
+        .col-md-5,
+        .col-md-6,
+        .col-md-7,
+        .col-md-8,
+        .col-md-9,
+        .col-md-10,
+        .col-md-11,
+        .col-md-12,
+        .col-md,
+        .col-md-auto,
+        .col-lg-1,
+        .col-lg-2,
+        .col-lg-3,
+        .col-lg-4,
+        .col-lg-5,
+        .col-lg-6,
+        .col-lg-7,
+        .col-lg-8,
+        .col-lg-9,
+        .col-lg-10,
+        .col-lg-11,
+        .col-lg-12,
+        .col-lg,
+        .col-lg-auto,
+        .col-xl-1,
+        .col-xl-2,
+        .col-xl-3,
+        .col-xl-4,
+        .col-xl-5,
+        .col-xl-6,
+        .col-xl-7,
+        .col-xl-8,
+        .col-xl-9,
+        .col-xl-10,
+        .col-xl-11,
+        .col-xl-12,
+        .col-xl,
+        .col-xl-auto {
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin: 0 0 0rem;
+        }
+        
+        .btn-block {
+            display: inline;
+        }
+        
+        .card-body .botto2 {
+            margin-left: 0.6rem;
+        }
+        
+        .btn-block+.btn-block {
+            margin-top: 0.5rem;
+        }
+        
+        .card-deck .botto2:hover {
+            color: white;
+        }
+        
+        input[type="submit"].btn-block,
+        input[type="reset"].btn-block,
+        input[type="button"].btn-block {
+            width: 100%;
+        }
+        
+        .modal-header {
+            background: teal;
+            color: white;
+        }
+        
+        .modal-header .bg-button span {
+            font-size: 1.2em;
+        }
+        
+        .form-layout-1 {
+            border: none;
+            padding: 3px;
+        }
+        
+        .form-layout-1 .form-group {
+            margin-bottom: -20px;
+        }
+        
+        .form-layout-footer .buttonsave {
+            margin-left: 2rem;
+        }
+        
+        .vercursos {
+            margin-top: 4rem;
+            margin-left: 24rem;
+        }
+        /*detalhesforador*/
+        
+        @media (min-width: 992px) {
+            .detalhes-form .br-section-wrapper {
+                padding: 60px;
+                height: 50%;
+                bottom: 5rem;
+            }
+        }
+        
+        .detalhes-form .thumb {
+            float: left;
+            border: 0;
+            background: #dee1e6;
+            padding: 6px;
+        }
+        
+        .detalhes-form .tx-12 {
+            font-size: 24px;
+            color: #212529;
+        }
+        
+        .detalhes-form ul,
+        li,
+        ol {
+            list-style: none;
+        }
+        
+        .detalhes-form .inf ul {
+            margin-left: -2.2rem;
+        }
+        
+        .detalhes-form ul li {
+            padding: 15px;
+        }
+        
+        .detalhes-form ul>li:first-child {
+            padding-left: 0px;
+        }
+        
+        .detalhes-form ul>li {
+            width: 33%;
+            float: left;
+            padding-left: 17px;
+        }
+        
+        .detalhes-form .inf small {
+            font-size: 1.1em;
+            color: teal;
+        }
+        
+        .detalhes-form .inf i {
+            font-size: 1.6rem;
+            color: teal;
+            margin: 0 0.1rem;
+        }
+        
+        .detalhes-form .inf span {
+            font-size: 1.1em;
+            color: #212529;
+            display: block;
+            margin-left: 1.9rem;
+        }
+        
+        .detalhes-form .btn-block {
+            display: inline;
+            width: 25%;
+        }
+        
+        .detalhes-form .btn-outline-teal a {
+            color: teal;
+            background-color: transparent;
+        }
+        
+        .btn-modulos .btn-block {
+            display: inline;
+            width: 15%;
+            margin: 0;
+        }
+        
+    
+        
+        .btn-analise .btn-outline-danger a {
+            color: white;
+            text-decoration: none;
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects;
+        }
+        
+        .btn-modulos .mg-b-10 .bt-2 {
+            margin-bottom: 0px;
+        }
+        /*responsividade
+
 
 @media screen and (max-width:768px){
     .detalhes-form .thumb{
@@ -304,6 +636,7 @@ ol {
 }
 
 /*responsividade*/
+
 
 
 
@@ -704,10 +1037,6 @@ img, svg {
     margin-left: -2.5rem;
 }
 
-.mb-0 a {
-    margin-bottom: 0 !important;
-    color: white;
-}
 #wrapper .mp-0{
     margin: 0px;
     padding: 0;
@@ -881,7 +1210,7 @@ img, svg {
 
 
 .collapse-modulos .accordion-inverse .card-header a {
-    background-color: #17A2B8;
+    background-color: #2e415b;
     margin-left: -1rem;
 }
 
@@ -1025,10 +1354,6 @@ img, svg {
     width: 100%;
     border: 1px solid rgb(0, 0, 0, 0.125);
 }
-.accordion ul li:hover{
-    background: #2e415b;
-    transition: 0.3s ease;
-}
 
 
 
@@ -1136,3 +1461,237 @@ img, svg {
 .view-aula .btn a{
    color: white;
 }
+
+        /*dashboard*/
+        
+        .dashboard .roundede {
+            width: 330px;
+            height: 100px;
+            border: 1px solid #a2a1a1;
+            border-radius: 1.4rem;
+        }
+        
+        .dashboard .pd-x-20 {
+            padding-left: 33px;
+            padding-right: 20px;
+        }
+        
+        .dashboard .row-sm>div {
+            padding-left: 30px;
+            padding-right: 10px;
+        }
+        
+        .primeiro .tx-whitee {
+            color: blue;
+        }
+        
+        .segundo .tx-whitee {
+            color: teal;
+        }
+        
+        .terceiro .tx-whitee {
+            color: red;
+        }
+        
+        .quarto .tx-whitee {
+            color: green;
+        }
+        
+        .tx-10 {
+            font-size: 15.2px;
+        }
+        
+        .tx-white-8 {
+            color: #5a5656;
+        }
+        
+        .tx-white {
+            color: #5a5656;
+        }
+        
+        .txte-white {
+            color: white;
+        }
+        
+        .terceiro .mg-l-20 {
+            margin-left: 50px;
+        }
+        
+        .quarto .mg-l-20 {
+            margin-left: 50px;
+        }
+        
+        .moviment-das {
+            font-size: 1rem;
+            color: rgb(93 82 82);
+        }
+        /*dashboard*/
+        
+        .tabl-lis .bd-gray-300 {
+            border-color: #dee2e6;
+            width: 103%;
+        }
+        /*accordio*/
+        
+        .card-header .btn-modul {
+            display: contents;
+            margin-left: 75rem;
+        }
+        
+        .card-header .btn-modul .bttn-edit {
+            text-align: left;
+            margin-left: 70rem;
+        }
+        
+        .card-header .btn-modul span i {
+            font-size: 1.2em;
+        }
+        
+        .pd-20 {
+            padding: 20px;
+        }
+        
+        .pd-20 table>tbody>tr>td {
+            padding: 15px 50px 1rem 0;
+        }
+        
+        .pd-20 table tr td.m-left {
+            margin-left: 4rem;
+        }
+        /*accordion*/
+        /*perfilforador*/
+        
+        .formadorperfil .br-section-label {
+            margin-left: 2rem;
+            font-size: 1.6em;
+        }
+        
+        .formadorperfil .form-group {
+            margin-top: 2rem;
+            width: 100%;
+            margin-left: 1rem;
+        }
+        
+        .formadorperfil .br-section-label {
+            margin-top: 50px;
+            margin-bottom: 1px;
+        }
+        
+        .formadorperfil .form-layout-footer {
+            margin-top: 6rem;
+            text-align: center;
+        }
+        
+        .formadorperfil .form-layout-footer button.btn-block {
+            width: 30%;
+        }
+        /*perfilforador*/
+        /*modais*/
+        
+        .botn-geral input[type="submit"].btn-block,
+        input[type="reset"].btn-block,
+        input[type="button"].btn-block {
+            margin-top: 1rem;
+            width: 50%;
+            margin-left: 1rem;
+        }
+        
+        .editarcurso .form-group {
+            margin-top: 0.19rem;
+            width: 100%;
+        }
+        /*cards do aluno*/
+        
+        @media (min-width: 992px) {
+            .br-section-aluno {
+                padding: 50px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .br-section-aluno .col-md-3 {
+                flex: 0 0 25%;
+                max-width: 29%;
+            }
+        }
+        
+        .btnc-aluno .btn a {
+            color: white;
+        }
+        /*crads do aluno*/
+        /*assistir do aluno*/
+        
+        .bg-color {
+            background-color: #212529;
+        }
+        /*assistir do aluno*/
+        
+        @media (min-width: 576px) {
+            .br-pagebody-pagamento {
+                padding: 0 350px;
+            }
+        }
+        
+        .listapgamento ul {
+            display: flex;
+            margin-left: -5.2rem;
+            color: #5a5656;
+        }
+        
+        .listapgamento ul li {
+            margin: 0 3rem;
+        }
+        
+        .br-pagebody-pagamento .widget-15 .card-title {
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 12px;
+            font-weight: 600;
+            color: red;
+            margin-bottom: 10px;
+        }
+        
+        .br-pagebody-pagamento .text-form {
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #212529;
+            margin-bottom: 10px;
+        }
+        
+        .br-pagebody-pagamento {
+            margin-top: 4rem;
+            margin-bottom: 5rem;
+        }
+        
+        .br-pagebody-pagamento .radio_tabs {
+            color: #212529;
+        }
+        
+        .br-pagebody-pagamento .content {
+            color: #212529;
+        }
+        
+        @media (min-width: 576px) {
+            .br-pagebody-pagamento {
+                padding: 0 80px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .br-pagebody-pagamento {
+                padding: 0 30px;
+            }
+        }
+
+
+
+        .collapse-modulos .accordion-inverse .card-header a.collapsed {
+         color: white;
+        }
+
+        .navigation-page-status i{
+            color: white;
+        }
+

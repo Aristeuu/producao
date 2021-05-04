@@ -198,10 +198,9 @@ class CarrinhoController extends Controller
     {
 
         $compras = Pedido::where([
-            'user_id' => Auth::id(),
-             'status' => 'PE'
+            'user_id' => Auth::id()            
             ])->orderBy('created_at', 'desc')->get();
-
+        
         $cancelados = Pedido::where([
             'status'  => 'CA',
             'user_id' => Auth::id()

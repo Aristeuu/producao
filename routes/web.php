@@ -82,8 +82,8 @@ Route::resource('publicacao', 'Admin\PublicacaoController');
 Route::post('/comentario', 'Admin\ComentarioController@store')->name('comentario.store');
 Route::post('/editarperfil/{id}', 'Admin\UtilizadorController@editarPerfil');
 Route::post('/editarperfilAluno/{id}', 'Admin\UtilizadorController@editarPerfilAluno');
-
 Route::get('/academias/yeto', 'Admin\AcademiaController@academiasfront');
+Route::post('/producao','Admin\CoproducaoController@store')->name('coproducao.store');
 
 
 
@@ -108,7 +108,7 @@ Route::post('/updateMod', 'Admin\ModuloController@update');
 
 //admin 
 Route::get('/on/{id}','Admin\CursoController@on');//funcao para ativar o curso para o formador
-Route::get('/off/{var}','Admin\CursoController@off');// para desativar o curso para o formador
+Route::get('/off/{id}','Admin\CursoController@off');// para desativar o curso para o formador
 Route::get('/admin_curso/{id}','Admin\FormadorController@cursoview');//rota para ver o curso para o admin
 Route::get('/admin_aulafree/{id}','Admin\AulaController@free');//rota para tornar a aula grátis
 Route::get('/admin_aulades/{id}','Admin\AulaController@unfree');//rpta para desativar aula grátis

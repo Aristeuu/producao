@@ -217,6 +217,7 @@
                   <h4 class="lh-3 mg-b-20"><a href="" class="tx-inverse hover-primary">Saldo disponível: {{number_format($saldoDisponivel)}} Kz</a></h4>
                   <formulario  id="formSolicitar" action="{{route('operacoes.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
                     {{ csrf_field() }}
+                  <input type="hidden" name="saldoDisponivel" value="{{$saldoDisponivel}}">
                     <div class="input-group">
                       <div class="input-group-prepend">
                           <span class="input-group-text">AKZ</span>
@@ -364,35 +365,7 @@
 		  <!-- ########## END: MAIN PANEL ########## -->
 	  
 		 
-		  <script>
-			$(function(){
-			  'use strict'
-	  
-			  // FOR DEMO ONLY
-			  // menu collapsed by default during first page load or refresh with screen
-			  // having a size between 992px and 1299px. This is intended on this page only
-			  // for better viewing of widgets demo.
-			  $(window).resize(function(){
-				minimizeMenu();
-			  });
-	  
-			  minimizeMenu();
-	  
-			  function minimizeMenu() {
-				if(window.matchMedia('(min-width: 992px)').matches && window.matchMedia('(max-width: 1299px)').matches) {
-				  // show only the icons and hide left menu label by default
-				  $('.menu-item-label,.menu-item-arrow').addClass('op-lg-0-force d-lg-none');
-				  $('body').addClass('collapsed-menu');
-				  $('.show-sub + .br-menu-sub').slideUp();
-				} else if(window.matchMedia('(min-width: 1300px)').matches && !$('body').hasClass('collapsed-menu')) {
-				  $('.menu-item-label,.menu-item-arrow').removeClass('op-lg-0-force d-lg-none');
-				  $('body').removeClass('collapsed-menu');
-				  $('.show-sub + .br-menu-sub').slideDown();
-				}
-			  }
-			});
-		  </script>
-	
+		
 		
 </div>
 </div>

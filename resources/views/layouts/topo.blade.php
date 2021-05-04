@@ -78,7 +78,7 @@
             @if(auth()->user()->foto==null)
 			<img src="https://via.placeholder.com/500" class="wd-32 rounded-circle" alt="">
 			@else
-			<img src="http://localhost/producao/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="">
+			<img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="">
 			@endif
           </div><!-- card-profile-img -->
           <h4 class="tx-normal tx-roboto texto-white">{{auth()->user()->name}}</h4>
@@ -128,7 +128,7 @@
 			  <!-- loop ends here -->
 			  <a href="" class="media-list-link read">
 				<div class="media">
-				  <img src="http://producao.yetoafrica.com/storage/app/public/{{auth()->user()->foto}}" alt="">
+				  <img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" alt="">
 				  <div class="media-body">
 					<p class="noti-text"><strong></strong>  <strong>T</strong></p>
 					<span></span>
@@ -137,7 +137,8 @@
 			  </a>
 			  <a href="" class="media-list-link read">
 				<div class="media">
-				  <img src="http://producao.yetoafrica.com/storage/app/public/{{auth()->user()->foto}}" alt="">
+				  <img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" alt="">
+				 
 				  <div class="media-body">
 					<p class="noti-text">
 				  </div>
@@ -167,12 +168,15 @@
         </div><!-- card-header -->
         <div class="card-body">
           <div class="card-profile-img">
-            @if(auth()->user()->foto==null)
-			<img src="https://via.placeholder.com/500" class="wd-32 rounded-circle" alt="">
+			@if(auth()->user()->foto==null)
+			<div>
+				<img src="https://via.placeholder.com/500" class="wd-32 rounded-circle" alt="">		
+				
+			</div>	
 			@else
-			<img src="http://producao.yetoafrica.com/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="">
-			@endif
-          </div><!-- card-profile-img -->
+			<img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="">				
+			@endif		
+		  </div><!-- card-profile-img -->		
           <h4 class="tx-normal tx-roboto texto-white">{{auth()->user()->name}}</h4>
       
         </div><!-- card-body -->

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\solicitacaoEmail;
 use App\Models\User;
+use Validator;
 
 
 class OperacoesController extends Controller
@@ -55,21 +56,18 @@ class OperacoesController extends Controller
         'valor_retirado.required'=>'Por favor, informe o valor a solicitar'
     ]);
  
+        $disponivel = $request->saldoDisponivel;
+        $retirada   = $request->valor_retirado;
+        
        if($validacao->fails()){
          return redirect()->back()->withErrors($validacao)->withInput();
        }
- 
+    if($disponivel>=$retirada)
+    {
       Mail::to('yetoafrica@gmail.com')->send(new solicitacaoEmail($user));
-    
-     
-     
-     
-     
-    /*$idUser = DB::table('operacoes')->insertGetId(
+        /*$idUser = DB::table('operacoes')->insertGetId(
         ['email' => $request->email,'name' => $request->name,'telefone' => $request->telefone,'tipo' =>$request->tipo,'password' =>Hash::make($request->password),'users_status' => 0,'created_at' =>date("Y-m-d H:i:s")]
-    );*/
- 
-   
+    );*/   
 
        if(DB::table('operacoes')->insert(['id_formador' =>$request->id_formador, 'valor_retirado' =>$request->valor_retirado,'created_at' =>date('Y-m-d h:i:s')] ))
        {
@@ -79,7 +77,12 @@ class OperacoesController extends Controller
       
 
        }
-       
+    }
+    else
+    {
+        return redirect()->back();
+        
+    }  
 }
     /**
      * Display the specified resource.

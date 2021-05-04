@@ -191,6 +191,8 @@ else{
         $conta = $request->input('conta_bancaria');
         $iban = $request->input('iban');
         $titular = $request->input('titular');
+       // dd($img);
+        
         
         if($img!=null){
             if($request->file('foto')->isValid()){
@@ -222,8 +224,8 @@ else{
         }
         
         if($conta!=null && $iban!=null && $titular != null )
-        {
-                    DB::table('formador')->where('id_user','=',$id)->update(['conta_bancaria'=>$conta,'iban'=>$iban,'titular'=>$titular]);
+        {    
+            DB::table('formador')->where('id_user','=',$id)->update(['conta_bancaria'=>$conta,'iban'=>$iban,'titular'=>$titular]);
         }
         
         if(DB::table('perfil')          

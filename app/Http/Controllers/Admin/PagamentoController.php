@@ -20,19 +20,19 @@ class PagamentoController extends Controller
     public function pagamento($id){
         $listaCategorias=Categorias::all();
         $curso = Cursos::find($id);
-        $compras = Pedido::cursoPagamento($id);
-        
+        $compras = Pedido::cursoPagamento($id); 
+        $categoria = Categorias::find($curso->id_categoria);  
        
        
+       //dd($categoria);
         
-        
-        return view('admin.pagamento.index',compact('listaCategorias','curso','compras'));
+        return view('admin.pagamento.index',compact('categoria','curso','compras'));
     }
     
     
     public function store(Request $req)
     {
-        $this->middleware('VerifyCsrfToken');
+        $this->middleware('VerifyCsrfToken'); 
 
         
         $idpedido  = $req->input('pedido_id');
@@ -88,13 +88,13 @@ class PagamentoController extends Controller
             'pedido_id' => $idpedido,
 			'curso_id' => $curso_id
             ])->update([
-                'status' => 'PE'
+                'status' => 'PA'
                 
             ]);
         Pedido::where([
                 'id' => $idpedido
             ])->update([
-                'status' => 'PE'
+                'status' => 'PA'
             ]);
             
        DB::table('pagamentos')->insert(['id_aluno'=>$id_aluno,'id_pedido'=>$id,'comprovante'=>$comprovativo,'created_at'=>date("Y-m-d H:i:s")]);
@@ -132,7 +132,7 @@ public function relatoriodecompras()
             $listCursos=Pedido::cursoPr($idusuario);
             
           
-                
+          //      dd($listCursos);
    
             return view('admin.pagamento.relatoriodecompras', compact('listCursos'));
     
@@ -157,6 +157,17 @@ public function relatoriodeVendas()
             $id_name        =  $buscarFormador[0]->name;
                  
             $formador_conta = $buscarFormador[0]->conta_bancaria;
+
+           
+            $alunosCurso=Formador::alunosCursos($buscarFormador[0]->id);
+            $totalSaldos=0;
+            foreach($alunosCurso as $lista){
+                $totalSaldos=$totalSaldos+$lista->valor;
+            }        
+        //dd($alunosCurso);
+                $totalSaldo=$totalSaldos*0.70;
+               
+       
 
             $saldo  =Formador::formadorFinancas($buscarFormador[0]->id);
             $saidas =Formador::formadorSolicitacao($buscarFormador[0]->id);
@@ -216,8 +227,10 @@ public function relatoriodeVendas()
             'user_id' => $idusuario,
             'status'  => 'RE' // Reservada
             ])->exists();*/
-            $listCursos=Pedido::relatVendas($idusuario);            
-       return view('admin.pagamento.relatoriodeVendas', compact('listCursos','ganho_dia','saldoDisponivel','saldoContabilistico','saida','entrada'));    
+            
+            $listCursos=Pedido::relatVendas($idusuario); 
+                      
+       return view('admin.pagamento.relatoriodeVendas', compact('alunosCurso','totalSaldo','listCursos','ganho_dia','saldoDisponivel','saldoContabilistico','saida','entrada'));    
 
 }
 
@@ -283,41 +296,48 @@ public function filtro(Request $request)
         /*
         */    
         $fromDate = $request->input('from_date'); 
-        $toDate   = $request->input('to_date');     
+        $toDate   = $request->input('to_date');         
+     
         
-        if($request->ajax())
-        {
-            if($request->from_date != '' && $request->to_date != '')
-            {
-                $data = DB::table('pedidos')
-                ->join('users','users.id','=','pedidos.user_id')
-                ->join('pedidos_cursos','pedidos_cursos.pedido_id','=','pedidos.id')
-                ->join('cursos','cursos.id','=','pedidos_cursos.curso_id')
-                ->select('pedidos_cursos.curso_id','cursos.curso_nome','cursos.curso_preco','pedidos_cursos.created_at')
-                ->whereBetween('date', array($request->from_date, $request->to_date))
-                ->get();
-            }
-            else
-            {
-                    echo "error";  
-            }
-            echo json_encode($data);
-        }
-
-        $listCursos=DB::table('pedidos')
-        ->join('users','users.id','=','pedidos.user_id')
-        ->join('pedidos_cursos','pedidos_cursos.pedido_id','=','pedidos.id')
-        ->join('cursos','cursos.id','=','pedidos_cursos.curso_id')
-        ->select('pedidos_cursos.curso_id','cursos.curso_nome','cursos.curso_preco','pedidos_cursos.created_at')
+        $alunosCurso=DB::table('pedidos_cursos')
+        ->join('pedidos', 'pedidos.id', '=', 'pedidos_cursos.pedido_id')
+        ->join('users', 'users.id', '=', 'pedidos.user_id')             
+        ->join('cursos', 'cursos.id', '=', 'pedidos_cursos.curso_id')
+        ->join('aluno','aluno.id_user', '=', 'users.id')
+        ->join('formador', 'formador.id', '=', 'cursos.id_formador')
+        ->select('pedidos_cursos.valor','pedidos_cursos.status','pedidos_cursos.created_at','users.name','users.email','users.id','cursos.curso_nome','users.foto')
         ->whereBetween('pedidos_cursos.created_at',array($fromDate,$toDate))
-        ->where('users.id',$idusuario)           
+        ->where('formador.id',$id_formador)                
         ->orderBy('pedidos_cursos.created_at','asc')
         ->get();
+
+        $CursosPagos=DB::table('pedidos_cursos')
+        ->join('pedidos', 'pedidos.id', '=', 'pedidos_cursos.pedido_id')
+        ->join('users', 'users.id', '=', 'pedidos.user_id')             
+        ->join('cursos', 'cursos.id', '=', 'pedidos_cursos.curso_id')
+        ->join('aluno','aluno.id_user', '=', 'users.id')
+        ->join('formador', 'formador.id', '=', 'cursos.id_formador')
+        ->select('pedidos_cursos.valor','pedidos_cursos.status','pedidos_cursos.created_at','users.name','users.email','users.id','cursos.curso_nome','users.foto')
+        ->whereBetween('pedidos_cursos.created_at',array($fromDate,$toDate))
+        ->where('formador.id',$id_formador) 
+        ->where('pedidos_cursos.status','PA')               
+        ->orderBy('pedidos_cursos.created_at','asc')
+        ->get();
+        
+        
+        $totalSaldos=0;
+        foreach($CursosPagos as $lista){
+            $totalSaldos=$totalSaldos+$lista->valor;
+        }        
+    
+            $totalSaldo=$totalSaldos*0.70;
+
+           // dd($totalSaldo);
         
      
         
 
-       return view('admin.pagamento.filtro', compact('toDate','fromDate','listCursos','ganho_dia','saldoDisponivel','saldoContabilistico','saida','entrada'));    
+       return view('admin.pagamento.filtro', compact('totalSaldo','alunosCurso','toDate','fromDate','ganho_dia','saldoDisponivel','saldoContabilistico','saida','entrada'));    
 
 
 }
