@@ -58,6 +58,29 @@ public static function listarFormadorCurso($id){
 }
 
 
+
+//Função que retorna id_user FormadorCoprodutor
+public static function listarCoprodutorIdUser($id){
+  return DB::table('formador')              
+              ->select('formador.id_user')
+              ->where('formador.id',$id)
+              ->get();
+}
+
+
+//Função que retorna dados FormadorCoprodutor
+public static function listarCoprodutor($id){
+  return DB::table('users')              
+              ->select('users.tipo','users.email','users.name','users.foto')
+              ->where('users.id',$id)
+              ->get();
+}
+
+
+
+
+
+
 //função que retorna o formador pelo id do curso
 public static function FormadorCurso($id){
   return DB::table('formador')
@@ -75,8 +98,8 @@ public static function formadorFinancas($id){
   ->join('pedidos', 'pedidos.id', '=', 'pedidos_cursos.pedido_id')
   ->join('users', 'users.id', '=', 'pedidos.user_id')             
   ->join('cursos', 'cursos.id', '=', 'pedidos_cursos.curso_id')
-  ->join('formador', 'formador.id', '=', 'cursos.id_formador')
-  ->select(DB::raw('sum(pedidos_cursos.valor) as valor'))
+  ->join('formador', 'formador.id', '=', 'cursos.id_formador')  
+  ->select('pedidos_cursos.valor','pedidos_cursos.curso_id','cursos.curso_nome')
   ->where('formador.id',$id)
   ->where('pedidos_cursos.status','PA')
   ->get();

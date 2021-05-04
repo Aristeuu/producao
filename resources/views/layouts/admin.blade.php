@@ -61,12 +61,13 @@ define('SCRIPT', 'http://localhost:8000');
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
 	
-    <script script  src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"> </script>  
+ 
     
    
     
 	<script src="<?=SCRIPT?>/js/app.js"></script>
-	
+
+	   <script script  src="//cdn.ckeditor.com/4.6.2/full/ckeditor.js"> </script>  
 	<script src="{{ asset('/js/jquery.min.js') }}"></script>
 	<script src="{{ asset('/js/datepicker.js') }}"></script>
 	<script src="{{ asset('/js/bootstrap.bundle.min.js') }}"></script>
@@ -120,9 +121,22 @@ define('SCRIPT', 'http://localhost:8000');
 			  }
 		
 		</script>
+		<script>
+			$(document).ready(function(){
+				/* by default hide all radio_content div elements except first element */
+				$(".content .radio_content").hide();
+				$(".content .radio_content:first-child").show();
+	
+				/* when any radio element is clicked, Get the attribute value of that clicked radio element and show the radio_content div element which matches the attribute value and hide the remaining tab content div elements */
+				$(".radio_wrap").click(function(){
+				  var current_raido = $(this).attr("data-radio");
+				  $(".content .radio_content").hide();
+				  $("."+current_raido).show();
+				})
+			});
+		</script>
+	
     
-	
-	
 </body>
 
 

@@ -8,6 +8,7 @@ use App\Models\Cursos;
 use App\Models\Pedido;
 use App\Models\Aluno;
 use App\Models\Formador;
+use App\Models\Coproducao;
 use App\Models\PedidoCurso;
 use App\Models\relatoriodecompras;
 use App\Models\relatoriodeVendas;
@@ -172,6 +173,29 @@ public function relatoriodeVendas()
             $saldo  =Formador::formadorFinancas($buscarFormador[0]->id);
             $saidas =Formador::formadorSolicitacao($buscarFormador[0]->id);
             $entrada = 0;
+            $saldoCursos = 0;
+
+            $coproduction = Coproducao::CursoPercent($buscarFormador[0]->id);
+                
+            //dd($coproduction);
+           foreach($saldo as $pos)
+            {
+                foreach($coproduction as $coprod)
+                {
+                    if($pos->curso_id == $coprod->id_curso)
+                    {
+                        $percentagemFormador = $coprod->percenF; 
+                        $saldoCurso = $pos->valor;
+                        
+                       $saldoCursos += $saldoCurso*($percentagemFormador/100);
+
+                        //dd($saldoCursos);
+                         
+                    }
+                }
+
+
+            }
                 
             $calcularEntrada  = Formador::formadorFinancasEntrada($buscarFormador[0]->id);
 
@@ -195,10 +219,10 @@ public function relatoriodeVendas()
                     }
                     
                 }
-                $saldoContabilistico=$saldo[0]->valor*0.7;
-                //saldo de entrada ou seja, saldo feito na plataforma 
-                $entrada = $saldo[0]->valor*0.7;
-                    
+                $saldoContabilistico=$saldoCursos;
+                     //saldo de entrada ou seja, saldo feito na plataforma 
+                 $entrada = $saldoCursos;
+
                     //saldo disponivel
                     if($saidas[0]->valor_retirado==null)
                     {
@@ -254,7 +278,30 @@ public function filtro(Request $request)
         $saldo  =Formador::formadorFinancas($buscarFormador[0]->id);
         $saidas =Formador::formadorSolicitacao($buscarFormador[0]->id);
         $entrada = 0;
+        $saldoCursos = 0;
+
+        $coproduction = Coproducao::CursoPercent($buscarFormador[0]->id);
             
+        //dd($coproduction);
+        foreach($saldo as $pos)
+            {
+                foreach($coproduction as $coprod)
+                {
+                    if($pos->curso_id == $coprod->id_curso)
+                    {
+                        $percentagemFormador = $coprod->percenF; 
+                        $saldoCurso = $pos->valor;
+                        
+                    $saldoCursos += $saldoCurso*($percentagemFormador/100);
+
+                        //dd($saldoCursos);
+                        
+                    }
+                }
+
+
+            }
+                
         $calcularEntrada  = Formador::formadorFinancasEntrada($buscarFormador[0]->id);
 
          //inicio do calculo da data
@@ -277,10 +324,10 @@ public function filtro(Request $request)
                 }
                 
             }
-            $saldoContabilistico=$saldo[0]->valor*0.7;
-            //saldo de entrada ou seja, saldo feito na plataforma 
-            $entrada = $saldo[0]->valor*0.7;
-                
+                 $saldoContabilistico=$saldoCursos;
+                     //saldo de entrada ou seja, saldo feito na plataforma 
+                 $entrada = $saldoCursos;
+
                 //saldo disponivel
                 if($saidas[0]->valor_retirado==null)
                 {

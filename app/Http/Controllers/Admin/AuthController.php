@@ -11,6 +11,7 @@ use App\Models\Operacoes;
 use App\Models\Cursos;
 use App\Models\Formador;
 use App\Models\Modulos;
+use App\Models\Coproducao;
 use App\Models\Pedido;
 use App\Models\Sobre;
 use App\Models\AcademiaFormador;
@@ -48,10 +49,32 @@ class AuthController extends Controller
                 $saldo  =Formador::formadorFinancas($buscarFormador[0]->id);
                 $saidas =Formador::formadorSolicitacao($buscarFormador[0]->id);
                 $entrada = 0;
+                $saldoCursos = 0;
+             
                 
                 $calcularEntrada  = Formador::formadorFinancasEntrada($buscarFormador[0]->id);
+
+                $coproduction = Coproducao::CursoPercent($buscarFormador[0]->id);
                 
-                
+                //dd($coproduction);
+               foreach($saldo as $pos)
+                {
+                    foreach($coproduction as $coprod)
+                    {
+                        if($pos->curso_id == $coprod->id_curso)
+                        {
+                            $percentagemFormador = $coprod->percenF; 
+                            $saldoCurso = $pos->valor;
+                            
+                           $saldoCursos += $saldoCurso*($percentagemFormador/100);
+
+                            //dd($saldoCursos);
+                             
+                        }
+                    }
+
+
+                }
                 //inicio do calculo da data
                 $dia = date('Y-m-d');
               
@@ -70,9 +93,9 @@ class AuthController extends Controller
                     }
                     
                 }
-            $saldoContabilistico=$saldo[0]->valor*0.7;
+            $saldoContabilistico=$saldoCursos;
             //saldo de entrada ou seja, saldo feito na plataforma 
-            $entrada = $saldo[0]->valor*0.7;
+            $entrada = $saldoCursos;
                 
                 //saldo disponivel
                 if($saidas[0]->valor_retirado==null)

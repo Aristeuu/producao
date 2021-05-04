@@ -45,7 +45,7 @@
       data: function(){
         return {
           buscar:'',
-          ordemAux: this.ordem || "asc",
+          ordemAux: this.ordem || "desc",
           ordemAuxCol: this.ordemcol || 0
         }
       },

@@ -112,7 +112,7 @@ class FormadorController extends Controller
         $listaCategoria=Categorias::all();
         $src = config('app.image');
         
-
+      
         return view('negocio.formador.cursos',compact('src','listMeuscursos','listaCategoria','listaFormador'));
     }
 
@@ -189,6 +189,14 @@ public function view($id){
     $listaFormadores = Formador::listarFormadores(auth()->user()->id);
     
     $listaCoProdutor = Coproducao::CursoCoprodutores($listaCurso->id);
+ 
+   
+     
+   
+    
+    // dd($FormadorCoprodutor);
+    
+  //  dd($id_user);
 
     $yetoAfrica = null;   
     if($listaCoProdutor->isNotEmpty())
@@ -197,7 +205,7 @@ public function view($id){
         //dd($yetoAfrica);
     }
 
-
+    //dd($listaFormadorCoprodutor);
    
    foreach($listaCategorias as $lista){
          if($lista->id==$listaCurso->id_categoria)
@@ -205,8 +213,19 @@ public function view($id){
    }
 
 
+   if(isset($listaCoProdutor[0]->id_cop))
+   {
+     
+       $id_user = Formador:: listarCoprodutorIdUser($listaCoProdutor[0]->id_cop);//pegar o id_user do coprodutor
+       $FormadorCoprodutor = Formador:: listarCoprodutor($id_user[0]->id_user);//pegar os dados da conta do coprodutor selecionado
+       return view('negocio.formador.view',compact('FormadorCoprodutor','listaCoProdutor','yetoAfrica','listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
+   }
+   else
+   {
+    return view('negocio.formador.view',compact('listaCoProdutor','yetoAfrica','listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
+   }
    
-  return view('negocio.formador.view',compact('listaCoProdutor','yetoAfrica','listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
+ 
 
 }
 

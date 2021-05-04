@@ -53,12 +53,32 @@ class CursoController extends Controller
     $dados->curso_link=$request->input('curso_link');
     $dados->id_formador=$request->input('id_formador');
     $dados->id_categoria=$request->input('categoria_id');
+    $dados->percenF = 90;
     
- //inserir na tabela perfil 
- if($dados->save()){
+ 
+    //Regista o user e retorna o ID gerado
+  $idCurso = DB::table('cursos')->insertGetId(
+    ['curso_nome' => $dados->curso_nome,'curso_preco' =>$dados->curso_preco,'curso_img' =>$dados->curso_img,'curso_descricao'=>$dados->curso_duracao,'curso_data' =>$dados->curso_data,'curso_status'=>$dados->curso_status,'curso_duracao'=>$dados->curso_duracao,'curso_link'=>$dados->curso_link,'id_formador'=>$dados->id_formador,'id_categoria'=>$dados->id_categoria]
+);
+
+
+if(DB::table('coproducao')->insert(['id_curso' => $idCurso,'id_formador'=>$dados->id_formador,'percenF'=>$dados->percenF])){
     Session::flash('sms','Inserido com sucesso');
+    return redirect('formanegocio');  
+
+}
+
+ 
+ 
+ 
+ 
+ 
+    //inserir na tabela perfil 
+ /*if($dados->save()){
+    Session::flash('sms','Inserido com sucesso');
+
     return redirect('formanegocio');
-    }
+    }*/
 
     }
 
