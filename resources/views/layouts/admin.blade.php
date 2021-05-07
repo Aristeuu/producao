@@ -78,7 +78,7 @@ define('SCRIPT', 'http://localhost:8000');
 	<script src="{{ asset('/js/bracket.js') }}"></script>
 	<script src="{{ asset('/js/tooltip-colored.js') }}"></script>
 	<script src="{{ asset('/js/popover-colored.js') }}"></script>
-	<div class="popover fade bs-popover-top show" role="tooltip" id="popover655328" style="position: absolute; transform: translate3d(77px, 3348px, 0px); top: 0px; left: 0px; will-change: transform;" x-placement="top"><div class="arrow" style="left: 124px;"></div><h3 class="popover-header">Popover top</h3><div class="popover-body">Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</div></div>
+	
 	
 	<script>
 

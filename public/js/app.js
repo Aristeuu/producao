@@ -6753,8 +6753,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['titulos', 'itens', 'ordem', 'ordemcol', 'ver', 'token', 'modal', 'editar', 'categoria', 'id'],
+  props: ['titulos', 'itens', 'ordem', 'ordemcol', 'ver', 'token', 'modal', 'editar', 'categoria', 'id', 'foto'],
   data: function data() {
     return {
       buscar: '',
@@ -50456,11 +50459,7 @@ var render = function() {
             [
               _c("img", {
                 staticClass: "card-img-top img-fluid",
-                attrs: {
-                  src:
-                    "http://localhost/yetoafrica/storage/app/public/" +
-                    item.curso_img
-                }
+                attrs: { src: _vm.foto + item.curso_img }
               }),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
@@ -50486,61 +50485,66 @@ var render = function() {
                     ])
                   : _c("p", { staticClass: "card-text" }, [_vm._v("Produtor")]),
                 _vm._v(" "),
-                item.id_coprodutor != _vm.id
-                  ? _c(
-                      "div",
-                      {
-                        staticClass: "card-footer",
-                        staticStyle: {
-                          background: "inherit",
-                          "border-color": "inherit"
-                        }
-                      },
-                      [
-                        _vm.ver
-                          ? _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-outline-primary",
-                                attrs: { href: _vm.ver + item.id }
-                              },
-                              [
-                                _c("i", { staticClass: "fa fa-eye" }),
-                                _vm._v("Detalhe")
-                              ]
-                            )
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.modal
-                          ? _c("modal_link", {
-                              attrs: {
-                                item: item,
-                                url: _vm.editar,
-                                nome: "formEditar",
-                                tipo: "button",
-                                titulo: "editar",
-                                clas: "fa fa-edit"
-                              }
-                            })
-                          : _vm._e(),
-                        _vm._v(" "),
-                        _vm.editar && !_vm.modal
-                          ? _c(
-                              "a",
-                              {
-                                staticClass: "btn btn-success",
-                                attrs: { item: item, href: _vm.editar }
-                              },
-                              [
-                                _c("i", { staticClass: "fa fa-edit" }),
-                                _vm._v(" editar ")
-                              ]
-                            )
-                          : _vm._e()
-                      ],
-                      1
-                    )
-                  : _vm._e()
+                _c(
+                  "div",
+                  {
+                    staticClass: "card-footer",
+                    staticStyle: {
+                      background: "inherit",
+                      "border-color": "inherit"
+                    }
+                  },
+                  [
+                    _vm.ver
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-outline-primary",
+                            attrs: { href: _vm.ver + item.id }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-eye" }),
+                            _vm._v("Detalhe")
+                          ]
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    item.id_coprodutor != _vm.id
+                      ? _c(
+                          "span",
+                          [
+                            _vm.modal
+                              ? _c("modal_link", {
+                                  attrs: {
+                                    item: item,
+                                    url: _vm.editar,
+                                    nome: "formEditar",
+                                    tipo: "button",
+                                    titulo: "editar",
+                                    clas: "fa fa-edit"
+                                  }
+                                })
+                              : _vm._e()
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _vm.editar && !_vm.modal
+                      ? _c(
+                          "a",
+                          {
+                            staticClass: "btn btn-success",
+                            attrs: { item: item, href: _vm.editar }
+                          },
+                          [
+                            _c("i", { staticClass: "fa fa-edit" }),
+                            _vm._v(" editar ")
+                          ]
+                        )
+                      : _vm._e()
+                  ]
+                )
               ])
             ]
           )
