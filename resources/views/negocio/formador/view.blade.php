@@ -53,7 +53,7 @@
                 </label> 
               </div>
               <div class="card-profile-img">                
-                <img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
+                <img src="http://localhost/yetoafrica/storage/app/public/{{$id_formador->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
                 {{$id_formador->name}}
               </div><!-- card-profile-img -->    
                 
@@ -74,7 +74,11 @@
                     @if(@isset($listaCurso->id_coprodutor))
                         <span></span>
                     @else
-                      <modal_link  nome="coproducao" titulo="coprodução" css="btn btn-outline-info active" clas="fa fa-user-plus"></modal_link>                    
+                        @if($buscarCoprodutor->isNotEmpty())
+                        <span></span>
+                        @else
+                          <modal_link  nome="coproducao" titulo="coprodução" css="btn btn-outline-info active" clas="fa fa-user-plus"></modal_link>                    
+                      @endif
                     @endif
                     
              
@@ -102,15 +106,18 @@
                           <button class="btn btn-outline-teal active btn-block ">Aprovado</button>
                                         
                       </td>
+                     
                       <button class="btn btn-outline-teal disabled btn-block mg-b-10"><a  href="/disp/{{$listaCurso->id}}" >Disponibilizar</a> </button>
+                     
                                         
                   @endif
                                         
                   @if($listaCurso->curso_status==3)
                                         
                     <td> <button class="btn btn-outline-success active btn-block">Público</button></td>
-                    <button class="btn btn-outline-danger active btn-block mg-b-10"> <a  href="/dispOff/{{$listaCurso->id}}">Desativar</a></button>
-                                                                 
+                   
+                      <button class="btn btn-outline-danger active btn-block mg-b-10"> <a  href="/dispOff/{{$listaCurso->id}}">Desativar</a></button>
+                                                            
                   @endif
 
               </div>

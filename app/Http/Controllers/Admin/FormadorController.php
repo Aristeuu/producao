@@ -170,6 +170,8 @@ public function view($id){
     $listaCurso=Cursos::find($id1);
     $listaCategorias=Categorias::all();
     $listaModulos=Modulos::listaModul($id);
+
+    
     
     $curso="active";
     $recebe="";
@@ -185,16 +187,20 @@ public function view($id){
     $id_yeto  = Formador::ListarYetoafrica("Yetoáfrica");
 
     $buscarCoprodutor = Formador::buscarCoprodutor($listaCurso->id_coprodutor);
+    $idcoprodutor = $listaCurso->id_coprodutor;
+    
       
    //dd($buscarCoprodutor);
     $buscarFormador=Formador::FormadorCurso($listaCurso->id_formador);       
-    
-    $id_formador = $buscarFormador[0];
    
+    $id_formador = $buscarFormador[0];
+    //dd($id_formador);
+ //  dd($buscarCoprodutor);
     $listaFormadores = Formador::listarFormadores(auth()->user()->id);
     
     $listaCoProdutor = Coproducao::CursoCoprodutores($listaCurso->id);
  
+
    
      
    
@@ -226,11 +232,11 @@ public function view($id){
        //$id_user = Formador:: listarCoprodutorIdUser($buscarCoprodutor[0]->id_cop);//pegar o id_user do coprodutor
       // $FormadorCoprodutor = Formador:: listarCoprodutor($id_user[0]->id_user);//pegar os dados da conta do coprodutor selecionado
         // dd($FormadorCoprodutor);
-       return view('negocio.formador.view',compact('buscarCoprodutor','id_yeto','listaCoProdutor','yetoAfrica','listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
+       return view('negocio.formador.view',compact('buscarCoprodutor','idcoprodutor','id_yeto','listaCoProdutor','yetoAfrica','listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
    }
    else
    {
-    return view('negocio.formador.view',compact('id_yeto','listaCoProdutor','yetoAfrica','listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
+    return view('negocio.formador.view',compact('idcoprodutor','id_yeto','listaCoProdutor','yetoAfrica','listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
    }
    
  
