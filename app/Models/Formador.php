@@ -193,7 +193,13 @@ public static function ListarYetoafrica($id){
 }
 
 
-
+//Função que retorna dados FormadorCoprodutor
+public static function ListarAluno($id){
+  return DB::table('users')                           
+              ->select('users.tipo','users.email','users.name','users.foto','users.tipo','users.telefone')
+              ->where('users.id',$id)
+              ->get();
+}
 
 
 
@@ -227,7 +233,7 @@ public static function alunosCursos($idFormador){
 //  ->join('perfil', 'perfil.id_user', '=', 'users.id')
   ->join('formador', 'formador.id', '=', 'cursos.id_formador')
   ->join('coproducao','coproducao.id_curso','=','cursos.id')
-  ->select('pedidos_cursos.valor','pedidos_cursos.status','pedidos_cursos.created_at','users.name','users.email','cursos.id','cursos.curso_nome','users.foto','cursos.id_formador','coproducao.id_formador','coproducao.id_cop','coproducao.percenF','coproducao.percenC')
+  ->select('pedidos_cursos.valor','pedidos_cursos.status','pedidos_cursos.created_at','users.id','users.name','users.email','cursos.curso_nome','users.foto','cursos.id_formador','coproducao.id_formador','coproducao.id_cop','coproducao.percenF','coproducao.percenC')
   //->groupBy('pedidos_cursos.valor','perfil.nome','users.tipo','perfil.foto','users.email','users.id')
   ->where('formador.id',$idFormador)
   ->orWhere('cursos.id_coprodutor',$idFormador)

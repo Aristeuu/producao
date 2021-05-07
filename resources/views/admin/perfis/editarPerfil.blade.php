@@ -38,13 +38,7 @@
                        
                <div class="row mg-b-25">                              
 
-              <div class="col-lg-12">
-                <div class="form-group">
-                  <label class="form-control-label">Nome:</label>
-                  <input class="form-control" type="text" name="name" value="{{auth()->user()->name}}">
-                </div>
-			       </div><!-- col-4 -->
-
+              
               <div class="col-lg-12">
                 <div class="form-group">
                   <label class="form-control-label">Nome:</label>

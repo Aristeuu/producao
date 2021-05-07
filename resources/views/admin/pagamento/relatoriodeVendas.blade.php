@@ -98,13 +98,7 @@
               </div><!-- d-flex -->
             </div>
           </div><!-- col-xl-6 -->
-          @endif
-
-          <div class="col-sm-6 col-lg-3 mg-t-30 mg-lg-t-0">
-            <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-popover-color="default" data-placement="top" title="" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Popover top" aria-describedby="popover655328">
-              Click me
-            </button>
-          </div>
+          @endif         
           
          
         </painel>

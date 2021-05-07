@@ -44395,28 +44395,32 @@ var render = function() {
               _vm._v(" "),
               item.foto != null
                 ? _c("td", [
-                    _c("img", {
-                      staticClass: "wd-32 rounded-circle",
-                      attrs: {
-                        src:
-                          "http://localhost/yetoafrica/storage/app/public/" +
-                          item.foto,
-                        alt: ""
-                      }
-                    })
+                    _c("a", { attrs: { href: "/aluno/" + item.id } }, [
+                      _c("img", {
+                        staticClass: "wd-32 rounded-circle",
+                        attrs: {
+                          src:
+                            "http://localhost/yetoafrica/storage/app/public/" +
+                            item.foto,
+                          alt: ""
+                        }
+                      })
+                    ])
                   ])
                 : _vm._e(),
               _vm._v(" "),
               item.foto == null
                 ? _c("td", [
-                    _c("img", {
-                      staticClass: "wd-32 rounded-circle",
-                      attrs: {
-                        src:
-                          "http://localhost/yetoafrica/storage/app/public/utilizadores/semfoto.jpg",
-                        alt: ""
-                      }
-                    })
+                    _c("a", { attrs: { href: "/aluno/" + item.id } }, [
+                      _c("img", {
+                        staticClass: "wd-32 rounded-circle",
+                        attrs: {
+                          src:
+                            "http://localhost/yetoafrica/storage/app/public/utilizadores/semfoto.jpg",
+                          alt: ""
+                        }
+                      })
+                    ])
                   ])
                 : _vm._e(),
               _vm._v(" "),
