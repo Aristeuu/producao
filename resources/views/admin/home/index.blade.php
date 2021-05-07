@@ -123,7 +123,9 @@
                             <modal_link tipo="button" nome="adicionar" titulo="Novo curso"></modal_link>
                            @if($saldoContabilistico > 0 || $saldoContabilistico != null)
                               @if($saldoDisponivel > 0 )
-                                <modal_link tipo="button" nome="solicitar" titulo="Solicitar Valores" css="btn btn-success active btn-block mg-b-10"></modal_link> 
+                                  @if($formador_conta != null)
+                                <modal_link tipo="button" nome="solicitar" titulo="Solicitar Valores" css="btn btn-success active btn-block mg-b-10"></modal_link>
+                                  @endif 
                               @endif  
                           @endif                           
                            @if($formador_conta == null)

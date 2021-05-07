@@ -14,6 +14,7 @@
       editar="update/"
       token="{{ csrf_token() }}"
       categoria="Categoria"
+      :id="{{json_encode($id_formador)}}"
     
 
        ></cursoss>

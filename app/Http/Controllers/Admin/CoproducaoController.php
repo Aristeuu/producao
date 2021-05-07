@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Formador;
+use App\Models\Coproducao;
 use Illuminate\Support\Facades\DB;
 
 class CoproducaoController extends Controller
@@ -143,7 +145,18 @@ class CoproducaoController extends Controller
     }
     public function meusCursos()
     {
-        //
+        $buscarFormador=Formador::listarFormadorlogado(auth()->user()->id);
+        $coproduction=Coproducao::CoprodPercent($buscarFormador[0]->id);
+        $alunosCurso=Formador::alunosCursos($coproduction[0]->id_formador);
+        dd($alunosCurso);
+        foreach($alunosCurso as $aluno)
+        {
+            foreach($coproduction as $copro)
+            {
+                
+            }
+
+        }
         return view('negocio.coprodutor.cursos');
     }
 }

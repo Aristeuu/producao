@@ -59,7 +59,7 @@
         <ul class="nav nav-outline active-info align-items-center flex-row" role="tablist">
         <li class="nav-item"><a class="nav-link"  href="/admin" role="tab">Dashboard</a></li>
           <li class="nav-item"><a class="nav-link"  href="/formanegocio" role="tab">Meus cursos</a></li>
-          <li class="nav-item"><a class="nav-link"  href="/coproducao" role="tab">Coproducao</a></li-->
+          <!--li class="nav-item"><a class="nav-link"  href="/coproducao" role="tab">Coproducao</a></li-->
           <li class="nav-item"><a class="nav-link"  href="/perfil" role="tab">Meu perfil</a></li>
           <li class="nav-item hidden-xs-down"><a class="nav-link"  href="/publicacao" role="tab">Comunidade</a></li>
           <li class="nav-item hidden-xs-down"><a class="nav-link"  href="/relatoriodeVendas" role="tab">Relatório de Vendas</a></li>

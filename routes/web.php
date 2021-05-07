@@ -48,7 +48,7 @@ Route::post('/carrinho/adicionar', 'Admin\CarrinhoController@adicionar')->name('
 Route::get('/carrinho/adicionar', function() {
     return redirect()->route('carrinho.index');
 });
-Route::get('/coproducao', 'Admin\CoproducaoController@meusCursos');
+Route::post('/coproducao/{id}', 'Admin\CursoController@coproducao');
 
 Route::resource('cursos', 'Admin\CursoController');
 Route::any('cursosss/busca', 'Admin\CursoController@busca')->name('cursos.busca');

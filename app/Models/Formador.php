@@ -77,6 +77,16 @@ public static function listarCoprodutor($id){
 }
 
 
+//Função que retorna dados FormadorCoprodutor
+public static function buscarCoprodutor($id){
+  return DB::table('formador') 
+              ->join('users','users.id','=','formador.id_user')
+              ->join('cursos','cursos.id_coprodutor','=','formador.id')             
+              ->select('users.tipo','users.email','users.name','users.foto','cursos.coprod_percent')
+              ->where('formador.id',$id)
+              ->get();
+}
+
 
 
 
@@ -99,11 +109,53 @@ public static function formadorFinancas($id){
   ->join('users', 'users.id', '=', 'pedidos.user_id')             
   ->join('cursos', 'cursos.id', '=', 'pedidos_cursos.curso_id')
   ->join('formador', 'formador.id', '=', 'cursos.id_formador')  
-  ->select('pedidos_cursos.valor','pedidos_cursos.curso_id','cursos.curso_nome')
-  ->where('formador.id',$id)
+  ->select('pedidos_cursos.curso_id','cursos.curso_nome','cursos.curso_valorReal')
+   
+  ->where([
+     ['formador.id','=',$id],
+     ['pedidos_cursos.status','=','PA']
+      ])   
+  ->get();
+}
+
+
+
+//Função que retorna o total de valores angariado por um formador em todos os cursos
+
+public static function CoprodutorFinancas($id){
+  return DB::table('pedidos_cursos')
+  ->join('pedidos', 'pedidos.id', '=', 'pedidos_cursos.pedido_id')
+  ->join('users', 'users.id', '=', 'pedidos.user_id')             
+  ->join('cursos', 'cursos.id', '=', 'pedidos_cursos.curso_id')
+  ->join('formador', 'formador.id', '=', 'cursos.id_formador')  
+  ->select('pedidos_cursos.curso_id','cursos.curso_nome','cursos.curso_valorReal')
+  ->where('cursos.id_coprodutor',$id)  
   ->where('pedidos_cursos.status','PA')
   ->get();
 }
+
+//Função que retorna o total de valores angariado por um formador em todos os cursos
+
+
+/*public static function formadorFinancas($id){
+  return DB::table('pedidos_cursos')
+  ->join('pedidos', 'pedidos.id', '=', 'pedidos_cursos.pedido_id')
+  ->join('users', 'users.id', '=', 'pedidos.user_id')             
+  ->join('cursos', 'cursos.id', '=', 'pedidos_cursos.curso_id')
+  ->join('formador', 'formador.id', '=', 'cursos.id_formador')  
+  ->select('pedidos_cursos.curso_id','cursos.curso_nome','cursos.curso_valorReal')
+   
+  ->where([
+     ['formador.id','=',$id],
+     ['pedidos_cursos.status','=','PA']
+      ]) 
+  ->orwhere([
+    ['cursos.id_coprodutor','=',$id],
+    ['pedidos_cursos.status','PA']
+  ])
+  ->get();
+}*///TENTANDO TRAZER TODAS A FINANÇAS NA MESMA MODEL TENTATIVA NÃO SUCEDIDA
+//CODIGO PARA POSTERIOR ANALISE 
 
 
 //calcular entrada de valores
@@ -131,6 +183,14 @@ public static function formadorSolicitacao($idformador)
 }
 
 
+
+//Função que retorna dados FormadorCoprodutor
+public static function ListarYetoafrica($id){
+  return DB::table('users')              
+              ->select('users.tipo','users.email','users.name','users.foto','users.id')
+              ->where('users.name',$id)
+              ->get();
+}
 
 
 
@@ -166,9 +226,11 @@ public static function alunosCursos($idFormador){
   ->join('aluno','aluno.id_user', '=', 'users.id')
 //  ->join('perfil', 'perfil.id_user', '=', 'users.id')
   ->join('formador', 'formador.id', '=', 'cursos.id_formador')
-  ->select('pedidos_cursos.valor','pedidos_cursos.status','pedidos_cursos.created_at','users.name','users.email','users.id','cursos.curso_nome','users.foto')
+  ->join('coproducao','coproducao.id_curso','=','cursos.id')
+  ->select('pedidos_cursos.valor','pedidos_cursos.status','pedidos_cursos.created_at','users.name','users.email','cursos.id','cursos.curso_nome','users.foto','cursos.id_formador','coproducao.id_formador','coproducao.id_cop','coproducao.percenF','coproducao.percenC')
   //->groupBy('pedidos_cursos.valor','perfil.nome','users.tipo','perfil.foto','users.email','users.id')
   ->where('formador.id',$idFormador)
+  ->orWhere('cursos.id_coprodutor',$idFormador)
   ->get();  
 }
 

@@ -36,6 +36,15 @@ class Coproducao extends Model
                     ->get();
     }
 
+      //listar percentagens do coProdutor por curso
+      public static function CoprodPercent($id){
+        return DB::table('coproducao')                    
+                    ->select('coproducao.id_curso','coproducao.id_formador','coproducao.id_cop','coproducao.statusYeto','coproducao.percenF','coproducao.percenC','coproducao.created_at','coproducao.updated_at')
+                    ->where('coproducao.id_cop',$id)
+                    ->get();
+    }
+
+
 
 
 

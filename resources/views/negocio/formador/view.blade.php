@@ -55,30 +55,29 @@
               <div class="card-profile-img">                
                 <img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
                 {{$id_formador->name}}
-              </div><!-- card-profile-img -->      
+              </div><!-- card-profile-img -->    
                 
-                @if(@isset($yetoAfrica))
-                <div class="col col-md-2">
-                  <label>
-                    <p>
-                    <strong>Yetoáfrica</strong>
-                    </p>
-                  </label>
-                </div>  
-                @endif
-                @if(@isset($FormadorCoprodutor))               
+           
+                @if($buscarCoprodutor->isNotEmpty())               
                   <div class="card-profile-img">                
-                    <img src="http://localhost/yetoafrica/storage/app/public/{{$FormadorCoprodutor[0]->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
-                    {{$FormadorCoprodutor[0]->name}}
+                    <img src="http://localhost/yetoafrica/storage/app/public/{{$buscarCoprodutor[0]->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
+                    {{$buscarCoprodutor[0]->name}}
+                    {{$buscarCoprodutor[0]->coprod_percent}}%
+                  
                   </div><!-- card-profile-img -->  
-                                    
+                 @else
+                 <span></span>                   
                  
                 @endif
 
 
-                @if ($listaCoProdutor->isNotEmpty())
-                    <modal_link  nome="coproducao" titulo="coprodução" css="btn btn-outline-info active" clas="fa fa-user-plus"></modal_link>                    
-                @endif
+                    @if(@isset($listaCurso->id_coprodutor))
+                        <span></span>
+                    @else
+                      <modal_link  nome="coproducao" titulo="coprodução" css="btn btn-outline-info active" clas="fa fa-user-plus"></modal_link>                    
+                    @endif
+                    
+             
                 
             </div>
            
@@ -428,7 +427,7 @@
             </div>
         <!-- modal adicionar coproducao-->
         <modal nome="coproducao" titulo="Adicionar Coprodução">
-          <formulario action="{{route('coproducao.store')}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
+          <formulario action="/coproducao/{{$listaCurso->id}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
               {{ csrf_field() }}
   
               <input type="hidden" id="custId" name="id_curso" value="{{$listaCurso->id}}">
@@ -453,7 +452,7 @@
                 
 					<div class="content">
 						<div class="radio_content radio_1">
-              <input type="hidden" id="coYeto" name="coYeto" value=true>				
+              <input type="hidden" id="coYeto" name="coYeto" value={{$id_yeto[0]->id}}>				
 							
 							
 						</div>
