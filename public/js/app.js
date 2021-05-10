@@ -3687,7 +3687,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log('Component mounted.');
   },
-  props: ['titulos', 'itens', 'tipo']
+  props: ['titulos', 'itens', 'tipo', 'foto']
 });
 
 /***/ }),
@@ -7034,7 +7034,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log('Component mounted.');
   },
-  props: ['titulos', 'itens']
+  props: ['titulos', 'itens', 'foto']
 });
 
 /***/ }),
@@ -44401,12 +44401,7 @@ var render = function() {
                     _c("a", { attrs: { href: "/aluno/" + item.id } }, [
                       _c("img", {
                         staticClass: "wd-32 rounded-circle",
-                        attrs: {
-                          src:
-                            "http://localhost/yetoafrica/storage/app/public/" +
-                            item.foto,
-                          alt: ""
-                        }
+                        attrs: { src: _vm.foto + item.foto, alt: "" }
                       })
                     ])
                   ])
@@ -44418,8 +44413,7 @@ var render = function() {
                       _c("img", {
                         staticClass: "wd-32 rounded-circle",
                         attrs: {
-                          src:
-                            "http://localhost/yetoafrica/storage/app/public/utilizadores/semfoto.jpg",
+                          src: _vm.foto + "utilizadores/semfoto.jpg",
                           alt: ""
                         }
                       })
@@ -50737,12 +50731,7 @@ var render = function() {
                 ? _c("td", [
                     _c("img", {
                       staticClass: "wd-32 rounded-circle",
-                      attrs: {
-                        src:
-                          "http://localhost/yetoafrica/storage/app/public/" +
-                          item.curso_img,
-                        alt: ""
-                      }
+                      attrs: { src: _vm.foto + item.curso_img, alt: "" }
                     })
                   ])
                 : _vm._e(),

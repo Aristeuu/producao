@@ -12,10 +12,10 @@
                         <td>{{item.id}}</td>
                          
                            
-                            <td v-if="item.foto!=null"><a :href="'/aluno/'+item.id"><img :src="'http://localhost/yetoafrica/storage/app/public/'+item.foto" alt="" class="wd-32 rounded-circle"></a></td>                        
+                            <td v-if="item.foto!=null"><a :href="'/aluno/'+item.id"><img :src="foto+item.foto" alt="" class="wd-32 rounded-circle"></a></td>                        
                         
                            
-                            <td v-if="item.foto==null"><a :href="'/aluno/'+item.id"><img :src="'http://localhost/yetoafrica/storage/app/public/utilizadores/semfoto.jpg'" alt="" class="wd-32 rounded-circle"></a></td>                        
+                            <td v-if="item.foto==null"><a :href="'/aluno/'+item.id"><img :src="foto+'utilizadores/semfoto.jpg'" alt="" class="wd-32 rounded-circle"></a></td>                        
                          
                                                   
                         <td>{{item.name}}</td>
@@ -48,7 +48,7 @@
         mounted() {
             console.log('Component mounted.')
         },
-        props:['titulos','itens','tipo']
+        props:['titulos','itens','tipo','foto']
     }
 </script>
 

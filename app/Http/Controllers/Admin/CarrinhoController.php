@@ -197,6 +197,8 @@ class CarrinhoController extends Controller
     public function compras()
     {
 
+        $src = config('app.image');
+
         $compras = Pedido::where([
             'user_id' => Auth::id()            
             ])->orderBy('created_at', 'desc')->get();
@@ -208,7 +210,7 @@ class CarrinhoController extends Controller
             
        $listaCursos=Cursos::listaCursosAluno();
 
-        return view('carrinho.compras', compact('compras', 'cancelados','listaCursos'));
+        return view('carrinho.compras', compact('compras', 'cancelados','listaCursos','src'));
 
     }
 

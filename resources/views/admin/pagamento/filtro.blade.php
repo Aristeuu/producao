@@ -85,6 +85,7 @@
           <Aluno_lista v-bind:titulos="['#','Foto','Nome','EMAIL','CURSO','VALOR','DATA','STATUS']" v-bind:itens="{{json_encode($alunosCurso)}}"
           
           v-bind:tipo="{{json_encode($id_formador)}}"
+          foto="{{$src}}"
           ></Aluno_lista> 
           @else
           <div class="col-xl-12">

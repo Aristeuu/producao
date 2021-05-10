@@ -20,7 +20,7 @@
 
     <div class="col-md-3">   
          <div class="card" style="width: 21rem;">
-            <img src="http://localhost/yetoafrica/storage/app/public/{{ $pedido_curso->curso->curso_img }}" class="card-img-top" alt="..." style="	max-width: 100%;	width: 360px; height: 260px; object-fit: cover;">
+            <img src="{{$src}}{{ $pedido_curso->curso->curso_img }}" class="card-img-top" alt="..." style="	max-width: 100%;	width: 360px; height: 260px; object-fit: cover;">
 
             <div class="card-body">
             <p class="card-text">{{$pedido_curso->curso->curso_nome}}</p>
