@@ -15,7 +15,7 @@
       token="{{ csrf_token() }}"
       categoria="Categoria"
       :id="{{json_encode($id_formador)}}"
-      foto="http://localhost/yetoafrica/storage/app/public/"
+      foto="{{$src}}"
     
 
        ></cursoss>
@@ -76,18 +76,13 @@
              </div>                       
              
            </div>  
-           <div class="row">
-             <div class="col col-md-12">
-                 <div class="form-group">
-                   <label>Descrição</label>                                          
-                       <ckeditor  name="curso_descricao"  id="curso_desci"  v-bind:config="{
-                         toolbar: [
-                           [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript' ]
-                         ],
-                         height: 200
-                       }" v-model="$store.state.item.curso_descricao"></ckeditor>
-                 </div>
-             </div>
+           <div class="row">            
+             <div class="col-lg-12">
+              <div class="form-group">
+                <label class="form-control-label">Descrição:</label>                            
+                <textarea class="form-control" name="curso_descricao"  id="curso_desci" v-model="$store.state.item.curso_descricao"></textarea>
+              </div>
+            </div><!-- col-12 -->   
            </div> 
           
                <div class="botn-geral">

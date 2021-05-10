@@ -202,6 +202,10 @@ class AuthController extends Controller
                     /*$cursos=Cursos::listaCursosAl(auth()->user()->id);
                     $listMeuscursos=Cursos::listaCursos();
                     $contac=$cursos->count();*/
+
+                    $src = config('app.image');
+                    //dd($src);
+            
                     
                      $compras = Pedido::where(['user_id' => Auth::id()])->orderBy('created_at', 'desc')->get();
                      $cancelados = Pedido::where(['status'  => 'CA','user_id' => Auth::id()])->orderBy('updated_at', 'desc')->get();
@@ -209,7 +213,7 @@ class AuthController extends Controller
                    
 
                     
-                     return view('carrinho.compras', compact('compras', 'cancelados','listaCursos'));
+                     return view('carrinho.compras', compact('compras', 'cancelados','listaCursos','src'));
 
 
                     

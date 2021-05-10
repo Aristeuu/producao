@@ -113,7 +113,7 @@ class FormadorController extends Controller
         $listaFormador=Formador::listarFormadorlogado(auth()->user()->id);
         $listaCategoria=Categorias::all();
         $src = config('app.image');
-       //dd($listMeuscursos);
+       //dd($src);
       
         return view('negocio.formador.cursos',compact('id_formador','src','listMeuscursos','listaCategoria','listaFormador'));
     }

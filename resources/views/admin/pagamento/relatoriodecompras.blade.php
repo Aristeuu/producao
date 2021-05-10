@@ -8,7 +8,7 @@
 
 		 <pagina tamanho="12">
 									<painel titulo="" cor="moviment-das">
-									<Aluno_compras v-bind:titulos="['Imagem','Curso','Preço','Data','Status']" v-bind:itens="{{json_encode($listCursos)}}"></Aluno_compras>
+									<Aluno_compras v-bind:titulos="['Imagem','Curso','Preço','Data','Status']" v-bind:itens="{{json_encode($listCursos)}}" foto="{{$src}}"></Aluno_compras>
 									</painel>    
 								</pagina>     
 				

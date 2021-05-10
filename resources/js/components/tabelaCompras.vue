@@ -10,7 +10,7 @@
                 <tbody>
                     <tr v-for="(item,index) in itens">                      
                                                    
-                         <td v-if="item.curso_img!=null"><img :src="'http://localhost/yetoafrica/storage/app/public/'+item.curso_img" alt="" class="wd-32 rounded-circle"></td>                                            
+                         <td v-if="item.curso_img!=null"><img :src="foto+item.curso_img" alt="" class="wd-32 rounded-circle"></td>                                            
                                                   
                                                                           
                         <td>{{item.curso_nome}}</td>
@@ -38,7 +38,7 @@
         mounted() {
             console.log('Component mounted.')
         },
-        props:['titulos','itens']
+        props:['titulos','itens','foto']
     }
 </script>
 

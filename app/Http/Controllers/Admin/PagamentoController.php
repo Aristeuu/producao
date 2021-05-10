@@ -131,11 +131,13 @@ public function relatoriodecompras()
             'status'  => 'RE' // Reservada
             ])->exists();*/
             $listCursos=Pedido::cursoPr($idusuario);
+
+            $src = config('app.image');
             
           
           //      dd($listCursos);
    
-            return view('admin.pagamento.relatoriodecompras', compact('listCursos'));
+            return view('admin.pagamento.relatoriodecompras', compact('listCursos','src'));
     
  }
 
@@ -145,6 +147,9 @@ public function relatoriodeVendas()
     {
                 
         $this->middleware('VerifyCsrfToken');
+
+
+        $src = config('app.image');
 
         $req = Request();
             $idusuario = Auth::id();
@@ -331,13 +336,15 @@ public function relatoriodeVendas()
             
             $listCursos=Pedido::relatVendas($idusuario); 
                       
-       return view('admin.pagamento.relatoriodeVendas', compact('id_formador','alunosCurso','totalSaldo','listCursos','ganho_dia','saldoDisponivel','saldoContabilistico','saida','entrada'));    
+       return view('admin.pagamento.relatoriodeVendas', compact('id_formador','alunosCurso','totalSaldo','listCursos','ganho_dia','saldoDisponivel','saldoContabilistico','saida','entrada','src'));    
 
 }
 
 public function filtro(Request $request)
 {
     $this->middleware('VerifyCsrfToken');
+
+    $src = config('app.image');
 
     $req = Request();
         $idusuario = Auth::id();
@@ -535,7 +542,7 @@ public function filtro(Request $request)
      
         
 
-       return view('admin.pagamento.filtro', compact('totalSaldo','alunosCurso','toDate','fromDate','ganho_dia','saldoDisponivel','saldoContabilistico','saida','entrada'));    
+       return view('admin.pagamento.filtro', compact('src','totalSaldo','alunosCurso','toDate','fromDate','ganho_dia','saldoDisponivel','saldoContabilistico','saida','entrada'));    
 
 
 }
