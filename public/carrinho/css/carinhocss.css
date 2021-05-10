@@ -202,7 +202,24 @@ a.tx-warning:hover, a.tx-warning:focus {
     left:0;
     bottom:5rem;
 }
-    
+
+.carrinho-compra h5 {
+   font-size: 18px;
+    margin-top: 20px; 
+    margin-bottom: 10px;
+}
+
+.carrinho-compra .row {
+    margin-bottom: 20rem;
+}
+
+.finalizar-compra {
+    margin-bottom: 20rem;
+    margin-top: -14rem;
+}
+
+
+
 
 
 

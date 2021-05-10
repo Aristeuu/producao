@@ -4,12 +4,16 @@
 
 		@include('layouts.menu')
 
+		
+<div class="btnn">
+	<i class="fas fa-bars"></i>
+</div>
 
-		<div id="wrapper" class="d-flex">
-			<div id="side-bar">
-				
-				<div id="sidebar-heading">
-					<div class="progress-indicator">
+<div id="wrapper" class="d-flex">
+	 
+<nav class="sidebar">
+	<div class="sidebar-progress">
+			<div class="progress-indicator sidebar-progress">
 					<svg class="progress-indicator-bar progress-indicator-initial" viewBox="0 0 60 60">
 					<circle class="progress-indicator-outer" fill="none" stroke="#ccc" stroke-dasharray="190" cy="30" cx="30" r="29"></circle>
 					<circle class="progress-indicator-inner" fill="none" stroke-dasharray="180" stroke-dashoffset="180" cy="30" cx="30" r="29" transform="rotate(-90) translate(-60, 0)"></circle>
@@ -18,82 +22,70 @@
 					
 					</svg>
 				  </div>
-				</div>
-				<div class="collapse-modulos">
 
-		<div id="accordion7" class="accordion accordion-head-colored accordion-inverse mg-t-20" role="tablist" aria-multiselectable="true">
-            @foreach($listamodulos as $modulo)
-			  <div class="card">
-              <div class="card-header" role="tab" id="headingOne7{{$modulo->id}}">
-                <h6 class="mg-b-0">
-                  <a data-toggle="collapse" data-parent="#accordion7" href="#collapseOne7{{$modulo->id}}" aria-expanded="true" aria-controls="collapseOne7">
-                    <svg class="navigation-module-icon svg-theme" viewBox="0 0 19 17">
-      <path d="M1.421,15.612 L17.58,15.612 L17.58,4.198 L8.091,4.198 C7.813,4.198 7.56,4.039 7.445,3.791 L6.326,1.387 L1.421,1.387 L1.421,15.612 Z M0.711,17 C0.318,17 0,16.689 0,16.306 L0,0.694 C0,0.31 0.318,0 0.711,0 L6.784,0 C7.062,0 7.315,0.159 7.43,0.406 L8.549,2.81 L18.29,2.81 C18.682,2.81 19,3.121 19,3.504 L19,16.306 C19,16.689 18.682,17 18.29,17 L0.711,17 Z"></path>
-  <polygon points="13.0546875 10.6816406 6 10.6816406 6 9 13.0546875 9"></polygon>
-  <polygon class="navigation-module-icon-plus text-white" points="13.0546875 10.6816406 6 10.6816406 6 9 13.0546875 9"></polygon>
-    </svg>{{$modulo->modulo_titulo}}
-                  </a>
-                </h6>
-              </div><!-- card-header -->
+	</div>
 
-              <div id="collapseOne7{{$modulo->id}}" class="collapse show" role="tabpanel" aria-labelledby="headingOne7{{$modulo->id}}">
-                <div class="card-block pd-20">
-
-			<ul class="list-aula navigation-modules list-group" id="navigation-modules" role="tablist">
+	<ul class="list-group">
+	  @foreach($listamodulos as $modulo)
+		<li class="list-group-item feat-btn"><i class="fas fa-folder"></i>{{$modulo->modulo_titulo}}
+			<span class="fas fa-caret-down fast"></span>
+		
+		</li>
+		<ul class="list-group feat-show">
 			@foreach($listAulas as $aulas)
-
 			@if($aulas->modulo_id==$modulo->id)
-			<li data-page-hash="vROx6RoBeD" class="navigation-page  list-group-item rounded-top-0">
-      
-			@if($aulas->aula_status==0 && $compras[0]->status=='PE')
-			<a href="">{{$aulas->aula_titulo}}</a>
-            @endif
-
+			<li  data-page-hash="vROx6RoBeD" class="list-group-item list-aula">
+           @if($aulas->aula_status==0 && $compras[0]->status=='PE')
+			<li class="list-group-item"><a href="">{{$aulas->aula_titulo}}</a></li>
+			@endif
 			@if($aulas->aula_status==2 && $compras[0]->status=='PE')
-			   <button class="navigation-page-status">
-                  <i class="icon-check"></i>
-                </button>
+			   
                  
-			<a href="/aulaestudante/{{$id_curso}}/{{$aulas->id}}">{{$aulas->aula_titulo}}</a>
+			<li class="list-group-item"><a href="/aulaestudante/{{$id_curso}}/{{$aulas->id}}">{{$aulas->aula_titulo}}</a></li>
 			@endif
 
 			@if($compras[0]->status=='PA')
-			<a href="/aulaestudante/{{$aulas->id}}"><i class="marcado"></i></i>{{$aulas->aula_titulo}}</a>
+			
+			<li class="list-group-item lista-m"><a href="/aulaestudante/{{$aulas->id}}">
+			
+				<input type="checkbox" class="option-input checkbox">
+		
+			
+				{{$aulas->aula_titulo}}
+			
+			
+		
+		</a></li>
 			@endif	
 			
 			
-			</li>
-			@endif
-			@endforeach	
-			</ul>
+		</li>
+		@endif
+			@endforeach
+		
+		</ul>
+	
+	   
+		@endforeach
+	</ul>
+</nav>
 
 
+			
 
 
-
-
-
-                  
-                </div>
-              </div>
-            </div>
-
-@endforeach	
-          </div>
-
-
-
-
-				</div>
-
-
-			</div>
+		
+		
 		
 
 
 
+
+
+
+
 	
-<div class="aula-aluno">
+<div class="aula-aluno" id="main">
 
 	<div class="br-mainpanel">
       <div class="br-pagebody">
@@ -170,6 +162,7 @@
 </div>
         
           
+
 
 @endsection
 

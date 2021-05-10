@@ -71,6 +71,8 @@
         @endif
         @endforeach
         @endif
+
+     
         <div class="col-md-4 col-sm-6">
                   <div class="col-item">
                                 <div class="photo inner">

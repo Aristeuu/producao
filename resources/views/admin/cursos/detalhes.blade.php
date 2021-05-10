@@ -38,6 +38,48 @@
 @endsection
 @section('corpo')
 
+
+<style>
+
+  .banner-card {
+      height: 10vh;
+      background:#14171c;
+      margin-top: 7rem;
+      color: white;
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+  }
+  .visualizar_video{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: -1rem;
+  }
+  
+  .detal{
+    margin-top:6rem;
+  }
+
+  .botton-0{
+    margin-top:5rem;
+    margin-bottom:2rem;
+  }
+
+  .botton-0 .btn {
+    padding: 6px 38px;
+}
+
+.detahe i{
+  font-size:1.8em;
+  color:teal;
+}
+
+ .botton-0 a {
+    color:white;
+}
+
+</style>
+
 @php 
         $cont="";
         @endphp
@@ -72,7 +114,8 @@
         <div class="container">
 
          <div class="col-sm-6 d-flex">
-              <h1 class="tx-normal tx-roboto tx-white">{{$listaCurso->curso_nome}}</h1>
+              <div class="detal">
+                <h1 class="tx-normal tx-roboto tx-white">{{$listaCurso->curso_nome}}</h1>
            <h4 class="tx-normal tx-roboto text-white">Categoria: <span style="color: #0c9da0; font-size:1.4em;">{{$recebe}}</span></h4>
 
         
@@ -86,21 +129,27 @@
             <i class="fa fa-star"></i>
           </p>
           <div class="botton-0">
-              <button class="btn btn-primary  mg-b-10"><i class="fa fa-send mg-r-10"></i><a href="/cursonegocio">Cursos</a></button>
-               <button class="btn btn-primary mg-b-10"><i class="fa fa-send mg-r-10"></i><a href="/cursonegocio">Registrar</a></button>
+              <button class="btn btn-warning btn-with-icon"><i class="fa fa-send mg-r-10"></i><a href="/cursonegocio">Cursos</a></button>
+               <button class="btn btn-info "><i class="fa fa-send mg-r-10"></i><a href="/cursonegocio">Registrar</a></button>
           </div>
           
-         </div>
+              </div>
+         </div> <!--col-sm-->
+        
          
         <div class="col-sm-6">
-            @if($listaCurso->curso_link!=null)
-        <div class="vizualizar-vedeo"> 
-        </div>
+           <div class="visualizar_video">
+      @if($listaCurso->curso_link!=null)
+             
+           <iframe src="{{$listaCurso->curso_link}}" gesture="media" allow="encrypted-media"  allowfullscreen  style="width:100%;height:40vh;"></iframe> 
+       
      @else
-        <img src="{{$src}}{{$listaCurso->curso_img}}" alt="imagem do curso" >
+     
+       <img src="{{$src}}{{$listaCurso->curso_img}}" alt="imagem do curso" style="width:100%;height:40vh;">
      @endif
         
-      <iframe src="{{$listaCurso->curso_link}}" gesture="media" allow="encrypted-media"  allowfullscreen  style="width:100%;height:40vh;"></iframe> 
+          </div>
+      
       
      </div>
      </div>

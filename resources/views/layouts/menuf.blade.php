@@ -3,7 +3,7 @@
 
  
   <header class="navgation">
-    <nav class="navbar navbar-default navbar-fixed-top bd-navbar" role="navigation">  
+    <nav class="navbar-expand-lg navbar-light bg-light pt-3 pb-3 navbar-fixed-top " role="navigation">  
       <div class="container">
          
               <div class="navbar-header">

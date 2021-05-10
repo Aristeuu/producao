@@ -777,10 +777,7 @@ ol {
 }
 
 
-#sidebar-wrapper{
-    min-height: 100vh;
-    background: #17A2B8;
-}
+
 #side-bar .card-header
 {
  
@@ -1694,4 +1691,144 @@ img, svg {
         .navigation-page-status i{
             color: white;
         }
+
+
+
+
+    
+
+.btnn{
+    position: relative;
+    left: 45px;
+    height: 45px;
+    width: 45px;
+    text-align: center;
+    background: #000000;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: left 0.4s ease;
+}
+
+.btnn.click{
+    left: 260px;
+}
+
+.btnn.click i::before{
+    content:'\f00d';
+}
+
+.btnn i{
+    color: white;
+    font-size: 28px;
+    line-height: 45px;
+
+}
+
+.sidebar{
+    position: relative;
+    width: 250px;
+    left: -250px;
+    background: #17A2B8;
+    transition: left 0.4s ease;
+    top: -2.8rem;
+    
+}
+
+.sidebar.show{
+    left: 0px;
+}
+
+.sidebar .sidebar-progress{
+    font-size: 25px;
+    text-align: center;
+    margin-top: 2rem;
+   margin-bottom: 3rem;
+   padding: 0 2.5rem;
+}
+
+nav.sidebar ul{
+    height: 100%;
+    width: 100%;
+    list-style: none;
+}
+
+nav.sidebar ul li{
+    line-height: 60px;
+}
+
+nav.sidebar ul li a{
+    position: relative;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 4px;
+    font-weight: 500;
+    display: block;
+    width: 100%;
+    border-left:3px solid transparent ;
+}
+
+nav.sidebar ul li:hover{
+    color: cyan;
+    background: #1e1e1e;
+    border-left-color: cyan;
+}
+
+
+nav.sidebar ul .feat-show.show{
+    display: block;
+}
+
+nav.sidebar ul ul{
+    position: static ;
+    display: none;
+}
+
+nav.sidebar ul ul li{
+    border-bottom: none;
+}
+
+nav.sidebar ul ul li{
+    font-size: 17px;
+    color: #e6e6e6;
+    padding-left: 20px;
+}
+
+nav.sidebar ul li i{
+    margin:0.4rem;
+    font-size: 1.2rem;
+}
+
+nav.sidebar ul li span{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+nav.sidebar ul li:hover span{
+    transform: translateY(-50%) rotate(-180deg);
+}
+
+.sidebar .list-group-item {
+    background-color: transparent;
+    color: white;
+    width: 15rem;
+    font-size: 18px;
+}
+
+.sidebar .list-group-item {
+    padding: 0; 
+     margin-bottom: 0; 
+     background: #053d4e;
+}
+
+.aula-aluno{
+    margin-left: 0;
+    margin-top: 0;
+    padding: 10px 20px;
+    transition: 0s;
+}
 

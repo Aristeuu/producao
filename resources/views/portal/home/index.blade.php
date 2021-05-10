@@ -7,32 +7,56 @@
 <!-- Start Slider -->
 
 
-    
-        <div id="transition-timer-carousel" class="carousel slide transition-timer-carousel" data-ride="carousel">
+<div class="banner-carousel">
+<div id="transition-timer-carousel banner-carousel" class="carousel slide transition-timer-carousel" data-ride="carousel">
   
 		<div class="carousel-inner">
         @php
         $p="active"
         @endphp
       @foreach($listaBanner as $lista)
-      <div class="item {{$p}}">
+
+       <div class="item {{$p}}">
+      
+          <div class="container">
+          <div class="row"  style="margin-top:12rem;">
           
-              <img src="http://localhost/yetoafrica/storage/app/public/{{$lista->banner_img}}" />
-       
-				       <div class="carousel-caption">
-                        <h1>{{$lista->banner_titulo}}</h1>
-                        <p class="carousel-caption-text hidden-sm hidden-xs">
+          
+          <div class="col-sm-4 col-md-4">
+        
+            <img src="http://localhost/yetoafrica/storage/app/public/{{$lista->banner_img}}" />
+            </div>
+      
+
+            <div class="col-sm-8 col-md-8" style="margin-top:27rem;">
+
+   
+            <div class="carousel-caption">
+             <h1>{{$lista->banner_titulo}}</h1>
+             <p class="carousel-caption-text hidden-sm hidden-xs">
                         {!! strip_tags($lista->banner_descricao,'<h1><h2><h3><h4><h5><h6><b><strong><i><em><a[href|title]><ul><ol><li><p[style]><br><span><img[width|height|alt|src]>') !!}
                        </p>
-                        <div style="margin-top:2rem">
-                        <button type="button" class="btn btn-primary"><a href="/cursonegocio">Cursos</a></button>
-                       <button type="button" class="btn btn-primary"><a href="/cursonegocio">Registrar</a></button>
+
+                       <div style="margin-top:5rem">
+                        <a href="/cursonegocio">Cursos</a>
+                       <a href="/cursonegocio">Registrar</a>
                         </div>
-                        </dv>
-                     
-                   
-				     </div>
-                </div>    
+            </div>
+             </div>
+            
+      
+
+
+
+          </div>
+
+
+
+          </div>
+              
+
+      </div> 
+         
                    
                 
                 @php
@@ -43,9 +67,9 @@
 	
             
             <!-- Timer "progress bar" -->
-            <hr class="transition-timer-carousel-progress-bar animate" />
+            
 		</div>
-		
+		</div>
     
     </div>
      

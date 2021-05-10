@@ -25,7 +25,7 @@ define('REQUIRE_PATH', '/oficial/' . THEME);
 
    <!-- Font awesome -->
    <link href="<?=REQUIRE_PATH?>/css/font-awesome.css" rel="stylesheet">
-   <link rel="stylesheet" href="<?=REQUIRE_PATH?>/aos.css">
+  
    <!-- Bootstrap -->
    <link href="<?=REQUIRE_PATH?>/css/bootstrap.css" rel="stylesheet">   
    <!-- Slick slider -->
@@ -38,7 +38,7 @@ define('REQUIRE_PATH', '/oficial/' . THEME);
    <!-- Main style sheet -->
    <link href="<?=REQUIRE_PATH?>/css/style.css" rel="stylesheet">    
 <!-- CSS personalizado -->
-<link rel="stylesheet" href="<?=REQUIRE_PATH?>/bracket.css">
+
 <link rel="stylesheet" href="<?=REQUIRE_PATH?>/personalizado.css">
 <link rel="stylesheet" href="<?=REQUIRE_PATH?>/banner.css">
 <link rel="stylesheet" href="<?=REQUIRE_PATH?>/font.css">

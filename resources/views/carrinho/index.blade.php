@@ -87,7 +87,7 @@ define('REQUIRE_PATH', '/' . THEME);
    </div>
   </section>
 
-	<div class="container">
+	<div class="container ">
 	       @forelse ($pedidos as $pedido)
 	       
 	               
@@ -101,30 +101,24 @@ define('REQUIRE_PATH', '/' . THEME);
                     @endphp
                     @foreach ($pedido->pedido_cursos as $pedido_curso)
 	                <tr>
-	<div class="row row-sm mg-t-20 carrinho-compra">
-          <div class="col-xl-9">
+	<div class="mg-t-20 carrinho-compra">
+         
             <div class="card bd-0 pd-0 shadow-base">
-              <div class="row no-gutters">
-                <div class="col-md-12 col-lg-4 pd-20-force">
-                  <img src="http://producao.yetoafrica.com/storage/app/public/{{$pedido_curso->curso->curso_img}}" class="img-fluid wd-md-100p wd-lg-auto" alt="">
+              <div class="row">
+                <div class="col-md-2 col-sm-4">
+                  <img src="http://localhost/yetoafrica/storage/app/public/{{$pedido_curso->curso->curso_img}}" class="" alt="" width="" height="100">
                 </div><!-- col-4 -->
-                <div class="col-md-6 col-lg-5 pd-20-force bg-gray-100">
-                  <div>
-                    <span class="tx-warning d-inline-block">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="icon ion-star"></i>
-                      <i class="icon ion-star"></i>
-                      <i class="icon ion-star tx-gray-500"></i>
-                    </span>
-                    <span class="tx-12"> &nbsp; <span class="tx-rubik">4 </span> Stars</span>
-                  </div>
+                <div class="col-md-6 col-sm-2">
+                 
                   <h5 class="tx-normal mg-y-5"><a class="tx-inverse">{{ $pedido_curso->curso->curso_nome }}</a></h5>
                   <span class="tx-13"></span>
 
                   <p class="tx-13 mg-t-20">{{ $pedido_curso->curso->curso_descricao }}</p>
                 </div><!-- col-5 -->
-                <div class="col-md-6 col-lg-3 pd-20-force d-flex align-items-start flex-column">
+
+                 
+
+                <div class="col-md-3 col-sm-3  flex-column">
                   <h5 class="tx-normal mg-b-0">AKZ <span class="tx-danger tx-medium tx-lato">{{ number_format($pedido_curso->curso->curso_preco, 2, ',', '.') }}</span></h5>
                   
                             @php
@@ -149,14 +143,15 @@ define('REQUIRE_PATH', '/' . THEME);
 				
 				
                 </table>
-                  <form method="POST" action="{{ route('carrinho.concluir') }}">
+                  <div class="finalizar-compra">
+                    <form method="POST" action="{{ route('carrinho.concluir') }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="pedido_id" value="{{ $pedido->id }}">
                    
-                    <button class="btn btn-primary btn-block tx-size-sm" type="submit">Finalizar compra</button>   
+                    <button class="btn btn-primary  tx-size-sm" type="submit">Finalizar compra</button>   
                 </form>
-                  
-                </div><!-- col-3-->
+                  </div>
+                
               </div><!-- row -->
             </div><!-- card -->
             </div>

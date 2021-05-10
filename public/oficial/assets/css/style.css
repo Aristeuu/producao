@@ -2737,4 +2737,34 @@ a {
  
 
   
- 
+/*navbar*/
+
+.pb-3, .py-3 {
+    padding-bottom: 1rem!important;
+}
+.pt-3, .py-3 {
+    padding-top: 1rem!important;
+}
+.bg-light {
+    background-color: #f8f9fa!important;
+}
+.navbar-brand img{
+   width: 100%;
+}
+.navgation ul li a {
+    color: #000000;
+}
+
+
+/*carousel banner*/
+.banner-carousel .carousel {
+    position: relative;
+    background: #069B9F;
+
+}
+
+.transition-timer-carousel .carousel-inner {
+
+    height: 70vh;
+    
+}
