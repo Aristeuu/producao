@@ -1697,40 +1697,15 @@ img, svg {
 
     
 
-.btnn{
-    position: relative;
-    left: 45px;
-    height: 45px;
-    width: 45px;
-    text-align: center;
-    background: #000000;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: left 0.4s ease;
-}
 
-.btnn.click{
-    left: 260px;
-}
-
-.btnn.click i::before{
-    content:'\f00d';
-}
-
-.btnn i{
-    color: white;
-    font-size: 28px;
-    line-height: 45px;
-
-}
 
 .sidebar{
     position: relative;
     width: 250px;
-    left: -250px;
+    left:0px;
     background: #17A2B8;
     transition: left 0.4s ease;
-    top: -2.8rem;
+
     
 }
 
@@ -1831,4 +1806,3 @@ nav.sidebar ul li:hover span{
     padding: 10px 20px;
     transition: 0s;
 }
-

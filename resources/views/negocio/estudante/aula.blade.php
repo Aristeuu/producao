@@ -5,9 +5,7 @@
 		@include('layouts.menu')
 
 		
-<div class="btnn">
-	<i class="fas fa-bars"></i>
-</div>
+
 
 <div id="wrapper" class="d-flex">
 	 
@@ -33,37 +31,37 @@
 		</li>
 		<ul class="list-group feat-show">
 			@foreach($listAulas as $aulas)
-			@if($aulas->modulo_id==$modulo->id)
-			<li  data-page-hash="vROx6RoBeD" class="list-group-item list-aula">
-           @if($aulas->aula_status==0 && $compras[0]->status=='PE')
-			<li class="list-group-item"><a href="">{{$aulas->aula_titulo}}</a></li>
-			@endif
-			@if($aulas->aula_status==2 && $compras[0]->status=='PE')
+				@if($aulas->modulo_id==$modulo->id)
+					<li  data-page-hash="vROx6RoBeD" class="list-group-item list-aula">
+          			 @if($aulas->aula_status==0 && $compras[0]->status=='PE')
+						<li class="list-group-item"><a href="">{{$aulas->aula_titulo}}</a></li>
+					@endif
+					@if($aulas->aula_status==2 && $compras[0]->status=='PE')
 			   
                  
-			<li class="list-group-item"><a href="/aulaestudante/{{$id_curso}}/{{$aulas->id}}">{{$aulas->aula_titulo}}</a></li>
-			@endif
+						<li class="list-group-item"><a href="/aulaestudante/{{$id_curso}}/{{$aulas->id}}">{{$aulas->aula_titulo}}</a></li>
+					@endif
 
-			@if($compras[0]->status=='PA')
+					@if($compras[0]->status=='PA')
 			
-			<li class="list-group-item lista-m"><a href="/aulaestudante/{{$aulas->id}}">
+					<li class="list-group-item lista-m">
+						<a href="/aulaestudante/{{$aulas->id}}">
 			
-				<input type="checkbox" class="option-input checkbox">
+						
+							{{$aulas->aula_titulo}}
+			
+			
 		
-			
-				{{$aulas->aula_titulo}}
-			
-			
-		
-		</a></li>
-			@endif	
+						</a>
+					</li>
+					@endif	
 			
 			
-		</li>
-		@endif
+				</li>
+				@endif
 			@endforeach
 		
-		</ul>
+			</ul>
 	
 	   
 		@endforeach
