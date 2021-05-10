@@ -198,6 +198,7 @@ class CarrinhoController extends Controller
     {
 
         $src = config('app.image');
+        //dd($src);
 
         $compras = Pedido::where([
             'user_id' => Auth::id()            
