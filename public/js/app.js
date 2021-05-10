@@ -65760,7 +65760,3 @@ module.exports = __webpack_require__(/*! C:\xampp\htdocs\yetoafrica\resources\sa
 /***/ })
 
 /******/ });
-
-$('.feat-btn').click(function () {
-  $('nav ul .feat-show').toggleClass("show");
-})

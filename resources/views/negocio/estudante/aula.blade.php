@@ -8,7 +8,7 @@
 
 
 <div id="wrapper" class="d-flex">
-	 
+	  
 <nav class="sidebar">
 	<div class="sidebar-progress">
 			<div class="progress-indicator sidebar-progress">
