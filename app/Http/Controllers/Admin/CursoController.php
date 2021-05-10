@@ -53,12 +53,34 @@ class CursoController extends Controller
     $dados->curso_link=$request->input('curso_link');
     $dados->id_formador=$request->input('id_formador');
     $dados->id_categoria=$request->input('categoria_id');
+    $dados->percenF = 90;
+
+    $dados->valorReal = $dados->curso_preco -($dados->curso_preco*(10/100));
     
- //inserir na tabela perfil 
- if($dados->save()){
+ 
+    //Regista o user e retorna o ID gerado
+  $idCurso = DB::table('cursos')->insertGetId(
+    ['curso_nome' => $dados->curso_nome,'curso_preco' =>$dados->curso_preco,'curso_valorReal'=>$dados->valorReal,'curso_img' =>$dados->curso_img,'curso_descricao'=>$dados->curso_duracao,'curso_data' =>$dados->curso_data,'curso_status'=>$dados->curso_status,'curso_duracao'=>$dados->curso_duracao,'curso_link'=>$dados->curso_link,'id_formador'=>$dados->id_formador,'id_categoria'=>$dados->id_categoria]
+);
+
+
+/*if(DB::table('coproducao')->insert(['id_curso' => $idCurso,'id_formador'=>$dados->id_formador,'percenF'=>$dados->percenF])){
     Session::flash('sms','Inserido com sucesso');
+    return redirect('formanegocio');  
+
+}*/
+return redirect('formanegocio');  
+ 
+ 
+ 
+ 
+ 
+    //inserir na tabela perfil 
+ /*if($dados->save()){
+    Session::flash('sms','Inserido com sucesso');
+
     return redirect('formanegocio');
-    }
+    }*/
 
     }
 
@@ -265,7 +287,72 @@ class CursoController extends Controller
 
         
     }
-    
+
+    public function coproducao(Request $request, $id)
+    {
+        $yetoafrica=$request->input('coYeto');
+        $id_coprodu=$request->input('id_coP');
+        $percenC=$request->input('percenC');
+        $percenF= 90;
+        $coprodutor_id=null;
+       
+
+        $percenF = $percenF - $percenC;
+
+        if($percenF<=0)
+        {
+            
+            
+            return redirect()->back();    
+        }
+        if($yetoafrica==null && $percenC==null)
+        {
+            
+            
+            return redirect()->back();    
+        }
+       
+        
+        if($yetoafrica!=null && $percenC==null)
+        {
+            $coprodutor_id = $yetoafrica; 
+            $percenC = 50;   
+            if(DB::table('cursos')
+            ->where('id',$id)       
+            ->update(['id_coprodutor'=>$coprodutor_id,'coprod_percent'=>$percenC]))
+            {
+                return redirect()->back();
+            }         
+           
+
+        }
+        if($id_coprodu != null &&  $percenC != null )
+        {
+           
+            $yetoafrica = null; 
+           
+            $coprodutor_id = $id_coprodu;
+
+             //$percenF = $percenF - $percenC;
+             if(DB::table('cursos')
+             ->where('id',$id)       
+             ->update(['id_coprodutor'=>$coprodutor_id,'coprod_percent'=>$percenC]))
+             {
+                 return redirect()->back();
+             }
+         
+        }
+        if($id_coprodu!=null && $percenC==null)
+        {
+           
+            return redirect()->back();  
+        }    
+        
+
+      
+        
+
+    }
 
     
 }

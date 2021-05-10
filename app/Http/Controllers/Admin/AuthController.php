@@ -11,6 +11,7 @@ use App\Models\Operacoes;
 use App\Models\Cursos;
 use App\Models\Formador;
 use App\Models\Modulos;
+use App\Models\Coproducao;
 use App\Models\Pedido;
 use App\Models\Sobre;
 use App\Models\AcademiaFormador;
@@ -31,10 +32,13 @@ class AuthController extends Controller
                  $listaFormador=Formador::ListarFormadorLogado(auth()->user()->id);
                  $listaCategoria=Categorias::all();
                  $listaModulos  =Modulos::listaModulo();
-                 $listMeuscursos=Cursos::listaCursosForm(auth()->user()->id);
+                
+                 $buscarFormador=Formador::listarFormadorlogado(auth()->user()->id);
+                 $id_formador = $buscarFormador[0]->id; 
+                 $listMeuscursos=Cursos::listaCursosForm($id_formador);
                  $conta=$listMeuscursos->count();
-                 $buscarFormador=Formador::listarFormadorlogado(auth()->user()->id); 
                  
+               
                  $id_formador = $buscarFormador[0]->id;
                  
                  $id_email    = $buscarFormador[0]->email;
@@ -46,15 +50,112 @@ class AuthController extends Controller
                  //$formador_titular = $buscarFormador[0]->titular;
                                                                    
                 $saldo  =Formador::formadorFinancas($buscarFormador[0]->id);
+               $sald   = Formador::CoprodutorFinancas($buscarFormador[0]->id); 
+              
                 $saidas =Formador::formadorSolicitacao($buscarFormador[0]->id);
                 $entrada = 0;
+                $saldoCursos = 0;
+                $saldoCursosFoprod = 0;
+                $saldoCursosCoprod = 0;
+             
                 
                 $calcularEntrada  = Formador::formadorFinancasEntrada($buscarFormador[0]->id);
-                
-                
+
+                //$production = Coproducao::CursoPercent($buscarFormador[0]->id);
+              
+             // dd($sald);
+               
+               //calcular saldo do formador de produção baseada na percentagem por curso  
+               foreach($saldo as $pos)
+                {
+                    foreach($listMeuscursos as $prod)
+                    {
+                        //se o curso pago for igual ao curso produzido pega a percentagem, calcula e acumula
+                        if($pos->curso_id == $prod->id)
+                        {
+                            $percentagem = $prod->coprod_percent;
+                            $id_coprodutor= $prod->id_coprodutor;
+                         
+                            if($percentagem==null && $id_coprodutor == null )
+                            {
+                                $saldoCursoprod = $pos->curso_valorReal;
+                                $saldoCursos += $saldoCursoprod;
+                               // dd($saldoCursos);
+                                
+                               
+                                
+                            }
+                            if($percentagem!=null && $id_coprodutor!=null)
+                            {
+                                
+                                $saldoCurso = $pos->curso_valorReal;
+                                $percentagemF = 100-$percentagem;
+                                
+                                $saldoCursosFoprod += $saldoCurso*($percentagemF/100);
+
+                               
+
+                              // dd($saldoCursosFoprod);
+                               
+
+                            }
+
+                         
+                           
+                           
+                           
+                         //  $saldoCursos += $saldoCurso*($percentagemFormador/100);
+
+                            //dd($saldoCursos);
+                             
+                        }
+                    }
+
+
+                }
+                //
+               
+              //  $coproduction=Coproducao::CoprodPercent($buscarFormador[0]->id);
+              //  dd($listMeuscursos);
+              if($sald->isNotEmpty())
+               {               
+                             
+                //calcular saldo do coprodutor baseada na percentagem por curso
+                //calcular saldo do formador baseada na percentagem por curso 
+               foreach($sald as $sac)
+               {
+                   foreach($listMeuscursos as $coprod)
+                   {
+                       //se o curso pago for igual ao curso produzido pega a percentagem, calcula e acumula
+                       if($sac->curso_id == $coprod->id)
+                       {
+                          
+                            
+                        $percentagemCoprod = $coprod->coprod_percent;   
+                                          
+                           $saldoCursoCoprod = $sac->curso_valorReal;
+                          
+                          $saldoCursosCoprod += $saldoCursoCoprod*($percentagemCoprod/100);
+                         
+                           //dd($saldoCursos);
+                            
+                       }
+                   }
+
+
+               }
+
+
+
+
+
+
+               }
+             
+               //dd($saldoCursosCoprod);
                 //inicio do calculo da data
                 $dia = date('Y-m-d');
-              
+             // dd($saldoCursosCoprod);
                 
                 foreach($calcularEntrada as $calculo)
                 {    
@@ -70,10 +171,11 @@ class AuthController extends Controller
                     }
                     
                 }
-            $saldoContabilistico=$saldo[0]->valor*0.7;
+                //saldo contabilistico eh a soma de do saldo produzido e do saldoCoproduzido
+            $saldoContabilistico=$saldoCursos+$saldoCursosFoprod+$saldoCursosCoprod;
             //saldo de entrada ou seja, saldo feito na plataforma 
-            $entrada = $saldo[0]->valor*0.7;
-                
+            $entrada = $saldoCursos+$saldoCursosFoprod+$saldoCursosCoprod;
+              
                 //saldo disponivel
                 if($saidas[0]->valor_retirado==null)
                 {

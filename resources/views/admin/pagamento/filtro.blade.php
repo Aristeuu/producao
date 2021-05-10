@@ -18,7 +18,7 @@
 					  <i class="fa fa-balance-scale tx-40 lh-0 tx-whitee op-7"></i>
 					  <div class="mg-l-20">
 						<p class="tx-10 tx-spacing-1 tx-mont tx-semibold tx-uppercase tx-white-8 mg-b-10">Saldo contabilístico</p>
-						<p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{number_format($totalSaldo, 2) }} Kz</p>
+						<p class="tx-24 tx-white tx-lato tx-bold mg-b-0 lh-1">{{number_format($saldoContabilistico, 2) }} Kz</p>
 						<span class="tx-11 tx-roboto tx-white-8"></span>
 					  </div>
 					</div>
@@ -82,11 +82,22 @@
       <pagina tamanho="12">
         <painel>
           @if ($alunosCurso->isNotEmpty())
-          <Aluno_lista v-bind:titulos="['#','Foto','Nome','EMAIL','CURSO','VALOR','DATA','STATUS']" v-bind:itens="{{json_encode($alunosCurso)}}"></Aluno_lista> 
+          <Aluno_lista v-bind:titulos="['#','Foto','Nome','EMAIL','CURSO','VALOR','DATA','STATUS']" v-bind:itens="{{json_encode($alunosCurso)}}"
+          
+          v-bind:tipo="{{json_encode($id_formador)}}"
+          ></Aluno_lista> 
           @else
-          <div class="alert alert-solid alert-danger" role="alert">           
-            <strong class="d-block d-sm-inline-block-force">Sem Registos!</strong>
-          </div><!-- alert -->
+          <div class="col-xl-12">
+            <div class="alert alert-info alert-solid" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="d-flex align-items-center justify-content-start">
+                <i class="icon ion-ios-information alert-icon tx-32 mg-t-5 mg-xs-t-0"></i>
+                <span><strong>Sem Registos!</strong></span>
+              </div><!-- d-flex -->
+            </div>
+          </div><!-- col-xl-6 -->
           @endif
         </painel>
       </pagina>

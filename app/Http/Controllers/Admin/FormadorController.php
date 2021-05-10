@@ -107,13 +107,15 @@ class FormadorController extends Controller
     }    
     public function meusCursos()
     {
-        $listMeuscursos=Cursos::listaCursosForm(auth()->user()->id);
+        $buscarFormador=Formador::listarFormadorlogado(auth()->user()->id);
+        $id_formador = $buscarFormador[0]->id;
+        $listMeuscursos=Cursos::listaCursosForm($buscarFormador[0]->id);
         $listaFormador=Formador::listarFormadorlogado(auth()->user()->id);
         $listaCategoria=Categorias::all();
         $src = config('app.image');
-        
-
-        return view('negocio.formador.cursos',compact('src','listMeuscursos','listaCategoria','listaFormador'));
+       //dd($listMeuscursos);
+      
+        return view('negocio.formador.cursos',compact('id_formador','src','listMeuscursos','listaCategoria','listaFormador'));
     }
 
     public function meusModulos($id)
@@ -168,7 +170,9 @@ public function view($id){
     $listaCurso=Cursos::find($id1);
     $listaCategorias=Categorias::all();
     $listaModulos=Modulos::listaModul($id);
-        
+
+    
+    
     $curso="active";
     $recebe="";
     $formador="";
@@ -180,24 +184,41 @@ public function view($id){
     $contMod  =$listamodulos->count();
     $listAulas=Aulas::listaAulaCurso($id1);
     $contAula = $listAulas->count(); 
+    $id_yeto  = Formador::ListarYetoafrica("Yetoáfrica");
 
-
-    $buscarFormador=Formador::FormadorCurso($listaCurso->id_formador);       
+    $buscarCoprodutor = Formador::buscarCoprodutor($listaCurso->id_coprodutor);
+    $idcoprodutor = $listaCurso->id_coprodutor;
     
-    $id_formador = $buscarFormador[0];
+      
+   //dd($buscarCoprodutor);
+    $buscarFormador=Formador::FormadorCurso($listaCurso->id_formador);       
    
+    $id_formador = $buscarFormador[0];
+    //dd($id_formador);
+ //  dd($buscarCoprodutor);
     $listaFormadores = Formador::listarFormadores(auth()->user()->id);
     
     $listaCoProdutor = Coproducao::CursoCoprodutores($listaCurso->id);
+ 
+
+   
+     
+   
+    
+     //dd($FormadorCoprodutor);
+    
+   //dd($listaCoProdutor);
 
     $yetoAfrica = null;   
     if($listaCoProdutor->isNotEmpty())
     {
         $yetoAfrica = $listaCoProdutor[0]->statusYeto;
-        //dd($yetoAfrica);
+        $percenCoprod = $listaCoProdutor[0]->percenC;
+
+        //dd($percenCoprod);
     }
 
-
+    //dd($listaFormadorCoprodutor);
    
    foreach($listaCategorias as $lista){
          if($lista->id==$listaCurso->id_categoria)
@@ -205,8 +226,20 @@ public function view($id){
    }
 
 
+   if(isset($buscarCoprodutor))
+   {
+         
+       //$id_user = Formador:: listarCoprodutorIdUser($buscarCoprodutor[0]->id_cop);//pegar o id_user do coprodutor
+      // $FormadorCoprodutor = Formador:: listarCoprodutor($id_user[0]->id_user);//pegar os dados da conta do coprodutor selecionado
+        // dd($FormadorCoprodutor);
+       return view('negocio.formador.view',compact('buscarCoprodutor','idcoprodutor','id_yeto','listaCoProdutor','yetoAfrica','listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
+   }
+   else
+   {
+    return view('negocio.formador.view',compact('idcoprodutor','id_yeto','listaCoProdutor','yetoAfrica','listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
+   }
    
-  return view('negocio.formador.view',compact('listaCoProdutor','yetoAfrica','listaFormadores','id_formador','src','listaCurso','recebe','curso','listamodulos','listAulas','contMod','contAula','listaModulos'));  
+ 
 
 }
 

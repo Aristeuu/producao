@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Formador;
+use App\Models\Coproducao;
 use Illuminate\Support\Facades\DB;
 
 class CoproducaoController extends Controller
@@ -45,7 +47,7 @@ class CoproducaoController extends Controller
         $percenF            = 90;       
         
         
-        if($statusYeto==null)
+        /*if($statusYeto==null)
         {
             $status = false;
             $percenF = $percenF - $percenC;
@@ -53,9 +55,9 @@ class CoproducaoController extends Controller
         else
         {
             $status = true;
-            $percenF = $percenF - $percenC - 50;
+           // $percenF = $percenF - $percenC - 50;
 
-        }
+        }*/
        
         if($percenF<=0)
         {
@@ -65,15 +67,34 @@ class CoproducaoController extends Controller
         {
             return redirect()->back();    
         }
+        if($id_cop!=null && $percenC==null)
+        {
+            return redirect()->back();  
+        }      
+        
         if($statusYeto!=null && $percenC==null)
         {
-            $id_cop=null;    
+            $id_cop=null; 
+            $status = true; 
+            $percenF = $percenF - 50;
+
+        }
+        if($id_cop != null &&  $percenC != null )
+        {
+            $status  = null;
+            $percenF = $percenF - $percenC;
+         
         }
         
 
-        DB::table('coproducao')->insert(['id_curso'=>$id_curso,'id_formador'=>$id_formador,'id_cop'=>$id_cop,'statusYeto'=>$status,'percenF'=>$percenF,'percenC'=>$percenC]);
+        if(DB::table('coproducao')
+            ->where('id_curso',$id_curso)       
+            ->update(['id_curso'=>$id_curso,'id_cop'=>$id_cop,'statusYeto'=>$status,'percenF'=>$percenF,'percenC'=>$percenC]))
+            {
+                return redirect()->back();
+            }
         
-        return redirect()->back();
+        
         
 	
     }
@@ -121,5 +142,21 @@ class CoproducaoController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function meusCursos()
+    {
+        $buscarFormador=Formador::listarFormadorlogado(auth()->user()->id);
+        $coproduction=Coproducao::CoprodPercent($buscarFormador[0]->id);
+        $alunosCurso=Formador::alunosCursos($coproduction[0]->id_formador);
+        dd($alunosCurso);
+        foreach($alunosCurso as $aluno)
+        {
+            foreach($coproduction as $copro)
+            {
+                
+            }
+
+        }
+        return view('negocio.coprodutor.cursos');
     }
 }

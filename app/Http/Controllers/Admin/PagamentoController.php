@@ -8,6 +8,7 @@ use App\Models\Cursos;
 use App\Models\Pedido;
 use App\Models\Aluno;
 use App\Models\Formador;
+use App\Models\Coproducao;
 use App\Models\PedidoCurso;
 use App\Models\relatoriodecompras;
 use App\Models\relatoriodeVendas;
@@ -149,7 +150,7 @@ public function relatoriodeVendas()
             $idusuario = Auth::id();
             /* contas */
             $buscarFormador=Formador::listarFormadorlogado(auth()->user()->id);
-
+            
             $id_formador    = $buscarFormador[0]->id;
                  
             $id_email       = $buscarFormador[0]->email;
@@ -160,6 +161,11 @@ public function relatoriodeVendas()
 
            
             $alunosCurso=Formador::alunosCursos($buscarFormador[0]->id);
+           // dd($alunosCurso);
+            $listMeuscursos=Cursos::listaCursosForm($id_formador);
+           // dd($alunosCurso);
+
+           // dd($alunosCurso);
             $totalSaldos=0;
             foreach($alunosCurso as $lista){
                 $totalSaldos=$totalSaldos+$lista->valor;
@@ -169,10 +175,103 @@ public function relatoriodeVendas()
                
        
 
-            $saldo  =Formador::formadorFinancas($buscarFormador[0]->id);
-            $saidas =Formador::formadorSolicitacao($buscarFormador[0]->id);
-            $entrada = 0;
+                $saldo  =Formador::formadorFinancas($buscarFormador[0]->id);
+                $sald   = Formador::CoprodutorFinancas($buscarFormador[0]->id); 
+              
+                $saidas =Formador::formadorSolicitacao($buscarFormador[0]->id);
+                $entrada = 0;
+                $saldoCursos = 0;
+                $saldoCursosFoprod = 0;
+                $saldoCursosCoprod = 0;
+             
                 
+            
+
+           // $production = Coproducao::CursoPercent($buscarFormador[0]->id);
+            
+           // $coproduction=Coproducao::CoprodPercent($buscarFormador[0]->id);
+           
+          
+               //calcular saldo do formador de produção baseada na percentagem por curso  
+               foreach($saldo as $pos)
+                {
+                    foreach($listMeuscursos as $prod)
+                    {
+                        //se o curso pago for igual ao curso produzido pega a percentagem, calcula e acumula
+                        if($pos->curso_id == $prod->id)
+                        {
+                            $percentagem = $prod->coprod_percent;
+                            $id_coprodutor= $prod->id_coprodutor;
+                         
+                            if($percentagem==null && $id_coprodutor == null )
+                            {
+                                $saldoCursoprod = $pos->curso_valorReal;
+                                $saldoCursos += $saldoCursoprod;
+                               // dd($saldoCursos);
+                                
+                               
+                                
+                            }
+                            if($percentagem!=null && $id_coprodutor!=null)
+                            {
+                                
+                                $saldoCurso = $pos->curso_valorReal;
+                                $percentagemF = 100-$percentagem;
+                                
+                                $saldoCursosFoprod += $saldoCurso*($percentagemF/100);
+
+                               
+
+                              // dd($saldoCursosFoprod);
+                               
+
+                            }                                               
+                                                      
+                         //  $saldoCursos += $saldoCurso*($percentagemFormador/100);
+
+                            //dd($saldoCursos);
+                             
+                        }
+                    }
+
+
+                }
+            //
+
+           // $coproduction=Coproducao::CoprodPercent($buscarFormador[0]->id);
+            //dd($coproduction);
+            if($sald->isNotEmpty())
+               {               
+                             
+                //calcular saldo do coprodutor baseada na percentagem por curso
+                //calcular saldo do formador baseada na percentagem por curso 
+               foreach($sald as $sac)
+               {
+                   foreach($listMeuscursos as $coprod)
+                   {
+                       //se o curso pago for igual ao curso produzido pega a percentagem, calcula e acumula
+                       if($sac->curso_id == $coprod->id)
+                       {
+                          
+                            
+                        $percentagemCoprod = $coprod->coprod_percent;   
+                                          
+                           $saldoCursoCoprod = $sac->curso_valorReal;
+                          
+                          $saldoCursosCoprod += $saldoCursoCoprod*($percentagemCoprod/100);
+                         
+                           //dd($saldoCursos);
+                            
+                       }
+                   }
+
+
+               }
+
+
+
+               }
+            //  
             $calcularEntrada  = Formador::formadorFinancasEntrada($buscarFormador[0]->id);
 
              //inicio do calculo da data
@@ -195,10 +294,12 @@ public function relatoriodeVendas()
                     }
                     
                 }
-                $saldoContabilistico=$saldo[0]->valor*0.7;
-                //saldo de entrada ou seja, saldo feito na plataforma 
-                $entrada = $saldo[0]->valor*0.7;
-                    
+                 
+               //saldo contabilistico eh a soma de do saldo produzido e do saldoCoproduzido
+               $saldoContabilistico=$saldoCursos+$saldoCursosFoprod+$saldoCursosCoprod;
+               //saldo de entrada ou seja, saldo feito na plataforma 
+               $entrada = $saldoCursos+$saldoCursosFoprod+$saldoCursosCoprod;
+
                     //saldo disponivel
                     if($saidas[0]->valor_retirado==null)
                     {
@@ -230,7 +331,7 @@ public function relatoriodeVendas()
             
             $listCursos=Pedido::relatVendas($idusuario); 
                       
-       return view('admin.pagamento.relatoriodeVendas', compact('alunosCurso','totalSaldo','listCursos','ganho_dia','saldoDisponivel','saldoContabilistico','saida','entrada'));    
+       return view('admin.pagamento.relatoriodeVendas', compact('id_formador','alunosCurso','totalSaldo','listCursos','ganho_dia','saldoDisponivel','saldoContabilistico','saida','entrada'));    
 
 }
 
@@ -250,11 +351,106 @@ public function filtro(Request $request)
         $id_name        =  $buscarFormador[0]->name;
              
         $formador_conta = $buscarFormador[0]->conta_bancaria;
+        $listMeuscursos=Cursos::listaCursosForm($id_formador);
 
+      
         $saldo  =Formador::formadorFinancas($buscarFormador[0]->id);
+        $sald   = Formador::CoprodutorFinancas($buscarFormador[0]->id); 
+      
         $saidas =Formador::formadorSolicitacao($buscarFormador[0]->id);
         $entrada = 0;
+        $saldoCursos = 0;
+        $saldoCursosFoprod = 0;
+        $saldoCursosCoprod = 0;
+     
+             
+                
             
+
+           // $production = Coproducao::CursoPercent($buscarFormador[0]->id);
+            
+           
+           
+          
+           //calcular saldo do formador baseada na percentagem por curso 
+           foreach($saldo as $pos)
+                {
+                    foreach($listMeuscursos as $prod)
+                    {
+                        //se o curso pago for igual ao curso produzido pega a percentagem, calcula e acumula
+                        if($pos->curso_id == $prod->id)
+                        {
+                            $percentagem = $prod->coprod_percent;
+                            $id_coprodutor= $prod->id_coprodutor;
+                         
+                            if($percentagem==null && $id_coprodutor == null )
+                            {
+                                $saldoCursoprod = $pos->curso_valorReal;
+                                $saldoCursos += $saldoCursoprod;
+                               // dd($saldoCursos);
+                                
+                               
+                                
+                            }
+                            if($percentagem!=null && $id_coprodutor!=null)
+                            {
+                                
+                                $saldoCurso = $pos->curso_valorReal;
+                                $percentagemF = 100-$percentagem;
+                                
+                                $saldoCursosFoprod += $saldoCurso*($percentagemF/100);
+
+                               
+
+                              // dd($saldoCursosFoprod);
+                               
+
+                            }                                               
+                                                      
+                         //  $saldoCursos += $saldoCurso*($percentagemFormador/100);
+
+                            //dd($saldoCursos);
+                             
+                        }
+                    }
+
+
+                }
+            //
+
+           // $coproduction=Coproducao::CoprodPercent($buscarFormador[0]->id);
+           if($sald->isNotEmpty())
+           {               
+                         
+            //calcular saldo do coprodutor baseada na percentagem por curso
+            //calcular saldo do formador baseada na percentagem por curso 
+           foreach($sald as $sac)
+           {
+               foreach($listMeuscursos as $coprod)
+               {
+                   //se o curso pago for igual ao curso produzido pega a percentagem, calcula e acumula
+                   if($sac->curso_id == $coprod->id)
+                   {
+                      
+                        
+                    $percentagemCoprod = $coprod->coprod_percent;   
+                                      
+                       $saldoCursoCoprod = $sac->curso_valorReal;
+                      
+                      $saldoCursosCoprod += $saldoCursoCoprod*($percentagemCoprod/100);
+                     
+                       //dd($saldoCursos);
+                        
+                   }
+               }
+
+
+           }
+
+
+
+           }
+         
         $calcularEntrada  = Formador::formadorFinancasEntrada($buscarFormador[0]->id);
 
          //inicio do calculo da data
@@ -277,10 +473,12 @@ public function filtro(Request $request)
                 }
                 
             }
-            $saldoContabilistico=$saldo[0]->valor*0.7;
+            //saldo contabilistico eh a soma de do saldo produzido e do saldoCoproduzido
+            $saldoContabilistico=$saldoCursos+$saldoCursosFoprod+$saldoCursosCoprod;
             //saldo de entrada ou seja, saldo feito na plataforma 
-            $entrada = $saldo[0]->valor*0.7;
-                
+            $entrada = $saldoCursos+$saldoCursosFoprod+$saldoCursosCoprod;
+           
+
                 //saldo disponivel
                 if($saidas[0]->valor_retirado==null)
                 {

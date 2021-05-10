@@ -14,6 +14,8 @@
       editar="update/"
       token="{{ csrf_token() }}"
       categoria="Categoria"
+      :id="{{json_encode($id_formador)}}"
+      foto="http://localhost/yetoafrica/storage/app/public/"
     
 
        ></cursoss>

@@ -169,6 +169,7 @@ else{
     public function perfil()
     {
          $id_user = auth()->user()->id;
+        
          
           //$Listaoperacoes = Operacoes::where(['id_formador'=>$id_formador])->orderBy('created_at','desc')->get();
           $bank_data = Formador::where(['id_user'=>$id_user])->get();
@@ -300,6 +301,18 @@ else{
           
 
          return redirect()->back();
+    }
+
+    //aluno
+    public function ShowAluno($id)
+    {     
+        
+        $aluno = Formador::ListarAluno($id);
+
+      
+
+        return view('admin.perfis.showAluno',compact('aluno'));
+
     }
     
 

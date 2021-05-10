@@ -74,8 +74,9 @@ public static function listaCursosForm($id){
     ->join('formador','formador.id','=','cursos.id_formador')
     ->join('categorias','categorias.id','=','cursos.id_categoria')
     ->join('users','users.id','=','formador.id_user')
-    ->select('cursos.id','cursos.curso_nome','cursos.curso_duracao','cursos.curso_img','cursos.curso_data','cursos.curso_preco','categorias.cat_nome','cursos.curso_status','cursos.curso_link','cursos.curso_descricao')
-    ->where('users.id',$id)
+    ->select('cursos.id','cursos.curso_nome','cursos.curso_duracao','cursos.curso_img','cursos.curso_data','cursos.curso_valorReal','cursos.curso_preco','categorias.cat_nome','cursos.curso_status','cursos.curso_link','cursos.curso_descricao','cursos.id_coprodutor','cursos.coprod_percent')
+    ->where('formador.id',$id)
+    ->orwhere('cursos.id_coprodutor',$id)
     ->orderBy('cursos.id','desc')
     ->paginate(10);
     return $listaFormador;

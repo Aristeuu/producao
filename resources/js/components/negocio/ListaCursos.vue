@@ -13,17 +13,22 @@
  <div class="row pt-5 m-auto" >                                 
     <div class="col-md-6 col-lg-3 pb-3"   v-for="(item,index) in lista" >
       <div class="card card-custom bg-white border-white border-0">
-              <img class="card-img-top img-fluid" :src="'http://localhost/yetoafrica/storage/app/public/'+item.curso_img">   
+              <img class="card-img-top img-fluid" :src="foto+item.curso_img">   
       
                             <div class="card-body">
                                 <h4 class="card-text">{{item.curso_nome}}</h4>
                                <h4 class="card-title">{{item.curso_preco}} KZ</h4>
                                <p class="card-text" v-if="categoria">Categoria: {{item.cat_nome}}</p>
+                               <p class="card-text" v-if="item.id_coprodutor==id">Coprodutor <br>{{item.coprod_percent}}%</p>
+                               <p class="card-text" v-else>Produtor</p>
                           
-                                <div class="card-footer" style="background: inherit; border-color: inherit;">
+                                <div class="card-footer" style="background: inherit; border-color: inherit;"  >
     
+                                  
                                   <a v-if="ver" v-bind:href="ver+item.id" class="btn btn-outline-primary"><i class="fa fa-eye"></i>Detalhe</a>
-                                  <modal_link v-if="modal" v-bind:item="item" v-bind:url="editar" nome="formEditar" tipo="button"  titulo="editar" clas="fa fa-edit"></modal_link>
+                                  <span v-if="item.id_coprodutor!=id">
+                                    <modal_link v-if="modal" v-bind:item="item" v-bind:url="editar" nome="formEditar" tipo="button"  titulo="editar" clas="fa fa-edit"></modal_link>
+                                  </span>
                                   <a v-if="editar && !modal" v-bind:item="item"   v-bind:href="editar"  class="btn btn-success"><i class="fa fa-edit"></i> editar </a>
                             </div>  
                              </div>  
@@ -41,11 +46,11 @@
 
 <script  type="application/javascript">
     export default {
-      props:['titulos','itens','ordem','ordemcol','ver','token','modal','editar','categoria'],
+      props:['titulos','itens','ordem','ordemcol','ver','token','modal','editar','categoria','id','foto'],
       data: function(){
         return {
           buscar:'',
-          ordemAux: this.ordem || "asc",
+          ordemAux: this.ordem || "desc",
           ordemAuxCol: this.ordemcol || 0
         }
       },

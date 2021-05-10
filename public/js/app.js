@@ -3680,11 +3680,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {
     console.log('Component mounted.');
   },
-  props: ['titulos', 'itens']
+  props: ['titulos', 'itens', 'tipo']
 });
 
 /***/ }),
@@ -6748,12 +6751,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['titulos', 'itens', 'ordem', 'ordemcol', 'ver', 'token', 'modal', 'editar', 'categoria'],
+  props: ['titulos', 'itens', 'ordem', 'ordemcol', 'ver', 'token', 'modal', 'editar', 'categoria', 'id', 'foto'],
   data: function data() {
     return {
       buscar: '',
-      ordemAux: this.ordem || "asc",
+      ordemAux: this.ordem || "desc",
       ordemAuxCol: this.ordemcol || 0
     };
   },
@@ -44390,28 +44398,32 @@ var render = function() {
               _vm._v(" "),
               item.foto != null
                 ? _c("td", [
-                    _c("img", {
-                      staticClass: "wd-32 rounded-circle",
-                      attrs: {
-                        src:
-                          "http://localhost/yetoafrica/storage/app/public/" +
-                          item.foto,
-                        alt: ""
-                      }
-                    })
+                    _c("a", { attrs: { href: "/aluno/" + item.id } }, [
+                      _c("img", {
+                        staticClass: "wd-32 rounded-circle",
+                        attrs: {
+                          src:
+                            "http://localhost/yetoafrica/storage/app/public/" +
+                            item.foto,
+                          alt: ""
+                        }
+                      })
+                    ])
                   ])
                 : _vm._e(),
               _vm._v(" "),
               item.foto == null
                 ? _c("td", [
-                    _c("img", {
-                      staticClass: "wd-32 rounded-circle",
-                      attrs: {
-                        src:
-                          "http://localhost/yetoafrica/storage/app/public/utilizadores/semfoto.jpg",
-                        alt: ""
-                      }
-                    })
+                    _c("a", { attrs: { href: "/aluno/" + item.id } }, [
+                      _c("img", {
+                        staticClass: "wd-32 rounded-circle",
+                        attrs: {
+                          src:
+                            "http://localhost/yetoafrica/storage/app/public/utilizadores/semfoto.jpg",
+                          alt: ""
+                        }
+                      })
+                    ])
                   ])
                 : _vm._e(),
               _vm._v(" "),
@@ -44419,7 +44431,12 @@ var render = function() {
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(item.email))]),
               _vm._v(" "),
-              _c("td", [_vm._v(_vm._s(item.curso_nome))]),
+              _c("td", [
+                _vm._v(_vm._s(item.curso_nome) + "\n                        "),
+                item.id_formador == _vm.tipo
+                  ? _c("span", [_c("br"), _vm._v("Produtor")])
+                  : _c("span", [_c("br"), _vm._v("Coprodutor")])
+              ]),
               _vm._v(" "),
               _c("td", [_vm._v(_vm._s(item.valor) + " kz")]),
               _vm._v(" "),
@@ -50442,11 +50459,7 @@ var render = function() {
             [
               _c("img", {
                 staticClass: "card-img-top img-fluid",
-                attrs: {
-                  src:
-                    "http://localhost/yetoafrica/storage/app/public/" +
-                    item.curso_img
-                }
+                attrs: { src: _vm.foto + item.curso_img }
               }),
               _vm._v(" "),
               _c("div", { staticClass: "card-body" }, [
@@ -50463,6 +50476,14 @@ var render = function() {
                       _vm._v("Categoria: " + _vm._s(item.cat_nome))
                     ])
                   : _vm._e(),
+                _vm._v(" "),
+                item.id_coprodutor == _vm.id
+                  ? _c("p", { staticClass: "card-text" }, [
+                      _vm._v("Coprodutor "),
+                      _c("br"),
+                      _vm._v(_vm._s(item.coprod_percent) + "%")
+                    ])
+                  : _c("p", { staticClass: "card-text" }, [_vm._v("Produtor")]),
                 _vm._v(" "),
                 _c(
                   "div",
@@ -50488,17 +50509,25 @@ var render = function() {
                         )
                       : _vm._e(),
                     _vm._v(" "),
-                    _vm.modal
-                      ? _c("modal_link", {
-                          attrs: {
-                            item: item,
-                            url: _vm.editar,
-                            nome: "formEditar",
-                            tipo: "button",
-                            titulo: "editar",
-                            clas: "fa fa-edit"
-                          }
-                        })
+                    item.id_coprodutor != _vm.id
+                      ? _c(
+                          "span",
+                          [
+                            _vm.modal
+                              ? _c("modal_link", {
+                                  attrs: {
+                                    item: item,
+                                    url: _vm.editar,
+                                    nome: "formEditar",
+                                    tipo: "button",
+                                    titulo: "editar",
+                                    clas: "fa fa-edit"
+                                  }
+                                })
+                              : _vm._e()
+                          ],
+                          1
+                        )
                       : _vm._e(),
                     _vm._v(" "),
                     _vm.editar && !_vm.modal
@@ -50514,8 +50543,7 @@ var render = function() {
                           ]
                         )
                       : _vm._e()
-                  ],
-                  1
+                  ]
                 )
               ])
             ]
@@ -65743,3 +65771,7 @@ module.exports = __webpack_require__(/*! C:\xampp\htdocs\yetoafrica\resources\sa
 /***/ })
 
 /******/ });
+
+$('.feat-btn').click(function () {
+  $('nav ul .feat-show').toggleClass("show");
+})

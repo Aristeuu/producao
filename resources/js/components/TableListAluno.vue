@@ -12,15 +12,18 @@
                         <td>{{item.id}}</td>
                          
                            
-                            <td v-if="item.foto!=null"><img :src="'http://localhost/yetoafrica/storage/app/public/'+item.foto" alt="" class="wd-32 rounded-circle"></td>                        
+                            <td v-if="item.foto!=null"><a :href="'/aluno/'+item.id"><img :src="'http://localhost/yetoafrica/storage/app/public/'+item.foto" alt="" class="wd-32 rounded-circle"></a></td>                        
                         
                            
-                            <td v-if="item.foto==null"><img :src="'http://localhost/yetoafrica/storage/app/public/utilizadores/semfoto.jpg'" alt="" class="wd-32 rounded-circle"></td>                        
+                            <td v-if="item.foto==null"><a :href="'/aluno/'+item.id"><img :src="'http://localhost/yetoafrica/storage/app/public/utilizadores/semfoto.jpg'" alt="" class="wd-32 rounded-circle"></a></td>                        
                          
                                                   
                         <td>{{item.name}}</td>
                         <td>{{item.email}}</td>
-                        <td>{{item.curso_nome}}</td>
+                        <td>{{item.curso_nome}}
+                            <span v-if="item.id_formador == tipo"><br>Produtor</span>
+                            <span v-else><br>Coprodutor</span>
+                        </td>
                         <td>{{item.valor}} kz</td>
                         <td>{{item.created_at}}</td>
                             <td class="btn btn-warning " v-if="item.status=='PE'" style="margin-top:0.2rem">PENDENTE</td>
@@ -45,7 +48,7 @@
         mounted() {
             console.log('Component mounted.')
         },
-        props:['titulos','itens']
+        props:['titulos','itens','tipo']
     }
 </script>
 

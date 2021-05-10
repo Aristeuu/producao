@@ -82,10 +82,24 @@
       <pagina tamanho="12">
         <painel>
           @if ($alunosCurso->isNotEmpty())
-          <Aluno_lista v-bind:titulos="['#','Foto','Nome','EMAIL','CURSO','VALOR','DATA','STATUS']" v-bind:itens="{{json_encode($alunosCurso)}}"></Aluno_lista> 
+        <Aluno_lista v-bind:titulos="['#','Foto','Nome','EMAIL','CURSO','VALOR','DATA','STATUS']" v-bind:itens="{{json_encode($alunosCurso)}}" 
+        
+          v-bind:tipo="{{json_encode($id_formador)}}"
+        ></Aluno_lista> 
           @else
-            <span>Sem Registos</span>
-          @endif
+          <div class="col-xl-6">
+            <div class="alert alert-info alert-solid" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="d-flex align-items-center justify-content-start">
+                <i class="icon ion-ios-information alert-icon tx-32 mg-t-5 mg-xs-t-0"></i>
+                <span><strong>Sem Registos!</strong></span>
+              </div><!-- d-flex -->
+            </div>
+          </div><!-- col-xl-6 -->
+          @endif         
+          
          
         </painel>
       </pagina>

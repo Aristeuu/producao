@@ -16,6 +16,7 @@ Route::resource('academia', 'Admin\AcademiaController');
 Route::get('/acadmeuscursos', 'Admin\FormadorController@meusCursosAcademia');
 Route::get('/pdf', 'Admin\CertificadoController@certificado');
 Route::get('/meusalunos', 'Admin\FormadorController@alunosCursos');
+Route::get('/aluno/{id}', 'Admin\UtilizadorController@ShowAluno');
     
          
         
@@ -48,6 +49,7 @@ Route::post('/carrinho/adicionar', 'Admin\CarrinhoController@adicionar')->name('
 Route::get('/carrinho/adicionar', function() {
     return redirect()->route('carrinho.index');
 });
+Route::post('/coproducao/{id}', 'Admin\CursoController@coproducao');
 
 Route::resource('cursos', 'Admin\CursoController');
 Route::any('cursosss/busca', 'Admin\CursoController@busca')->name('cursos.busca');
