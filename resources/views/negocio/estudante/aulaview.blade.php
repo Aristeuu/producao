@@ -65,7 +65,7 @@
                                     @endif
                                     
                                     @if($compras[0]->status=='PA')
-									<div><a href="/aulaestudante/{{$aulas->id}}"><i class="marcado"></i></i>{{$aulas->aula_titulo}}</a></div>
+									<div><a href="/aulaestudante/{{$id_curso}}/{{$aulas->id}}"><i class="marcado"></i></i>{{$aulas->aula_titulo}}</a></div>
                                     @endif										
                                                                     
 										

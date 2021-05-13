@@ -86,7 +86,7 @@ $img=$request->file('aula_conteudo')->store('aula_conteudo');}
    // dd($request);
     if(DB::table('aulas')          
         ->where('id','=',$request->id_aula)
-        ->update(['aula_titulo'=>$request->aula_titulo,'aula_descricao'=>$request->aula_descricao,'aula_duracao'=>$request->aula_duracao,'aula_link'=>$request->aula_link,'modulo_id'=>$request->modulo_id]))
+        ->update(['aula_titulo'=>$request->aula_titulo,'aula_descricao'=>$request->aula_descricao,'aula_duracao'=>$request->aula_duracao,'aula_link'=>$request->aula_link]))
     {
         Session::flash('sms','Actualizada com sucesso');
         return redirect()->back();

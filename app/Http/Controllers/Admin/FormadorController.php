@@ -183,6 +183,8 @@ public function view($id){
     $listamodulos=Modulos::listaModul($id1);
     $contMod  =$listamodulos->count();
     $listAulas=Aulas::listaAulaCurso($id1);
+
+   //dd($listAulas);
     $contAula = $listAulas->count(); 
     $id_yeto  = Formador::ListarYetoafrica("Yetoáfrica");
 

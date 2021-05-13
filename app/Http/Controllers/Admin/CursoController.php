@@ -60,7 +60,7 @@ class CursoController extends Controller
  
     //Regista o user e retorna o ID gerado
   $idCurso = DB::table('cursos')->insertGetId(
-    ['curso_nome' => $dados->curso_nome,'curso_preco' =>$dados->curso_preco,'curso_valorReal'=>$dados->valorReal,'curso_img' =>$dados->curso_img,'curso_descricao'=>$dados->curso_duracao,'curso_data' =>$dados->curso_data,'curso_status'=>$dados->curso_status,'curso_duracao'=>$dados->curso_duracao,'curso_link'=>$dados->curso_link,'id_formador'=>$dados->id_formador,'id_categoria'=>$dados->id_categoria]
+    ['curso_nome' => $dados->curso_nome,'curso_preco' =>$dados->curso_preco,'curso_valorReal'=>$dados->valorReal,'curso_img' =>$dados->curso_img,'curso_descricao'=>$dados->curso_descricao,'curso_data' =>$dados->curso_data,'curso_status'=>$dados->curso_status,'curso_duracao'=>$dados->curso_duracao,'curso_link'=>$dados->curso_link,'id_formador'=>$dados->id_formador,'id_categoria'=>$dados->id_categoria]
 );
 
 

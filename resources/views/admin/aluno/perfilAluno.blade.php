@@ -12,6 +12,23 @@
 					<h6 class="br-section-label">Informações de Conta</h6>
           
 					<div class="form-layout form-layout-1">
+						<div class="card-profile-img" style="text-align: center">
+							@if(auth()->user()->foto==null)
+							<div>
+							  <img src="https://via.placeholder.com/500" class="rounded-circle" alt="" style="width:100px">                 
+							</div>	
+							@else
+							<img src="http://localhost/yetoafrica/storage/app/public/{{auth()->user()->foto}}" style="width:100px" class="rounded-circle" alt="" id="imgPhoto">				
+							@endif
+							<div>
+							  <br>
+							  <input type="file" name="foto" id="foto" class="inputfile" accept="image/*">
+							  <label for="foto" class="tx-white bg-info">
+								<i class="icon ion-ios-upload-outline tx-24" style="color:white"></i>
+								<span style="color:white">Carregar foto...</span>
+							  </label>
+							</div>
+							</div><!-- card-profile-img -->    
 					  <div class="row mg-b-25">
 						   <div class="col-lg-12">
 						  <div class="form-group">

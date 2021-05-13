@@ -10,6 +10,7 @@ use App\Models\PedidoCurso;
 use App\Models\relatoriodecompras;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CarrinhoController extends Controller
 {
@@ -43,53 +44,91 @@ class CarrinhoController extends Controller
     
             $req = Request();
             $id_curso = $req->input('id');
+         
             $curso = Cursos::find($id_curso);
+           
             if( empty($curso->id) ) {
                 $req->session()->flash('mensagem-falha', 'Produto não encontrado em nossa loja!');
-                return redirect()->route('carrinho.index');
+                return redirect()->route('detalhes');
             }
     
             $idusuario = Auth::id();
+            dd($curso);
+           
     
-            $idpedido = Pedido::consultaId([
+           /* $idpedido = Pedido::consultaId([
                 'user_id' => $idusuario,
-                'status'  => 'RE' // Reservada
-                ]);
+                'status'  => 'PE' // Reservada
+                ]);*/
     
-            if( empty($idpedido) ) {
+            
+           /* if( empty($idpedido) ) {
                 $pedido_novo = Pedido::create([
                     'user_id' => $idusuario,
-                    'status'  => 'RE'
+                    'status'  => 'PE'
                     ]);
     
                 $idpedido = $pedido_novo->id;
     
-            }
+            }*/
     
             $where_curso = [
                 'pedido_id'  => $idpedido,
                 'curso_id' => $id_curso
             ];
     
+            
             $curso1= PedidoCurso::where($where_curso)->orderBy('id', 'desc')->first();
            // dd($curso->curso_preco);
         if($curso1!=null)
-        return redirect()->route('carrinhos.index');
+        return redirect()->route('detalhes');
             PedidoCurso::create([
                 'pedido_id'  => $idpedido,
                 'curso_id' =>   $id_curso,
                 'valor'      => $curso->curso_preco,
-                'status'     => 'RE'
+                'status'     => 'PE'
                 ]);
     
             $req->session()->flash('mensagem-sucesso', 'Curso adicionado ao carrinho com sucesso!');
     
-            return redirect()->route('carrinho.index');
+            return redirect()->route('carrinho.compras');
     
         }
         
       return redirect()->route('admin.login');  
     
+
+    }
+    public function comprar()
+    {
+        if(Auth::check()===true){
+            $this->middleware('VerifyCsrfToken');
+
+            $req = Request();
+            $id_curso = $req->input('id');
+         
+            $curso = Cursos::find($id_curso);
+            $idusuario = Auth::id();
+
+
+            $id_pedido = DB::table('pedidos')->insertGetId(
+                ['user_id' => $idusuario,'status'=>'PE','created_at'=>date('Y-m-d')]  );
+
+
+            if(DB::table('pedidos_cursos')->insert(['pedido_id' => $id_pedido,'curso_id'=>$curso->id,'valor'=>$curso->curso_preco,'status'=>'PE','created_at'=>date('Y-m-d')])){
+               
+                return redirect()->route('carrinho.compras');
+            }    
+
+          
+
+
+
+        }
+        else
+        {
+            return redirect()->back();
+        }    
 
     }
 

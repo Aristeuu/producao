@@ -46,6 +46,7 @@ Route::post('/carrinho/cancelar', 'Admin\CarrinhoController@cancelar')->name('ca
 Route::get('/pagamento/{id}', 'Admin\PagamentoController@pagamento')->name('pagamento.index');
 Route::resource('estudantenegocio','Admin\AlunoController');
 Route::post('/carrinho/adicionar', 'Admin\CarrinhoController@adicionar')->name('carrinho.adicionar');
+Route::post('/carrinho/comprar', 'Admin\CarrinhoController@comprar')->name('carrinho.comprar');
 Route::get('/carrinho/adicionar', function() {
     return redirect()->route('carrinho.index');
 });

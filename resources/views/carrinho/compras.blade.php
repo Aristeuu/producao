@@ -18,9 +18,9 @@
 
     
 
-    <div class="col-md-3">   
-         <div class="card" style="width: 21rem;">
-            <img src="{{$src}}{{ $pedido_curso->curso->curso_img }}" class="card-img-top" alt="..." style="	max-width: 100%;	width: 360px; height: 260px; object-fit: cover;">
+    <div class="col-md-6 col-lg-3 pb-3">   
+         <div class="card card-custom bg-white border-white border-0">
+            <img src="{{$src}}{{ $pedido_curso->curso->curso_img }}" class="card-img-top img-fluid" alt="...">
 
             <div class="card-body">
             <p class="card-text">{{$pedido_curso->curso->curso_nome}}</p>
@@ -64,12 +64,12 @@
                       <div class="col-md-3 col-sm-6">
                          
                                
-                              <a href="/detalhes/{{base64_encode($curso->id)}}"><img src="http://producao.yetoafrica.com/storage/app/public/{{$curso->curso_img}}" class="card-img-top" alt="..." /></a>
+                              <a href="/detalhes/{{base64_encode($curso->id)}}"><img src="{{$src}}{{$curso->curso_img}}" class="card-img-top" alt="..." /></a>
 
                       <div class="col-3">
                          <div class="caixa">
                                            
-                              <a href="/detalhes/{{base64_encode($curso->id)}}">   <img src="http://localhost/yetoafrica/storage/app/public/{{$curso->curso_img}}" class="card-img-top img-fluid" style="max-width: 100%;	width: 360px; height: 260px; object-fit: cover;" alt="a" /></a>
+                              <a href="/detalhes/{{base64_encode($curso->id)}}">   <img src="{{$src}}{{$curso->curso_img}}" class="card-img-top img-fluid" style="max-width: 100%;	width: 360px; height: 260px; object-fit: cover;" alt="a" /></a>
 
                                         
                                    

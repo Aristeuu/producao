@@ -53,14 +53,14 @@
                 </label> 
               </div>
               <div class="card-profile-img">                
-                <img src="http://localhost/yetoafrica/storage/app/public/{{$id_formador->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
+                <img src="{{$src}}{{$id_formador->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
                 {{$id_formador->name}}
               </div><!-- card-profile-img -->    
                 
            
                 @if($buscarCoprodutor->isNotEmpty())               
                   <div class="card-profile-img">                
-                    <img src="http://localhost/yetoafrica/storage/app/public/{{$buscarCoprodutor[0]->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
+                    <img src="{{$src}}{{$buscarCoprodutor[0]->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
                     {{$buscarCoprodutor[0]->name}}
                     {{$buscarCoprodutor[0]->coprod_percent}}%
                   
@@ -260,63 +260,79 @@
                                             
                 
                 
-                <!--end Modal-->
-
-                
-                
-    <div id="accordion6" class="accordion accordion-head-colored accordion-info mg-t-20" role="tablist" aria-multiselectable="true">
-      @foreach($listamodulos as $modulo)
-            <div class="card">
-              <div class="card-header" role="tab" id="headingOne{{$modulo->id}}">
+               <!--accordion-->
+ 
+              <div id="accordion6" class="accordion md-accordion accordion-blocks mg-t-20" role="tablist" aria-multiselectable="true">
+                @foreach($listamodulos as $modulo)
+                <div class="card">
+                <div class="card-header" role="tab" id="headingOne{{$modulo->id}}">
+  
+                 <!--Options-->
+                  <div class="dropdown float-left">
+                  <button class="btn btn-info btn-sm m-0 mr-3 p-2 dropdown-toggle" type="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false"><i class="fa fa-settings"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-info">
+                  <span class="btn btn-outline-danger" onclick="Eliminar({{$modulo->id}})"><i class="fa fa-trash"></i></span>
+                  <modal_link tipo="button" nome="editarModulo" titulo="" css="btn btn-outline-teal" clas="fa fa-edit" v-bind:item="{{json_encode($modulo)}}" url="/edit/"></modal_link>
+                  </div>
+                  </div>
+  
                 <h6 class="mg-b-0">
-                  <a data-toggle="collapse" data-parent="#accordion6" href="#collapseOne{{$modulo->id}}" aria-expanded="false" aria-controls="collapseOne6" class="collapsed text-16">
-                    {{$modulo->modulo_titulo}}
-                    <div class="btn-modul">
-                      
-                      <span class="btn bttn-edit" onclick="Eliminar({{$modulo->id}})"><i class="fa fa-trash" style="color:red;"></i></span>
-                    <modal_link tipo="button" nome="editarModulo" titulo="" css="btn btn-outline-teal" clas="fa fa-edit" v-bind:item="{{json_encode($modulo)}}" url="/edit/"></modal_link>
-                    </div>
-                  </a>
-                 
+                <a data-toggle="collapse" data-parent="#accordion6" href="#collapseOne{{$modulo->id}}" aria-expanded="false" aria-controls="collapseOne6" class="collapsed text-16">
+                {{$modulo->modulo_titulo}}
+  
+                </a>
+  
                 </h6>
-                
-              </div><!-- card-header -->
-
-              <div id="collapseOne{{$modulo->id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne{{$modulo->id}}" style="">
+  
+                </div><!-- card-header -->
+  
+                <div id="collapseOne{{$modulo->id}}" class="collapse" role="tabpanel" aria-labelledby="headingOne{{$modulo->id}}" style="">
                 <div class="card-block pd-20">                    
-                  <table cellpadding="0" cellspacing="0" border="0" >
-                    <tbody>
-                        @foreach($listAulas as $aulas)
-                                @if($aulas->modulo_id==$modulo->id)
-                                    <tr>
-                                          
-                                              @if ($listaCurso->curso_status==0)
-                                                  <td align="left"><a id="mu-abtus-video" target="mutube-video" ><i class="ico ititulo"></i>{{$aulas->aula_titulo}}</a></td>
-                                                  @else
-                                                  <td align="left"><a href="{{$aulas->aula_link}}" id="mu-abtus-video" target="mutube-video" ><i class="ico ititulo"></i>{{$aulas->aula_titulo}}</a></td>                                                  
-                                              @endif
-                                                <td align="left"><i class="ico iduracao"></i>{{$aulas->aula_duracao}}</td>
-                                                <td align="left"><i class="fa fa-eye"></i>visto</td>
-                                                <td align="left"><i class="fa fa-graduation-cap"></i>Aula</td>
-                                                @if($aulas->aula_status==0)	
-									                                <td align="left"><a href="/admin_aulafree/{{$aulas->id}}" class="btn-danger">Grátis Off</a></td>
-                                                @endif
-                                    
-                                                @if($aulas->aula_status==2)	
-									                                <td align="left"><a href="/admin_aulades/{{$aulas->id}}" class="btn-success">Grátis On</a></td>									    
-                                                @endif
-                                                <td align="left" class="m-left"><modal_link tipo="button" nome="Aulaedit" titulo="" clas="fa fa-edit" css="btn btn-outline-teal" v-bind:item="{{json_encode($aulas)}}" url="/edit/"></modal_link></td>
-                                                
-                                                <td align="left"><a href="/del/{{$aulas->id}}" style="color:red"><i class="fa fa-trash" style="color:red"></i></a></td>
-                                          
-                                    </tr>
-                                @endif    
-                        @endforeach	
-                    </tbody>   
-                  </table>
+                <div class="table-responsive mx-3">
+                <table  class="table table-hover mb-0">
+                <tbody>
+                @foreach($listAulas as $aulas)
+                @if($aulas->modulo_id==$modulo->id)
+                <tr>
+  
+                @if ($listaCurso->curso_status==0)
+                <td>{{$aulas->aula_titulo}}</td>
+                @else
+                <td><a href="{{$aulas->aula_link}}" class="text-black">{{$aulas->aula_titulo}}</a></td>                                                  
+                @endif
+                <td><i class="ico iduracao"></i>{{$aulas->aula_duracao}}</td>
+                <td><i class="fa fa-eye"></i>visto</td>
+                <td><i class="fa fa-graduation-cap"></i>Aula</td>
+                @if($aulas->aula_status==0)	
+                <td><a href="/admin_aulafree/{{$aulas->id}}" class="btn btn-danger btn-block">Grátis Off</a></td>
+                @endif
+  
+                @if($aulas->aula_status==2)	
+                <td><a href="/admin_aulades/{{$aulas->id}}" class="btn btn-primary btn-block">Grátis On</a></td>									    
+                @endif
+                <td class="m-left"><modal_link tipo="button" nome="Aulaedit" titulo="" clas="fa fa-edit" css="btn btn-outline-teal" v-bind:item="{{json_encode($aulas)}}" url="/edit/"></modal_link></td>
+  
+                <td><a href="/del/{{$aulas->id}}" class="btn btn-outline-danger"><i class="fa fa-trash"></i></a></td>
+  
+                </tr>
+                @endif    
+                @endforeach	
+                </tbody>   
+                </table>
                 </div>
-              </div>
-            </div>
+                </div>
+                </div>
+                </div>
+
+                @endforeach
+              </div> 
+               <!--endaccordion--> <!--end Modal-->
+
+                
+                
+ 
             <modal nome="editarModulo" titulo="">
               <formulario action="/updateMod" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
                 {{ csrf_field() }}        
@@ -383,17 +399,8 @@
                         <label class="form-control-label">Link da Aula: <span class="tx-danger">*</span></label>                           
                         <input type="text" class="form-control" placeholder="Link da Aula" id="aula_link" name="aula_link" v-model="$store.state.item.aula_link" required >                            
                       </div>
-                    </div><!-- col-12 -->        
-                    <div class="col-lg-6">
-                      <div class="form-group ">
-                        <label class="form-control-label">Módulos: <span class="tx-danger">*</span></label>                           
-                        <select  name="modulo_id" class="form-control">                                
-                          @foreach($listamodulos as $modulo)
-                            <option value="{{$modulo->id}}">{{$modulo->modulo_titulo}}</option>	
-                          @endforeach						
-                        </select>
-                      </div>
-                    </div><!-- col-12 -->        
+                    </div><!-- col-12 -->    
+                        
                     <div class="col-lg-6">
                       <div class="form-group ">
                         <label class="form-control-label">Duração: <span class="tx-danger">*</span></label>                           
@@ -429,9 +436,7 @@
         
 
 
-       @endforeach     
-           
-            </div>
+   
         <!-- modal adicionar coproducao-->
         <modal nome="coproducao" titulo="Adicionar Coprodução">
           <formulario action="/coproducao/{{$listaCurso->id}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">

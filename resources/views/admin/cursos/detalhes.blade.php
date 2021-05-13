@@ -130,7 +130,32 @@
           </p>
           <div class="botton-0">
               <button class="btn btn-warning btn-with-icon"><i class="fa fa-send mg-r-10"></i><a href="/cursonegocio">Cursos</a></button>
-               <button class="btn btn-info "><i class="fa fa-send mg-r-10"></i><a href="/cursonegocio">Registrar</a></button>
+              @if(isset($cont))
+                 @if($cont=="")
+
+                      <form method="POST" action="{{ route('carrinho.comprar') }}">
+                          {{ csrf_field() }}
+                          <input type="hidden" name="id" value="{{ $listaCurso->id }}">
+                          <button class="btn btn-info "><i class="fa fa-shopping-cart"></i>Comprar</button>  
+                      </form>
+                    
+                  
+                 @else
+                    @if($cont=="PA")
+                      
+                      <a href="/aulaestudante/{{$listaCurso->id}}" class="btn col-12 btn-primary"><i class="fa fa-eye"></i>Aceder</a>
+                   
+                    @endif 
+                    @if($cont=="PE")
+                      
+                    <a href="/aulaestudante/{{$listaCurso->id}}" class="btn col-12 btn-primary"><i class="fa fa-eye"></i>Aceder</a>
+                 
+                  @endif    
+
+                @endif
+              @endif
+          
+               
           </div>
           
               </div>
@@ -141,7 +166,7 @@
            <div class="visualizar_video">
       @if($listaCurso->curso_link!=null)
              
-           <iframe src="{{$listaCurso->curso_link}}" gesture="media" allow="encrypted-media"  allowfullscreen  style="width:100%;height:40vh;"></iframe> 
+        <iframe src="{{$listaCurso->curso_link}}" gesture="media" allow="encrypted-media"  allowfullscreen  style="width:100%;height:40vh;"></iframe> 
        
      @else
      
@@ -159,48 +184,13 @@
 </div>
 
 <div class="detahe container">
-     <div class="row">
-            <div class="col-md-6 col-lg-4">
-                <h3 class="tx-inverse mg-b-20">Este curso inclui</h3>
-              <ul class="list-group list-group-striped">
-                <li class="list-group-item rounded-top-0">
-                  <p class="mg-b-0">
-                      <i class="fa fa-cube tx-info mg-r-8"></i>
-                      <strong class="tx-inverse tx-medium">2,5 horas de vídeo sob demanda</strong>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                    <p class="mg-b-0">
-                      <i class="fa fa-download tx-info mg-r-8"></i>
-                      <strong class="tx-inverse tx-medium">50 recursos para download</strong>
-                    </p>
-                </li>
-                <li class="list-group-item">
-                   <p class="mg-b-0">
-                  <i class="fa fa-cube tx-info mg-r-8"></i>
-                  <strong class="tx-inverse tx-medium">Acesso total vitalício</strong>
-                </p>
-                </li>
-                <li class="list-group-item rounded-bottom-0">
-                     <p class="mg-b-0">
-                  <i class="fa  fa-video-camera tx-info mg-r-8"></i>
-                  <strong class="tx-inverse tx-medium">2,5 horas de vídeo sob demanda</strong>
-                </p>
-                </li>
-              </ul>
-            </div><!-- col-4 -->
-            
-          </div>
-          
-          
+                    
           
           <div class="descricao">
               <div class="media wd-lg-80p d-block d-sm-flex pd-20 pd-sm-40 bd">
             <div class="media-body mg-t-20 mg-sm-t-0">
-              <h3 class="tx-inverse mg-b-20">Descricao</h3>
-              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-              <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
-              <p class="mg-b-0">It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour...</p>
+              <h3 class="tx-inverse mg-b-20">Descrição</h3>              
+            <p class="mg-b-0">{{$listaCurso->curso_descricao}}</p>
             </div><!-- media-body -->
           </div>
           </div>
@@ -248,12 +238,33 @@
   <h1>É hoje ou nunca</h1>
   <p>A yetoafrica está a trabalhar para garantir o teu futuro como profissional</p>
   <div>
-      <a href="" class="btn btn-primary btn-with-icon botao-comprar">
-  <div class="ht-40 justify-content-between">
-    <span class="pd-x-15">Compre Agora</span>
-    <span class="icon wd-40"><i class="fa fa-shopping-cart"></i></span>
-  </div>
-</a>
+    @if(isset($cont))
+      @if($cont=="")
+        <form method="POST" action="{{ route('carrinho.comprar') }}">
+          {{ csrf_field() }}
+          <input type="hidden" name="id" value="{{ $listaCurso->id }}">
+          <button class="btn btn-info "><i class="fa fa-shopping-cart"></i>Comprar</button>  
+        </form>  
+      @else
+          @if($cont=="PA")
+            
+          <a href="/aulaestudante/{{$listaCurso->id}}" class="btn btn-primary btn-with-icon botao-comprar">
+            <div class="ht-40 justify-content-between">
+              <span class="icon wd-40"><i class="fa fa-eye"></i></span>
+              <span class="pd-x-15">Aceder</span>             
+            </div>
+          </a>
+          @endif
+          @if($cont=="PE")
+           <a href="/aulaestudante/{{$listaCurso->id}}" class="btn btn-primary btn-with-icon botao-comprar">
+              <div class="ht-40 justify-content-between">
+                <span class="icon wd-40"><i class="fa fa-eye"></i></span>
+                <span class="pd-x-15">Aceder</span>             
+             </div>
+            </a>
+          @endif
+      @endif      
+    @endif
   </div>
   
 </div>

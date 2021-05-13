@@ -4,14 +4,10 @@
 
 		@include('layouts.menu')
 
-		
-
-
-<div id="wrapper" class="d-flex">
-	  
-<nav class="sidebar">
-	<div class="sidebar-progress">
-			<div class="progress-indicator sidebar-progress">
+	<div id="wrapper" class="d-flex">
+		<div id="sidebar-wrapper" class="border-right">
+			<div id="sidebar-heading">
+				<div class="progress-indicator">
 					<svg class="progress-indicator-bar progress-indicator-initial" viewBox="0 0 60 60">
 					<circle class="progress-indicator-outer" fill="none" stroke="#ccc" stroke-dasharray="190" cy="30" cx="30" r="29"></circle>
 					<circle class="progress-indicator-inner" fill="none" stroke-dasharray="180" stroke-dashoffset="180" cy="30" cx="30" r="29" transform="rotate(-90) translate(-60, 0)"></circle>
@@ -19,148 +15,131 @@
 						<text class="progress-indicator-percentage" x="50%" y="55%">0%</text>
 					
 					</svg>
-				  </div>
+  				</div>
+			</div>
 
-	</div>
-
-	<ul class="list-group">
-	  @foreach($listamodulos as $modulo)
-		<li class="list-group-item feat-btn"><i class="fas fa-folder"></i>{{$modulo->modulo_titulo}}
-			<span class="fas fa-caret-down fast"></span>
-		
-		</li>
-		<ul class="list-group feat-show">
-			@foreach($listAulas as $aulas)
-				@if($aulas->modulo_id==$modulo->id)
-					<li  data-page-hash="vROx6RoBeD" class="list-group-item list-aula">
-          			 @if($aulas->aula_status==0 && $compras[0]->status=='PE')
-						<li class="list-group-item"><a href="">{{$aulas->aula_titulo}}</a></li>
-					@endif
-					@if($aulas->aula_status==2 && $compras[0]->status=='PE')
-			   
-                 
-						<li class="list-group-item"><a href="/aulaestudante/{{$id_curso}}/{{$aulas->id}}">{{$aulas->aula_titulo}}</a></li>
-					@endif
-
-					@if($compras[0]->status=='PA')
 			
-					<li class="list-group-item lista-m">
-						<a href="/aulaestudante/{{$aulas->id}}">
-			
+			<div class="list-group  list-group-flush modulos">
+				
+			<ul class="mp-0">
+							<!--Accordion wrapper-->
+<div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
+@foreach($listamodulos as $modulo)
+<!-- Accordion card -->
+<div class="card">
+
+  <!-- Card header -->
+  <div class="card-header" role="tab" id="headingTwo{{$modulo->id}}">
+	<a class="collapsed list-group-item list-group-item" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo{{$modulo->id}}"
+	  aria-expanded="false" aria-controls="collapseTwo1">
+	 
+	 <i class="fas fa-folder rotate-icon" style="font-size:2rem;"></i> {{$modulo->modulo_titulo}} <i class="fas fa-angle-down rotate-icon"></i>
+	 
+	  
+	</a>
+  </div>
+
+  <!-- Card body -->
+  <div id="collapseTwo{{$modulo->id}}" class="collapse" role="tabpanel" aria-labelledby="headingTwo{{$modulo->id}}"
+	data-parent="#accordionEx1">
+	<div class="card-body">
+		<div class="table-responsive mx-3">
+              <table  class="table table-hover mb-0">
+              <tbody>
+				
+@foreach($listAulas as $aulas)	
+								@if($aulas->modulo_id==$modulo->id)
+								<tr>
+											
+                                    @if($aulas->aula_status==0 && $compras[0]->status=='PE' )
+                                    <td><a>{{$aulas->aula_titulo}}</a></td>
+                                    @endif
+
+                                    @if($aulas->aula_status==2 && $compras[0]->status=='PE')
+									<div class="aulas-drop">
+										<td><a href="/aulaestudante/{{$id_curso}}/{{$aulas->id}}"><i class="marcado"></i></i>{{$aulas->aula_titulo}}</a></td>
+										  <div class="form-check checkb"><input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"></div>
+									</div>
+
 						
-							{{$aulas->aula_titulo}}
-			
-			
-		
-						</a>
-					</li>
-					@endif	
-			
-			
-				</li>
-				@endif
-			@endforeach
-		
-			</ul>
-	
-	   
-		@endforeach
-	</ul>
-</nav>
-
-
-			
-
-
-		
-		
-		
-
-
-
-
-
-
-
-	
-<div class="aula-aluno" id="main">
-
-	<div class="br-mainpanel">
-      <div class="br-pagebody">
-        <div class="">
-          <h6 class="br-section-label" style="font-size:1.8em;">Titulo do Curso: {{$primeiraAula[0]->aula_titulo}}</h6>
-         
-
-          <div class="row">
-            <div class="col-12 col-lg-8 col-xl-9 page-main-content">
-              <div class="btn-demo embed-responsive embed-responsive-16by9">
-			<iframe src="{{$primeiraAula[0]->aula_link}}" class="embed-responsive-item" allowfullscreen></iframe>
-			  </div><!-- btn-demo -->
-			  
-			  <section>
-				  <div class="container">
-					  <div class="row">
-						  <article class="col-12 col-lg-8 col-xl-9">
+                                    @endif
+                                    
+                                    @if($compras[0]->status=='PA')
+									<div><a href="/aulaestudante/{{$id_curso}}/{{$aulas->id}}"><i class="marcado"></i></i>{{$aulas->aula_titulo}}</a></div>
+                                    @endif										
+                                                                    
+										
+										
+										
+										
+										
+</tr>	
+									
+								@endif
+								@endforeach	
+								</tbody>   
+              </table>
+              </div>	
+				 
+											
 							
-							<table> 
-							<tbody> 
-							<tr> 
-							<td><img src="https://hotmart.s3.amazonaws.com/membership_area/1c236e4d-ab9d-4f17-ba82-acae9724edc5/Artboard20.png" data-verified="redactor"><br> </td> 
-							<td style="padding-top: 11px;"> <p style="text-align: justify; color:black;">Uma das melhores formas de encontrar todos esses dados é por meio da <strong data-redactor-tag="strong">Persona</strong>. Diferentemente de dados demográficos, a persona é uma representação bem mais profunda do seu público-alvo. </p> </td> 
-							</tr> 
-							<tr> 
-							<td><br><br> </td> 
-							<td> <p style="text-align: justify; color:black;">Por meio dela, além de informações como idade, sexo e região, você insere dados como: </p> <p><span style="color:#58c5c7" rel="color:#58c5c7" data-verified="redactor" data-redactor-tag="span" data-redactor-style="color:#58c5c7"><strong data-redactor-tag="strong">•</strong></span><strong data-redactor-tag="strong"> Filmes que ela gosta</strong> </p> <p><span style="color:#58c5c7" rel="color:#58c5c7" data-verified="redactor" data-redactor-tag="span" data-redactor-style="color:#58c5c7"><strong data-redactor-tag="strong">•</strong></span><strong data-redactor-tag="strong"> Quantas pessoas moram com ela</strong> </p> <p><span style="color:#58c5c7" rel="color:#58c5c7" data-verified="redactor" data-redactor-tag="span" data-redactor-style="color:#58c5c7"><strong data-redactor-tag="strong">•</strong></span><strong data-redactor-tag="strong"> O que ela faz nas horas vagas</strong> </p> <p><span style="color:#58c5c7" rel="color:#58c5c7" data-verified="redactor" data-redactor-tag="span" data-redactor-style="color:#58c5c7"><strong data-redactor-tag="strong">•</strong></span><strong data-redactor-tag="strong"> Quais são seus sonhos</strong> </p> </td> 
-							</tr> 
-							</tbody> 
-							</table>
-							<p><br> </p>
-							<p style="text-align: justify; color:black;">Para criar personas para o seu negócio, é necessário que você responda uma série de perguntas sobre seu usuário. Caso ainda não tenha compradores, pesquise em sua audiência o padrão mais recorrente de pessoas que curtem sua página, seus vídeos ou acessam seu site. Conversar com alguns deles também é fundamental para conhecer quais são suas dores. </p>
-							<p><br> </p>
-							<table> 
-							<tbody> 
-							<tr> 
-							<td><img src="https://hotmart.s3.amazonaws.com/membership_area/ba02e900-182a-433a-ad1e-c28083974221/Artboard21.png" data-verified="redactor"><br> </td> 
-							<td style="padding-top: 15px;"> <p style="text-align: justify; color:black;">Para facilitar a criação da sua persona, <strong data-redactor-tag="strong">temos um PDF exclusivo para download</strong>, com o template de personas. Com ele, você saberá facilmente o que deve ser completado para extrair o máximo de inteligência do material. Você pode fazer o download logo abaixo. Com base nessa persona, você será muito mais assertivo na criação de anúncios, e-mails e até no conteúdo do produto. </p> </td> 
-							</tr> 
-							</tbody> 
-							</table>
-							<p><br> </p>
-							<p style="text-align: justify; color:black;">Quer comentar sobre nossos conteúdos? Acesse a&nbsp;<a href="https://sparkle.hotmart.com/t/Hotmart/comunidade-hotmart"><strong data-redactor-tag="strong">Comunidade Hotmart no Sparkle</strong></a>&nbsp;e interaja com mais empreendedores!&nbsp;<span class="redactor-invisible-space">&#8203;</span> </p></p>
-						</article>
-					  </div>
-				  </div>
-			  </section>
-            </div><!-- col-sm-3 -->
+						
+						</div>
+						</div>
+						@endforeach		
 
-            <div class="content-related col-12 col-lg-4 col-xl-3 mg-t-20 mg-sm-t-0 complentar">
-				<div class="content-related-info">
-				<a href="#" class="btn btn-page-done">
-				<span class="icon icon-check btn-page-done-icon"></span>
-				<span class="btn-page-done-label">Concluido</span>
-				</a>
-				</div>
-		
-				<h5 class="fs-1">Arquivo complementar</h5>
-				<a href="http://producao.yetoafrica.com/storage/app/public/{{$primeiraAula[0]->aula_conteudo}}" target="_blank">
-					<div class="card card-body shadow-base bd-0">
-                  conceitos
-			  </div>
-			  </a>
-					
-            </div><!-- col-sm-3 -->
+					</div>
 
-          
-
-          
-
-         
-		  </div><!-- row -->
-		  </div>
 </div>
-        
-          
+							</ul>
+
+			
+			
+			</div>
+			
+		</div>
+
+
+		<div class="row row-sm mg-t-20 container">
+          <div class="col-lg-8">
+			  <div class="content-page-title">
+					<h4>Titulo do Curso: {{$primeiraAula[0]->aula_titulo}}</h4>
+				</div>
+            <div class="card-inverse bd-0 mg-b-20 ht-400 ht-xs-350 ht-lg-100p">
+                	
+				<iframe src="{{$primeiraAula[0]->aula_link}}" class="embed-item" width="780" height="430"  allowfullscreen></iframe>
+
+				
+
+				</div><!-- pos-absolute-bottom -->
+			  </div><!-- card -->
+		  
+		  
+          <div class="col-lg-4 modulos-aluno">
+            <div class=" bd-0 pd-25 ht-100p">
+              
+              <h5 class="tx-normal tx-roboto mg-b-15 lh-4"><a href="" class="tx-inverse hover-info">Conteúdo Complementar Disponiveís Para Downloads</a></h5>
+              
+			  <a href="http://producao.yetoafrica.com/storage/app/public/{{$primeiraAula[0]->aula_conteudo}}" target="_blank"><i class="fa fa-download pr-3"></i></a>
+
+            </div><!-- card -->
+		  </div><!-- col-4 -->
+		   
+        </div>
+		
+		
+
+	<script type="text/javascript">
+		/*const toggle = () => {
+			document.getElementById("sidebar-wrapper").classList.toggle("toggled");
+		};*/
+		function toggle() {
+			document.getElementById("sidebar-wrapper").classList.toggle("sidebar-wrappertoggled");
+			//alert("funcionou");
+		}
+	</script>
+
+
 
 
 @endsection
-

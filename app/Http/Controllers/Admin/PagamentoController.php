@@ -166,7 +166,7 @@ public function relatoriodeVendas()
 
            
             $alunosCurso=Formador::alunosCursos($buscarFormador[0]->id);
-           // dd($alunosCurso);
+          // dd($alunosCurso);
             $listMeuscursos=Cursos::listaCursosForm($id_formador);
            // dd($alunosCurso);
 
