@@ -63,6 +63,7 @@
           <li class="nav-item"><a class="nav-link"  href="/perfil" role="tab">Meu perfil</a></li>
           <li class="nav-item hidden-xs-down"><a class="nav-link"  href="/publicacao" role="tab">Comunidade</a></li>
           <li class="nav-item hidden-xs-down"><a class="nav-link"  href="/relatoriodeVendas" role="tab">Relatório de Vendas</a></li>
+          <li class="nav-item"><a class="nav-link"  href="/carrinho/compras" role="tab">Minhas Compras</a></li>
           <li class="nav-item hidden-xs-down"><a class="nav-link"  href="/" role="tab">Ver site</a></li>  
          <li class="nav-item hidden-xs-down"><a class="nav-link"  href="{{route('admin.logout')}}" role="tab">Sair</a></li>
                         

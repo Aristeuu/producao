@@ -17,6 +17,7 @@ Route::get('/acadmeuscursos', 'Admin\FormadorController@meusCursosAcademia');
 Route::get('/pdf', 'Admin\CertificadoController@certificado');
 Route::get('/meusalunos', 'Admin\FormadorController@alunosCursos');
 Route::get('/aluno/{id}', 'Admin\UtilizadorController@ShowAluno');
+Route::post('/beFormador/{id}','Admin\UtilizadorController@beFormador');
     
          
         

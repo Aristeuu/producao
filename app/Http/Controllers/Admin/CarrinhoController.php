@@ -250,6 +250,8 @@ class CarrinhoController extends Controller
             
        $listaCursos=Cursos::listaCursosAluno();
 
+      // dd($compras);
+
         return view('carrinho.compras', compact('compras', 'cancelados','listaCursos','src'));
 
     }

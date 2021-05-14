@@ -89,13 +89,26 @@ class EstudanteAulaController extends Controller
         //dd($listAulas[0]);
         //$contMod=$listamodulos->count();
 
-         $recebe = Aluno::listarAlunologado(Auth::id());
+        
+         
         
          $compras = Pedido::cursoPagamento($id_curso);
-         $pedido_id   = $compras[0]->id;  
-         $aluno_id    =  $recebe[0]->id;       
-         $comprovante = Pagamentos::cursoComprovante($pedido_id,$aluno_id);
-
+         $pedido_id   = $compras[0]->id;
+         $recebe = Aluno::listarAlunologado(Auth::id());
+         if($recebe->isNotEmpty())  
+         {
+            $aluno_id    =  $recebe[0]->id;       
+            $comprovante = Pagamentos::cursoComprovante($pedido_id,$aluno_id);
+           // dd($aluno_id);
+         }
+         else
+         {
+             $recebe = Aluno::listarFormadorAlunologado(Auth::id());
+             $FormadorAluno_id = $recebe[0]->id;
+             $comprovante = Pagamentos::cursoComprovante($pedido_id,$FormadorAluno_id);
+             //dd($FormadorAluno_id);
+         }
+         
          
 
          $primeiraAula = Aulas::listaAulaModulo($listamodulos[0]->id);
@@ -121,12 +134,25 @@ class EstudanteAulaController extends Controller
         $listamodulos=Modulos::listaModul($curso[0]->id); 
             
              
-        $recebe = Aluno::listarAlunologado(Auth::id());
+      
         
          $compras = Pedido::cursoPagamento($id_curso);
          $pedido_id = $compras[0]->id;  
-         $aluno_id   =  $recebe[0]->id;       
-         $comprovante = Pagamentos::cursoComprovante($pedido_id,$aluno_id);
+
+         $recebe = Aluno::listarAlunologado(Auth::id());
+         if($recebe->isNotEmpty())  
+         {
+            $aluno_id    =  $recebe[0]->id;       
+            $comprovante = Pagamentos::cursoComprovante($pedido_id,$aluno_id);
+           // dd($aluno_id);
+         }
+         else
+         {
+             $recebe = Aluno::listarFormadorAlunologado(Auth::id());
+             $FormadorAluno_id = $recebe[0]->id;
+             $comprovante = Pagamentos::cursoComprovante($pedido_id,$FormadorAluno_id);
+             //dd($FormadorAluno_id);
+         }
 
        // dd($listAulas);      
         

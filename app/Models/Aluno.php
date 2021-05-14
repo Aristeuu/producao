@@ -47,6 +47,16 @@ public static function listarAluno(){
                 ->paginate(10);
 }
 
+public static function listarFormadorAlunologado($id)
+{
+    return DB::table('formador')
+                ->join('users', 'users.id', '=', 'formador.id_user')
+                //->join('perfil', 'perfil.id_user', '=', 'users.id')
+                //->join('contacto','contacto.id_perfil','perfil.id')
+                ->select('users.tipo','users.email','formador.id','users.name','users.telefone')
+                ->where('users.id',$id)
+                ->get();
+}
 
 
 }

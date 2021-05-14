@@ -26,8 +26,7 @@ define('SCRIPT', 'http://localhost:8000');
 		<link href="<?=REQUIRE_PATH?>/css/lib/select2/css/select2.min.css" rel="stylesheet">
 	
 		<link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/bracket.css">
-		<link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/newstyle.css">
-		
+		<link rel="stylesheet" type="text/css" href="<?=REQUIRE_PATH?>/css/newstyle.css">	
 
 		<!-- Styles -->
 		
@@ -135,7 +134,9 @@ define('SCRIPT', 'http://localhost:8000');
 				  var current_raido = $(this).attr("data-radio");
 				  $(".content .radio_content").hide();
 				  $("."+current_raido).show();
-				})
+				});			
+
+
 			});
 		</script>
 	

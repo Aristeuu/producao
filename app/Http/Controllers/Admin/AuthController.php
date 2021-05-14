@@ -196,6 +196,10 @@ class AuthController extends Controller
                                         
                                        // $active = $request->is('dashboard') ? "active" : ""; 
 
+                //secção compras
+                    
+                //fim secção
+
                 return view('admin.home.index',compact('listaMigalhas','listMeuscursos','buscarFormador','saldoContabilistico','saldoDisponivel','saida','id_formador','id_email','id_name','listaFormador','listaCategoria','listaModulos','Listaoperacoes','formador_conta','dia','entrada'));
              }else{
                  if(auth()->user()->tipo=="aluno"){

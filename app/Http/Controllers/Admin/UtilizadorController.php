@@ -179,11 +179,13 @@ else{
     public function perfilAluno()
     {
          $id_user = auth()->user()->id;
+         $tipo    = auth()->user()->tipo;
+         
          
           //$Listaoperacoes = Operacoes::where(['id_formador'=>$id_formador])->orderBy('created_at','desc')->get();
         
           
-        return view('admin.aluno.perfilAluno');
+        return view('admin.aluno.perfilAluno',compact('tipo'));
     }
 
     public function editarPerfil(Request $request, $id)
@@ -313,6 +315,16 @@ else{
 
         return view('admin.perfis.showAluno',compact('aluno'));
 
+    }
+    public function beFormador($id)
+    {
+        $id_user = $id;
+        DB::table('users')->where('id','=',$id_user)->update(['tipo'=>'formador']);
+        if(DB::table('formador')->insert(['id_user' => $id_user])){
+            Session::flash('sms','O aluno foi inserido com sucesso');
+            return redirect('admin');
+        }
+        
     }
     
 

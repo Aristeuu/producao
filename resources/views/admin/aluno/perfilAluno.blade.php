@@ -6,6 +6,21 @@
 		
 		<div class="br-pagebody formadorperfil">
 			<div class="br-section-wrapper">
+				<div class="row">
+					<div class="col-10"></div>
+					<div class="col-2">Estado da Conta:
+						@if ($tipo == 'aluno')
+							<span>Aluno</span><br>
+							<form action="/beFormador/{{auth()->user()->id}}" method="post" token="{{ csrf_token() }}">
+								{{ csrf_field() }}
+								<button class="btn btn-primary">Tornar-se Formador</button>
+							</form>
+							
+
+						@endif
+											
+					</div>
+				</div>
 				<form action="/editarperfilAluno/{{auth()->user()->id}}" method="post" enctype="multipart/form-data" token="{{ csrf_token() }}">
                     {{ csrf_field() }}
 						    
