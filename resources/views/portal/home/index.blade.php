@@ -260,48 +260,25 @@
                                     </div>
                                     <div class="separator clear-left">
     @if(isset($cont))
-     @if($cont=="")
-               <form method="POST" action="{{ route('carrinho.adicionar') }}">
-                {{ csrf_field() }}
-                <input type="hidden" name="id" value="{{ $lista->id }}">
-                <p class="btn-add">
-                <button class="btn col-12 btn-primary px-4 py-3 mt-3" data-position="bottom" data-delay="50" data-tooltip="O curso será adicionado ao seu carrinho"><i class="fa fa-shopping-cart"> </i> Adicionar</button>   
-                </p>
-            </form>
+      @if($cont=="")          
 
-            <p class="btn-details">
-              <a href="/detalhes/{{base64_encode($lista->id)}}" class="btn col-12 btn-primary px-4 py-3 mt-3"> <i class="fa fa-eye"></i> Descrição</a></p>                          
-            @else 
-            @if($cont=="PA")
-            <p class="btn-details">
-              <a href="/cursoestudante/{{base64_encode($lista->id)}}" class="btn col-12 btn-primary px-4 py-3 mt-3"> <i class="fa fa-eye"></i>Aceder</a></p>
-
-              @else 
-              <p class="btn-details">
-              <a href="/carrinhos" class="btn col-12 btn-primary px-4 py-3 mt-3"> <i class="fa fa-shopping-cart"> </i>Carrinho</a></p>
-              @endif                                           
-          @endif
-
-          @else
-          <form method="POST" action="{{ route('carrinho.adicionar') }}">
-                {{ csrf_field() }}
-                <input type="hidden" name="id" value="{{ $lista->id }}">
-                <p class="btn-add">
-                <button class="btn col-12 btn-primary px-4 py-3 mt-3" data-position="bottom" data-delay="50" data-tooltip="O curso será adicionado ao seu carrinho"><i class="fa fa-shopping-cart"> </i> Adicionar</button>   
-                </p>
-            </form>
           
-            <p class="btn-details">
-                                           <a href="/detalhes/{{base64_encode($lista->id)}}" class="btn col-12 btn-primary px-4 py-3 mt-3"> <i class="fa fa-eye"></i> Descrição</a></p>
+        @else 
+              @if($cont=="PA")
+                <p class="btn-details">
+                <a href="/cursoestudante/{{base64_encode($lista->id)}}" class="btn col-12 btn-primary px-4 py-3 mt-3"> <i class="fa fa-eye"></i>Aceder</a></p>
+              @endif 
+              @if($cont=="PE")
+                <p class="btn-details">
+                <a href="/aulaestudante/{{$lista->id}}" class="btn col-12 btn-primary px-4 py-3 mt-3"> <i class="fa fa-eye"></i>Aceder</a></p>
+              @endif                                           
+      @endif
+    @endif  
+      <p class="btn-details">
+        <a href="/detalhes/{{base64_encode($lista->id)}}" class="btn col-12 btn-primary px-4 py-3 mt-3"> <i class="fa fa-eye"></i> Descrição</a></p> 
 
-          @endif
-          @if(isset($cont))
-          @if($cont=="RE")
-            <p class="btn-details">
-                                           <a href="/detalhes/{{base64_encode($lista->id)}}" class="btn col-12 btn-primary px-4 py-3 mt-3"> <i class="fa fa-eye"></i> Descrição</a></p>
-          @endif    
-          @endif                             
-                    </div>
+                                      
+  </div>
                                     <div class="clearfix">
                                     </div>
                                 </div>

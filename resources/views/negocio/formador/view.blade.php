@@ -62,7 +62,7 @@
                   <div class="card-profile-img">                
                     <img src="{{$src}}{{$buscarCoprodutor[0]->foto}}" class="wd-32 rounded-circle" alt="" id="imgPhoto">				                               
                     {{$buscarCoprodutor[0]->name}}
-                    {{$buscarCoprodutor[0]->coprod_percent}}%
+                    {{$listaCurso->coprod_percent}}%
                   
                   </div><!-- card-profile-img -->  
                  @else

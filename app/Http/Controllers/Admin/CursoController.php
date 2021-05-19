@@ -134,7 +134,9 @@ return redirect('formanegocio');
         $curso="active";
         $recebe="";
         $src= config('app.image');
-        //dd($src);
+
+       
+      //  dd($listaCurso);
         $modulos=Modulos::listaModul($id1);
         $listAulas=Aulas::listaAulaCurso($id1);
         
@@ -153,9 +155,11 @@ return redirect('formanegocio');
         
        
 
-       if(isset(auth()->user()->id)){
+       if(isset(auth()->user()->id)){   
+        $formador = Formador::listarFormadorlogado(auth()->user()->id);
+        $formador_id=$formador[0]->id;         
         $listaPedido=Pedido::cursoPr(auth()->user()->id);
-        return view('admin.cursos.detalhes',compact('src','listaCurso','recebe','curso','modulos','listaPedido','listAulas','listaCursos'));  
+        return view('admin.cursos.detalhes',compact('formador_id','src','listaCurso','recebe','curso','modulos','listaPedido','listAulas','listaCursos'));  
     }else{
         return view('admin.cursos.detalhes',compact('src','listaCurso','recebe','curso','modulos','listAulas','listaCursos'));  
     }

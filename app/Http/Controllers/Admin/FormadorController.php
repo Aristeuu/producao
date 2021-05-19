@@ -171,7 +171,7 @@ public function view($id){
     $listaCategorias=Categorias::all();
     $listaModulos=Modulos::listaModul($id);
 
-    
+    //dd($listaCurso);
     
     $curso="active";
     $recebe="";

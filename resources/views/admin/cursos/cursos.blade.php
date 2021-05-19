@@ -114,8 +114,8 @@
           
         @endif
             <p class="btn-details">
-                                           <a href="/detalhes/{{base64_encode($lista->id)}}" class="btn col-12 btn-primary px-4 py-3 mt-3"> <i class="fa fa-eye"></i> Descrição</a></p>
-                                                            </div>
+              <a href="/detalhes/{{base64_encode($lista->id)}}" class="btn col-12 btn-primary px-4 py-3 mt-3"> <i class="fa fa-eye"></i> Descrição</a></p>
+            </div>
                                     <div class="clearfix">
                                     </div>
                                 </div>

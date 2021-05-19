@@ -133,11 +133,20 @@
               @if(isset($cont))
                  @if($cont=="")
 
-                      <form method="POST" action="{{ route('carrinho.comprar') }}">
-                          {{ csrf_field() }}
-                          <input type="hidden" name="id" value="{{ $listaCurso->id }}">
-                          <button class="btn btn-info "><i class="fa fa-shopping-cart"></i>Comprar</button>  
-                      </form>
+                      @if(isset($formador_id) && $formador_id == $listaCurso->id_formador)
+                          <a href="/formaform/{{$listaCurso->id}}" class="btn btn-primary btn-with-icon botao-comprar">
+                            <div class="ht-40 justify-content-between">
+                              <span class="icon wd-40"><i class="fa fa-eye"></i></span>
+                              <span class="pd-x-15">Ver</span>             
+                            </div>
+                          </a>
+                      @else
+                          <form method="POST" action="{{ route('carrinho.comprar') }}">
+                            {{ csrf_field() }}
+                            <input type="hidden" name="id" value="{{ $listaCurso->id }}">
+                            <button class="btn btn-info "><i class="fa fa-shopping-cart"></i>Comprar</button>  
+                          </form>
+                      @endif
                     
                   
                  @else
@@ -238,13 +247,23 @@
   <h1>É hoje ou nunca</h1>
   <p>A yetoafrica está a trabalhar para garantir o teu futuro como profissional</p>
   <div>
+    
     @if(isset($cont))
       @if($cont=="")
-        <form method="POST" action="{{ route('carrinho.comprar') }}">
-          {{ csrf_field() }}
-          <input type="hidden" name="id" value="{{ $listaCurso->id }}">
-          <button class="btn btn-info "><i class="fa fa-shopping-cart"></i>Comprar</button>  
-        </form>  
+          @if(isset($formador_id) && $formador_id == $listaCurso->id_formador)
+          <a href="/formaform/{{$listaCurso->id}}" class="btn btn-primary btn-with-icon botao-comprar">
+            <div class="ht-40 justify-content-between">
+              <span class="icon wd-40"><i class="fa fa-eye"></i></span>
+              <span class="pd-x-15">Ver</span>             
+            </div>
+          </a>
+          @else
+            <form method="POST" action="{{ route('carrinho.comprar') }}">
+              {{ csrf_field() }}
+              <input type="hidden" name="id" value="{{ $listaCurso->id }}">
+              <button class="btn btn-info "><i class="fa fa-shopping-cart"></i>Comprar</button>  
+            </form>
+          @endif
       @else
           @if($cont=="PA")
             
